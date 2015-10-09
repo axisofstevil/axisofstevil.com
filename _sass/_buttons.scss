@@ -4,4 +4,8 @@
     border-width: 2px;
     border-color: $primary-color;
     border-style: solid;
+
+    &[disabled] {
+        color: $primary-color;
+    }
 }

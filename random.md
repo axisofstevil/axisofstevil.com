@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Random
+title: We're locating a sweet random post for you. Hold tight.
 permalink: /random/
+image: http://i.giphy.com/bAplZhiLAsNnG.gif
 ---
 
-<div random-post></div>
+![waiting](http://i.giphy.com/UxREcFThpSEqk.gif){: .center #load-random-post }

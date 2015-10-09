@@ -25,6 +25,7 @@
             req.send(data);
         });
     }
+
 })(window);
 
 (function (window) {
@@ -87,6 +88,40 @@
             console.error("Failed!", error);
         }
     );
+
+})(window);
+
+(function (window) {
+
+    var randomButton = window.document.getElementById('random');
+    var l = Ladda.create(randomButton);
+
+    function goToRandom() {
+        l.start();
+        window.AOS.Http('GET', '/api/random/publication').then(
+            function (response) {
+                var url = '/p/'+response.slug;
+                l.stop();
+                redirect(url);
+            }, function (error) {
+                l.stop();
+                console.error("Failed!", error);
+            }
+        );
+    }
+
+    function redirect (url) {
+        window.location.replace(url);
+    }
+
+    randomButton.addEventListener('click', function (e) {
+        goToRandom();
+        e.preventDefault();
+    });
+
+    if (window.document.getElementById('load-random-post') !== null) {
+        goToRandom();
+    }
 
 })(window);
 
