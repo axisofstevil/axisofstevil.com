@@ -7,13 +7,9 @@
         </div>
         <ul>
             <li><label>What</label></li>
-            {% for category in site.navigation.categories %}
-            <li><a href="/{{ category.slug }}">{{ category.label }}</a></li>
-            {% endfor %}
+            {% for category in site.navigation.categories %}<li><a href="/{{ category.slug }}">{{ category.label }}</a></li>{% endfor %}
             <li><label>Why <small>(tl;dr, we're crazy)</small></label></li>
-            {% for page in site.navigation.pages %}
-            <li><a href="/{{ page.slug }}">{{ page.label }}</a></li>
-            {% endfor %}
+            {% for page in site.navigation.pages %}<li><a href="/{{ page.slug }}">{{ page.label }}</a></li>{% endfor %}
             <li class="quote" random-quote>{{ site.default_quote }}</li>
         </ul>
     </div>

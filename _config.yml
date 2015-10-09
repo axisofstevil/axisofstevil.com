@@ -1,10 +1,7 @@
-gems: [nokogiri]
-
-# Site settings
 title: Axis of Stevil
 email: stevenmaguire@gmail.com
 description: |
-  Axis of Stevil - Its the Beginning of Stevilization
+    Axis of Stevil - Its the Beginning of Stevilization
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.axisofstevil.com" # the base hostname & protocol for your site
 content_baseurl: "http://axisofstevil.s3.amazonaws.com"
@@ -16,7 +13,7 @@ random_enabled: true
 paginate: 20
 paginate_path: "/page/:num"
 sass:
-  style: compressed
+    style: compressed
 exclude:
     - bower_components
     - node_modules
@@ -49,6 +46,8 @@ collections:
 markdown: kramdown
 #kramdown:
 #  parse_block_html: true
+
+gems: [nokogiri]
 
 default_quote: "Random instanity at its finest."
 default_hero_image_css: "background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0tMiAxMEwxMCAtMlpNMTAgNkw2IDEwWk0tMiAyTDIgLTIiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSI0LjUiPjwvcGF0aD4KPC9zdmc+'),url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGMTkiPjwvc3RvcD4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMENGIj48L3N0b3A+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiPjwvcmVjdD4KPC9zdmc+'); background-repeat: inherit; background-size: auto;"
