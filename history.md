@@ -9,7 +9,7 @@ The following is a true historical accounting of the organization as recorded in
 <dl class="timeline">
     {% assign history = site.history | sort: 'year' %}
     {% for event in history reversed %}
-    <dt>{{ event.year }}{% if event.year < 0 %} <small>B.C.</small>{% endif %}</dt>
+    <dt>{{ event.year | replace:'-','' }}{% if event.year < 0 %} <small>B.C.</small>{% endif %}</dt>
     <dd>{{ event.content }}</dd>
     {% endfor %}
 </dl>
