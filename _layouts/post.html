@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{% assign hero_image = page.image %}
+{% assign hero_headline = page.title %}
+{% assign hero_description = page.summary %}
+{% include hero.html %}
+<section class="publication">
+    <div class="prose">
+        {{ content }}
+    </div>
+</section>
+<section class="comments">
+    <div class="prose">
+        {% include comments.html %}
+    </div>
+    {% if page.hashtag %}
+    <div class="prose">
+        <p>Commenting on this piece is encouraged elsewhere on the web with your group of friends. Feel free to use <a href="http://twitter.com/search?q={{ page.hashtag | uri_escape }}">{{ page.hashtag }}</a>.</p>
+    </div>
+    {% endif %}
+</section>
+<section class="join">
+    <div class="prose">
+        <h2>There's more where this came from.</h2>
+        <p>There are hundreds of publications queued for re-release and awaiting your affection. Give us your email and we'll send you content every <strong>Monday</strong>, <strong>Wednesday</strong> and <strong>Friday</strong>.</p>
+        {% include join.html %}
+    </div>
+</section>

@@ -1,0 +1,15 @@
+{% if site.algolia.app_id && site.algolia.search_key %}
+<section
+    class="search"
+    id="search"
+    data-app-id="{{ site.algolia.app_id }}"
+    data-search-key="{{ site.algolia.search_key }}"
+    data-base-url="{{ site.content_baseurl }}">
+    <div class="input">
+        <form action="#" id="search-form" method="get" onsubmit="return false;">
+            <input autocomplete="off" class="autocomplete" id="inputfield" name="address" placeholder="Search all released publications..." spellcheck="false" type="text">
+        </form>
+    </div>
+    <div class="results"></div>
+</section>
+{% endif %}

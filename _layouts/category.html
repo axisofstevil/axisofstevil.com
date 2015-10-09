@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% assign hero_headline = page.title %}
+{% unless hero_headline %}{% assign hero_headline = page.category %}{% endunless %}
+{% include hero.html %}
+<section>
+    {% if site.categories[page.category] %}
+    <div class="publication-list">
+        {% for post in site.categories[page.category] %}
+            {% assign index = forloop.index | times: 1 %}
+            {% if index > 1 or pageNumber > 1 %}
+            {% include post-item.html %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="publication-list">
+        <p>There are no posts for this category.</p>
+    </div>
+    {% endif %}
+</section>

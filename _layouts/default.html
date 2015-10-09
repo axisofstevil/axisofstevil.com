@@ -1,0 +1,12 @@
+{% include base.html %}
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body service-url="{{ site.service_url }}">
+        {% include header.html %}
+        {% include messages.html %}
+        {{ content }}
+        {% include search.html %}
+        {% include footer.html %}
+    </body>
+</html>

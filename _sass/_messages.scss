@@ -1,0 +1,17 @@
+$alert-bottom-margin: rem-calc(0);
+.message {
+    @include alert();
+    border: none;
+    p {
+        margin: 0;
+        text-align: center;
+    }
+
+    &.success {
+        background: rgba(68,186,85, 1);
+    }
+
+    &.warning {
+        background: rgba(254,128,67, 1);
+    }
+}

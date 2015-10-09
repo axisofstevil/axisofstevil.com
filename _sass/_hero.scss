@@ -1,0 +1,58 @@
+.hero {
+    position: relative;
+    text-align: center;
+
+    background-color: #efefef;
+    border-bottom: 1px solid #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    $transition: 10s;
+
+
+    -moz-transition: background-image $transition ease-in-out;
+    -ms-transition: background-image $transition ease-in-out;
+    -o-transition: background-image $transition ease-in-out;
+    -webkit-transition: background-image $transition ease-in-out;
+    transition: background-image $transition ease-in-out;
+
+    -webkit-transition-delay: $transition;
+    transition-delay: $transition;
+
+    .foreground {
+        padding: rem-calc(20);
+        @include border-radius(rem-calc(5));
+        @include box-shadow();
+        @include grid-column(12);
+        @media only screen and (min-width: 64.063em){
+            @include grid-column(8, $center:true);
+        }
+        background: rgb(255,255,255);
+        background: rgba(255,255,255,0.8);
+    }
+
+    h1 {
+        word-wrap: break-word;
+        font-weight: 900;
+        color: #222;
+        @include text-shadow(0,0,0.2em,rgba(255,255,255,0.8));
+        font-size: 2em;
+        @media only screen and (min-width: 64.063em){
+            font-size: 3.5em;
+        }
+        line-height: 1em;
+    }
+    p {
+        $hero-p-color: #666;
+        color: $hero-p-color;
+        a {
+            color: $hero-p-color;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+

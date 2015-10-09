@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Antidisestablishmentarianism"
+keywords: "opposition, vocabulary, church, speech, stevilcom"
+image: "http://axisofstevil.s3.amazonaws.com/assets/antidisestablishmentarianism.jpg"
+permalink: "/p/antidisestablishmentarianism"
+summary: "Originally published Friday April, 8th 2005"
+category: language
+hashtag: "#axisofstevil_antidisestablishmentarianism"
+---
+
+[id_1]: http://axisofstevil.s3.amazonaws.com/assets/antidisestablishmentarianism.jpg "antidisestablishmentarianism"
+The [Axis of Stevil.com](/ "Axis of Stevil.com") has many goals, one of which is to educate its followers. One of the first impressions people gain about other people is a speech impression. A persons memory will retain a lot of information about certain peoples speech. Among those, vocabulary rises to the top. Possessing a good vocabulary is as important as learning how to ride a bike. With or without it you w
+
+## "antidisestablishmentarianism" ##
+
+an·ti·dis·es·tab·lish·ment·ar·i·an·is·m; n.
+
+1. originally, opposition to the disestablishment of the Church of England, now opposition to the belief that there should no longer be an official church in a country
+2.    Longest word in the dictionary
+ 
+> "***antidisestablish***. . . Damn thats a huge word!"
+
+![antidisestablishmentarianism][id_1]

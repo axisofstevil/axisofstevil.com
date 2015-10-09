@@ -1,0 +1,21 @@
+{
+    "name":"stevenmaguire/rider-report",
+    "authors": [
+        "Steven Maguire <steven@stevenmaguire.com>"
+    ],
+    "moduleType": [
+        "amd"
+    ],
+    "dependencies": {
+        "foundation": "~5.4.7"
+    },
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
