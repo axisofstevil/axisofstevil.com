@@ -83,10 +83,6 @@ Since their introduction, these shirts received an outpouring of public support 
 
 ### Seen Around the World
 
-*   Test
-*   Test
-*   Test
-
 As the years wore on, so did the shirts and the lives of those who wore them. Sightings of the shirts were reported from across the country and in a variety of settings.
 
 *   ![]({{ site.content_baseurl }}/assets/shirts_DaveKerri_2009-06-08.jpg){: .gallery-item }

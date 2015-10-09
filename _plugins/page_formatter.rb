@@ -6,9 +6,10 @@ require 'nokogiri'
 module Jekyll
   module PageFormatter
     def format_page(text)
-        @html = Nokogiri::HTML(text)
+        @html = Nokogiri::HTML::fragment(text)
 
         add_section_breaks()
+
         add_gallery_classes()
 
         @html.to_html
@@ -17,14 +18,16 @@ module Jekyll
     def add_section_breaks()
         text = @html.to_html
 
-        code = %q{    </div>
-</section>
-<section>
-    <div class="prose">}
+        code = %q{        </div>
+    </section>
+    <section>
+        <div class="prose">}
 
-        text.gsub(/<hr \/>/, code)
+        hrPattern = /<hr[^>]*>/
 
-        @html = Nokogiri::HTML(text)
+        text = text.gsub(hrPattern, code)
+
+        @html = Nokogiri::HTML::fragment(text)
     end
 
     def add_gallery_classes()
