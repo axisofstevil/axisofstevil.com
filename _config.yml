@@ -20,6 +20,9 @@ sass:
 exclude:
     - bower_components
     - node_modules
+    - Rakefile
+    - Gemfile
+    - Gemfile.lock
 safe: false
 navigation:
     categories:
