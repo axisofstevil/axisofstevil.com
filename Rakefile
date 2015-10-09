@@ -8,7 +8,7 @@ require 'rbconfig'
 # == Configuration =============================================================
 
 # Set "rake watch" as default task
-task :default => :watch
+task :default => :build
 
 # Load the configuration file
 CONFIG = YAML.load_file("_config.yml")
