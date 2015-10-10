@@ -2,7 +2,7 @@
 layout: post
 title: "T-Shirt Advertisement"
 keywords: "shirt, stevil, line, stuck, headflashmediatshirtsswf"
-image: "http://axisofstevil.s3.amazonaws.com/media/tshirts_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/tshirts_thumb.png"
 permalink: "/p/tshirt-advertisement"
 summary: "Originally published Tuesday March, 15th 2005"
 category: flash

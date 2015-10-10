@@ -2,14 +2,14 @@
 layout: post
 title: "Wombat Dating!"
 keywords: "wombat, wombats, creature, social, aware"
-image: "http://axisofstevil.s3.amazonaws.com/assets/wombatdatinglarge.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg"
 permalink: "/p/wombat-dating"
 summary: "Originally published Friday June, 24th 2005"
 category: publications
 hashtag: "#axisofstevil_wombat-dating"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/wombatdatinglarge.jpg "Wombat"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg "Wombat"
 ![Wombat][id_1]
 
 Once the wombat was only the subject of lore in Australian pubs, brew halls and keggers. The tale of the wombat speaks of a creature so inept in wooing the opposite sex that it surely is a matter of luck and slippery tree branches that the species has managed to procreate. With the signing of the Marsupial Non-Proliferation Accord, wombats have finally been allowed green cards, allowing them to migrate to America in hordes.

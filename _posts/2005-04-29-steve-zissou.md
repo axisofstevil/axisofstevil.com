@@ -2,14 +2,14 @@
 layout: post
 title: "Steve Zissou"
 keywords: "steve, axis, ziou, stevil, salute"
-image: "http://axisofstevil.s3.amazonaws.com/assets/zizzotop.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg"
 permalink: "/p/steve-zissou"
 summary: "Originally published Friday April, 29th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zissou"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/zizzotop.jpg "Stevezissou1"[id_2]: http://axisofstevil.s3.amazonaws.com/assets/zizzobottom.jpg "Stevezissou2"[id_3]: http://axisofstevil.s3.amazonaws.com/assets/zizoside.jpg "Stevezissoubar"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg "Stevezissou1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/zizzobottom.jpg "Stevezissou2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/zizoside.jpg "Stevezissoubar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote progress, The Axis of Stevil would like to salute you:

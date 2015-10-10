@@ -2,14 +2,14 @@
 layout: post
 title: "Ruxpin&#039;s Plight"
 keywords: "fore, ruxpinanda, axis, valley, stevil"
-image: "http://axisofstevil.s3.amazonaws.com/assets/ninjaRuxpin440x300.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin440x300.jpg"
 permalink: "/p/ruxpins-plight"
 summary: "Originally published Tuesday March, 29th 2005"
 category: publications
 hashtag: "#axisofstevil_ruxpins-plight"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/ninjaRuxpin440x300.jpg "RuxpinMainImage"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin440x300.jpg "RuxpinMainImage"
 ![RuxpinMainImage][id_1]
 
 The Axis of Stevil stands for many things, but what does The Axis stand against? 
@@ -26,5 +26,5 @@ The Ruxpinanda valley was invaded and its peaceful inhabitants were rounded up a
 
 While all this was happening, a toy bearing the Ruxpinanda's likeness sold like hot cakes during the '88 holiday season. While both US and Canadian governments deny these allegations. The Axis of Stevil is aware of the Ruxpin's plight. Refusing to allow this injustice to continue any longer The Axis of Stevil bankrolls a team of elite ninjas whose sole task is to protect and free all of the Ruxpins.
 
-- [Download Wallpaper - 1600 x 1200](http://axisofstevil.s3.amazonaws.com/assets/NinjaFreeRuxpin1600x1200.jpg)
-- [Download Wallpaper - 640 x 480](http://axisofstevil.s3.amazonaws.com/assets/ninjaRuxpin640x480.jpg)
+- [Download Wallpaper - 1600 x 1200](http://d3e878vmunx8cm.cloudfront.net/assets/NinjaFreeRuxpin1600x1200.jpg)
+- [Download Wallpaper - 640 x 480](http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin640x480.jpg)

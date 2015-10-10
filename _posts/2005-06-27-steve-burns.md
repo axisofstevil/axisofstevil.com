@@ -2,14 +2,14 @@
 layout: post
 title: "Steve Burns"
 keywords: "steve, axis, stevil, blues, green"
-image: "http://axisofstevil.s3.amazonaws.com/assets/steveburns.gif"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif"
 permalink: "/p/steve-burns"
 summary: "Originally published Monday June, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-burns"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/steveburns.gif "Steveburns1"[id_2]: http://axisofstevil.s3.amazonaws.com/assets/steveburnsmural.gif "Steveburnsbar"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif "Steveburns1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/steveburnsmural.gif "Steveburnsbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you:

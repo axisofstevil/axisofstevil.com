@@ -2,14 +2,14 @@
 layout: post
 title: "Think Of The Whales!"
 keywords: "luck, modern, shits, large, predicted"
-image: "http://axisofstevil.s3.amazonaws.com/assets/whalesavelarge.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
 permalink: "/p/think-of-the-whales"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_think-of-the-whales"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/whalesavelarge.jpg "Whales"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg "Whales"
 ![Whales][id_1]
 
 It is a fact of life that bad things happen. Sometimes they happen when you least expect them, such as, while driving to work, waiting for your lunch order, or sleeping near a box of markers. When you encounter these bad vibes, remember to look up and note your surroundings, to be sure that you do not take down anything else with you.

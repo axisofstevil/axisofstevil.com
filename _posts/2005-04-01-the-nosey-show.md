@@ -2,7 +2,7 @@
 layout: post
 title: "The Nosey Show"
 keywords: "known, nirvannaflashmediathenoseyshowswf, bleings, musical, singing"
-image: "http://axisofstevil.s3.amazonaws.com/media/TheNoseyShow_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/TheNoseyShow_thumb.png"
 permalink: "/p/the-nosey-show"
 summary: "Originally published Friday April, 1st 2005"
 category: flash

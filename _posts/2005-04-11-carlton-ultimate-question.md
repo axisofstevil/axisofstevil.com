@@ -2,7 +2,7 @@
 layout: post
 title: "Carlton and the Ultimate Question"
 keywords: "questionflashmediahotelcarltonswf, ultimate, asked, carlton, episode"
-image: "http://axisofstevil.s3.amazonaws.com/media/HotelCarlton_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/HotelCarlton_thumb.png"
 permalink: "/p/carlton-ultimate-question"
 summary: "Originally published Monday April, 11th 2005"
 category: flash

@@ -2,14 +2,14 @@
 layout: post
 title: "In The Spotlight: Carlton"
 keywords: "carlton, water, mole, felt, purple"
-image: "http://axisofstevil.s3.amazonaws.com/assets/CarltonSea.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg"
 permalink: "/p/in-the-spotlight-carlton"
 summary: "Originally published Friday June, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_in-the-spotlight-carlton"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/CarltonSea.jpg "CarltonSea"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg "CarltonSea"
 ![CarltonSea][id_1]
 
 There was a day unlike most for Carlton once. He had unexpectedly been tipped out of a canoe by a rather bumbly mole. He remarked while falling over "Good heavens, you oaf!” Carlton hit the cold water with a splash!
