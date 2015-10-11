@@ -1,6 +1,6 @@
 (function (window) {
     var serviceUrl = window.document.getElementsByTagName("body")[0].getAttribute('service-url');
-    serviceUrl = 'http://localhost:8000';
+    //serviceUrl = 'http://localhost:8000';
 
     window.AOS = {}
 
