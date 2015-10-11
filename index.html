@@ -3,14 +3,6 @@ layout: default
 ---
 {% assign pageNumber = paginator.page | times: 1 %}
 {% if pageNumber == 1 %}
-<section class="hero" style="{{ site.default_hero_image_css }}" random-photo>
-    <div class="foreground">
-        <h1>Re-releasing epic content from more than 9 years ago.</h1>
-        <p>Give us your email and we'll send you content every Monday, Wednesday and Friday.</p>
-        {% include join.html %}
-        <p>If you've got questions or comments, <a href="/contact">We'd love to hear from you</a>.</p>
-    </div>
-</section>
 <section>
     <div class="featured-publication">
         <h2>Just released</h2>
@@ -33,4 +25,12 @@ layout: default
     {% include pagination.html %}
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
     {% endcomment %}
+</section>
+<section class="hero" style="{{ site.default_hero_image_css }}" random-photo>
+    <div class="foreground">
+        <h1>Re-releasing epic content from more than 9 years ago.</h1>
+        <p>Give us your email and we'll send you content every Monday, Wednesday and Friday.</p>
+        {% include join.html %}
+        <p>If you've got questions or comments, <a href="/contact">We'd love to hear from you</a>.</p>
+    </div>
 </section>

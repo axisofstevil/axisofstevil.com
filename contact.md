@@ -4,7 +4,7 @@ title: Drop us a line
 permalink: /contact/
 ---
 
-<form method="POST" action="/contact" accept-charset="UTF-8">
+<form method="POST" action="/api/member/contact" accept-charset="UTF-8">
     <div class="contact">
         <input placeholder="Your email goes here" name="email" type="text" />
         <textarea placeholder="Tell us a story. Ask us a question. Offer us off-shore development services. Recommend a movie." name="message"></textarea>
