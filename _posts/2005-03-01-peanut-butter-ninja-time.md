@@ -2,7 +2,7 @@
 layout: post
 title: "Peanut Butter Ninja Time?"
 keywords: "entertaining, animation, bornflashmediaturtleswf, seion, instruction"
-image: "http://axisofstevil.s3.amazonaws.com/media/turtle_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/turtle_thumb.png"
 permalink: "/p/peanut-butter-ninja-time"
 summary: "Originally published Tuesday March, 1st 2005"
 category: flash

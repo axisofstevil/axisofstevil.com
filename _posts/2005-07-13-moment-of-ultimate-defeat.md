@@ -2,14 +2,14 @@
 layout: post
 title: "Moment Of Ultimate Defeat"
 keywords: "creature, masticophis, probability, luck, rating"
-image: "http://axisofstevil.s3.amazonaws.com/assets/digestiowndlarge.gif"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif"
 permalink: "/p/moment-of-ultimate-defeat"
 summary: "Originally published Wednesday July, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_moment-of-ultimate-defeat"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/digestiowndlarge.gif "Digestiownd"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif "Digestiownd"
 ![Digestiownd][id_1]
 
 A fascinating feature of reality is luck, the probability for a turn of events in your favor. Society would teach you that luck is beyond your control, and not a factor. This statement could not be further from the truth! To deny luck is hit-yourself-on-the thumb-with-a-hammer stupid.

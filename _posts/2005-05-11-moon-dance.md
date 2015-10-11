@@ -2,7 +2,7 @@
 layout: post
 title: "Carlton and the Great Moon Adventure"
 keywords: "moonflashmediamoondanceswf, party, dance, carlton, episode"
-image: "http://axisofstevil.s3.amazonaws.com/media/moondance_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/moondance_thumb.png"
 permalink: "/p/moon-dance"
 summary: "Originally published Wednesday May, 11th 2005"
 category: flash

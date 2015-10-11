@@ -2,15 +2,16 @@
 layout: post
 title: "Attention Philanthropists"
 keywords: "axis, stevil, shirts, succe, graham"
-image: "http://axisofstevil.s3.amazonaws.com/assets/sisb31600.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg"
 permalink: "/p/attention-philanthropists"
 summary: "Originally published Friday May, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_attention-philanthropists"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/sisb31600.jpg "Attention"
-[What is "Seeing Is Believing"?](/p/seeing-is-believing "What is "Seeing Is Believing"?")
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg "Attention"
+
+[What is "Seeing Is Believing"?](/p/seeing-is-believing)
 
 ![Attention][id_1]
 

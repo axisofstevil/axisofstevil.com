@@ -2,14 +2,14 @@
 layout: post
 title: "The Stevens Family"
 keywords: "family, axis, stevens, stevil, steve"
-image: "http://axisofstevil.s3.amazonaws.com/assets/evenstevens2.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg"
 permalink: "/p/the-stevens-family"
 summary: "Originally published Friday June, 10th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-stevens-family"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/evenstevens2.jpg "Evenstevens1"[id_2]: http://axisofstevil.s3.amazonaws.com/assets/evenstevens1.jpg "Evenstevens2"[id_3]: http://axisofstevil.s3.amazonaws.com/assets/evenstevensmural.jpg "Evenstevensbar"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg "Evenstevens1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens1.jpg "Evenstevens2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevensmural.jpg "Evenstevensbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to endorse family unity, The Axis of Stevil would like to salute you:

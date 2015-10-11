@@ -2,14 +2,14 @@
 layout: post
 title: "Case Study No. 2004341-919"
 keywords: "trapper, keeper, keepers, paper, binding"
-image: "http://axisofstevil.s3.amazonaws.com/assets/bindevolarge.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
 permalink: "/p/evolutionarily-speaking"
 summary: "Originally published Wednesday July, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_evolutionarily-speaking"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/bindevolarge.jpg "Evolutionarily"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg "Evolutionarily"
 ![Evolutionarily][id_1]
 
 Evolutionarily speaking, the 1980’s represented the zenith of the paper biding industry, by heralding the introduction of on demand paper binding and organization with the Trapper Keeper. This masterpiece of cardboard and tight fitting plastic trappings made the Trapper Keeper the ultimate display of fashion and practical storage.

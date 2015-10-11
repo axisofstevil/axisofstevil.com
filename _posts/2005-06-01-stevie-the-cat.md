@@ -2,14 +2,14 @@
 layout: post
 title: "Stevie The Cat"
 keywords: "stevie, axis, stevil, steve, great"
-image: "http://axisofstevil.s3.amazonaws.com/assets/steviethecat1.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg"
 permalink: "/p/stevie-the-cat"
 summary: "Originally published Wednesday June, 1st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-the-cat"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/steviethecat1.jpg "Steviethecat1"[id_2]: http://axisofstevil.s3.amazonaws.com/assets/steviethecat2.jpg "Steviethecat2"[id_3]: http://axisofstevil.s3.amazonaws.com/assets/steviethecatmural.jpg "Steviethecatbar"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg "Steviethecat1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat2.jpg "Steviethecat2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecatmural.jpg "Steviethecatbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to break the animal barrier, The Axis of Stevil would like to salute you:

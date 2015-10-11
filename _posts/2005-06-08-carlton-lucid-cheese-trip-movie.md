@@ -2,7 +2,7 @@
 layout: post
 title: "Carlton and the Lucid Cheese Trip"
 keywords: "ballsflashmediacarltoncheesemadneswf, trip, goes, carlton, episode"
-image: "http://axisofstevil.s3.amazonaws.com/media/carltoncheesemadness_thumb.png"
+image: "http://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness_thumb.png"
 permalink: "/p/carlton-lucid-cheese-trip-movie"
 summary: "Originally published Wednesday June, 8th 2005"
 category: flash

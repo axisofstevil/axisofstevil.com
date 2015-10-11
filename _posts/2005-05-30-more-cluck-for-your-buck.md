@@ -2,14 +2,14 @@
 layout: post
 title: "More Cluck For Your Buck"
 keywords: "kickin, chickin, chicken, name, chickins"
-image: "http://axisofstevil.s3.amazonaws.com/assets/kickinchicken.jpg"
+image: "http://d3e878vmunx8cm.cloudfront.net/assets/kickinchicken.jpg"
 permalink: "/p/more-cluck-for-your-buck"
 summary: "Originally published Monday May, 30th 2005"
 category: publications
 hashtag: "#axisofstevil_more-cluck-for-your-buck"
 ---
 
-[id_1]: http://axisofstevil.s3.amazonaws.com/assets/kickinchicken.jpg "Kickinchickin"
+[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/kickinchicken.jpg "Kickinchickin"
 ![Kickinchickin][id_1]
 
 Do you need somebody murdered? Is a close friend or relative being held captive by an evil tyrant? If so you need the Kickin Chickin! Unlike most assassin groups, the Kickin Chicken will not ask you for a deposit and two forms of ID. Masters of their ancient art, the Kickin Chicken have never lost a battle and always get their man.
