@@ -2,6 +2,9 @@
 layout: page
 title: "Join today!"
 permalink: /join/
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
 ---
 
 ## Re-releasing epic content from more than 9 years ago.

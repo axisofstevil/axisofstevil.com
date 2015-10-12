@@ -2,6 +2,9 @@
 layout: page
 title: Our mission
 permalink: /mission/
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
 ---
 
 ![Whereas, Steven is the #18 most common male name and, whereas, 0.78% of men in the US are named Steven and, whereas, around 955500 US men are named Steven, therefore, Axis of Stevil is right because 955,000 men can't be wrong.]({{ site.content_baseurl }}/assets/theory.gif){: .center }

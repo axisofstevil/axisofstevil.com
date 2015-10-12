@@ -3,6 +3,9 @@ layout: page
 title: The Shirts
 permalink: /shirts/
 image: '/assets/backissues.jpg'
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
 ---
 
 ## History

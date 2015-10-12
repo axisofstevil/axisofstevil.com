@@ -2,6 +2,9 @@
 layout: page
 title: Drop us a line
 permalink: /contact/
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
 ---
 
 <form method="POST" action="/api/member/contact" accept-charset="UTF-8">
