@@ -326,7 +326,13 @@
     }
 
     function redirect (url) {
-        window.location.replace(url);
+        console.log(window.location.pathname)
+        if (window.location.pathname == '/random/') {
+            window.location.replace(url);
+        } else {
+            window.location = url;
+        }
+
     }
 
     randomButton.addEventListener('click', function (e) {
