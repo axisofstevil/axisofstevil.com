@@ -93,6 +93,18 @@
                 }
             }
         };
+        form.prefillValues = function () {
+            var children = form.elements;
+            for (var j = 0; j < children.length; j++) {
+                var input = children[j];
+                var queryStringValue = window.AOS.GetQueryStringParameter(input.name);
+                if (queryStringValue) {
+                    input.value = queryStringValue;
+                }
+            }
+        };
+
+        form.prefillValues();
     };
 
     window.AOS.AddClass = function (element, className) {
@@ -147,6 +159,15 @@
             req.send(JSON.stringify(result));
         });
     }
+
+    window.AOS.GetQueryStringParameter = function (name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
 
     window.AOS.SerializeForm = function (form) {
         if (!form || form.nodeName != "FORM") {
