@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Unsolved Enigmas"
+date: 2005-11-09T00:00:00-0600
+release_date: 2015-09-25T08:45:04-0500
 keywords: "seville, alvin, david, life, murder"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg"
 permalink: "/p/unsolved-enigmas-david-seville"
 summary: "Originally published Wednesday November, 9th 2005"
 category: publications
 hashtag: "#axisofstevil_unsolved-enigmas-david-seville"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-09-25T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg "UnsolvedEnigmas"

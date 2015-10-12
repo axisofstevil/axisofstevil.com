@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "In The Spotlight: Carlton"
+date: 2005-06-10T00:00:00-0500
+release_date: 2015-01-23T13:45:08-0600
 keywords: "carlton, water, mole, felt, purple"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg"
 permalink: "/p/in-the-spotlight-carlton"
 summary: "Originally published Friday June, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_in-the-spotlight-carlton"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-01-23T13:45:08-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg "CarltonSea"

@@ -1,16 +1,22 @@
 ---
 layout: post
 title: "Seeing Is Believing"
+date: 2005-04-18T00:00:00-0500
+release_date: 2014-09-29T13:45:07-0500
 keywords: "axis, stevil, world, good, life"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg"
 permalink: "/p/seeing-is-believing"
 summary: "Originally published Monday April, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_seeing-is-believing"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-09-29T13:45:07-0500
 ---
 
 [p01]: http://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg "Seeingpenguin"[p02]: http://d3e878vmunx8cm.cloudfront.net/assets/%5Bstevil%5D420web.jpg "Bstevil"[p03]: http://d3e878vmunx8cm.cloudfront.net/assets/Thurstonbanner.jpg "Thurston"[p04]: http://d3e878vmunx8cm.cloudfront.net/assets/colorin-web-example.jpg "Colorin"
-!#flash(/media/SeeingisBelieving.swf)
+!#flash(http://d3e878vmunx8cm.cloudfront.net/media/SeeingisBelieving.swf)
 
 Why not be positive? I mean really? What is so hard about thinking the future is a good thing? I have noticed that humans now are days are trained by the media machine to be fearful of the future. It would have you believe that humanity is a lost cause bound to destroy itself. Nothing is ever like "The good old days"... "We are going to hell in a hand basket". Why is our entire generation soaked in melancholy?! As a race we have been doing pretty well, and we are getting better. Look at the "good old days". There have been some truly diabolical people, but where are they today? There might be some meanies here and there but on a whole, the good guys are winning the fight. We live at a time where truly anything could happen, so smile about it! The future is bringing us some pretty cool stuff; there are lots of good ideas out there. Remember life before mp3s? and instant message? The good old days weren't any different from today, the only thing that is different is back then you were more ignorant, and disconnected from reality. Nostalgia makes you forget that. There are still plenty of interesting people doing interesting things. Why aren't you a part of it all Mr. and Ms apathetic?
 
@@ -30,7 +36,7 @@ It is often asked of us, "What is this website all about?" It is a complex answe
 ![Thurston][p03]
 
 ## AXIS OF STEVIL PRODUCT TESTING LAB: KNIFE TEST 1.4b ##
-[[20 second movie|3MB Download](/media/chop.avi "[20 second movie | 3MB Download")
+[[20 second movie|3MB Download](http://d3e878vmunx8cm.cloudfront.net/media/chop.avi "[20 second movie | 3MB Download")
 [DIVX Required](http://www.divx.com/ "|DIVX Required]")]
 
 <a href="http://d3e878vmunx8cm.cloudfront.net/media/chop.avi" target="_blank"><img style="max-width: 100%;"  src="http://d3e878vmunx8cm.cloudfront.net/assets/dif1small.jpg" width="400" height="241" border="0"></a>

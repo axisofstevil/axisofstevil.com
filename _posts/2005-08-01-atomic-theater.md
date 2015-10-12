@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Atomic Theater"
+date: 2005-08-01T00:00:00-0500
+release_date: 2015-05-25T08:45:04-0500
 keywords: "atom, paying, attention, basic, theater"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg"
 permalink: "/p/atomic-theater"
 summary: "Originally published Monday August, 1st 2005"
 category: publications
 hashtag: "#axisofstevil_atomic-theater"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-05-25T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg "AtomicTheatre"

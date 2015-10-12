@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Jobs"
+date: 2005-04-22T00:00:00-0500
+release_date: 2014-10-03T13:45:09-0500
 keywords: "jobs, steve, computer, apple, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg"
 permalink: "/p/steve-jobs"
 summary: "Originally published Friday April, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-jobs"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-10-03T13:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg "Stevejobs1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs7.jpg "Stevejobs2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobsmural.jpg "Stevejobsbar"

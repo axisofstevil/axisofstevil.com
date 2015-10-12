@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Zahn"
+date: 2005-01-06T00:00:00-0600
+release_date: 2014-07-28T00:00:00-0500
 keywords: "great, steves, steve, know, month"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/security3.jpg"
 permalink: "/p/steve-zahn"
 summary: "Originally published Thursday January, 6th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zahn"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-08-12T03:59:48-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/security3.jpg "Stevezahn1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/silv3.jpg "Stevezahn2"

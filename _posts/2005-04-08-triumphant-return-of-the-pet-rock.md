@@ -1,14 +1,20 @@
 ---
 layout: post
 title: "Triumphant Return of the Pet Rock"
+date: 2005-04-08T00:00:00-0500
+release_date: 2014-09-05T13:45:09-0500
 keywords: "step, instructionsflashmediacarltonbirthswf, follow, build, born"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth_thumb.png"
 permalink: "/p/triumphant-return-of-the-pet-rock"
 summary: "Originally published Friday April, 8th 2005"
 category: flash
 hashtag: "#axisofstevil_triumphant-return-of-the-pet-rock"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-09-05T13:45:09-0500
 ---
 
 Carlton is Born, Build your own. follow these step by step instructions.
 
-!#flash(/media/carltonbirth.swf)
+!#flash(http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth.swf)

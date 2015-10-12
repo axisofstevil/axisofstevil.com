@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Battle The Odds"
+date: 2005-05-11T00:00:00-0500
+release_date: 2014-11-03T13:45:05-0600
 keywords: "game, download, social, wallpaper"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg"
 permalink: "/p/battle-the-odds"
 summary: "Originally published Wednesday May, 11th 2005"
 category: publications
 hashtag: "#axisofstevil_battle-the-odds"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-11-03T13:45:05-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg "Guesswho1"

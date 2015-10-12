@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "The Lesser Of Two Googles"
+date: 2005-07-20T00:00:00-0500
+release_date: 2015-05-06T13:45:05-0500
 keywords: "google, surveillance, people, clear, googles"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg"
 permalink: "/p/the-lesser-of-two-googles"
 summary: "Originally published Wednesday July, 20th 2005"
 category: publications
 hashtag: "#axisofstevil_the-lesser-of-two-googles"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-05-06T13:45:05-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg "Google1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/waldoinlondon.gif "Google2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/PSAgooglehat.gif "Google3"

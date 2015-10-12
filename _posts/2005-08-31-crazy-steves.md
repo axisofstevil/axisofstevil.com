@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Crazy Steves"
+date: 2005-08-31T00:00:00-0500
+release_date: 2015-07-08T08:45:03-0500
 keywords: "steve, crazy, fireworks, brick, firework"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg"
 permalink: "/p/crazy-steves"
 summary: "Originally published Wednesday August, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_crazy-steves"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-07-08T08:45:03-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg "Crazystevelogo1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/crazysteveweb.jpg "Crazysteve2"

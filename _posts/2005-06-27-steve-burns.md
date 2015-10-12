@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Burns"
+date: 2005-06-27T00:00:00-0500
+release_date: 2015-03-09T13:45:09-0500
 keywords: "steve, axis, stevil, blues, green"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif"
 permalink: "/p/steve-burns"
 summary: "Originally published Monday June, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-burns"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-03-09T13:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif "Steveburns1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/steveburnsmural.gif "Steveburnsbar"

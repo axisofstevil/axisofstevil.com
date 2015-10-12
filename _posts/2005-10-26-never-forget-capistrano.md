@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Never Forget Capistrano"
+date: 2005-10-26T00:00:00-0500
+release_date: 2015-09-09T08:45:09-0500
 keywords: "bird, dander, know, forget, birds"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Never-forget-Capistrano_web.gif"
 permalink: "/p/never-forget-capistrano"
 summary: "Originally published Wednesday October, 26th 2005"
 category: publications
 hashtag: "#axisofstevil_never-forget-capistrano"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-09-09T08:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Never-forget-Capistrano_web.gif "Capistrano"

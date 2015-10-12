@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Tempus Fugit"
+date: 2005-10-21T00:00:00-0500
+release_date: 2015-08-31T08:45:04-0500
 keywords: "burglar, time, lantern, hamburglar, creature"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg"
 permalink: "/p/tempus-fugit"
 summary: "Originally published Friday October, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_tempus-fugit"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-08-31T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg "Timeburgler"

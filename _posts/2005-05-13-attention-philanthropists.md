@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Attention Philanthropists"
+date: 2005-05-13T00:00:00-0500
+release_date: 2014-11-17T13:45:05-0600
 keywords: "axis, stevil, shirts, succe, graham"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg"
 permalink: "/p/attention-philanthropists"
 summary: "Originally published Friday May, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_attention-philanthropists"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-11-17T13:45:05-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg "Attention"

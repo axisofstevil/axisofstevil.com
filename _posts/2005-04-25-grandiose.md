@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Grandiose"
+date: 2005-04-25T00:00:00-0500
+release_date: 2014-10-08T13:45:10-0500
 keywords: "grandiose, speech, people, characterized, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg"
 permalink: "/p/grandiose"
 summary: "Originally published Monday April, 25th 2005"
 category: language
 hashtag: "#axisofstevil_grandiose"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-10-08T13:45:10-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg "grandiose"

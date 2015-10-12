@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Never Be Caught Speechless!"
+date: 2005-10-05T00:00:00-0500
+release_date: 2015-08-14T08:45:04-0500
 keywords: "panda, pocket, nervousnebecause, fact, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg"
 permalink: "/p/never-be-caught-speechless"
 summary: "Originally published Wednesday October, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_never-be-caught-speechless"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-08-14T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg "Pandabook"

@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Mitch Hedberg"
+date: 2005-03-31T00:00:00-0600
+release_date: 2014-08-22T13:45:50-0500
 keywords: "mitch, comedy, axis, hedberg, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg"
 permalink: "/p/mitch-steve-hedberg"
 summary: "Originally published Thursday March, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_mitch-steve-hedberg"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-08-22T13:45:50-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg "Stevemitch1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/mitch1.jpg "Stevemitch2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/hedberg.gif "Stevemitchbar"

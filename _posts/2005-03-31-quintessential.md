@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Quintessential"
+date: 2005-03-31T00:00:00-0600
+release_date: 2014-08-25T13:45:23-0500
 keywords: "axis, vocabulary, speech, people, quinteential"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif"
 permalink: "/p/quintessential"
 summary: "Originally published Thursday March, 31st 2005"
 category: language
 hashtag: "#axisofstevil_quintessential"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-08-25T13:45:23-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif "quintessential"

@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Spoonerism"
+date: 2005-05-16T00:00:00-0500
+release_date: 2014-11-21T13:45:20-0600
 keywords: "axis, speech, spoonerism, vocabulary, people"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg"
 permalink: "/p/spoonerism"
 summary: "Originally published Monday May, 16th 2005"
 category: language
 hashtag: "#axisofstevil_spoonerism"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-11-21T13:45:20-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg "spoonerism"

@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "You Gotta Do What You Gotta Do"
+date: 2005-08-10T00:00:00-0500
+release_date: 2015-06-17T08:45:10-0500
 keywords: "rabbit, meat, animal, company, discovered"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg"
 permalink: "/p/you-gotta-do-what-you-gotta-do"
 summary: "Originally published Wednesday August, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_you-gotta-do-what-you-gotta-do"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-06-17T08:45:10-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg "Rabbit"

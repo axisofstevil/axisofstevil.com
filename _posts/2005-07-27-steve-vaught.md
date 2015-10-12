@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Vaught"
+date: 2005-07-27T00:00:00-0500
+release_date: 2015-05-18T08:45:03-0500
 keywords: "steve, life, vaught, axis, time"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg"
 permalink: "/p/steve-vaught"
 summary: "Originally published Wednesday July, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-vaught"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-05-18T08:45:03-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg "Stevevaught1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevevaught2.jpg "Stevevaught2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevevaughtmural.jpg "Stevevaughtbar"

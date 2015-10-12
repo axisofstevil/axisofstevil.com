@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Buscemi"
+date: 2005-05-18T00:00:00-0500
+release_date: 2014-12-01T13:45:17-0600
 keywords: "steve, axis, acting, buscemi, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg"
 permalink: "/p/steve-buscemi"
 summary: "Originally published Wednesday May, 18th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-buscemi"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-12-01T13:45:17-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg "Stevebuscemi1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemi3.jpg "Stevebuscemi2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemimural.gif "Stevebuscemibar"

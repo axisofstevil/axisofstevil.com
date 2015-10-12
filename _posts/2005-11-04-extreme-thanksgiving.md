@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Extreme Thanksgiving"
+date: 2005-11-04T00:00:00-0600
+release_date: 2015-09-18T08:45:04-0500
 keywords: "viacom, thanksgiving, month, history, womens"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg"
 permalink: "/p/extreme-thanksgiving"
 summary: "Originally published Friday November, 4th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-thanksgiving"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-09-18T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg "ExtremeTurkey"

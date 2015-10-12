@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "U.f.n. Sighting!"
+date: 2005-09-02T00:00:00-0500
+release_date: 2015-07-10T08:45:04-0500
 keywords: "nuns, flying, known, catholic, ability"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg"
 permalink: "/p/ufn-sighting"
 summary: "Originally published Friday September, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_ufn-sighting"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-07-10T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg "Flyingnun"

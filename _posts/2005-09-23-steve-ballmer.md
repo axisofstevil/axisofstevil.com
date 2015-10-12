@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Steve Ballmer"
+date: 2005-09-23T00:00:00-0500
+release_date: 2015-08-05T08:45:09-0500
 keywords: "ballmer, steve, stevil, people, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steveballmer1.jpg"
 permalink: "/p/steve-ballmer"
 summary: "Originally published Friday September, 23rd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-ballmer"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-08-05T08:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/steveballmer1.jpg "Steveballmer1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/steveballmer2.jpg "Steveballmer2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevebalmermural.gif "Steveballmerbar"

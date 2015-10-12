@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Stevie The Cat"
+date: 2005-06-01T00:00:00-0500
+release_date: 2015-01-07T13:45:10-0600
 keywords: "stevie, axis, stevil, steve, great"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg"
 permalink: "/p/stevie-the-cat"
 summary: "Originally published Wednesday June, 1st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-the-cat"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-01-07T13:45:10-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg "Steviethecat1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat2.jpg "Steviethecat2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/steviethecatmural.jpg "Steviethecatbar"

@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Extreme Hoopin&#039;"
+date: 2005-08-08T00:00:00-0500
+release_date: 2015-06-15T08:45:03-0500
 keywords: "extreme, hoop, woodsy, sport, national"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg"
 permalink: "/p/extreme-hoopin"
 summary: "Originally published Monday August, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-hoopin"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-06-15T08:45:03-0500
 ---
 
 ![extreme-hoppin](http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg)

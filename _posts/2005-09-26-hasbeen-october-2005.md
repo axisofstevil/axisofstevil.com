@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "On Newstands Today!"
+date: 2005-09-26T00:00:00-0500
+release_date: 2015-08-07T08:45:09-0500
 keywords: "game, icarus, hard, right, films"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg"
 permalink: "/p/hasbeen-october-2005"
 summary: "Originally published Monday September, 26th 2005"
 category: publications
 hashtag: "#axisofstevil_hasbeen-october-2005"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-08-07T08:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg "Hasbeencover"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeenheffer.jpg "Hasbeenheffer"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/14tipsweb.jpg "Hasbeen14tips"[id_4]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeenicarus.jpg "Hasbeenicarus"

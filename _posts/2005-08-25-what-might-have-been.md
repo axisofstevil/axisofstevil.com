@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "What Might Have Been"
+date: 2005-08-25T00:00:00-0500
+release_date: 2015-07-03T08:45:03-0500
 keywords: "take, monkey, monkeys, chimp, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg"
 permalink: "/p/what-might-have-been"
 summary: "Originally published Thursday August, 25th 2005"
 category: publications
 hashtag: "#axisofstevil_what-might-have-been"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-07-03T08:45:03-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg "Lightmonkey"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/greenmonkeylarge.jpg "Greenmonkey"![Lightmonkey][id_1]

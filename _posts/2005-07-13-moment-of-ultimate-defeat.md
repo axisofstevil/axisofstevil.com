@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Moment Of Ultimate Defeat"
+date: 2005-07-13T00:00:00-0500
+release_date: 2015-04-15T13:45:07-0500
 keywords: "creature, masticophis, probability, luck, rating"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif"
 permalink: "/p/moment-of-ultimate-defeat"
 summary: "Originally published Wednesday July, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_moment-of-ultimate-defeat"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-04-15T13:45:07-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif "Digestiownd"

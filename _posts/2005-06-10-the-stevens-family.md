@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "The Stevens Family"
+date: 2005-06-10T00:00:00-0500
+release_date: 2015-01-26T13:45:13-0600
 keywords: "family, axis, stevens, stevil, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg"
 permalink: "/p/the-stevens-family"
 summary: "Originally published Friday June, 10th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-stevens-family"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2015-01-26T13:45:13-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg "Evenstevens1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens1.jpg "Evenstevens2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/evenstevensmural.jpg "Evenstevensbar"

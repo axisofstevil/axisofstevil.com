@@ -1,12 +1,18 @@
 ---
 layout: post
 title: "Ruxpin&#039;s Plight"
+date: 2005-03-29T00:00:00-0600
+release_date: 2014-08-18T13:46:01-0500
 keywords: "fore, ruxpinanda, axis, valley, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin440x300.jpg"
 permalink: "/p/ruxpins-plight"
 summary: "Originally published Tuesday March, 29th 2005"
 category: publications
 hashtag: "#axisofstevil_ruxpins-plight"
+sitemap:
+    priority: 0.9
+    changefreq: 'weekly'
+    lastmod: 2014-08-18T13:46:01-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin440x300.jpg "RuxpinMainImage"
