@@ -1,7 +1,13 @@
 ---
 layout: page
-title: "Oh noes!"
-permalink: /error/
+title: "Join today!"
+permalink: /join/
 ---
 
-![putting out the fires](http://axisofstevil.s3.amazonaws.com/stuff/put-out-fires.gif)
+## Re-releasing epic content from more than 9 years ago.
+
+Give us your email and we'll send you content every Monday, Wednesday and Friday.
+
+{% include join.html %}
+
+If you've got questions or comments, [We'd love to hear from you](/contact).
