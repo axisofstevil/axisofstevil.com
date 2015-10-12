@@ -7,7 +7,7 @@ layout: default
 {% include hero.html %}
 <section class="publication">
     <div class="prose">
-        {{ content }}
+        {{ content | parse_flash }}
     </div>
 </section>
 <section class="comments">
