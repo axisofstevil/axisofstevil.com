@@ -3,16 +3,13 @@ layout: post
 title: "The Episode In Which Carlton Remembers The Day He Was Made"
 date: 2005-09-21T00:00:00-0500
 release_date: 2015-08-03T08:45:10-0500
+lastmod: 2015-08-03T08:45:10-0500
 keywords: "carlton, roots, axis, took, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carltonwatchesbirth.jpg"
 permalink: "/p/carlton-birth-day"
 summary: "Originally published Wednesday September, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-birth-day"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-08-03T08:45:10-0500
 ---
 
 ![carlton](http://d3e878vmunx8cm.cloudfront.net/assets/carltonwatchesbirth.jpg)

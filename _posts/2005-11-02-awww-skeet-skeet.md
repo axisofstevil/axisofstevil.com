@@ -3,16 +3,13 @@ layout: post
 title: "Awww Skeet Skeet"
 date: 2005-11-02T00:00:00-0600
 release_date: 2015-09-14T08:45:10-0500
+lastmod: 2015-09-14T08:45:10-0500
 keywords: "valentine, skeeter, service, hosting, skeeters"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg"
 permalink: "/p/awww-skeet-skeet"
 summary: "Originally published Wednesday November, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_awww-skeet-skeet"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-09-14T08:45:10-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg "Skeethost"

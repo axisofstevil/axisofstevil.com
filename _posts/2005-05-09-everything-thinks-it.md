@@ -3,16 +3,13 @@ layout: post
 title: "Zephyr"
 date: 2005-05-09T00:00:00-0500
 release_date: 2014-10-31T13:45:07-0500
+lastmod: 2014-10-31T13:45:07-0500
 keywords: "axis, zephyr, people, vocabulary, speech"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Zephyr.jpg"
 permalink: "/p/everything-thinks-it"
 summary: "Originally published Monday May, 9th 2005"
 category: language
 hashtag: "#axisofstevil_everything-thinks-it"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-10-31T13:45:07-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Zephyr.jpg "zephyr"

@@ -3,16 +3,13 @@ layout: post
 title: "Case Study No. 2004341-919"
 date: 2005-07-06T00:00:00-0500
 release_date: 2015-04-01T13:45:11-0500
+lastmod: 2015-04-01T13:45:11-0500
 keywords: "trapper, keeper, keepers, paper, binding"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
 permalink: "/p/evolutionarily-speaking"
 summary: "Originally published Wednesday July, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_evolutionarily-speaking"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-04-01T13:45:11-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg "Evolutionarily"

@@ -3,16 +3,13 @@ layout: post
 title: "Antidisestablishmentarianism"
 date: 2005-04-08T00:00:00-0500
 release_date: 2014-09-03T13:45:08-0500
+lastmod: 2014-09-03T13:45:08-0500
 keywords: "opposition, vocabulary, church, speech, stevilcom"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg"
 permalink: "/p/antidisestablishmentarianism"
 summary: "Originally published Friday April, 8th 2005"
 category: language
 hashtag: "#axisofstevil_antidisestablishmentarianism"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-09-03T13:45:08-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg "antidisestablishmentarianism"

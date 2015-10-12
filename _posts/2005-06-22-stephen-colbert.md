@@ -3,16 +3,13 @@ layout: post
 title: "Stephen Colbert"
 date: 2005-06-22T00:00:00-0500
 release_date: 2015-02-16T13:45:07-0600
+lastmod: 2015-02-16T13:45:07-0600
 keywords: "stephen, colbert, axis, stevil, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg"
 permalink: "/p/stephen-colbert"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-colbert"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-02-16T13:45:07-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg "Stephencolbert1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert6.jpg "Stephencolbert2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stephencolbertmural.jpg "Stephencolbertbar"

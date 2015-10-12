@@ -3,16 +3,13 @@ layout: post
 title: "Steven Spielberg"
 date: 2005-03-28T00:00:00-0600
 release_date: 2014-08-15T13:45:20-0500
+lastmod: 2014-08-15T13:45:20-0500
 keywords: "axis, stevil, steven, spielberg, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg"
 permalink: "/p/steven-spielberg"
 summary: "Originally published Monday March, 28th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steven-spielberg"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-08-15T13:45:20-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg "Stevenspielberg1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/spiel7.gif "Stevenspielberg2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/spiel.gif "Stevespielbergbar"

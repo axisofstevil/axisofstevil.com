@@ -3,16 +3,13 @@ layout: post
 title: "Seeing Is Believing"
 date: 2005-04-18T00:00:00-0500
 release_date: 2014-09-29T13:45:07-0500
+lastmod: 2014-09-29T13:45:07-0500
 keywords: "axis, stevil, world, good, life"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg"
 permalink: "/p/seeing-is-believing"
 summary: "Originally published Monday April, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_seeing-is-believing"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-09-29T13:45:07-0500
 ---
 
 [p01]: http://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg "Seeingpenguin"[p02]: http://d3e878vmunx8cm.cloudfront.net/assets/%5Bstevil%5D420web.jpg "Bstevil"[p03]: http://d3e878vmunx8cm.cloudfront.net/assets/Thurstonbanner.jpg "Thurston"[p04]: http://d3e878vmunx8cm.cloudfront.net/assets/colorin-web-example.jpg "Colorin"

@@ -3,16 +3,13 @@ layout: post
 title: "Residential Solutions - Stallitude 1.0"
 date: 2005-07-27T00:00:00-0500
 release_date: 2015-05-13T13:45:13-0500
+lastmod: 2015-05-13T13:45:13-0500
 keywords: "stall, stallitude, install, living, proce"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg"
 permalink: "/p/residential-solutions"
 summary: "Originally published Wednesday July, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_residential-solutions"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-05-13T13:45:13-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg "Stallitude"

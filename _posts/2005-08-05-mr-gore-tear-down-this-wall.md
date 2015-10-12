@@ -3,16 +3,13 @@ layout: post
 title: "Mr. Gore, Tear Down This Wall"
 date: 2005-08-05T00:00:00-0500
 release_date: 2015-06-08T08:45:09-0500
+lastmod: 2015-06-08T08:45:09-0500
 keywords: "network, aetsalagoryxgif, statement, ratings, hours"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/alagoryfull.gif"
 permalink: "/p/mr-gore-tear-down-this-wall"
 summary: "Originally published Friday August, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_mr-gore-tear-down-this-wall"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-06-08T08:45:09-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/alagoryfull.gif "GoreWall"

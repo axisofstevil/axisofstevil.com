@@ -3,16 +3,13 @@ layout: post
 title: "Steve Dobbins"
 date: 2005-10-19T00:00:00-0500
 release_date: 2015-08-26T08:45:11-0500
+lastmod: 2015-08-26T08:45:11-0500
 keywords: "steve, chapter, life, dobbins, steves"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg"
 permalink: "/p/steve-dobbins"
 summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-dobbins"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-08-26T08:45:11-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg "Stevedobbins1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins2.jpg "Stevedobbins2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsmural.jpg "Stevedobbinsbar"

@@ -3,16 +3,13 @@ layout: post
 title: "Hang In There Lil Doggy!"
 date: 2005-03-27T00:00:00-0600
 release_date: 2014-08-11T13:46:22-0500
+lastmod: 2014-08-12T03:57:15-0500
 keywords: "life, pain, frustration, money, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Advance-to-pain-web.jpg"
 permalink: "/p/hang-in-there-lil-doggy"
 summary: "Originally published Sunday March, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_hang-in-there-lil-doggy"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-08-12T03:57:15-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Advance-to-pain-web.jpg "Advance-to-pain-web"

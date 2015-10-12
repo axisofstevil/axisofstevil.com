@@ -3,16 +3,13 @@ layout: post
 title: "The Steve That Can Not Be Named"
 date: 2005-08-15T00:00:00-0500
 release_date: 2015-06-22T08:45:04-0500
+lastmod: 2015-06-22T08:45:04-0500
 keywords: "steve, named, people, devil, comedic"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif"
 permalink: "/p/the-steve-who-can-not-be-named"
 summary: "Originally published Monday August, 15th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-steve-who-can-not-be-named"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-06-22T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"

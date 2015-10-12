@@ -3,16 +3,13 @@ layout: post
 title: "Bi.a.h.s Convention 2005"
 date: 2005-11-21T00:00:00-0600
 release_date: 2015-10-09T08:45:03-0500
+lastmod: 2015-10-09T08:45:03-0500
 keywords: "hunter, douglas, local, aociation, merkin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/hermitconvention.jpg"
 permalink: "/p/biah-convention-2005"
 summary: "Originally published Monday November, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_biah-convention-2005"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-10-09T08:45:03-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/hermitconvention.jpg "Hermitconvention"

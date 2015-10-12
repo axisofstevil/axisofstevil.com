@@ -3,16 +3,13 @@ layout: post
 title: "The New Age Of Villainy"
 date: 2005-07-15T00:00:00-0500
 release_date: 2015-04-24T13:45:05-0500
+lastmod: 2015-04-24T13:45:05-0500
 keywords: "game, games, bear, icons, plot"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/DarkerBrothers.jpg"
 permalink: "/p/the-new-age-of-villainy"
 summary: "Originally published Friday July, 15th 2005"
 category: publications
 hashtag: "#axisofstevil_the-new-age-of-villainy"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-04-24T13:45:05-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/DarkerBrothers.jpg "Villainy1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/drclaweegelarge.jpg "Villainy2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/kerdunkdlarge.jpg "Villainy3"

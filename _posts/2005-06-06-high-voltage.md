@@ -3,16 +3,13 @@ layout: post
 title: "High Voltage Tweeters"
 date: 2005-06-06T00:00:00-0500
 release_date: 2015-01-09T13:45:06-0600
+lastmod: 2015-01-09T13:45:06-0600
 keywords: "bird, birds, wire, current, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/highbirds.jpg"
 permalink: "/p/high-voltage"
 summary: "Originally published Monday June, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_high-voltage"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-01-09T13:45:06-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/highbirds.jpg "Highvoltage"

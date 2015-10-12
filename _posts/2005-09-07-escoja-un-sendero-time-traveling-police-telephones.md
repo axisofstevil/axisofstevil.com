@@ -3,16 +3,13 @@ layout: post
 title: "What Will You Do?"
 date: 2005-09-07T00:00:00-0500
 release_date: 2015-07-17T08:45:06-0500
+lastmod: 2015-07-17T08:45:06-0500
 keywords: "time, movie, captain, crowd, adventure"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif"
 permalink: "/p/escoja-un-sendero-time-traveling-police-telephones"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_escoja-un-sendero-time-traveling-police-telephones"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-07-17T08:45:06-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif "TimeTravel"

@@ -3,16 +3,13 @@ layout: post
 title: "Steve Martin"
 date: 2005-01-27T00:00:00-0600
 release_date: 2014-08-01T13:45:29-0500
+lastmod: 2014-08-12T03:59:48-0500
 keywords: "steve, great, axis, steves, martin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg"
 permalink: "/p/steve-martin"
 summary: "Originally published Thursday January, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-martin"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-08-12T03:59:48-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg "Stevemartin1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-108.jpg "Stevemartin2"

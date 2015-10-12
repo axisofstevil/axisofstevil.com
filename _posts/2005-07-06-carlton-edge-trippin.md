@@ -3,16 +3,13 @@ layout: post
 title: "The Episode In Which Carlton Takes A Trip To The Edge"
 date: 2005-07-06T00:00:00-0500
 release_date: 2015-03-27T13:45:05-0500
+lastmod: 2015-03-27T13:45:05-0500
 keywords: "carlton, survived, thankfully, void, infinite"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carltonperspective.jpg"
 permalink: "/p/carlton-edge-trippin"
 summary: "Originally published Wednesday July, 6th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-edge-trippin"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-03-27T13:45:05-0500
 ---
 
 ![carlton](http://d3e878vmunx8cm.cloudfront.net/assets/carltonperspective.jpg)

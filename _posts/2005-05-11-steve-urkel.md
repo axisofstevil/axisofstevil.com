@@ -3,16 +3,13 @@ layout: post
 title: "Steve Urkel"
 date: 2005-05-11T00:00:00-0500
 release_date: 2014-11-05T13:45:04-0600
+lastmod: 2014-11-05T13:45:04-0600
 keywords: "steve, urkel, stevil, axis, stevecarellid"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg"
 permalink: "/p/steve-urkel"
 summary: "Originally published Wednesday May, 11th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-urkel"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-11-05T13:45:04-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg "SteveCarell1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/urkel1.jpg "SteveCarell2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/urkelmural.jpg "SteveCarellbar"

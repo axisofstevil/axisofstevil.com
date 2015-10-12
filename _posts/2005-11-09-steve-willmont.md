@@ -3,16 +3,13 @@ layout: post
 title: "Steve Willmont"
 date: 2005-11-09T00:00:00-0600
 release_date: 2015-09-23T08:45:05-0500
+lastmod: 2015-09-23T08:45:05-0500
 keywords: "steve, troll, axis, stevil, willmont"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg"
 permalink: "/p/steve-willmont"
 summary: "Originally published Wednesday November, 9th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-willmont"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-09-23T08:45:05-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg "Stevewillmont1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewillmontmural.png "Stevewillmontbar"

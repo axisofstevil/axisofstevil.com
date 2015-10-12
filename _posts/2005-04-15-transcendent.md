@@ -3,16 +3,13 @@ layout: post
 title: "Transcendent"
 date: 2005-04-15T00:00:00-0500
 release_date: 2014-09-24T13:45:16-0500
+lastmod: 2014-09-24T13:45:16-0500
 keywords: "transcendent, people, speech, axis, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Transcendent.jpg"
 permalink: "/p/transcendent"
 summary: "Originally published Friday April, 15th 2005"
 category: language
 hashtag: "#axisofstevil_transcendent"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-09-24T13:45:16-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Transcendent.jpg "transcendent"

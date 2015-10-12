@@ -3,16 +3,13 @@ layout: post
 title: "YouBoob Promo"
 date: 2005-11-14T00:00:00-0600
 release_date: 2015-09-30T08:45:04-0500
+lastmod: 2015-09-30T08:45:04-0500
 keywords: "websiteflashmediayouboobswf, video, boob, promo"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/youboob_thumb.png"
 permalink: "/p/youboob-promo"
 summary: "Originally published Monday November, 14th 2005"
 category: flash
 hashtag: "#axisofstevil_youboob-promo"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-09-30T08:45:04-0500
 ---
 
 Promo for You Boob! Video website.

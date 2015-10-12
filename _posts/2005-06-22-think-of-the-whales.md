@@ -3,16 +3,13 @@ layout: post
 title: "Think Of The Whales!"
 date: 2005-06-22T00:00:00-0500
 release_date: 2015-02-18T13:45:14-0600
+lastmod: 2015-02-18T13:45:14-0600
 keywords: "luck, modern, shits, large, predicted"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
 permalink: "/p/think-of-the-whales"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_think-of-the-whales"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-02-18T13:45:14-0600
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg "Whales"

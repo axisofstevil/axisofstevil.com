@@ -3,16 +3,13 @@ layout: post
 title: "Lighter Side Of Animal Testing"
 date: 2005-07-18T00:00:00-0500
 release_date: 2015-04-29T13:45:04-0500
+lastmod: 2015-04-29T13:45:04-0500
 keywords: "animal, animals, product, work, testing"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/girraffesmelltestlarge.jpg"
 permalink: "/p/lighter-side-of-animal-testing"
 summary: "Originally published Monday July, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_lighter-side-of-animal-testing"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-04-29T13:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/girraffesmelltestlarge.jpg "GirraffeTest"

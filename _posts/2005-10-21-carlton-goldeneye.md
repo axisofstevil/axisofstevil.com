@@ -3,16 +3,13 @@ layout: post
 title: "The Episode In Which Carlton Plays GoldenEye With Steven and Wins"
 date: 2005-10-21T00:00:00-0500
 release_date: 2015-09-02T08:45:03-0500
+lastmod: 2015-09-02T08:45:03-0500
 keywords: "carlton, expreing, great, sportsmanship, team"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carlton64.jpg"
 permalink: "/p/carlton-goldeneye"
 summary: "Originally published Friday October, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-goldeneye"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-09-02T08:45:03-0500
 ---
 
 ![carlton](http://d3e878vmunx8cm.cloudfront.net/assets/carlton64.jpg)

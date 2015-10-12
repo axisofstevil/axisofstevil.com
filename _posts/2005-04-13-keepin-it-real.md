@@ -3,16 +3,13 @@ layout: post
 title: "Keepin It Real"
 date: 2005-04-13T00:00:00-0500
 release_date: 2014-09-22T13:54:01-0500
+lastmod: 2014-09-22T13:54:01-0500
 keywords: "fish, bigger, axis, stevil, coloring"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg"
 permalink: "/p/keepin-it-real"
 summary: "Originally published Wednesday April, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_keepin-it-real"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-09-22T13:54:01-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg "BigfishMain"[id_5]: http://d3e878vmunx8cm.cloudfront.net/assets/color-in-highres.jpg "BigfishExample"

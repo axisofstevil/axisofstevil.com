@@ -3,16 +3,13 @@ layout: post
 title: "Facebook: Gotta Catch &#039;em All!"
 date: 2005-10-10T00:00:00-0500
 release_date: 2015-08-19T08:45:11-0500
+lastmod: 2015-08-19T08:45:11-0500
 keywords: "energy, drome, gihy, pool, oaks"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg"
 permalink: "/p/facebook-gotta-catch-em-all"
 summary: "Originally published Monday October, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_facebook-gotta-catch-em-all"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-08-19T08:45:11-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg "Facebook"

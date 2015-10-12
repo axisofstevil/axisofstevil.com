@@ -3,16 +3,13 @@ layout: post
 title: "Milton Birdly"
 date: 2005-04-29T00:00:00-0500
 release_date: 2014-10-22T13:45:28-0500
+lastmod: 2014-10-22T13:45:28-0500
 keywords: "boards, games, friendsflashmediabirdsandladdersswf, play, doesnt"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/birdsandladders_thumb.png"
 permalink: "/p/new-from-milton-birdly"
 summary: "Originally published Friday April, 29th 2005"
 category: flash
 hashtag: "#axisofstevil_new-from-milton-birdly"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2014-10-22T13:45:28-0500
 ---
 
 New from Milton Birdly: Birds are our friends and who doesnt like to play boards games with their friends?

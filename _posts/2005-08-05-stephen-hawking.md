@@ -3,16 +3,13 @@ layout: post
 title: "Stephen Hawking"
 date: 2005-08-05T00:00:00-0500
 release_date: 2015-06-12T08:45:04-0500
+lastmod: 2015-06-12T08:45:04-0500
 keywords: "hawking, steve, axis, great, know"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg"
 permalink: "/p/stephen-hawking"
 summary: "Originally published Friday August, 5th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-hawking"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-06-12T08:45:04-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg "Stephenhawking1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking2.jpg "Stephenhawking2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawkingmural.jpg "Stephenhawkingbar"

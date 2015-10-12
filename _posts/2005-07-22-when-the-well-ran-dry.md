@@ -3,16 +3,13 @@ layout: post
 title: "When The Well Ran Dry"
 date: 2005-07-22T00:00:00-0500
 release_date: 2015-05-11T13:45:12-0500
+lastmod: 2015-05-11T13:45:12-0500
 keywords: "rangers, power, morphing, production, mighty"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg"
 permalink: "/p/when-the-well-ran-dry"
 summary: "Originally published Friday July, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_when-the-well-ran-dry"
-sitemap:
-    priority: 0.9
-    changefreq: 'weekly'
-    lastmod: 2015-05-11T13:45:12-0500
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg "Zord"
