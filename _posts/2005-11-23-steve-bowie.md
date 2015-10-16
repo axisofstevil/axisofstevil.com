@@ -3,7 +3,7 @@ layout: post
 title: "Steve Bowie"
 date: 2005-11-23T00:00:00-0600
 release_date: 2015-10-14T08:51:15-0500
-lastmod: 2015-10-14T08:51:15-0500
+lastmod: 2015-10-14T08:53:03-0500
 keywords: "bowie, steve, great, texas, king"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevebowie1.jpg"
 permalink: "/p/steve-bowie"
