@@ -3,7 +3,7 @@ layout: post
 title: "A Declaration Of War"
 date: 2005-12-07T00:00:00-0600
 release_date: 2015-11-02T08:45:04-0600
-lastmod: 2015-11-02T08:45:04-0600
+lastmod: 2015-11-02T08:47:03-0600
 keywords: "sock, socks, goblins, people, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg"
 permalink: "/p/a-declaration-of-war"
