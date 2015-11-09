@@ -3,7 +3,7 @@ layout: post
 title: "Anthropomorphize"
 date: 2005-12-09T00:00:00-0600
 release_date: 2015-11-06T08:45:05-0600
-lastmod: 2015-11-06T08:45:05-0600
+lastmod: 2015-11-06T08:47:04-0600
 keywords: "axis, anthropomorphize, people, speech, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/anthromorphize.jpg"
 permalink: "/p/anthropomorphize"
