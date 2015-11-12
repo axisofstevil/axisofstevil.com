@@ -2,7 +2,7 @@
 layout: page
 title: The Shirts
 permalink: /shirts/
-image: '/assets/backissues.jpg'
+image: 'http://d3e878vmunx8cm.cloudfront.net/assets/backissues.jpg'
 sitemap:
     priority: 0.9
     changefreq: 'weekly'
