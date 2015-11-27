@@ -3,7 +3,7 @@ layout: post
 title: "Ameliorate"
 date: 2006-01-11T00:00:00-0600
 release_date: 2015-11-25T08:45:04-0600
-lastmod: 2015-11-25T08:45:04-0600
+lastmod: 2015-11-25T08:47:05-0600
 keywords: "axis, ameliorate, vocabulary, people, speech"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/ameliorate.jpg"
 permalink: "/p/ameliorate"
