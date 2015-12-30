@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Pseudopseudohypoparathyroidism"
-date: 2005-08-22T00:00:00-0500
-release_date: 2015-07-01T08:45:03-0500
-lastmod: 2015-07-01T08:45:03-0500
+date: 2005-08-22T05:00:00+0000
+release_date: 2015-07-01T13:45:03+0000
+lastmod: 2015-07-01T13:45:03+0000
 keywords: "pseudopseudohypoparathyroidism, axis, people, inherited, speech"
 image: "http://d3e878vmunx8cm.cloudfront.net"
 permalink: "/p/pseudopseudohypoparathyroidism"

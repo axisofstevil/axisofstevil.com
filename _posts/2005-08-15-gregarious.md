@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Gregarious"
-date: 2005-08-15T00:00:00-0500
-release_date: 2015-06-24T08:45:04-0500
-lastmod: 2015-06-24T08:45:04-0500
+date: 2005-08-15T05:00:00+0000
+release_date: 2015-06-24T13:45:04+0000
+lastmod: 2015-06-24T13:45:04+0000
 keywords: "axis, group, vocabulary, speech, people"
 image: "http://d3e878vmunx8cm.cloudfront.net"
 permalink: "/p/gregarious"

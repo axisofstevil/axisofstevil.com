@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Full House: Wrath Of Tanner"
-date: 2005-07-29T00:00:00-0500
-release_date: 2015-05-22T08:45:03-0500
-lastmod: 2015-05-22T08:45:03-0500
+date: 2005-07-29T05:00:00+0000
+release_date: 2015-05-22T13:45:03+0000
+lastmod: 2015-05-22T13:45:03+0000
 keywords: "tanner, magic, danny, house, pack"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/magic.gif"
 permalink: "/p/full-house-wrath-of-tanner"

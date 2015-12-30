@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "On Newstands Today!"
-date: 2005-09-26T00:00:00-0500
-release_date: 2015-08-07T08:45:09-0500
-lastmod: 2015-08-07T08:45:09-0500
+date: 2005-09-26T05:00:00+0000
+release_date: 2015-08-07T13:45:09+0000
+lastmod: 2015-08-07T13:45:09+0000
 keywords: "game, icarus, hard, right, films"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg"
 permalink: "/p/hasbeen-october-2005"

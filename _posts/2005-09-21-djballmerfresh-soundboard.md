@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "DJ Ballmer Fresh Sound Board"
-date: 2005-09-21T00:00:00-0500
-release_date: 2015-07-31T08:45:09-0500
-lastmod: 2015-07-31T08:45:09-0500
+date: 2005-09-21T05:00:00+0000
+release_date: 2015-07-31T13:45:09+0000
+lastmod: 2015-07-31T13:45:09+0000
 keywords: "beatsflashmediadjballmerfreshswf, ballmer, steve, fresh, funky"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/djballmerfresh_thumb.png"
 permalink: "/p/djballmerfresh-soundboard"

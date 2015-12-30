@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Smith"
-date: 2006-01-11T00:00:00-0600
-release_date: 2015-11-27T08:45:04-0600
-lastmod: 2015-11-27T08:47:05-0600
+date: 2006-01-11T06:00:00+0000
+release_date: 2015-11-27T14:45:04+0000
+lastmod: 2015-11-27T14:47:05+0000
 keywords: "name, steve, smiths, stevil, energy"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif"
 permalink: "/p/steve-smith"

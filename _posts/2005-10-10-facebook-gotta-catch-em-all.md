@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Facebook: Gotta Catch &#039;em All!"
-date: 2005-10-10T00:00:00-0500
-release_date: 2015-08-19T08:45:11-0500
-lastmod: 2015-08-19T08:45:11-0500
+date: 2005-10-10T05:00:00+0000
+release_date: 2015-08-19T13:45:11+0000
+lastmod: 2015-08-19T13:45:11+0000
 keywords: "energy, drome, gihy, pool, oaks"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg"
 permalink: "/p/facebook-gotta-catch-em-all"

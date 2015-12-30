@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Science Of Tomorrow, Today!"
-date: 2005-10-07T00:00:00-0500
-release_date: 2015-08-17T08:45:03-0500
-lastmod: 2015-08-17T08:45:03-0500
+date: 2005-10-07T05:00:00+0000
+release_date: 2015-08-17T13:45:03+0000
+lastmod: 2015-08-17T13:45:03+0000
 keywords: "phrenology, work, relief, mannequins, science"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg"
 permalink: "/p/the-science-of-tomorrow-today"

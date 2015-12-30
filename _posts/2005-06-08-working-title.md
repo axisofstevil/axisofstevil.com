@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Working Title"
-date: 2005-06-08T00:00:00-0500
-release_date: 2015-01-14T13:45:14-0600
-lastmod: 2015-01-14T13:45:14-0600
+date: 2005-06-08T05:00:00+0000
+release_date: 2015-01-14T19:45:14+0000
+lastmod: 2015-01-14T19:45:14+0000
 keywords: "mind, soften, eyes, edges, blur"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/thoughtrice.gif"
 permalink: "/p/working-title"

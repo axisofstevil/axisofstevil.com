@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The New Age Of Villainy"
-date: 2005-07-15T00:00:00-0500
-release_date: 2015-04-24T13:45:05-0500
-lastmod: 2015-04-24T13:45:05-0500
+date: 2005-07-15T05:00:00+0000
+release_date: 2015-04-24T18:45:05+0000
+lastmod: 2015-04-24T18:45:05+0000
 keywords: "game, games, bear, icons, plot"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/DarkerBrothers.jpg"
 permalink: "/p/the-new-age-of-villainy"

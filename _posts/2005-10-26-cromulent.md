@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Cromulent"
-date: 2005-10-26T00:00:00-0500
-release_date: 2015-09-07T08:45:09-0500
-lastmod: 2015-09-07T08:45:09-0500
+date: 2005-10-26T05:00:00+0000
+release_date: 2015-09-07T13:45:09+0000
+lastmod: 2015-09-07T13:45:09+0000
 keywords: "people, axis, expreion, speech, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net"
 permalink: "/p/cromulent"

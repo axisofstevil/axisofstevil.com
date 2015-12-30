@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Tumultuous"
-date: 2005-03-27T00:00:00-0600
-release_date: 2014-08-13T13:45:49-0500
-lastmod: 2014-08-13T13:45:49-0500
+date: 2005-03-27T06:00:00+0000
+release_date: 2014-08-13T18:45:49+0000
+lastmod: 2014-08-13T18:45:49+0000
 keywords: "tumultuous, axis, people, disorderly, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/tumultuous.gif"
 permalink: "/p/tumultuous"

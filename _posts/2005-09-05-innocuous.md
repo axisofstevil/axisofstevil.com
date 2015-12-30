@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Innocuous"
-date: 2005-09-05T00:00:00-0500
-release_date: 2015-07-15T08:45:03-0500
-lastmod: 2015-07-15T08:45:03-0500
+date: 2005-09-05T05:00:00+0000
+release_date: 2015-07-15T13:45:03+0000
+lastmod: 2015-07-15T13:45:03+0000
 keywords: "innocuous, axis, people, speech, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net"
 permalink: "/p/innocuous"

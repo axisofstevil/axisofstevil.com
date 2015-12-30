@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Quintessential"
-date: 2005-03-31T00:00:00-0600
-release_date: 2014-08-25T13:45:23-0500
-lastmod: 2014-08-25T13:45:23-0500
+date: 2005-03-31T06:00:00+0000
+release_date: 2014-08-25T18:45:23+0000
+lastmod: 2014-08-25T18:45:23+0000
 keywords: "axis, vocabulary, speech, people, quinteential"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif"
 permalink: "/p/quintessential"

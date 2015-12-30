@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Grandiose"
-date: 2005-04-25T00:00:00-0500
-release_date: 2014-10-08T13:45:10-0500
-lastmod: 2014-10-08T13:45:10-0500
+date: 2005-04-25T05:00:00+0000
+release_date: 2014-10-08T18:45:10+0000
+lastmod: 2014-10-08T18:45:10+0000
 keywords: "grandiose, speech, people, characterized, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg"
 permalink: "/p/grandiose"

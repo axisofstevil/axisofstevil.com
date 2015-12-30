@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Episode In Which Carlton Takes A Trip To The Edge"
-date: 2005-07-06T00:00:00-0500
-release_date: 2015-03-27T13:45:05-0500
-lastmod: 2015-03-27T13:45:05-0500
+date: 2005-07-06T05:00:00+0000
+release_date: 2015-03-27T18:45:05+0000
+lastmod: 2015-03-27T18:45:05+0000
 keywords: "carlton, survived, thankfully, void, infinite"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carltonperspective.jpg"
 permalink: "/p/carlton-edge-trippin"

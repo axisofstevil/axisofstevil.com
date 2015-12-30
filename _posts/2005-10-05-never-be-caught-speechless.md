@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Never Be Caught Speechless!"
-date: 2005-10-05T00:00:00-0500
-release_date: 2015-08-14T08:45:04-0500
-lastmod: 2015-08-14T08:45:04-0500
+date: 2005-10-05T05:00:00+0000
+release_date: 2015-08-14T13:45:04+0000
+lastmod: 2015-08-14T13:45:04+0000
 keywords: "panda, pocket, nervousnebecause, fact, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg"
 permalink: "/p/never-be-caught-speechless"

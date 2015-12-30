@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Triumphant Return Of The American Spirit"
-date: 2005-04-05T00:00:00-0500
-release_date: 2014-09-01T13:45:09-0500
-lastmod: 2014-09-01T13:45:09-0500
+date: 2005-04-05T05:00:00+0000
+release_date: 2014-09-01T18:45:09+0000
+lastmod: 2014-09-01T18:45:09+0000
 keywords: "axis, american, stevil, spirit, -"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaperweb.jpg"
 permalink: "/p/triumphant-return-of-the-american-spirit"

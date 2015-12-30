@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "What Might Have Been"
-date: 2005-08-25T00:00:00-0500
-release_date: 2015-07-03T08:45:03-0500
-lastmod: 2015-07-03T08:45:03-0500
+date: 2005-08-25T05:00:00+0000
+release_date: 2015-07-03T13:45:03+0000
+lastmod: 2015-07-03T13:45:03+0000
 keywords: "take, monkey, monkeys, chimp, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg"
 permalink: "/p/what-might-have-been"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "YouBoob Promo"
-date: 2005-11-14T00:00:00-0600
-release_date: 2015-09-30T08:45:04-0500
-lastmod: 2015-09-30T08:45:04-0500
+date: 2005-11-14T06:00:00+0000
+release_date: 2015-09-30T13:45:04+0000
+lastmod: 2015-09-30T13:45:04+0000
 keywords: "websiteflashmediayouboobswf, video, boob, promo"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/youboob_thumb.png"
 permalink: "/p/youboob-promo"

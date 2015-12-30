@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "P.b.c. And You"
-date: 2005-06-17T00:00:00-0500
-release_date: 2015-02-04T13:45:08-0600
-lastmod: 2015-02-04T13:45:08-0600
+date: 2005-06-17T05:00:00+0000
+release_date: 2015-02-04T19:45:08+0000
+lastmod: 2015-02-04T19:45:08+0000
 keywords: "banana, hammock, beach, name, spiedo"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif"
 permalink: "/p/pbc-and-you"

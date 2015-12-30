@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Extreme Thanksgiving"
-date: 2005-11-04T00:00:00-0600
-release_date: 2015-09-18T08:45:04-0500
-lastmod: 2015-09-18T08:45:04-0500
+date: 2005-11-04T06:00:00+0000
+release_date: 2015-09-18T13:45:04+0000
+lastmod: 2015-09-18T13:45:04+0000
 keywords: "viacom, thanksgiving, month, history, womens"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg"
 permalink: "/p/extreme-thanksgiving"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Beloved Fish Tycoon Dies"
-date: 2005-11-16T00:00:00-0600
-release_date: 2015-10-07T08:45:04-0500
-lastmod: 2015-10-07T08:45:04-0500
+date: 2005-11-16T06:00:00+0000
+release_date: 2015-10-07T13:45:04+0000
+lastmod: 2015-10-07T13:45:04+0000
 keywords: "fish, watercrest, mulch, arthur, fried"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg"
 permalink: "/p/trout-clout"

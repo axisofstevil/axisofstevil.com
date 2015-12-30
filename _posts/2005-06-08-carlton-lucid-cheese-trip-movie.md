@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Carlton and the Lucid Cheese Trip"
-date: 2005-06-08T00:00:00-0500
-release_date: 2015-01-16T13:45:13-0600
-lastmod: 2015-01-16T13:45:13-0600
+date: 2005-06-08T05:00:00+0000
+release_date: 2015-01-16T19:45:13+0000
+lastmod: 2015-01-16T19:45:13+0000
 keywords: "ballsflashmediacarltoncheesemadneswf, trip, goes, carlton, episode"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness_thumb.png"
 permalink: "/p/carlton-lucid-cheese-trip-movie"

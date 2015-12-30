@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Martin"
-date: 2005-01-27T00:00:00-0600
-release_date: 2014-08-01T13:45:29-0500
-lastmod: 2014-08-12T03:59:48-0500
+date: 2005-01-27T06:00:00+0000
+release_date: 2014-08-01T18:45:29+0000
+lastmod: 2014-08-12T08:59:48+0000
 keywords: "steve, great, axis, steves, martin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg"
 permalink: "/p/steve-martin"

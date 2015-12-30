@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steven Spielberg"
-date: 2005-03-28T00:00:00-0600
-release_date: 2014-08-15T13:45:20-0500
-lastmod: 2014-08-15T13:45:20-0500
+date: 2005-03-28T06:00:00+0000
+release_date: 2014-08-15T18:45:20+0000
+lastmod: 2014-08-15T18:45:20+0000
 keywords: "axis, stevil, steven, spielberg, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg"
 permalink: "/p/steven-spielberg"

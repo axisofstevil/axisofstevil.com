@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Smash"
-date: 2005-08-03T00:00:00-0500
-release_date: 2015-06-01T08:45:04-0500
-lastmod: 2015-06-01T08:45:04-0500
+date: 2005-08-03T05:00:00+0000
+release_date: 2015-06-01T13:45:04+0000
+lastmod: 2015-06-01T13:45:04+0000
 keywords: "gamesflashmediasmashgameswf, video, work, bored, latest"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/smashgame_thumb.png"
 permalink: "/p/smash-game"

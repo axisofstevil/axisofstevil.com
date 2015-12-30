@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "More Cluck For Your Buck"
-date: 2005-05-30T00:00:00-0500
-release_date: 2014-12-31T13:45:09-0600
-lastmod: 2014-12-31T13:45:09-0600
+date: 2005-05-30T05:00:00+0000
+release_date: 2014-12-31T19:45:09+0000
+lastmod: 2014-12-31T19:45:09+0000
 keywords: "kickin, chickin, chicken, name, chickins"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/kickinchicken.jpg"
 permalink: "/p/more-cluck-for-your-buck"

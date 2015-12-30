@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Hang In There Lil Doggy!"
-date: 2005-03-27T00:00:00-0600
-release_date: 2014-08-11T13:46:22-0500
-lastmod: 2014-08-12T03:57:15-0500
+date: 2005-03-27T06:00:00+0000
+release_date: 2014-08-11T18:46:22+0000
+lastmod: 2014-08-12T08:57:15+0000
 keywords: "life, pain, frustration, money, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Advance-to-pain-web.jpg"
 permalink: "/p/hang-in-there-lil-doggy"

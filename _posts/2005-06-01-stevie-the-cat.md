@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stevie The Cat"
-date: 2005-06-01T00:00:00-0500
-release_date: 2015-01-07T13:45:10-0600
-lastmod: 2015-01-07T13:45:10-0600
+date: 2005-06-01T05:00:00+0000
+release_date: 2015-01-07T19:45:10+0000
+lastmod: 2015-01-07T19:45:10+0000
 keywords: "stevie, axis, stevil, steve, great"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg"
 permalink: "/p/stevie-the-cat"

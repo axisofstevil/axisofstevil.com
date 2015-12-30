@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Transcendent"
-date: 2005-04-15T00:00:00-0500
-release_date: 2014-09-24T13:45:16-0500
-lastmod: 2014-09-24T13:45:16-0500
+date: 2005-04-15T05:00:00+0000
+release_date: 2014-09-24T18:45:16+0000
+lastmod: 2014-09-24T18:45:16+0000
 keywords: "transcendent, people, speech, axis, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Transcendent.jpg"
 permalink: "/p/transcendent"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "See Yourself On A New Model D"
-date: 2005-05-18T00:00:00-0500
-release_date: 2014-11-28T13:45:14-0600
-lastmod: 2014-11-28T13:45:14-0600
+date: 2005-05-18T05:00:00+0000
+release_date: 2014-11-28T19:45:14+0000
+lastmod: 2014-11-28T19:45:14+0000
 keywords: "fridgeartid, aetsbrachiosarusxjpg, brachiomodeldadidridedinoidfridgeartidbrachioid, aetsfridgeartjpg, ridedinoid"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/modelDadfull.jpg"
 permalink: "/p/see-yourself-on-a-model-d"

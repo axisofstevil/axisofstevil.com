@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "You Gotta Do What You Gotta Do"
-date: 2005-08-10T00:00:00-0500
-release_date: 2015-06-17T08:45:10-0500
-lastmod: 2015-06-17T08:45:10-0500
+date: 2005-08-10T05:00:00+0000
+release_date: 2015-06-17T13:45:10+0000
+lastmod: 2015-06-17T13:45:10+0000
 keywords: "rabbit, meat, animal, company, discovered"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg"
 permalink: "/p/you-gotta-do-what-you-gotta-do"

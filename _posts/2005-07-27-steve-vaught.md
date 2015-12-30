@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Vaught"
-date: 2005-07-27T00:00:00-0500
-release_date: 2015-05-18T08:45:03-0500
-lastmod: 2015-05-18T08:45:03-0500
+date: 2005-07-27T05:00:00+0000
+release_date: 2015-05-18T13:45:03+0000
+lastmod: 2015-05-18T13:45:03+0000
 keywords: "steve, life, vaught, axis, time"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg"
 permalink: "/p/steve-vaught"

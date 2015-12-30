@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Axis Of Montage"
-date: 2005-07-01T00:00:00-0500
-release_date: 2015-03-20T13:45:11-0500
-lastmod: 2015-03-20T13:45:11-0500
+date: 2005-07-01T05:00:00+0000
+release_date: 2015-03-20T18:45:11+0000
+lastmod: 2015-03-20T18:45:11+0000
 keywords: "stevil, download, axis, wallpaper, aetsmontagewalljpg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/montagewallweb.jpg"
 permalink: "/p/the-axis-of-montage"

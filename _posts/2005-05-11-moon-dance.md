@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Carlton and the Great Moon Adventure"
-date: 2005-05-11T00:00:00-0500
-release_date: 2014-11-14T13:45:07-0600
-lastmod: 2014-11-14T13:45:07-0600
+date: 2005-05-11T05:00:00+0000
+release_date: 2014-11-14T19:45:07+0000
+lastmod: 2014-11-14T19:45:07+0000
 keywords: "moonflashmediamoondanceswf, party, dance, carlton, episode"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/moondance_thumb.png"
 permalink: "/p/moon-dance"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "U.f.n. Sighting!"
-date: 2005-09-02T00:00:00-0500
-release_date: 2015-07-10T08:45:04-0500
-lastmod: 2015-07-10T08:45:04-0500
+date: 2005-09-02T05:00:00+0000
+release_date: 2015-07-10T13:45:04+0000
+lastmod: 2015-07-10T13:45:04+0000
 keywords: "nuns, flying, known, catholic, ability"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg"
 permalink: "/p/ufn-sighting"

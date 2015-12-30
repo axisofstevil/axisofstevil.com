@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Spoonerism"
-date: 2005-05-16T00:00:00-0500
-release_date: 2014-11-21T13:45:20-0600
-lastmod: 2014-11-21T13:45:20-0600
+date: 2005-05-16T05:00:00+0000
+release_date: 2014-11-21T19:45:20+0000
+lastmod: 2014-11-21T19:45:20+0000
 keywords: "axis, speech, spoonerism, vocabulary, people"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg"
 permalink: "/p/spoonerism"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Ballmer"
-date: 2005-09-23T00:00:00-0500
-release_date: 2015-08-05T08:45:09-0500
-lastmod: 2015-08-05T08:45:09-0500
+date: 2005-09-23T05:00:00+0000
+release_date: 2015-08-05T13:45:09+0000
+lastmod: 2015-08-05T13:45:09+0000
 keywords: "ballmer, steve, stevil, people, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steveballmer1.jpg"
 permalink: "/p/steve-ballmer"

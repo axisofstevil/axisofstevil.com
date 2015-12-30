@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Milton Birdly"
-date: 2005-04-29T00:00:00-0500
-release_date: 2014-10-22T13:45:28-0500
-lastmod: 2014-10-22T13:45:28-0500
+date: 2005-04-29T05:00:00+0000
+release_date: 2014-10-22T18:45:28+0000
+lastmod: 2014-10-22T18:45:28+0000
 keywords: "boards, games, friendsflashmediabirdsandladdersswf, play, doesnt"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/birdsandladders_thumb.png"
 permalink: "/p/new-from-milton-birdly"

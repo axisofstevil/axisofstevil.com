@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Keepin It Real"
-date: 2005-04-13T00:00:00-0500
-release_date: 2014-09-22T13:54:01-0500
-lastmod: 2014-09-22T13:54:01-0500
+date: 2005-04-13T05:00:00+0000
+release_date: 2014-09-22T18:54:01+0000
+lastmod: 2014-09-22T18:54:01+0000
 keywords: "fish, bigger, axis, stevil, coloring"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg"
 permalink: "/p/keepin-it-real"
