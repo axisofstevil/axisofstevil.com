@@ -92,6 +92,7 @@ As the years wore on, so did the shirts and the lives of those who wore them. Si
 *   ![]({{ site.content_baseurl }}/assets/shirts_BridgetToddGalen_2011-08-19.jpg){: .gallery-item }
 *   ![]({{ site.content_baseurl }}/assets/shirts_ad.jpg){: .gallery-item }
 *   ![]({{ site.content_baseurl }}/assets/shirts_ad3.jpg){: .gallery-item }
+#*   ![]({{ site.content_baseurl }}/assets/shirts_lauren.jpg){: .gallery-item }
 
 ### The Quilt
 
