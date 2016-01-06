@@ -3,7 +3,7 @@ layout: post
 title: "Better Living Through Chemicals"
 date: 2006-02-08T06:00:00+0000
 release_date: 2015-12-30T15:40:48+0000
-lastmod: 2015-12-30T15:40:48+0000
+lastmod: 2015-12-30T19:09:02+0000
 keywords: "scaroel, plant, young, raleighs, stevans"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg"
 permalink: "/p/better-living-through-chemicals"
