@@ -3,7 +3,7 @@ layout: post
 title: "Steve T. Pizzawheel"
 date: 2006-03-01T06:00:00+0000
 release_date: 2016-02-10T14:45:02+0000
-lastmod: 2016-02-10T14:45:02+0000
+lastmod: 2016-02-10T14:47:02+0000
 keywords: "steve, pizza, stevil, public, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheeltop.gif"
 permalink: "/p/steve-t-pizzawheel"
