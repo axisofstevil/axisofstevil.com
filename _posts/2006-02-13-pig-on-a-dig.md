@@ -10,6 +10,8 @@ permalink: "/p/pig-on-a-dig"
 summary: "Originally published Monday February, 13th 2006"
 category: publications
 hashtag: "#axisofstevil_pig-on-a-dig"
+redirect_from:
+  - /pigdig.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg "jomarbuckle"

@@ -10,6 +10,8 @@ permalink: "/p/pbc-and-you"
 summary: "Originally published Friday June, 17th 2005"
 category: publications
 hashtag: "#axisofstevil_pbc-and-you"
+redirect_from:
+  - /bananahammock.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif "BananaHammock"

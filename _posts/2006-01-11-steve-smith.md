@@ -10,6 +10,7 @@ permalink: "/p/steve-smith"
 summary: "Originally published Wednesday January, 11th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steve-smith"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"

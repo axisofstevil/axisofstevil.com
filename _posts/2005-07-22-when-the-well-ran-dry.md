@@ -10,6 +10,8 @@ permalink: "/p/when-the-well-ran-dry"
 summary: "Originally published Friday July, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_when-the-well-ran-dry"
+redirect_from:
+  - /zord.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg "Zord"

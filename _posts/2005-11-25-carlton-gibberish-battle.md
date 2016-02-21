@@ -10,6 +10,7 @@ permalink: "/p/carlton-gibberish-battle"
 summary: "Originally published Friday November, 25th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-gibberish-battle"
+redirect_from:
 ---
 
 ![carlton](http://d3e878vmunx8cm.cloudfront.net/assets/carlton-gibberish-page_1.gif)

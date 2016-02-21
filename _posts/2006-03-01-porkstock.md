@@ -10,6 +10,8 @@ permalink: "/p/porkstock"
 summary: "Originally published Wednesday March, 1st 2006"
 category: publications
 hashtag: "#axisofstevil_porkstock"
+redirect_from:
+  - /porkstock.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg "porkstock"

@@ -10,6 +10,8 @@ permalink: "/p/pan-and-scan-weekend"
 summary: "Originally published Monday April, 25th 2005"
 category: publications
 hashtag: "#axisofstevil_pan-and-scan-weekend"
+redirect_from:
+  - /panscan.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/1990webpub.jpg "PanScanMain"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/1990web.jpg "PanScan1"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/35mmweb.jpg "PanScan2"[id_4]: http://d3e878vmunx8cm.cloudfront.net/assets/Cpt-Flamingoweb.jpg "PanScan3"[id_5]: http://d3e878vmunx8cm.cloudfront.net/assets/Leaperedprintnightweb.jpg "PanScan4"[id_6]: http://d3e878vmunx8cm.cloudfront.net/assets/partyontheredplanetweb.jpg "PanScan5"[id_7]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevilweb.jpg "PanScan6"                        

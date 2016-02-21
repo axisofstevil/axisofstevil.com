@@ -10,6 +10,8 @@ permalink: "/p/battle-the-odds"
 summary: "Originally published Wednesday May, 11th 2005"
 category: publications
 hashtag: "#axisofstevil_battle-the-odds"
+redirect_from:
+  - /guesswhoownd.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg "Guesswho1"

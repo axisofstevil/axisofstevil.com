@@ -10,6 +10,8 @@ permalink: "/p/entrapment-through-the-ages"
 summary: "Originally published Monday June, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_entrapment-through-the-ages"
+redirect_from:
+  - /entrapment.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg "Entrapment"

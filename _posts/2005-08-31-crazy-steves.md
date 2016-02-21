@@ -10,6 +10,7 @@ permalink: "/p/crazy-steves"
 summary: "Originally published Wednesday August, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_crazy-steves"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg "Crazystevelogo1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/crazysteveweb.jpg "Crazysteve2"

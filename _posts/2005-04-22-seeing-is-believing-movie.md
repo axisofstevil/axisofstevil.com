@@ -10,6 +10,7 @@ permalink: "/p/seeing-is-believing-movie"
 summary: "Originally published Friday April, 22nd 2005"
 category: flash
 hashtag: "#axisofstevil_seeing-is-believing-movie"
+redirect_from:
 ---
 
 Time lapse video compressed with flash.

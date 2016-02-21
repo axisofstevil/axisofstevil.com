@@ -10,6 +10,8 @@ permalink: "/p/ufn-sighting"
 summary: "Originally published Friday September, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_ufn-sighting"
+redirect_from:
+  - /flyingnun.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg "Flyingnun"

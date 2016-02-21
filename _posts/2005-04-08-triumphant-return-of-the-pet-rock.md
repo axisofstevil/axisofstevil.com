@@ -10,6 +10,7 @@ permalink: "/p/triumphant-return-of-the-pet-rock"
 summary: "Originally published Friday April, 8th 2005"
 category: flash
 hashtag: "#axisofstevil_triumphant-return-of-the-pet-rock"
+redirect_from:
 ---
 
 Carlton is Born, Build your own. follow these step by step instructions.

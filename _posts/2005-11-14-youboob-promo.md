@@ -10,6 +10,7 @@ permalink: "/p/youboob-promo"
 summary: "Originally published Monday November, 14th 2005"
 category: flash
 hashtag: "#axisofstevil_youboob-promo"
+redirect_from:
 ---
 
 Promo for You Boob! Video website.

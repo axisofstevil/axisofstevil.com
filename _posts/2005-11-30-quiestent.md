@@ -10,6 +10,7 @@ permalink: "/p/quiestent"
 summary: "Originally published Wednesday November, 30th 2005"
 category: language
 hashtag: "#axisofstevil_quiestent"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/quiestent.gif "quiestent"

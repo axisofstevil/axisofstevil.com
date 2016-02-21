@@ -10,6 +10,7 @@ permalink: "/p/carlton-born"
 summary: "Originally published Monday March, 14th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-born"
+redirect_from:
 ---
 
 !#flash(http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth.swf)

@@ -10,6 +10,8 @@ permalink: "/p/extreme-hoopin"
 summary: "Originally published Monday August, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-hoopin"
+redirect_from:
+  - /extremehoopin.htm
 ---
 
 ![extreme-hoppin](http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg)

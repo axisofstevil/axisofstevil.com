@@ -10,6 +10,7 @@ permalink: "/p/steve-zissou"
 summary: "Originally published Friday April, 29th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zissou"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg "Stevezissou1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/zizzobottom.jpg "Stevezissou2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/zizoside.jpg "Stevezissoubar"

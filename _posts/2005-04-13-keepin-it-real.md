@@ -10,6 +10,8 @@ permalink: "/p/keepin-it-real"
 summary: "Originally published Wednesday April, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_keepin-it-real"
+redirect_from:
+  - /bigfish.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg "BigfishMain"[id_5]: http://d3e878vmunx8cm.cloudfront.net/assets/color-in-highres.jpg "BigfishExample"

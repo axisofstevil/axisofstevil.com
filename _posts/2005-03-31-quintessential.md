@@ -10,6 +10,8 @@ permalink: "/p/quintessential"
 summary: "Originally published Thursday March, 31st 2005"
 category: language
 hashtag: "#axisofstevil_quintessential"
+redirect_from:
+  - /quintessential.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif "quintessential"

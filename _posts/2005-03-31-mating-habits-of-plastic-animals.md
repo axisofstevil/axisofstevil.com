@@ -10,6 +10,8 @@ permalink: "/p/mating-habits-of-plastic-animals"
 summary: "Originally published Thursday March, 31st 2005"
 category: publications
 hashtag: "#axisofstevil_mating-habits-of-plastic-animals"
+redirect_from:
+  - /matehabit.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/mousetrapweb.jpg "MatehabitMain"

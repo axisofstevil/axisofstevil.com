@@ -10,6 +10,7 @@ permalink: "/p/resistentialism"
 summary: "Originally published Wednesday February, 8th 2006"
 category: language
 hashtag: "#axisofstevil_resistentialism"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/AOSwordFeb7.jpg "resistentialism"

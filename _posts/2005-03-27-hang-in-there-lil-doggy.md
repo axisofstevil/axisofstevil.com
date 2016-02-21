@@ -10,6 +10,8 @@ permalink: "/p/hang-in-there-lil-doggy"
 summary: "Originally published Sunday March, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_hang-in-there-lil-doggy"
+redirect_from:
+  - /hangindog.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Advance-to-pain-web.jpg "Advance-to-pain-web"

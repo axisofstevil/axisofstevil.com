@@ -10,6 +10,8 @@ permalink: "/p/the-science-of-tomorrow-today"
 summary: "Originally published Friday October, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_the-science-of-tomorrow-today"
+redirect_from:
+  - /phrenhead.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg  "Phrenhead"

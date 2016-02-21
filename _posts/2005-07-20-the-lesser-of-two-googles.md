@@ -10,6 +10,8 @@ permalink: "/p/the-lesser-of-two-googles"
 summary: "Originally published Wednesday July, 20th 2005"
 category: publications
 hashtag: "#axisofstevil_the-lesser-of-two-googles"
+redirect_from:
+  - /google.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg "Google1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/waldoinlondon.gif "Google2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/PSAgooglehat.gif "Google3"

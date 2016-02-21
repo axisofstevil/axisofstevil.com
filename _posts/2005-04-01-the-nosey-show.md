@@ -10,6 +10,7 @@ permalink: "/p/the-nosey-show"
 summary: "Originally published Friday April, 1st 2005"
 category: flash
 hashtag: "#axisofstevil_the-nosey-show"
+redirect_from:
 ---
 
 Nick's singing nose and the musical blessings known as Nirvanna.

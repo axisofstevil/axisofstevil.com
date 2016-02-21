@@ -10,6 +10,7 @@ permalink: "/p/steven-segal"
 summary: "Originally published Wednesday February, 8th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steven-segal"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg "Stevensega1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal2.jpg "Stevensega2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegalmural.jpg "Stevensegabar"

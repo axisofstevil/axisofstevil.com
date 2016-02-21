@@ -10,6 +10,8 @@ permalink: "/p/think-of-the-whales"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_think-of-the-whales"
+redirect_from:
+  - /whalesave.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg "Whales"

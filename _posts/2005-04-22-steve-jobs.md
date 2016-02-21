@@ -10,6 +10,7 @@ permalink: "/p/steve-jobs"
 summary: "Originally published Friday April, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-jobs"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg "Stevejobs1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs7.jpg "Stevejobs2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevejobsmural.jpg "Stevejobsbar"

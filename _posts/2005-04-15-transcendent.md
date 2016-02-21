@@ -10,6 +10,7 @@ permalink: "/p/transcendent"
 summary: "Originally published Friday April, 15th 2005"
 category: language
 hashtag: "#axisofstevil_transcendent"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Transcendent.jpg "transcendent"

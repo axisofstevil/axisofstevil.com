@@ -10,6 +10,8 @@ permalink: "/p/anthropomorphize"
 summary: "Originally published Friday December, 9th 2005"
 category: language
 hashtag: "#axisofstevil_anthropomorphize"
+redirect_from:
+  - /anthropomorphize.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/anthromorphize.jpg "anthropomorphize"

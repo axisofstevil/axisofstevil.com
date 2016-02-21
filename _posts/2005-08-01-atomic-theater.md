@@ -10,6 +10,8 @@ permalink: "/p/atomic-theater"
 summary: "Originally published Monday August, 1st 2005"
 category: publications
 hashtag: "#axisofstevil_atomic-theater"
+redirect_from:
+  - /atomictheatre.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg "AtomicTheatre"

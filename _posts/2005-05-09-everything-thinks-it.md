@@ -10,6 +10,7 @@ permalink: "/p/everything-thinks-it"
 summary: "Originally published Monday May, 9th 2005"
 category: language
 hashtag: "#axisofstevil_everything-thinks-it"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Zephyr.jpg "zephyr"

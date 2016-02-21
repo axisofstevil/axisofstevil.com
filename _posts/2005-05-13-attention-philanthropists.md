@@ -10,6 +10,8 @@ permalink: "/p/attention-philanthropists"
 summary: "Originally published Friday May, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_attention-philanthropists"
+redirect_from:
+  - /attention.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg "Attention"

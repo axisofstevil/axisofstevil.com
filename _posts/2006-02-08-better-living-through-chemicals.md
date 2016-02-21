@@ -10,6 +10,8 @@ permalink: "/p/better-living-through-chemicals"
 summary: "Originally published Wednesday February, 8th 2006"
 category: publications
 hashtag: "#axisofstevil_better-living-through-chemicals"
+redirect_from:
+  - /gluttoxipawn.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg "gluttoxipawn"

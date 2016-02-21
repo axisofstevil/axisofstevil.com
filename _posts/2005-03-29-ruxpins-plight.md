@@ -10,6 +10,8 @@ permalink: "/p/ruxpins-plight"
 summary: "Originally published Tuesday March, 29th 2005"
 category: publications
 hashtag: "#axisofstevil_ruxpins-plight"
+redirect_from:
+  - /ruxpin.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/ninjaRuxpin440x300.jpg "RuxpinMainImage"

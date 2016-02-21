@@ -10,6 +10,8 @@ permalink: "/p/weighty-words"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_weighty-words"
+redirect_from:
+  - /weightywords.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/weightywordlootlg.jpg "WeightwordLootlg"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/weightywordresQlg.jpg "WeightwordresQlg"

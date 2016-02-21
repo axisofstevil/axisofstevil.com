@@ -10,6 +10,8 @@ permalink: "/p/trout-clout"
 summary: "Originally published Wednesday November, 16th 2005"
 category: publications
 hashtag: "#axisofstevil_trout-clout"
+redirect_from:
+  - /troutclout.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg "Troutclout"

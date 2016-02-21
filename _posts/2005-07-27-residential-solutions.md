@@ -10,6 +10,8 @@ permalink: "/p/residential-solutions"
 summary: "Originally published Wednesday July, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_residential-solutions"
+redirect_from:
+  - /stallitude.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg "Stallitude"

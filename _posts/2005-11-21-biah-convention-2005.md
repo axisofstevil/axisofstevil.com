@@ -10,6 +10,8 @@ permalink: "/p/biah-convention-2005"
 summary: "Originally published Monday November, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_biah-convention-2005"
+redirect_from:
+  - /hermitconvention.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/hermitconvention.jpg "Hermitconvention"

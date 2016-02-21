@@ -10,6 +10,7 @@ permalink: "/p/carlton-ultimate-question"
 summary: "Originally published Monday April, 11th 2005"
 category: flash
 hashtag: "#axisofstevil_carlton-ultimate-question"
+redirect_from:
 ---
 
 The episode in which Carlton is asked the ultimate question.

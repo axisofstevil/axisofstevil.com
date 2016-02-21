@@ -10,6 +10,7 @@ permalink: "/p/steve-bowie"
 summary: "Originally published Wednesday November, 23rd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-bowie"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevebowie1.jpg "Stevebowie1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevebowie2.jpg "Stevebowie2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevebowiemural.jpg "Stevebowiebar"

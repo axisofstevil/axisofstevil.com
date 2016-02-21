@@ -10,6 +10,8 @@ permalink: "/p/steve-dobbins"
 summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-dobbins"
+redirect_from:
+  - /stevedobbins.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg "Stevedobbins1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins2.jpg "Stevedobbins2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsmural.jpg "Stevedobbinsbar"

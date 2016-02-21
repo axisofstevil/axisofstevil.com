@@ -10,6 +10,8 @@ permalink: "/p/not-another-gnome-movie"
 summary: "Originally published Friday January, 13th 2006"
 category: publications
 hashtag: "#axisofstevil_not-another-gnome-movie"
+redirect_from:
+  - /gnomeface.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg "gnomeface"

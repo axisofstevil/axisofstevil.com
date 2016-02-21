@@ -10,6 +10,8 @@ permalink: "/p/unsolved-enigmas-david-seville"
 summary: "Originally published Wednesday November, 9th 2005"
 category: publications
 hashtag: "#axisofstevil_unsolved-enigmas-david-seville"
+redirect_from:
+  - /unsolvedseville.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg "UnsolvedEnigmas"

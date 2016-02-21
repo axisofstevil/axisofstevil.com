@@ -10,6 +10,8 @@ permalink: "/p/in-the-spotlight-carlton"
 summary: "Originally published Friday June, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_in-the-spotlight-carlton"
+redirect_from:
+  - /spotlightcarlton.htm
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg "CarltonSea"

@@ -10,6 +10,7 @@ permalink: "/p/grandiose"
 summary: "Originally published Monday April, 25th 2005"
 category: language
 hashtag: "#axisofstevil_grandiose"
+redirect_from:
 ---
 
 [id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg "grandiose"
