@@ -6,7 +6,7 @@ release_date: 2014-09-05T18:45:09+0000
 lastmod: 2014-09-05T18:45:09+0000
 keywords: "step, instructionsflashmediacarltonbirthswf, follow, build, born"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth_thumb.png"
-permalink: "/p/triumphant-return-of-the-pet-rock"
+permalink: "/p/triumphant-return-of-the-pet-rock/"
 summary: "Originally published Friday April, 8th 2005"
 category: flash
 hashtag: "#axisofstevil_triumphant-return-of-the-pet-rock"

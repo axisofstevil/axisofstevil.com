@@ -6,7 +6,7 @@ release_date: 2014-12-31T19:45:09+0000
 lastmod: 2014-12-31T19:45:09+0000
 keywords: "kickin, chickin, chicken, name, chickins"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/kickinchicken.jpg"
-permalink: "/p/more-cluck-for-your-buck"
+permalink: "/p/more-cluck-for-your-buck/"
 summary: "Originally published Monday May, 30th 2005"
 category: publications
 hashtag: "#axisofstevil_more-cluck-for-your-buck"

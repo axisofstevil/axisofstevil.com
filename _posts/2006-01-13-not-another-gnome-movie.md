@@ -6,7 +6,7 @@ release_date: 2015-12-02T14:45:04+0000
 lastmod: 2015-12-02T14:47:04+0000
 keywords: "david, escobar, swift, field, gnome"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg"
-permalink: "/p/not-another-gnome-movie"
+permalink: "/p/not-another-gnome-movie/"
 summary: "Originally published Friday January, 13th 2006"
 category: publications
 hashtag: "#axisofstevil_not-another-gnome-movie"

@@ -6,7 +6,7 @@ release_date: 2015-02-16T19:45:07+0000
 lastmod: 2015-02-16T19:45:07+0000
 keywords: "stephen, colbert, axis, stevil, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg"
-permalink: "/p/stephen-colbert"
+permalink: "/p/stephen-colbert/"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-colbert"

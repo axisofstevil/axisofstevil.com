@@ -6,7 +6,7 @@ release_date: 2015-07-03T13:45:03+0000
 lastmod: 2015-07-03T13:45:03+0000
 keywords: "take, monkey, monkeys, chimp, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg"
-permalink: "/p/what-might-have-been"
+permalink: "/p/what-might-have-been/"
 summary: "Originally published Thursday August, 25th 2005"
 category: publications
 hashtag: "#axisofstevil_what-might-have-been"

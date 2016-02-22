@@ -6,7 +6,7 @@ release_date: 2015-10-07T13:45:04+0000
 lastmod: 2015-10-07T13:45:04+0000
 keywords: "fish, watercrest, mulch, arthur, fried"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg"
-permalink: "/p/trout-clout"
+permalink: "/p/trout-clout/"
 summary: "Originally published Wednesday November, 16th 2005"
 category: publications
 hashtag: "#axisofstevil_trout-clout"

@@ -6,7 +6,7 @@ release_date: 2014-11-03T19:45:05+0000
 lastmod: 2014-11-03T19:45:05+0000
 keywords: "game, download, social, wallpaper"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg"
-permalink: "/p/battle-the-odds"
+permalink: "/p/battle-the-odds/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: publications
 hashtag: "#axisofstevil_battle-the-odds"

@@ -6,7 +6,7 @@ release_date: 2015-06-15T13:45:03+0000
 lastmod: 2015-06-15T13:45:03+0000
 keywords: "extreme, hoop, woodsy, sport, national"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg"
-permalink: "/p/extreme-hoopin"
+permalink: "/p/extreme-hoopin/"
 summary: "Originally published Monday August, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-hoopin"

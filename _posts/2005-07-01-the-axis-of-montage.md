@@ -6,7 +6,7 @@ release_date: 2015-03-20T18:45:11+0000
 lastmod: 2015-03-20T18:45:11+0000
 keywords: "stevil, download, axis, wallpaper, aetsmontagewalljpg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/montagewallweb.jpg"
-permalink: "/p/the-axis-of-montage"
+permalink: "/p/the-axis-of-montage/"
 summary: "Originally published Friday July, 1st 2005"
 category: publications
 hashtag: "#axisofstevil_the-axis-of-montage"

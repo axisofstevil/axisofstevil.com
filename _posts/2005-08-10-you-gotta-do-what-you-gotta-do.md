@@ -6,7 +6,7 @@ release_date: 2015-06-17T13:45:10+0000
 lastmod: 2015-06-17T13:45:10+0000
 keywords: "rabbit, meat, animal, company, discovered"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg"
-permalink: "/p/you-gotta-do-what-you-gotta-do"
+permalink: "/p/you-gotta-do-what-you-gotta-do/"
 summary: "Originally published Wednesday August, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_you-gotta-do-what-you-gotta-do"

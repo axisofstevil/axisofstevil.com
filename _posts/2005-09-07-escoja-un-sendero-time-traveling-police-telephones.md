@@ -6,7 +6,7 @@ release_date: 2015-07-17T13:45:06+0000
 lastmod: 2015-07-17T13:45:06+0000
 keywords: "time, movie, captain, crowd, adventure"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif"
-permalink: "/p/escoja-un-sendero-time-traveling-police-telephones"
+permalink: "/p/escoja-un-sendero-time-traveling-police-telephones/"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_escoja-un-sendero-time-traveling-police-telephones"

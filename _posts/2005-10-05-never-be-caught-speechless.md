@@ -6,7 +6,7 @@ release_date: 2015-08-14T13:45:04+0000
 lastmod: 2015-08-14T13:45:04+0000
 keywords: "panda, pocket, nervousnebecause, fact, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg"
-permalink: "/p/never-be-caught-speechless"
+permalink: "/p/never-be-caught-speechless/"
 summary: "Originally published Wednesday October, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_never-be-caught-speechless"

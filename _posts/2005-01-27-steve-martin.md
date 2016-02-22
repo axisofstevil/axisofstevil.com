@@ -6,7 +6,7 @@ release_date: 2014-08-01T18:45:29+0000
 lastmod: 2014-08-12T08:59:48+0000
 keywords: "steve, great, axis, steves, martin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg"
-permalink: "/p/steve-martin"
+permalink: "/p/steve-martin/"
 summary: "Originally published Thursday January, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-martin"

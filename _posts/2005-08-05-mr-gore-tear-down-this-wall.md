@@ -6,7 +6,7 @@ release_date: 2015-06-08T13:45:09+0000
 lastmod: 2015-06-08T13:45:09+0000
 keywords: "network, aetsalagoryxgif, statement, ratings, hours"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/alagoryfull.gif"
-permalink: "/p/mr-gore-tear-down-this-wall"
+permalink: "/p/mr-gore-tear-down-this-wall/"
 summary: "Originally published Friday August, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_mr-gore-tear-down-this-wall"

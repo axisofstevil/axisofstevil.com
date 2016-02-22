@@ -6,7 +6,7 @@ release_date: 2014-08-20T18:45:16+0000
 lastmod: 2014-08-20T18:45:16+0000
 keywords: "polymerkious, plastic, species, stevil, aetsmousetrapxjpg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/mousetrapweb.jpg"
-permalink: "/p/mating-habits-of-plastic-animals"
+permalink: "/p/mating-habits-of-plastic-animals/"
 summary: "Originally published Thursday March, 31st 2005"
 category: publications
 hashtag: "#axisofstevil_mating-habits-of-plastic-animals"

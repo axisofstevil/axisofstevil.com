@@ -6,7 +6,7 @@ release_date: 2015-03-06T19:45:17+0000
 lastmod: 2015-03-06T19:45:17+0000
 keywords: "reality, world, observaphobia, fear, wogbert"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg"
-permalink: "/p/entrapment-through-the-ages"
+permalink: "/p/entrapment-through-the-ages/"
 summary: "Originally published Monday June, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_entrapment-through-the-ages"

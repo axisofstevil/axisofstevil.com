@@ -6,7 +6,7 @@ release_date: 2015-10-09T13:45:03+0000
 lastmod: 2015-10-09T13:45:03+0000
 keywords: "hunter, douglas, local, aociation, merkin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/hermitconvention.jpg"
-permalink: "/p/biah-convention-2005"
+permalink: "/p/biah-convention-2005/"
 summary: "Originally published Monday November, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_biah-convention-2005"

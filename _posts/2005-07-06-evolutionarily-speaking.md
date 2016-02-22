@@ -6,7 +6,7 @@ release_date: 2015-04-01T18:45:11+0000
 lastmod: 2015-04-01T18:45:11+0000
 keywords: "trapper, keeper, keepers, paper, binding"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
-permalink: "/p/evolutionarily-speaking"
+permalink: "/p/evolutionarily-speaking/"
 summary: "Originally published Wednesday July, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_evolutionarily-speaking"

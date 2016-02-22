@@ -6,7 +6,7 @@ release_date: 2014-08-25T18:45:23+0000
 lastmod: 2014-08-25T18:45:23+0000
 keywords: "axis, vocabulary, speech, people, quinteential"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif"
-permalink: "/p/quintessential"
+permalink: "/p/quintessential/"
 summary: "Originally published Thursday March, 31st 2005"
 category: language
 hashtag: "#axisofstevil_quintessential"

@@ -6,7 +6,7 @@ release_date: 2015-11-09T14:45:04+0000
 lastmod: 2015-11-09T14:47:03+0000
 keywords: "beaver, silver, park, murder, beavers"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg"
-permalink: "/p/legend-of-silver-beaver"
+permalink: "/p/legend-of-silver-beaver/"
 summary: "Originally published Friday December, 9th 2005"
 category: publications
 hashtag: "#axisofstevil_legend-of-silver-beaver"

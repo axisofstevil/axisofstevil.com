@@ -6,7 +6,7 @@ release_date: 2015-03-09T18:45:09+0000
 lastmod: 2015-03-09T18:45:09+0000
 keywords: "steve, axis, stevil, blues, green"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif"
-permalink: "/p/steve-burns"
+permalink: "/p/steve-burns/"
 summary: "Originally published Monday June, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-burns"

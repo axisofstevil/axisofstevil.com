@@ -6,7 +6,7 @@ release_date: 2015-01-07T19:45:10+0000
 lastmod: 2015-01-07T19:45:10+0000
 keywords: "stevie, axis, stevil, steve, great"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg"
-permalink: "/p/stevie-the-cat"
+permalink: "/p/stevie-the-cat/"
 summary: "Originally published Wednesday June, 1st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-the-cat"

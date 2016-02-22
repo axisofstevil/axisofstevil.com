@@ -6,7 +6,7 @@ release_date: 2015-05-13T18:45:13+0000
 lastmod: 2015-05-13T18:45:13+0000
 keywords: "stall, stallitude, install, living, proce"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg"
-permalink: "/p/residential-solutions"
+permalink: "/p/residential-solutions/"
 summary: "Originally published Wednesday July, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_residential-solutions"

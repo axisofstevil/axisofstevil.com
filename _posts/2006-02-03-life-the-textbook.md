@@ -6,7 +6,7 @@ release_date: 2015-12-28T14:45:04+0000
 lastmod: 2015-12-28T14:47:05+0000
 keywords: "wolverinecheckwolverinecheckid, aetswolverinecheckjpg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg"
-permalink: "/p/life-the-textbook"
+permalink: "/p/life-the-textbook/"
 summary: "Originally published Friday February, 3rd 2006"
 category: publications
 hashtag: "#axisofstevil_life-the-textbook"

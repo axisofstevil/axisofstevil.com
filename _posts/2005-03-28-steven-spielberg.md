@@ -6,7 +6,7 @@ release_date: 2014-08-15T18:45:20+0000
 lastmod: 2014-08-15T18:45:20+0000
 keywords: "axis, stevil, steven, spielberg, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg"
-permalink: "/p/steven-spielberg"
+permalink: "/p/steven-spielberg/"
 summary: "Originally published Monday March, 28th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steven-spielberg"

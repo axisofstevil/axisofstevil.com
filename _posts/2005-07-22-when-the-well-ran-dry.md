@@ -6,7 +6,7 @@ release_date: 2015-05-11T18:45:12+0000
 lastmod: 2015-05-11T18:45:12+0000
 keywords: "rangers, power, morphing, production, mighty"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg"
-permalink: "/p/when-the-well-ran-dry"
+permalink: "/p/when-the-well-ran-dry/"
 summary: "Originally published Friday July, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_when-the-well-ran-dry"

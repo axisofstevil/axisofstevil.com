@@ -6,7 +6,7 @@ release_date: 2015-04-24T18:45:05+0000
 lastmod: 2015-04-24T18:45:05+0000
 keywords: "game, games, bear, icons, plot"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/DarkerBrothers.jpg"
-permalink: "/p/the-new-age-of-villainy"
+permalink: "/p/the-new-age-of-villainy/"
 summary: "Originally published Friday July, 15th 2005"
 category: publications
 hashtag: "#axisofstevil_the-new-age-of-villainy"

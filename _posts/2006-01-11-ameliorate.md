@@ -6,7 +6,7 @@ release_date: 2015-11-25T14:45:04+0000
 lastmod: 2015-11-25T14:47:05+0000
 keywords: "axis, ameliorate, vocabulary, people, speech"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/ameliorate.jpg"
-permalink: "/p/ameliorate"
+permalink: "/p/ameliorate/"
 summary: "Originally published Wednesday January, 11th 2006"
 category: language
 hashtag: "#axisofstevil_ameliorate"

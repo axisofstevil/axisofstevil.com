@@ -6,7 +6,7 @@ release_date: 2015-11-23T14:45:03+0000
 lastmod: 2015-11-23T14:47:03+0000
 keywords: "laugh, olympics, steroid, drug, gogo"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/landogogoweb.jpg"
-permalink: "/p/not-as-good-as-the-original"
+permalink: "/p/not-as-good-as-the-original/"
 summary: "Originally published Monday January, 9th 2006"
 category: publications
 hashtag: "#axisofstevil_not-as-good-as-the-original"

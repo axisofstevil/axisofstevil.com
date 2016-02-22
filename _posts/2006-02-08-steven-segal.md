@@ -6,7 +6,7 @@ release_date: 2016-01-08T08:45:02+0000
 lastmod: 2016-01-08T08:46:02+0000
 keywords: "steven, segal, steve, martial, great"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg"
-permalink: "/p/steven-segal"
+permalink: "/p/steven-segal/"
 summary: "Originally published Wednesday February, 8th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steven-segal"

@@ -6,7 +6,7 @@ release_date: 2015-05-18T13:45:03+0000
 lastmod: 2015-05-18T13:45:03+0000
 keywords: "steve, life, vaught, axis, time"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg"
-permalink: "/p/steve-vaught"
+permalink: "/p/steve-vaught/"
 summary: "Originally published Wednesday July, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-vaught"

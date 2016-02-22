@@ -6,7 +6,7 @@ release_date: 2015-12-09T14:45:04+0000
 lastmod: 2015-12-09T14:47:04+0000
 keywords: "doozers, doozer, fraggle, life, dunkin"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg"
-permalink: "/p/the-joys-of-life"
+permalink: "/p/the-joys-of-life/"
 summary: "Originally published Wednesday January, 18th 2006"
 category: publications
 hashtag: "#axisofstevil_the-joys-of-life"

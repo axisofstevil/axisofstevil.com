@@ -6,7 +6,7 @@ release_date: 2016-02-08T14:45:01+0000
 lastmod: 2016-02-08T14:46:02+0000
 keywords: "pork, festival, years, sandwich, mecklenburg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg"
-permalink: "/p/porkstock"
+permalink: "/p/porkstock/"
 summary: "Originally published Wednesday March, 1st 2006"
 category: publications
 hashtag: "#axisofstevil_porkstock"

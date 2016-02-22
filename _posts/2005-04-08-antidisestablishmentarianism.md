@@ -6,7 +6,7 @@ release_date: 2014-09-03T18:45:08+0000
 lastmod: 2014-09-03T18:45:08+0000
 keywords: "opposition, vocabulary, church, speech, stevilcom"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg"
-permalink: "/p/antidisestablishmentarianism"
+permalink: "/p/antidisestablishmentarianism/"
 summary: "Originally published Friday April, 8th 2005"
 category: language
 hashtag: "#axisofstevil_antidisestablishmentarianism"

@@ -6,7 +6,7 @@ release_date: 2014-10-24T18:45:06+0000
 lastmod: 2014-10-24T18:45:06+0000
 keywords: "steve, axis, ziou, stevil, salute"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg"
-permalink: "/p/steve-zissou"
+permalink: "/p/steve-zissou/"
 summary: "Originally published Friday April, 29th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zissou"

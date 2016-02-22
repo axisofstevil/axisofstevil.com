@@ -6,7 +6,7 @@ release_date: 2014-09-24T18:45:16+0000
 lastmod: 2014-09-24T18:45:16+0000
 keywords: "transcendent, people, speech, axis, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Transcendent.jpg"
-permalink: "/p/transcendent"
+permalink: "/p/transcendent/"
 summary: "Originally published Friday April, 15th 2005"
 category: language
 hashtag: "#axisofstevil_transcendent"

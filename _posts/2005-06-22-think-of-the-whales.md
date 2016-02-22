@@ -6,7 +6,7 @@ release_date: 2015-02-18T19:45:14+0000
 lastmod: 2015-02-18T19:45:14+0000
 keywords: "luck, modern, shits, large, predicted"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
-permalink: "/p/think-of-the-whales"
+permalink: "/p/think-of-the-whales/"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: publications
 hashtag: "#axisofstevil_think-of-the-whales"

@@ -6,7 +6,7 @@ release_date: 2014-09-15T18:45:09+0000
 lastmod: 2014-09-15T18:45:09+0000
 keywords: "flashmediahotelcarltonswf"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/carlton-ultimate"
+permalink: "/p/carlton-ultimate/"
 summary: "Originally published Monday April, 11th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-ultimate"

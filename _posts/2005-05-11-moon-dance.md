@@ -6,7 +6,7 @@ release_date: 2014-11-14T19:45:07+0000
 lastmod: 2014-11-14T19:45:07+0000
 keywords: "moonflashmediamoondanceswf, party, dance, carlton, episode"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/moondance_thumb.png"
-permalink: "/p/moon-dance"
+permalink: "/p/moon-dance/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: flash
 hashtag: "#axisofstevil_moon-dance"

@@ -6,7 +6,7 @@ release_date: 2015-03-27T18:45:05+0000
 lastmod: 2015-03-27T18:45:05+0000
 keywords: "carlton, survived, thankfully, void, infinite"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carltonperspective.jpg"
-permalink: "/p/carlton-edge-trippin"
+permalink: "/p/carlton-edge-trippin/"
 summary: "Originally published Wednesday July, 6th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-edge-trippin"

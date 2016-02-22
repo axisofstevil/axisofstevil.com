@@ -6,7 +6,7 @@ release_date: 2014-10-03T18:45:09+0000
 lastmod: 2014-10-03T18:45:09+0000
 keywords: "jobs, steve, computer, apple, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg"
-permalink: "/p/steve-jobs"
+permalink: "/p/steve-jobs/"
 summary: "Originally published Friday April, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-jobs"

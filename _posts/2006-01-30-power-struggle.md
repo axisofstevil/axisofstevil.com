@@ -6,7 +6,7 @@ release_date: 2015-12-23T14:45:03+0000
 lastmod: 2015-12-23T14:47:03+0000
 keywords: "city, megakat, swat, bone, razor"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg"
-permalink: "/p/power-struggle"
+permalink: "/p/power-struggle/"
 summary: "Originally published Monday January, 30th 2006"
 category: publications
 hashtag: "#axisofstevil_power-struggle"

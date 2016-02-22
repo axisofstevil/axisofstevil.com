@@ -6,7 +6,7 @@ release_date: 2015-08-03T13:45:10+0000
 lastmod: 2015-08-03T13:45:10+0000
 keywords: "carlton, roots, axis, took, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carltonwatchesbirth.jpg"
-permalink: "/p/carlton-birth-day"
+permalink: "/p/carlton-birth-day/"
 summary: "Originally published Wednesday September, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-birth-day"

@@ -6,7 +6,7 @@ release_date: 2015-08-07T13:45:09+0000
 lastmod: 2015-08-07T13:45:09+0000
 keywords: "game, icarus, hard, right, films"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg"
-permalink: "/p/hasbeen-october-2005"
+permalink: "/p/hasbeen-october-2005/"
 summary: "Originally published Monday September, 26th 2005"
 category: publications
 hashtag: "#axisofstevil_hasbeen-october-2005"

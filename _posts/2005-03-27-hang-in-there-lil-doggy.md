@@ -6,7 +6,7 @@ release_date: 2014-08-11T18:46:22+0000
 lastmod: 2014-08-12T08:57:15+0000
 keywords: "life, pain, frustration, money, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Advance-to-pain-web.jpg"
-permalink: "/p/hang-in-there-lil-doggy"
+permalink: "/p/hang-in-there-lil-doggy/"
 summary: "Originally published Sunday March, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_hang-in-there-lil-doggy"

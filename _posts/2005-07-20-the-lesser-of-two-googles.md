@@ -6,7 +6,7 @@ release_date: 2015-05-06T18:45:05+0000
 lastmod: 2015-05-06T18:45:05+0000
 keywords: "google, surveillance, people, clear, googles"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg"
-permalink: "/p/the-lesser-of-two-googles"
+permalink: "/p/the-lesser-of-two-googles/"
 summary: "Originally published Wednesday July, 20th 2005"
 category: publications
 hashtag: "#axisofstevil_the-lesser-of-two-googles"

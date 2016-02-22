@@ -6,7 +6,7 @@ release_date: 2015-04-29T18:45:04+0000
 lastmod: 2015-04-29T18:45:04+0000
 keywords: "animal, animals, product, work, testing"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/girraffesmelltestlarge.jpg"
-permalink: "/p/lighter-side-of-animal-testing"
+permalink: "/p/lighter-side-of-animal-testing/"
 summary: "Originally published Monday July, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_lighter-side-of-animal-testing"

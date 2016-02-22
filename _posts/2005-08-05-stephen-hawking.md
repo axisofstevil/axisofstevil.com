@@ -6,7 +6,7 @@ release_date: 2015-06-12T13:45:04+0000
 lastmod: 2015-06-12T13:45:04+0000
 keywords: "hawking, steve, axis, great, know"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg"
-permalink: "/p/stephen-hawking"
+permalink: "/p/stephen-hawking/"
 summary: "Originally published Friday August, 5th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-hawking"

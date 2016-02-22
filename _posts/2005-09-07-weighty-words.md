@@ -6,7 +6,7 @@ release_date: 2015-07-20T13:45:03+0000
 lastmod: 2015-07-20T13:45:03+0000
 keywords: "weightwordresqlgweightwordlootlgidweightwordresqlgid, aetsweightywordresqlgjpg, weightwordlootlgid, aetsweightywordlootlgjpg"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/weightywordlootlg.jpg"
-permalink: "/p/weighty-words"
+permalink: "/p/weighty-words/"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_weighty-words"

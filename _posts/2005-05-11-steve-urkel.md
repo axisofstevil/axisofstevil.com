@@ -6,7 +6,7 @@ release_date: 2014-11-05T19:45:04+0000
 lastmod: 2014-11-05T19:45:04+0000
 keywords: "steve, urkel, stevil, axis, stevecarellid"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg"
-permalink: "/p/steve-urkel"
+permalink: "/p/steve-urkel/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-urkel"

@@ -6,7 +6,7 @@ release_date: 2015-07-29T13:45:04+0000
 lastmod: 2015-07-29T13:45:04+0000
 keywords: "submitaetsslimjimsgifasher, submitaetsketchupgifasher, submitaetsslap, braceletsgifasher, submitaetsdeliciousgif"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/slap-bracelets.gif"
-permalink: "/p/ashersubmit"
+permalink: "/p/ashersubmit/"
 summary: "Originally published Monday September, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_ashersubmit"

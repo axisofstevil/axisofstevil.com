@@ -6,7 +6,7 @@ release_date: 2015-06-22T13:45:04+0000
 lastmod: 2015-06-22T13:45:04+0000
 keywords: "steve, named, people, devil, comedic"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif"
-permalink: "/p/the-steve-who-can-not-be-named"
+permalink: "/p/the-steve-who-can-not-be-named/"
 summary: "Originally published Monday August, 15th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-steve-who-can-not-be-named"

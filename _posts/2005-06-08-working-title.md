@@ -6,7 +6,7 @@ release_date: 2015-01-14T19:45:14+0000
 lastmod: 2015-01-14T19:45:14+0000
 keywords: "mind, soften, eyes, edges, blur"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/thoughtrice.gif"
-permalink: "/p/working-title"
+permalink: "/p/working-title/"
 summary: "Originally published Wednesday June, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_working-title"

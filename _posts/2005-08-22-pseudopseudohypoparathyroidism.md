@@ -6,7 +6,7 @@ release_date: 2015-07-01T13:45:03+0000
 lastmod: 2015-07-01T13:45:03+0000
 keywords: "pseudopseudohypoparathyroidism, axis, people, inherited, speech"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/pseudopseudohypoparathyroidism"
+permalink: "/p/pseudopseudohypoparathyroidism/"
 summary: "Originally published Monday August, 22nd 2005"
 category: language
 hashtag: "#axisofstevil_pseudopseudohypoparathyroidism"

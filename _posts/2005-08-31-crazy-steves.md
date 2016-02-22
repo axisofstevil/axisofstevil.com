@@ -6,7 +6,7 @@ release_date: 2015-07-08T13:45:03+0000
 lastmod: 2015-07-08T13:45:03+0000
 keywords: "steve, crazy, fireworks, brick, firework"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg"
-permalink: "/p/crazy-steves"
+permalink: "/p/crazy-steves/"
 summary: "Originally published Wednesday August, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_crazy-steves"

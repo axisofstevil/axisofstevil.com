@@ -6,7 +6,7 @@ release_date: 2015-08-17T13:45:03+0000
 lastmod: 2015-08-17T13:45:03+0000
 keywords: "phrenology, work, relief, mannequins, science"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg"
-permalink: "/p/the-science-of-tomorrow-today"
+permalink: "/p/the-science-of-tomorrow-today/"
 summary: "Originally published Friday October, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_the-science-of-tomorrow-today"

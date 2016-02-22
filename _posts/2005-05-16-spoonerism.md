@@ -6,7 +6,7 @@ release_date: 2014-11-21T19:45:20+0000
 lastmod: 2014-11-21T19:45:20+0000
 keywords: "axis, speech, spoonerism, vocabulary, people"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg"
-permalink: "/p/spoonerism"
+permalink: "/p/spoonerism/"
 summary: "Originally published Monday May, 16th 2005"
 category: language
 hashtag: "#axisofstevil_spoonerism"

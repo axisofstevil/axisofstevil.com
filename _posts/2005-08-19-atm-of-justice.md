@@ -6,7 +6,7 @@ release_date: 2015-06-29T13:45:04+0000
 lastmod: 2015-06-29T13:45:04+0000
 keywords: "justice, system, guilty, fozzie, enter"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/atmofjusticefull.jpg"
-permalink: "/p/atm-of-justice"
+permalink: "/p/atm-of-justice/"
 summary: "Originally published Friday August, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_atm-of-justice"

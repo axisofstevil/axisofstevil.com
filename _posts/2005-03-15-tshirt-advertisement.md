@@ -6,7 +6,7 @@ release_date: 2014-08-08T18:45:19+0000
 lastmod: 2014-08-12T09:00:33+0000
 keywords: "shirt, stevil, line, stuck, headflashmediatshirtsswf"
 image: "http://d3e878vmunx8cm.cloudfront.net/media/tshirts_thumb.png"
-permalink: "/p/tshirt-advertisement"
+permalink: "/p/tshirt-advertisement/"
 summary: "Originally published Tuesday March, 15th 2005"
 category: flash
 hashtag: "#axisofstevil_tshirt-advertisement"

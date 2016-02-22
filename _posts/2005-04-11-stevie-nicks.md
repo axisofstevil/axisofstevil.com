@@ -6,7 +6,7 @@ release_date: 2014-09-12T18:45:08+0000
 lastmod: 2014-09-12T18:45:08+0000
 keywords: "nicks, axis, band, stevil, stevie"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevie1.jpg"
-permalink: "/p/stevie-nicks"
+permalink: "/p/stevie-nicks/"
 summary: "Originally published Monday April, 11th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-nicks"

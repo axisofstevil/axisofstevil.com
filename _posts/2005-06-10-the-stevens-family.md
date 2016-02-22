@@ -6,7 +6,7 @@ release_date: 2015-01-26T19:45:13+0000
 lastmod: 2015-01-26T19:45:13+0000
 keywords: "family, axis, stevens, stevil, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg"
-permalink: "/p/the-stevens-family"
+permalink: "/p/the-stevens-family/"
 summary: "Originally published Friday June, 10th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-stevens-family"

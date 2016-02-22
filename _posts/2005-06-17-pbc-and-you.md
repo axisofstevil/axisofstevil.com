@@ -6,7 +6,7 @@ release_date: 2015-02-04T19:45:08+0000
 lastmod: 2015-02-04T19:45:08+0000
 keywords: "banana, hammock, beach, name, spiedo"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif"
-permalink: "/p/pbc-and-you"
+permalink: "/p/pbc-and-you/"
 summary: "Originally published Friday June, 17th 2005"
 category: publications
 hashtag: "#axisofstevil_pbc-and-you"

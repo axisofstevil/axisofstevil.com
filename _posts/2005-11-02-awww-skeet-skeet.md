@@ -6,7 +6,7 @@ release_date: 2015-09-14T13:45:10+0000
 lastmod: 2015-09-14T13:45:10+0000
 keywords: "valentine, skeeter, service, hosting, skeeters"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg"
-permalink: "/p/awww-skeet-skeet"
+permalink: "/p/awww-skeet-skeet/"
 summary: "Originally published Wednesday November, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_awww-skeet-skeet"

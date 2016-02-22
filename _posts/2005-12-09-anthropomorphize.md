@@ -6,7 +6,7 @@ release_date: 2015-11-06T14:45:05+0000
 lastmod: 2015-11-06T14:47:04+0000
 keywords: "axis, anthropomorphize, people, speech, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/anthromorphize.jpg"
-permalink: "/p/anthropomorphize"
+permalink: "/p/anthropomorphize/"
 summary: "Originally published Friday December, 9th 2005"
 category: language
 hashtag: "#axisofstevil_anthropomorphize"

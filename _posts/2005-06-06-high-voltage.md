@@ -6,7 +6,7 @@ release_date: 2015-01-09T19:45:06+0000
 lastmod: 2015-01-09T19:45:06+0000
 keywords: "bird, birds, wire, current, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/highbirds.jpg"
-permalink: "/p/high-voltage"
+permalink: "/p/high-voltage/"
 summary: "Originally published Monday June, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_high-voltage"

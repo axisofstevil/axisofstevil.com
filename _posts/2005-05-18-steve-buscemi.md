@@ -6,7 +6,7 @@ release_date: 2014-12-01T19:45:17+0000
 lastmod: 2014-12-01T19:45:17+0000
 keywords: "steve, axis, acting, buscemi, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg"
-permalink: "/p/steve-buscemi"
+permalink: "/p/steve-buscemi/"
 summary: "Originally published Wednesday May, 18th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-buscemi"

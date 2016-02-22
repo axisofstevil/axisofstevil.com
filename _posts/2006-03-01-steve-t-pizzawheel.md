@@ -6,7 +6,7 @@ release_date: 2016-02-10T14:45:02+0000
 lastmod: 2016-02-10T14:47:02+0000
 keywords: "steve, pizza, stevil, public, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheeltop.gif"
-permalink: "/p/steve-t-pizzawheel"
+permalink: "/p/steve-t-pizzawheel/"
 summary: "Originally published Wednesday March, 1st 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steve-t-pizzawheel"

@@ -6,7 +6,7 @@ release_date: 2016-02-01T14:45:01+0000
 lastmod: 2016-02-01T14:47:02+0000
 keywords: "flashmediacarltonvscartonswf"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/carlton-jumped-cartons"
+permalink: "/p/carlton-jumped-cartons/"
 summary: "Originally published Friday February, 24th 2006"
 category: comics
 hashtag: "#axisofstevil_carlton-jumped-cartons"

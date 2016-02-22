@@ -6,7 +6,7 @@ release_date: 2015-02-25T19:45:09+0000
 lastmod: 2015-02-25T19:45:09+0000
 keywords: "wombat, wombats, creature, social, aware"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg"
-permalink: "/p/wombat-dating"
+permalink: "/p/wombat-dating/"
 summary: "Originally published Friday June, 24th 2005"
 category: publications
 hashtag: "#axisofstevil_wombat-dating"

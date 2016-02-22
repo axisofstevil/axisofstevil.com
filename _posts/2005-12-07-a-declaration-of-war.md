@@ -6,7 +6,7 @@ release_date: 2015-11-02T14:45:04+0000
 lastmod: 2015-11-02T14:47:03+0000
 keywords: "sock, socks, goblins, people, world"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg"
-permalink: "/p/a-declaration-of-war"
+permalink: "/p/a-declaration-of-war/"
 summary: "Originally published Wednesday December, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_a-declaration-of-war"

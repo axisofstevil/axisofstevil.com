@@ -6,7 +6,7 @@ release_date: 2015-08-26T13:45:11+0000
 lastmod: 2015-08-26T13:45:11+0000
 keywords: "steve, chapter, life, dobbins, steves"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg"
-permalink: "/p/steve-dobbins"
+permalink: "/p/steve-dobbins/"
 summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-dobbins"

@@ -6,7 +6,7 @@ release_date: 2014-10-10T18:45:17+0000
 lastmod: 2014-10-10T18:45:17+0000
 keywords: "wallpaper, download, stevil, panscanid, eyes"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/1990webpub.jpg"
-permalink: "/p/pan-and-scan-weekend"
+permalink: "/p/pan-and-scan-weekend/"
 summary: "Originally published Monday April, 25th 2005"
 category: publications
 hashtag: "#axisofstevil_pan-and-scan-weekend"

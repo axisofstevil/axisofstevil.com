@@ -6,7 +6,7 @@ release_date: 2015-09-23T13:45:05+0000
 lastmod: 2015-09-23T13:45:05+0000
 keywords: "steve, troll, axis, stevil, willmont"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg"
-permalink: "/p/steve-willmont"
+permalink: "/p/steve-willmont/"
 summary: "Originally published Wednesday November, 9th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-willmont"

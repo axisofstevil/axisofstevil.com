@@ -6,7 +6,7 @@ release_date: 2014-08-13T18:45:49+0000
 lastmod: 2014-08-13T18:45:49+0000
 keywords: "tumultuous, axis, people, disorderly, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/tumultuous.gif"
-permalink: "/p/tumultuous"
+permalink: "/p/tumultuous/"
 summary: "Originally published Sunday March, 27th 2005"
 category: language
 hashtag: "#axisofstevil_tumultuous"

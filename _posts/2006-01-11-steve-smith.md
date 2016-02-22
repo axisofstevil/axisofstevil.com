@@ -6,7 +6,7 @@ release_date: 2015-11-27T14:45:04+0000
 lastmod: 2015-11-27T14:47:05+0000
 keywords: "name, steve, smiths, stevil, energy"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif"
-permalink: "/p/steve-smith"
+permalink: "/p/steve-smith/"
 summary: "Originally published Wednesday January, 11th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steve-smith"

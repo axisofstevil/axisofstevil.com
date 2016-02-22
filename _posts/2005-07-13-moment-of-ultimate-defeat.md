@@ -6,7 +6,7 @@ release_date: 2015-04-15T18:45:07+0000
 lastmod: 2015-04-15T18:45:07+0000
 keywords: "creature, masticophis, probability, luck, rating"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif"
-permalink: "/p/moment-of-ultimate-defeat"
+permalink: "/p/moment-of-ultimate-defeat/"
 summary: "Originally published Wednesday July, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_moment-of-ultimate-defeat"

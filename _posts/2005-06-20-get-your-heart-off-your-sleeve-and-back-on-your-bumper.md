@@ -6,7 +6,7 @@ release_date: 2015-02-11T19:45:11+0000
 lastmod: 2015-02-11T19:45:11+0000
 keywords: "axis, bumper, feel, stevil, mind"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/bumperstickerfull.jpg"
-permalink: "/p/get-your-heart-off-your-sleeve-and-back-on-your-bumper"
+permalink: "/p/get-your-heart-off-your-sleeve-and-back-on-your-bumper/"
 summary: "Originally published Monday June, 20th 2005"
 category: publications
 hashtag: "#axisofstevil_get-your-heart-off-your-sleeve-and-back-on-your-bumper"

@@ -6,7 +6,7 @@ release_date: 2014-09-22T18:54:01+0000
 lastmod: 2014-09-22T18:54:01+0000
 keywords: "fish, bigger, axis, stevil, coloring"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg"
-permalink: "/p/keepin-it-real"
+permalink: "/p/keepin-it-real/"
 summary: "Originally published Wednesday April, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_keepin-it-real"

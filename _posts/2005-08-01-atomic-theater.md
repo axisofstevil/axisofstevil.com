@@ -6,7 +6,7 @@ release_date: 2015-05-25T13:45:04+0000
 lastmod: 2015-05-25T13:45:04+0000
 keywords: "atom, paying, attention, basic, theater"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg"
-permalink: "/p/atomic-theater"
+permalink: "/p/atomic-theater/"
 summary: "Originally published Monday August, 1st 2005"
 category: publications
 hashtag: "#axisofstevil_atomic-theater"

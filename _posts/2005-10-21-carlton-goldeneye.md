@@ -6,7 +6,7 @@ release_date: 2015-09-02T13:45:03+0000
 lastmod: 2015-09-02T13:45:03+0000
 keywords: "carlton, expreing, great, sportsmanship, team"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/carlton64.jpg"
-permalink: "/p/carlton-goldeneye"
+permalink: "/p/carlton-goldeneye/"
 summary: "Originally published Friday October, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-goldeneye"

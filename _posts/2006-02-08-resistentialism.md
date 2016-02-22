@@ -6,7 +6,7 @@ release_date: 2016-01-06T08:45:01+0000
 lastmod: 2016-01-06T08:46:02+0000
 keywords: "axis, speech, vocabulary, people, resistentialism"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/AOSwordFeb7.jpg"
-permalink: "/p/resistentialism"
+permalink: "/p/resistentialism/"
 summary: "Originally published Wednesday February, 8th 2006"
 category: language
 hashtag: "#axisofstevil_resistentialism"

@@ -6,7 +6,7 @@ release_date: 2015-09-07T13:45:09+0000
 lastmod: 2015-09-07T13:45:09+0000
 keywords: "people, axis, expreion, speech, vocabulary"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/cromulent"
+permalink: "/p/cromulent/"
 summary: "Originally published Wednesday October, 26th 2005"
 category: language
 hashtag: "#axisofstevil_cromulent"

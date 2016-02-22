@@ -6,7 +6,7 @@ release_date: 2015-07-13T13:45:04+0000
 lastmod: 2015-07-13T13:45:04+0000
 keywords: "luck, gremlins, hitler, done, take"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg"
-permalink: "/p/diagnosis-gremlins"
+permalink: "/p/diagnosis-gremlins/"
 summary: "Originally published Monday September, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_diagnosis-gremlins"

@@ -6,7 +6,7 @@ release_date: 2014-10-08T18:45:10+0000
 lastmod: 2014-10-08T18:45:10+0000
 keywords: "grandiose, speech, people, characterized, axis"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg"
-permalink: "/p/grandiose"
+permalink: "/p/grandiose/"
 summary: "Originally published Monday April, 25th 2005"
 category: language
 hashtag: "#axisofstevil_grandiose"

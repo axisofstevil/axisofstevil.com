@@ -6,7 +6,7 @@ release_date: 2015-10-19T13:45:03+0000
 lastmod: 2015-10-19T13:47:03+0000
 keywords: "kuno, bluetooth, phone, models, needs"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg"
-permalink: "/p/remember-today-tomorrow"
+permalink: "/p/remember-today-tomorrow/"
 summary: "Originally published Monday November, 28th 2005"
 category: publications
 hashtag: "#axisofstevil_remember-today-tomorrow"

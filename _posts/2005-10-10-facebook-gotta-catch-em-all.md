@@ -6,7 +6,7 @@ release_date: 2015-08-19T13:45:11+0000
 lastmod: 2015-08-19T13:45:11+0000
 keywords: "energy, drome, gihy, pool, oaks"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg"
-permalink: "/p/facebook-gotta-catch-em-all"
+permalink: "/p/facebook-gotta-catch-em-all/"
 summary: "Originally published Monday October, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_facebook-gotta-catch-em-all"

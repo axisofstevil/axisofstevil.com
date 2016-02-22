@@ -6,7 +6,7 @@ release_date: 2015-08-31T13:45:04+0000
 lastmod: 2015-08-31T13:45:04+0000
 keywords: "burglar, time, lantern, hamburglar, creature"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg"
-permalink: "/p/tempus-fugit"
+permalink: "/p/tempus-fugit/"
 summary: "Originally published Friday October, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_tempus-fugit"

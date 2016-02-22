@@ -6,7 +6,7 @@ release_date: 2015-05-08T18:45:04+0000
 lastmod: 2015-05-08T18:45:04+0000
 keywords: "imperceptible, axis, vocabulary, speech, people"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/imperceptible"
+permalink: "/p/imperceptible/"
 summary: "Originally published Friday July, 22nd 2005"
 category: language
 hashtag: "#axisofstevil_imperceptible"

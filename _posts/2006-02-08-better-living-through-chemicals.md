@@ -6,7 +6,7 @@ release_date: 2015-12-30T15:40:48+0000
 lastmod: 2015-12-30T19:09:02+0000
 keywords: "scaroel, plant, young, raleighs, stevans"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg"
-permalink: "/p/better-living-through-chemicals"
+permalink: "/p/better-living-through-chemicals/"
 summary: "Originally published Wednesday February, 8th 2006"
 category: publications
 hashtag: "#axisofstevil_better-living-through-chemicals"

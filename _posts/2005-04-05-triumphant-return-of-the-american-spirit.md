@@ -6,7 +6,7 @@ release_date: 2014-09-01T18:45:09+0000
 lastmod: 2014-09-01T18:45:09+0000
 keywords: "axis, american, stevil, spirit, -"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaperweb.jpg"
-permalink: "/p/triumphant-return-of-the-american-spirit"
+permalink: "/p/triumphant-return-of-the-american-spirit/"
 summary: "Originally published Tuesday April, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_triumphant-return-of-the-american-spirit"

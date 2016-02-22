@@ -6,7 +6,7 @@ release_date: 2015-06-24T13:45:04+0000
 lastmod: 2015-06-24T13:45:04+0000
 keywords: "axis, group, vocabulary, speech, people"
 image: "http://d3e878vmunx8cm.cloudfront.net"
-permalink: "/p/gregarious"
+permalink: "/p/gregarious/"
 summary: "Originally published Monday August, 15th 2005"
 category: language
 hashtag: "#axisofstevil_gregarious"

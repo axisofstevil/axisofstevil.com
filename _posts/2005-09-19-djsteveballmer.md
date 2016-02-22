@@ -6,7 +6,7 @@ release_date: 2015-07-24T13:45:07+0000
 lastmod: 2015-07-24T13:45:07+0000
 keywords: "freshaetsstevefernoswjpgaetsinfernolgjpgflashmediadjballmerfreshswf, ballmer, steve"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevefernosw.jpg"
-permalink: "/p/djsteveballmer"
+permalink: "/p/djsteveballmer/"
 summary: "Originally published Monday September, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_djsteveballmer"

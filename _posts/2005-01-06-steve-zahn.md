@@ -6,7 +6,7 @@ release_date: 2014-07-28T05:00:00+0000
 lastmod: 2014-08-12T08:59:48+0000
 keywords: "great, steves, steve, know, month"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/security3.jpg"
-permalink: "/p/steve-zahn"
+permalink: "/p/steve-zahn/"
 summary: "Originally published Thursday January, 6th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zahn"

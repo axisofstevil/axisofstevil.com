@@ -6,7 +6,7 @@ release_date: 2016-01-18T14:45:02+0000
 lastmod: 2016-01-18T14:47:02+0000
 keywords: "luvy, canal, lyman, tanker, water"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg"
-permalink: "/p/pig-on-a-dig"
+permalink: "/p/pig-on-a-dig/"
 summary: "Originally published Monday February, 13th 2006"
 category: publications
 hashtag: "#axisofstevil_pig-on-a-dig"

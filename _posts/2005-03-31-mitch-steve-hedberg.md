@@ -6,7 +6,7 @@ release_date: 2014-08-22T18:45:50+0000
 lastmod: 2014-08-22T18:45:50+0000
 keywords: "mitch, comedy, axis, hedberg, stevil"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg"
-permalink: "/p/mitch-steve-hedberg"
+permalink: "/p/mitch-steve-hedberg/"
 summary: "Originally published Thursday March, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_mitch-steve-hedberg"

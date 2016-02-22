@@ -6,7 +6,7 @@ release_date: 2014-09-29T18:45:07+0000
 lastmod: 2014-09-29T18:45:07+0000
 keywords: "axis, stevil, world, good, life"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg"
-permalink: "/p/seeing-is-believing"
+permalink: "/p/seeing-is-believing/"
 summary: "Originally published Monday April, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_seeing-is-believing"

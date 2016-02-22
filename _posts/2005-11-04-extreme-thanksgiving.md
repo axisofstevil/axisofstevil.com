@@ -6,7 +6,7 @@ release_date: 2015-09-18T13:45:04+0000
 lastmod: 2015-09-18T13:45:04+0000
 keywords: "viacom, thanksgiving, month, history, womens"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg"
-permalink: "/p/extreme-thanksgiving"
+permalink: "/p/extreme-thanksgiving/"
 summary: "Originally published Friday November, 4th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-thanksgiving"

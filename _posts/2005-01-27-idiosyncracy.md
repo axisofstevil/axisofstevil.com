@@ -6,7 +6,7 @@ release_date: 2014-07-30T18:45:56+0000
 lastmod: 2014-08-12T08:59:48+0000
 keywords: "axis, individual, speech, vocabulary, idiosyncrasy"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/idiosyncracy.gif"
-permalink: "/p/idiosyncracy"
+permalink: "/p/idiosyncracy/"
 summary: "Originally published Thursday January, 27th 2005"
 category: language
 hashtag: "#axisofstevil_idiosyncracy"

@@ -6,7 +6,7 @@ release_date: 2016-02-22T14:45:02+0000
 lastmod: 2016-02-22T14:45:02+0000
 keywords: "problem, drivers, society, victorian, hard"
 image: "http://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg"
-permalink: "/p/charitable-superlatives"
+permalink: "/p/charitable-superlatives/"
 summary: "Originally published Wednesday March, 8th 2006"
 category: publications
 hashtag: "#axisofstevil_charitable-superlatives"
