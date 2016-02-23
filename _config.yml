@@ -4,7 +4,7 @@ description: |
     Axis of Stevil - Its the Beginning of Stevilization
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.axisofstevil.com" # the base hostname & protocol for your site
-content_baseurl: "http://axisofstevil.s3.amazonaws.com"
+content_baseurl: "https://axisofstevil.s3.amazonaws.com"
 service_url: "http://service.axisofstevil.com"
 twitter_username: AxisofStevil
 github_username:  axisofstevil
