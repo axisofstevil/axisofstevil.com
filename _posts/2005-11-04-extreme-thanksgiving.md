@@ -5,7 +5,7 @@ date: 2005-11-04T06:00:00+0000
 release_date: 2015-09-18T13:45:04+0000
 lastmod: 2015-09-18T13:45:04+0000
 keywords: "viacom, thanksgiving, month, history, womens"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg"
 permalink: "/p/extreme-thanksgiving/"
 summary: "Originally published Friday November, 4th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /extremethanksgiving.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg "ExtremeTurkey"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/extremeturkeylarge.jpg "ExtremeTurkey"
 ![ExtremeTurkey][id_1]
 
 The new trend in diversifying funds among major corporations is to purchase the rights to holidays; starting with Google's acquisition of Christmas, Viacom has quickly followed suit snatching Thanksgiving and the first two weeks of women’s history month. Speculation is currently running rampant on what the conglomerate plans to do with its new holdings. Current Vice President of Seasonal Sales and Promotions, Martin Salaberg, promises to bring to thanksgiving the same quality of styling and product placement that he brought to MTV! 

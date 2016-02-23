@@ -5,7 +5,7 @@ date: 2005-08-31T05:00:00+0000
 release_date: 2015-07-08T13:45:03+0000
 lastmod: 2015-07-08T13:45:03+0000
 keywords: "steve, crazy, fireworks, brick, firework"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg"
 permalink: "/p/crazy-steves/"
 summary: "Originally published Wednesday August, 31st 2005"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_crazy-steves"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg "Crazystevelogo1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/crazysteveweb.jpg "Crazysteve2"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg "Crazystevelogo1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/crazysteveweb.jpg "Crazysteve2"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote the everyday entrepreneur Steves, The Axis of Stevil would like to send its warmest memorial to:
@@ -34,7 +34,7 @@ This was the scene the next day
 
 ![Crazysteve2][id_2]
 
-[Click For Fullsize View](http://d3e878vmunx8cm.cloudfront.net/assets/crazystevelarge.jpg "Click For Fullsize View")
+[Click For Fullsize View](https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelarge.jpg "Click For Fullsize View")
 
 The whereabouts of Crazy Steve are unknown and he is assumed to have gone up with his bricks. With no descendents we can only wonder what advancements could have come from the Crazy Steve Line.
 

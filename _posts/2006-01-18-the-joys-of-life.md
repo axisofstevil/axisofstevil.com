@@ -5,7 +5,7 @@ date: 2006-01-18T06:00:00+0000
 release_date: 2015-12-09T14:45:04+0000
 lastmod: 2015-12-09T14:47:04+0000
 keywords: "doozers, doozer, fraggle, life, dunkin"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg"
 permalink: "/p/the-joys-of-life/"
 summary: "Originally published Wednesday January, 18th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /dunkindoozer.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg "joyofdoozers"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg "joyofdoozers"
 ![joyofdoozers][id_1]
 
 A common misconception of the universe is that Fraggles and Doozers live in a harmonious balance under the surface of the earth. This is not the case. In fact it is another example of reality distorted by television. Using refined radishes, the Doozers spend their days constructing large pieces of scaffolding that taste and smell of a sweet candy to Fraggle nostrils. Have you ever wondered why they build so much, just to have it destroyed? It is not their desire to construct, but to live. It is a sad fact that when there are no Doozer buildings to be eaten, Fragglies will turn their appetites on Doozers themselves!

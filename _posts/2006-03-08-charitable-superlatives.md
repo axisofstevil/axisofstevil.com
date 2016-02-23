@@ -5,7 +5,7 @@ date: 2006-03-08T06:00:00+0000
 release_date: 2016-02-22T14:45:02+0000
 lastmod: 2016-02-22T14:45:02+0000
 keywords: "problem, drivers, society, victorian, hard"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg"
 permalink: "/p/charitable-superlatives/"
 summary: "Originally published Wednesday March, 8th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /charity.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg "charity"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg "charity"
 ![charity][id_1]
 
 Everyday, people are exposed to a barrage of news. Violence, crime, energy shortages, and other disasters seem to happen every other day. The message is sometimes that you must give in order to care. Do not let your sympathies override your senses of judgment and curiosity. The gullible and the blindly compassionate will fork over their hard earned dollars and cents to the various name brand charities that dot our social landscapes. These organizations promise to put the money towards good causes and uses. What you should consider is this mob of charitable groups racketeer the world’s crises and concerns. Their long financial arms and lack of oversight allow them to pick and choose which causes warrant the most attention.

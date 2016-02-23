@@ -5,7 +5,7 @@ date: 2006-02-13T06:00:00+0000
 release_date: 2016-01-18T14:45:02+0000
 lastmod: 2016-01-18T14:47:02+0000
 keywords: "luvy, canal, lyman, tanker, water"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg"
 permalink: "/p/pig-on-a-dig/"
 summary: "Originally published Monday February, 13th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /pigdig.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg "jomarbuckle"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg "jomarbuckle"
 ![jomarbuckle][id_1]
 
 The world adventurer, [Thurston Zee Pig](/p/thurston "Thurston Zee Pig") spent Saturday night comfortably resting at The Axis of Stevil's dome enclosed cornfield. The pig has had a very busy past week unraveling both the mysteries of the ages, and a modern day case of Espionage straight from the pages of Fleming and Rice. 

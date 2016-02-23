@@ -5,7 +5,7 @@ date: 2005-03-31T06:00:00+0000
 release_date: 2014-08-22T18:45:50+0000
 lastmod: 2014-08-22T18:45:50+0000
 keywords: "mitch, comedy, axis, hedberg, stevil"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg"
 permalink: "/p/mitch-steve-hedberg/"
 summary: "Originally published Thursday March, 31st 2005"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_mitch-steve-hedberg"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg "Stevemitch1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/mitch1.jpg "Stevemitch2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/hedberg.gif "Stevemitchbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg "Stevemitch1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/mitch1.jpg "Stevemitch2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/hedberg.gif "Stevemitchbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 The Axis of Stevil is sad to hear the news that a very funny and talented comedian was unjustly taken from this world. His name may not be Steve, but it might as well be. His name will go down in the record books as one of the recipients of the honorary title of "Honorary Steve". The Axis of Stevil is sorry to see this young man leave us so soon. So, having said that . . .

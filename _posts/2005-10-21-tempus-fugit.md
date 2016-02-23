@@ -5,7 +5,7 @@ date: 2005-10-21T05:00:00+0000
 release_date: 2015-08-31T13:45:04+0000
 lastmod: 2015-08-31T13:45:04+0000
 keywords: "burglar, time, lantern, hamburglar, creature"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg"
 permalink: "/p/tempus-fugit/"
 summary: "Originally published Friday October, 21st 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /tempusfugit.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg "Timeburgler"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg "Timeburgler"
 ![Timeburgler][id_1]
 
 Residents of East Shore please stay alert! It has been confirmed by The Axis of Stevil that there has been another time burgle! Community Watch groups are now circulating the only well known image of the Time Burglar stealing from Little John outside of Mile High Stadium. Often mistaken for a decorative figurine, if you see the Time Burglar, do not attempt to capture him! Head inside and phone the N. Hamlico's Sheriff's Office. Rumors that the creature has a pot of gold are erroneous! He is considered armed and extremely dangerous, more so than two [Professor Cold Hearts](http://www.student.tue.nl/u/a.f.smeijers/cbc/ynstbh.htm "Professor Cold Hearts") put together. 

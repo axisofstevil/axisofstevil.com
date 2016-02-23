@@ -5,7 +5,7 @@ date: 2005-07-06T05:00:00+0000
 release_date: 2015-04-01T18:45:11+0000
 lastmod: 2015-04-01T18:45:11+0000
 keywords: "trapper, keeper, keepers, paper, binding"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
 permalink: "/p/evolutionarily-speaking/"
 summary: "Originally published Wednesday July, 6th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /evownd.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg "Evolutionarily"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg "Evolutionarily"
 ![Evolutionarily][id_1]
 
 Evolutionarily speaking, the 1980’s represented the zenith of the paper biding industry, by heralding the introduction of on demand paper binding and organization with the Trapper Keeper. This masterpiece of cardboard and tight fitting plastic trappings made the Trapper Keeper the ultimate display of fashion and practical storage.

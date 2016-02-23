@@ -5,7 +5,7 @@ date: 2005-10-19T05:00:00+0000
 release_date: 2015-08-26T13:45:11+0000
 lastmod: 2015-08-26T13:45:11+0000
 keywords: "steve, chapter, life, dobbins, steves"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg"
 permalink: "/p/steve-dobbins/"
 summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
@@ -14,7 +14,7 @@ redirect_from:
   - /stevedobbins.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg "Stevedobbins1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins2.jpg "Stevedobbins2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsmural.jpg "Stevedobbinsbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg "Stevedobbins1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins2.jpg "Stevedobbins2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsmural.jpg "Stevedobbinsbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote the success of Steves on every avenue, and educate the public about the existence of greatness outside of television or movie stardom, The Axis of Stevil shines the light of local success on Charlotte, North Carolina’s very own:
@@ -23,7 +23,7 @@ In an ongoing effort to promote the success of Steves on every avenue, and educa
 
 ![Stevedobbins1][id_1]
 
-When writing a book about a Steve, there are many challenges you run into. Where do I begin? Is one event more important that another? How much is this pizza going to cost me? How do I discuss a father, baker, pilot, business man, pirate, and Yacht enthusiast in under 300 chapters? The best solution to moving past these problems is to lay out the facts in chronological order of occurrence. Below you will find excerpts from a book called [“Steves Can Do Anything They Put Their Mind To: The Steve Dobbins Story”](http://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsstory.jpg "“Steves Can Do Anything They Put Their Mind To: The Steve Dobbins Story”"). These selections have been carefully selected by The Axis of Stevil: Archives and Selections Committee. Enjoy!
+When writing a book about a Steve, there are many challenges you run into. Where do I begin? Is one event more important that another? How much is this pizza going to cost me? How do I discuss a father, baker, pilot, business man, pirate, and Yacht enthusiast in under 300 chapters? The best solution to moving past these problems is to lay out the facts in chronological order of occurrence. Below you will find excerpts from a book called [“Steves Can Do Anything They Put Their Mind To: The Steve Dobbins Story”](https://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsstory.jpg "“Steves Can Do Anything They Put Their Mind To: The Steve Dobbins Story”"). These selections have been carefully selected by The Axis of Stevil: Archives and Selections Committee. Enjoy!
 
 ### Chapter 1 ###
 Born Steven Farrell Dobbins on April 11, 1950, the first chapter of Steve’s life begins like any other except as he enters this world, he creates a tremor in the Steve Alliance. With an objective of living life to the fullest and limitless possiblity, Steve set forth to conquer this life.

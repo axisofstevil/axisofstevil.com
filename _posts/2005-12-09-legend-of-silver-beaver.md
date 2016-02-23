@@ -5,7 +5,7 @@ date: 2005-12-09T06:00:00+0000
 release_date: 2015-11-09T14:45:04+0000
 lastmod: 2015-11-09T14:47:03+0000
 keywords: "beaver, silver, park, murder, beavers"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg"
 permalink: "/p/legend-of-silver-beaver/"
 summary: "Originally published Friday December, 9th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /silverbeaver.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg "silverbeaver"![silverbeaver][id_1]
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg "silverbeaver"![silverbeaver][id_1]
 
 To celebrate the 4th Annual Beaville Downtown Festival, a statue of a silver beaver will be unveiled at Flanagan Park. The section of Flanagan Park from 3rd street to the river is being renamed to "The Shrine of the Silver Beaver" in remembrance to one of Beaville's most tremendous residents. During a heated murder trial, Silver "Sam" Beaver was found not guilty for the murder of Judith Heart. Subsequent appeals, court decisions, and amici curiae briefs have made it virtually impossible to convict a beaver for murder. Beaville, with a community beaver population close to 47%, has dedicated this year's Downtown Festival to Silver Sam Beaver, and many other esteemed beavers. The Beaver statue is part of Beaville's continuing mission to improve and revitalize Downtown Park. 
 

@@ -5,7 +5,7 @@ date: 2005-07-22T05:00:00+0000
 release_date: 2015-05-11T18:45:12+0000
 lastmod: 2015-05-11T18:45:12+0000
 keywords: "rangers, power, morphing, production, mighty"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg"
 permalink: "/p/when-the-well-ran-dry/"
 summary: "Originally published Friday July, 22nd 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /zord.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg "Zord"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg "Zord"
 ![Zord][id_1]
 
 The greatest fighting force since [Voltron](http://www.voltronforce.com/ "Voltron"), [The Mighty Morphing Power Rangers](http://www.answers.com/topic/power-rangers "The Mighty Morphing Power Rangers") hit the scene and rose to popularity faster then the speed of an agoraphobic falling from a tall building! Once their fifteen minutes of fame was over, what happened to the once beloved Rangers, and their slave driver, Zordon? Did Tommy and Kimberly ever get it together? Sadly when the well ran dry, hard times befell on, not only the Rangers themselves but, the communities they lived.

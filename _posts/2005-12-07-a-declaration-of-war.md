@@ -5,7 +5,7 @@ date: 2005-12-07T06:00:00+0000
 release_date: 2015-11-02T14:45:04+0000
 lastmod: 2015-11-02T14:47:03+0000
 keywords: "sock, socks, goblins, people, world"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg"
 permalink: "/p/a-declaration-of-war/"
 summary: "Originally published Wednesday December, 7th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /sockgoblin.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg "terrordryerhead"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/terrordryerwolf.jpg "terrordryerwolf"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/terroriec.jpg "terroriec"[id_4]: http://d3e878vmunx8cm.cloudfront.net/assets/terrorleeharvey.jpg "terrorleeharvey"[id_5]: http://d3e878vmunx8cm.cloudfront.net/assets/terrorontheprowl.jpg "terrorprowl"[id_6]: http://d3e878vmunx8cm.cloudfront.net/assets/terrorsockposiedtoattack.jpg "terrorsock"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg "terrordryerhead"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/terrordryerwolf.jpg "terrordryerwolf"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/terroriec.jpg "terroriec"[id_4]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorleeharvey.jpg "terrorleeharvey"[id_5]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorontheprowl.jpg "terrorprowl"[id_6]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorsockposiedtoattack.jpg "terrorsock"
 ![terrordryerhead][id_1]
 
 ![terrordryerwolf][id_2]

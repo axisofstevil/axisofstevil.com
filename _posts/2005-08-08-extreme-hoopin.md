@@ -5,7 +5,7 @@ date: 2005-08-08T05:00:00+0000
 release_date: 2015-06-15T13:45:03+0000
 lastmod: 2015-06-15T13:45:03+0000
 keywords: "extreme, hoop, woodsy, sport, national"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg"
 permalink: "/p/extreme-hoopin/"
 summary: "Originally published Monday August, 8th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /extremehoopin.htm
 ---
 
-![extreme-hoppin](http://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg)
+![extreme-hoppin](https://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg)
 
 Axis of Stevil - Norway‘s Annual Extreme Hoop Fest is quickly approaching. It is Once again that time of the year when the world pauses and looks to Norway for its unique national pastime. The Extreme Hoop Roll! Once a simple children’s game this new extreme sport has taken the thrill of mountain repelling and the challenge of rolling a hoop with a stick. Lead by their Iconic ex-envirospoksperson, Woodsy the Forest Owl. Who proved his mastery of the sports by winning 23 consecutive rounds of extreme Hoop at the "Nukkalodean Blood and GutzFests 99"' 
 

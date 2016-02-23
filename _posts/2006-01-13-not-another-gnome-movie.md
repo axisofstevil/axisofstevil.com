@@ -5,7 +5,7 @@ date: 2006-01-13T06:00:00+0000
 release_date: 2015-12-02T14:45:04+0000
 lastmod: 2015-12-02T14:47:04+0000
 keywords: "david, escobar, swift, field, gnome"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg"
 permalink: "/p/not-another-gnome-movie/"
 summary: "Originally published Friday January, 13th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /gnomeface.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg "gnomeface"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/gnomeface.jpg "gnomeface"
 ![gnomeface][id_1]
 
 It was a wildly sorted affair in the village of Wickerbriar. David the Gnome a respected doctor and community leader was exposed as fathering an illegitimate child with the young Lisa Curvet, a 175-year-old gnome. At one point farmer Kurvalt, Lisa’s troll stepfather, had threatened to eat David should he ever get near his daughter. With nothing else to do, David fled town one summer’s January night. Accompanied by his oldest friend, Swift, the pair set out to seek their fortunes and find their future in the wild world.

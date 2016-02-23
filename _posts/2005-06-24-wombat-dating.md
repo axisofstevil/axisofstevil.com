@@ -5,7 +5,7 @@ date: 2005-06-24T05:00:00+0000
 release_date: 2015-02-25T19:45:09+0000
 lastmod: 2015-02-25T19:45:09+0000
 keywords: "wombat, wombats, creature, social, aware"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg"
 permalink: "/p/wombat-dating/"
 summary: "Originally published Friday June, 24th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /wombat.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg "Wombat"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg "Wombat"
 ![Wombat][id_1]
 
 Once the wombat was only the subject of lore in Australian pubs, brew halls and keggers. The tale of the wombat speaks of a creature so inept in wooing the opposite sex that it surely is a matter of luck and slippery tree branches that the species has managed to procreate. With the signing of the Marsupial Non-Proliferation Accord, wombats have finally been allowed green cards, allowing them to migrate to America in hordes.

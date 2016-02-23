@@ -5,7 +5,7 @@ date: 2005-07-13T05:00:00+0000
 release_date: 2015-04-15T18:45:07+0000
 lastmod: 2015-04-15T18:45:07+0000
 keywords: "creature, masticophis, probability, luck, rating"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif"
 permalink: "/p/moment-of-ultimate-defeat/"
 summary: "Originally published Wednesday July, 13th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /digestiownd.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif "Digestiownd"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif "Digestiownd"
 ![Digestiownd][id_1]
 
 A fascinating feature of reality is luck, the probability for a turn of events in your favor. Society would teach you that luck is beyond your control, and not a factor. This statement could not be further from the truth! To deny luck is hit-yourself-on-the thumb-with-a-hammer stupid.

@@ -5,7 +5,7 @@ date: 2005-09-05T05:00:00+0000
 release_date: 2015-07-13T13:45:04+0000
 lastmod: 2015-07-13T13:45:04+0000
 keywords: "luck, gremlins, hitler, done, take"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg"
 permalink: "/p/diagnosis-gremlins/"
 summary: "Originally published Monday September, 5th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /gotgremlins.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg "Gremlins"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg "Gremlins"
 ![Gremlins][id_1]
 
 Have you ever had the occasion when, despite your best efforts and abilities, something still goes wrong? When a hard drive fails, an audio track drops out; little kicks in the face that you have no ability to control. While it may seem like these events happen on their own just to spite you, take comfort that these mishaps are well-orchestrated maneuvers done by a crack squadron of carefully trained gremlins.

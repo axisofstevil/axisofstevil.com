@@ -5,7 +5,7 @@ date: 2005-08-01T05:00:00+0000
 release_date: 2015-05-25T13:45:04+0000
 lastmod: 2015-05-25T13:45:04+0000
 keywords: "atom, paying, attention, basic, theater"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg"
 permalink: "/p/atomic-theater/"
 summary: "Originally published Monday August, 1st 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /atomictheatre.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg "AtomicTheatre"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg "AtomicTheatre"
 ![AtomicTheatre][id_1]
 
 What are you, but the sum of your parts? Do these parts need to be entertained? The French have a word; Ennui is a listlessness and dissatisfaction resulting from lack of interest in a topic and boredom. This feeling, in actuality, is a by-product of boredom; in a layer of consciousness you are not aware of. These feelings are natural and can happen to anyone.

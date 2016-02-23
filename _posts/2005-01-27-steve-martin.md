@@ -5,7 +5,7 @@ date: 2005-01-27T06:00:00+0000
 release_date: 2014-08-01T18:45:29+0000
 lastmod: 2014-08-12T08:59:48+0000
 keywords: "steve, great, axis, steves, martin"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg"
 permalink: "/p/steve-martin/"
 summary: "Originally published Thursday January, 27th 2005"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_steve-martin"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg "Stevemartin1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-108.jpg "Stevemartin2"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg "Stevemartin1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-108.jpg "Stevemartin2"
 Steves and Stevens are everywhere. Seeing so many makes it very difficult to truly recognise the great Steves. Great Steves are what hold this organization together. Without great steves this would surely fail. Every month or so we like to shine a little light on some great , lesser known Steves. They may not be an official member yet, but they still deserve a little credit for what they do.
 
 This month, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you:

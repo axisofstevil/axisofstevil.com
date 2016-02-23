@@ -5,7 +5,7 @@ date: 2005-06-27T05:00:00+0000
 release_date: 2015-03-06T19:45:17+0000
 lastmod: 2015-03-06T19:45:17+0000
 keywords: "reality, world, observaphobia, fear, wogbert"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg"
 permalink: "/p/entrapment-through-the-ages/"
 summary: "Originally published Monday June, 27th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /entrapment.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg "Entrapment"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg "Entrapment"
 ![Entrapment][id_1]
 
 When is reality not reality? When it is on TV. Many Americans find themselves feeling more and more wary of common everyday situations. The recent influx of reality shows of all shapes and sizes, running from the bizarre to the mundane, have created an unspoken mistrust in social groups and situations.

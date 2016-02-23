@@ -5,7 +5,7 @@ date: 2005-11-16T06:00:00+0000
 release_date: 2015-10-07T13:45:04+0000
 lastmod: 2015-10-07T13:45:04+0000
 keywords: "fish, watercrest, mulch, arthur, fried"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg"
 permalink: "/p/trout-clout/"
 summary: "Originally published Wednesday November, 16th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /troutclout.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg "Troutclout"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/troutclout.jpg "Troutclout"
 ![Troutclout][id_1]
 
 Arthur T Watercrest, the greatest known trout investor, has died. The industry baron was found fried, filleted and covered in mayonnaise in a South Littleton Red Lobster. Had wait staff not noticed the deep fried remains of his monocle, the plutocrat fish surely would have been eaten. What is left of the body has been returned to the Watercrest Estate. A crowd of 2000+ guests is expected to be in attendance at tonight’s memorial service of the world’s greatest fish.

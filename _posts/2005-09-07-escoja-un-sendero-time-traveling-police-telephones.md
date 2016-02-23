@@ -5,7 +5,7 @@ date: 2005-09-07T05:00:00+0000
 release_date: 2015-07-17T13:45:06+0000
 lastmod: 2015-07-17T13:45:06+0000
 keywords: "time, movie, captain, crowd, adventure"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif"
 permalink: "/p/escoja-un-sendero-time-traveling-police-telephones/"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_escoja-un-sendero-time-traveling-police-telephones"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif "TimeTravel"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif "TimeTravel"
 Learning to make decisions is an important part of growing up. Train the young and the young at heart, to make the best decisions in life by reading The Axis of Stevil ¡Escoja Un Sendero! Adventure Series, These exciting adventures will show how many infinite possibilities of adventure can be created from a simple mistake.
 
 ## Only you can choose, your own adventure! ##

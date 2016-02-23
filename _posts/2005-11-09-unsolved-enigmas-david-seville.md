@@ -5,7 +5,7 @@ date: 2005-11-09T06:00:00+0000
 release_date: 2015-09-25T13:45:04+0000
 lastmod: 2015-09-25T13:45:04+0000
 keywords: "seville, alvin, david, life, murder"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg"
 permalink: "/p/unsolved-enigmas-david-seville/"
 summary: "Originally published Wednesday November, 9th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /unsolvedseville.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg "UnsolvedEnigmas"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/unsolvedsevilleweb.jpg "UnsolvedEnigmas"
 ![UnsolvedEnigmas][id_1]
 
 The death of media mogul and rodent trainer, David Seville, is one of southern California’s most unsolved of mysteries. His whereabouts have been unknown for more then six years. The efforts put into finding him have all but vanished, from a taskforce of 200 to now just one Dade County cop who swore his life to close the case, Steve Willmont.

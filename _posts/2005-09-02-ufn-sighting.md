@@ -5,7 +5,7 @@ date: 2005-09-02T05:00:00+0000
 release_date: 2015-07-10T13:45:04+0000
 lastmod: 2015-07-10T13:45:04+0000
 keywords: "nuns, flying, known, catholic, ability"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg"
 permalink: "/p/ufn-sighting/"
 summary: "Originally published Friday September, 2nd 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /flyingnun.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg "Flyingnun"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg "Flyingnun"
 ![Flyingnun][id_1]
 
 According to Stevil Census Data, the second most well known conspiracy theory is the notion that Catholic nuns have the ability to fly. While the thought of these Unidentified Flying Nuns (UFN) seems preposterous to some, it is believed by many to be a fact. Speculation still remains as to how the Nuns acquired this ability; do they command powers given to them by god? Are nuns actually agents of an alien race left as crowd control for the human masses? Whatever the source, UFNs are said to be creatures that can fly as high as 700 feet and can reach speeds upwards of 30 miles an hour.
