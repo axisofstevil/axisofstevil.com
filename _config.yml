@@ -5,7 +5,7 @@ description: |
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.axisofstevil.com" # the base hostname & protocol for your site
 content_baseurl: "https://axisofstevil.s3.amazonaws.com"
-service_url: "http://service.axisofstevil.com"
+service_url: "https://service.axisofstevil.com"
 twitter_username: AxisofStevil
 github_username:  axisofstevil
 keywords: "Axis of Stevil, Dinosaur, Pop, Accountant, Axis, Stevil, Steven, Art"
