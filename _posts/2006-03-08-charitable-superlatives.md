@@ -3,7 +3,7 @@ layout: post
 title: "Charitable Superlatives"
 date: 2006-03-08T06:00:00+0000
 release_date: 2016-02-22T14:45:02+0000
-lastmod: 2016-02-22T14:45:02+0000
+lastmod: 2016-02-22T16:19:02+0000
 keywords: "problem, drivers, society, victorian, hard"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg"
 permalink: "/p/charitable-superlatives/"
