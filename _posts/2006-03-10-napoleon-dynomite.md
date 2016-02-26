@@ -3,7 +3,7 @@ layout: post
 title: "Dy-no-mite!"
 date: 2006-03-10T06:00:00+0000
 release_date: 2016-02-24T14:45:02+0000
-lastmod: 2016-02-24T14:45:02+0000
+lastmod: 2016-02-24T14:46:02+0000
 keywords: "dynamite, napoleon, factory, guaranteed, brand"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/napoleondynamite.jpg"
 permalink: "/p/napoleon-dynomite/"
