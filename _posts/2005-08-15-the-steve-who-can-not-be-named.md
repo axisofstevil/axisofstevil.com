@@ -5,7 +5,7 @@ date: 2005-08-15T05:00:00+0000
 release_date: 2015-06-22T13:45:04+0000
 lastmod: 2015-06-22T13:45:04+0000
 keywords: "steve, named, people, devil, comedic"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif"
 permalink: "/p/the-steve-who-can-not-be-named/"
 summary: "Originally published Monday August, 15th 2005"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_the-steve-who-can-not-be-named"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to fool the world through hypnosis, The Axis of Stevil would like to send a hypnotic spell on:

@@ -5,7 +5,7 @@ date: 2005-08-25T05:00:00+0000
 release_date: 2015-07-03T13:45:03+0000
 lastmod: 2015-07-03T13:45:03+0000
 keywords: "take, monkey, monkeys, chimp, world"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg"
 permalink: "/p/what-might-have-been/"
 summary: "Originally published Thursday August, 25th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /lightmonkey.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg "Lightmonkey"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/greenmonkeylarge.jpg "Greenmonkey"![Lightmonkey][id_1]
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg "Lightmonkey"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/greenmonkeylarge.jpg "Greenmonkey"![Lightmonkey][id_1]
 
 There are many things in this world we take for granted. All too often we view the world as being unchangeable; "Just the way it is". Take, for instance, the Military Industrial Complex, you know that it will defend you while you sleep, drop bombs on the enemies, and breathe during your phone conversations. What nobody realizes is that behind the scenes, there are minds toiling endlessly to think up the next great idea in anti-gravity propulsion, aeronautics and SBD olfactoric weaponry. More then likely, any idea you have had for a weapon has been thoroughly tested and documented by the army.
 

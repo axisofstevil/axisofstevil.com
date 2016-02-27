@@ -5,7 +5,7 @@ date: 2006-02-03T06:00:00+0000
 release_date: 2015-12-28T14:45:04+0000
 lastmod: 2015-12-28T14:47:05+0000
 keywords: "wolverinecheckwolverinecheckid, aetswolverinecheckjpg"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg"
 permalink: "/p/life-the-textbook/"
 summary: "Originally published Friday February, 3rd 2006"
 category: publications
@@ -14,5 +14,5 @@ redirect_from:
   - /wolverinecheck.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg "wolverinecheck"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg "wolverinecheck"
 ![wolverinecheck][id_1]

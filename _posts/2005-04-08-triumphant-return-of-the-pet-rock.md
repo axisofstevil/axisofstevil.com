@@ -5,7 +5,7 @@ date: 2005-04-08T05:00:00+0000
 release_date: 2014-09-05T18:45:09+0000
 lastmod: 2014-09-05T18:45:09+0000
 keywords: "step, instructionsflashmediacarltonbirthswf, follow, build, born"
-image: "http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth_thumb.png"
+image: "https://d3e878vmunx8cm.cloudfront.net/media/carltonbirth_thumb.png"
 permalink: "/p/triumphant-return-of-the-pet-rock/"
 summary: "Originally published Friday April, 8th 2005"
 category: flash
@@ -15,4 +15,4 @@ redirect_from:
 
 Carlton is Born, Build your own. follow these step by step instructions.
 
-!#flash(http://d3e878vmunx8cm.cloudfront.net/media/carltonbirth.swf)
+!#flash(https://d3e878vmunx8cm.cloudfront.net/media/carltonbirth.swf)

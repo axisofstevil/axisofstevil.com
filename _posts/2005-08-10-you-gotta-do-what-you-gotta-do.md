@@ -5,7 +5,7 @@ date: 2005-08-10T05:00:00+0000
 release_date: 2015-06-17T13:45:10+0000
 lastmod: 2015-06-17T13:45:10+0000
 keywords: "rabbit, meat, animal, company, discovered"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg"
 permalink: "/p/you-gotta-do-what-you-gotta-do/"
 summary: "Originally published Wednesday August, 10th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /rabbitmeat.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg "Rabbit"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Rabbitrabbitmeatlarge.jpg "Rabbit"
 ![Rabbit][id_1]
 
 The modern work force, while diligent and readily available, does not produce the same caliber of employee that can be found in the Animal Kingdom. The Axis of Stevil, in a service to greaten the public's awareness, has started the 'Lighter Side of Animal Testing' Campaign. With continued support, the preconceived notions and stereotypes of animal testing labs will be removed from our culture.

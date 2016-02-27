@@ -5,7 +5,7 @@ date: 2005-10-07T05:00:00+0000
 release_date: 2015-08-17T13:45:03+0000
 lastmod: 2015-08-17T13:45:03+0000
 keywords: "phrenology, work, relief, mannequins, science"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg"
 permalink: "/p/the-science-of-tomorrow-today/"
 summary: "Originally published Friday October, 7th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /phrenhead.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg  "Phrenhead"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/phrenhead.jpg  "Phrenhead"
 ![Phrenhead][id_1]
 
 Fad medical ideas have found commonplace in our culture. Every ten years, like [clockwork](http://www.icybrian.com/fanart/shiftyjim/turks.jpg  "clockwork"), a new "science" is invented or rehashed. If they catch on, these breakthrough health fads (bHADS) can become part of our everyday cycle of life, much like The Atkins Diet or Mormon Faith. Recent advancements in the metric system lend new credibility to the science of Phrenology. Recently appearing in major headlines with Woody Haralson opening his fifth Phrenological head shop, phrenology seems set to once again take the medical community by storm.

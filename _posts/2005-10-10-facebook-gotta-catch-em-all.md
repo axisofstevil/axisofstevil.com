@@ -5,7 +5,7 @@ date: 2005-10-10T05:00:00+0000
 release_date: 2015-08-19T13:45:11+0000
 lastmod: 2015-08-19T13:45:11+0000
 keywords: "energy, drome, gihy, pool, oaks"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg"
 permalink: "/p/facebook-gotta-catch-em-all/"
 summary: "Originally published Monday October, 10th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /facebook.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg "Facebook"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg "Facebook"
 ![Facebook][id_1]
 
 This past Friday, Monks of the high order of Mon' were called to southern San Picco where reports say the 357th reincarnation of Mon' has arrived. If confirmed it will be the cosmic beginning’s first appearance in over 6 years. The creature, Mon' Monetup, a confrontational being of obsessive collecting, is said to inhabit the Facebook. Fueling the collection of an online network of "friends" regardless of any actual relationships with these people. Arm your profile with all your obscure friends from high school and do Battle in The Facemon' Stadium!

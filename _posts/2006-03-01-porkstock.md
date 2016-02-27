@@ -5,7 +5,7 @@ date: 2006-03-01T06:00:00+0000
 release_date: 2016-02-08T14:45:01+0000
 lastmod: 2016-02-08T14:46:02+0000
 keywords: "pork, festival, years, sandwich, mecklenburg"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg"
 permalink: "/p/porkstock/"
 summary: "Originally published Wednesday March, 1st 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /porkstock.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg "porkstock"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/porkstock.jpg "porkstock"
 ![porkstock][id_1]
 
 March kicks off one the greatest meat festivals of the year; far better than any bratwurst convention. Dutch & Belgium immigrants started the month-long “Tastes of Pork Festival” in 1912. It was originally designed to drive up the market price of pigs after the traditional post-Christmas decline in meat sales. Pig farmers often refer to January and February as 'the mill' or 'deadzone'. One out of every five pig farms fail during these months and most pig ranchers are hard-pressed to make enough money to cover their expenses. New years resolutions, debt, and oversaturated meat pallets are often blamed for the consumption decline every new year.

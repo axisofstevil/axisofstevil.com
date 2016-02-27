@@ -5,7 +5,7 @@ date: 2006-01-11T06:00:00+0000
 release_date: 2015-11-27T14:45:04+0000
 lastmod: 2015-11-27T14:47:05+0000
 keywords: "name, steve, smiths, stevil, energy"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif"
 permalink: "/p/steve-smith/"
 summary: "Originally published Wednesday January, 11th 2006"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_steve-smith"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on the namesake:

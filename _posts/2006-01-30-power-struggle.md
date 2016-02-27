@@ -5,7 +5,7 @@ date: 2006-01-30T06:00:00+0000
 release_date: 2015-12-23T14:45:03+0000
 lastmod: 2015-12-23T14:47:03+0000
 keywords: "city, megakat, swat, bone, razor"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg"
 permalink: "/p/power-struggle/"
 summary: "Originally published Monday January, 30th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /powerstruggle.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg "swatkatstakeover"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg "swatkatstakeover"
 ![swatkatstakeover][id_1]
 
 A large blow was delivered to the embattled administration of city commissioners, Chance 'T-Bone' Furlong and Jake 'Razor' Clawson. Astonishing new evidence recently surfaced, that implicated the two vigilantes in a violent coup de ta, that went unnoticed for ten years. 

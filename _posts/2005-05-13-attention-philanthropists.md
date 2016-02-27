@@ -5,7 +5,7 @@ date: 2005-05-13T05:00:00+0000
 release_date: 2014-11-17T19:45:05+0000
 lastmod: 2014-11-17T19:45:05+0000
 keywords: "axis, stevil, shirts, succe, graham"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg"
 permalink: "/p/attention-philanthropists/"
 summary: "Originally published Friday May, 13th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /attention.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg "Attention"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/sisb31600.jpg "Attention"
 
 [What is "Seeing Is Believing"?](/p/seeing-is-believing)
 

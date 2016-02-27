@@ -5,7 +5,7 @@ date: 2005-06-17T05:00:00+0000
 release_date: 2015-02-04T19:45:08+0000
 lastmod: 2015-02-04T19:45:08+0000
 keywords: "banana, hammock, beach, name, spiedo"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif"
 permalink: "/p/pbc-and-you/"
 summary: "Originally published Friday June, 17th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /bananahammock.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif "BananaHammock"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bananahammocklarge.gif "BananaHammock"
 ![BananaHammock][id_1]
 
 Summer is finally here and many people find themselves shedding their cloth skins and traveling to the ocean. This yearly quest of mankind to seek a large body of water is a great way to spend a weekend and to mentally recharge one’s batteries. Large bodies of water are what a weary brain needs to relax and enjoy the sweltering summer days. Too often people forsake the bounds of good taste when selecting their swimwear and don an outfit that straddles the divide of bad taste and "too much information". Most notably is the dreaded "Banana Hammock".

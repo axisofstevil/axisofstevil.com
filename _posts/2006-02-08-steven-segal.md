@@ -5,7 +5,7 @@ date: 2006-02-08T06:00:00+0000
 release_date: 2016-01-08T08:45:02+0000
 lastmod: 2016-01-08T08:46:02+0000
 keywords: "steven, segal, steve, martial, great"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg"
 permalink: "/p/steven-segal/"
 summary: "Originally published Wednesday February, 8th 2006"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_steven-segal"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg "Stevensega1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegal2.jpg "Stevensega2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stevensegalmural.jpg "Stevensegabar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg "Stevensega1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal2.jpg "Stevensega2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegalmural.jpg "Stevensegabar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 Theres comes a time in every Steves' life where he is confused for this man, for that The Axis of Stevil bows to you:

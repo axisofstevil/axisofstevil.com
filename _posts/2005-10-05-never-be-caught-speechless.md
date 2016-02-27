@@ -5,7 +5,7 @@ date: 2005-10-05T05:00:00+0000
 release_date: 2015-08-14T13:45:04+0000
 lastmod: 2015-08-14T13:45:04+0000
 keywords: "panda, pocket, nervousnebecause, fact, axis"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg"
 permalink: "/p/never-be-caught-speechless/"
 summary: "Originally published Wednesday October, 5th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /pandabook.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg "Pandabook"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg "Pandabook"
 ![Pandabook][id_1]
 
 The perplexing panda propagates the many paradigms of the pragmatic problems of phonics. Not just the penguin of the bear universe, the panda was blessed with a language; that despite its best intention can never quite say the right thing. Among other things, this has caused the retardation of the pandanian courtship process. That can last several years, often fraught with misapprehension and nervousness.

@@ -5,7 +5,7 @@ date: 2005-07-20T05:00:00+0000
 release_date: 2015-05-06T18:45:05+0000
 lastmod: 2015-05-06T18:45:05+0000
 keywords: "google, surveillance, people, clear, googles"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg"
 permalink: "/p/the-lesser-of-two-googles/"
 summary: "Originally published Wednesday July, 20th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /google.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg "Google1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/waldoinlondon.gif "Google2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/PSAgooglehat.gif "Google3"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg "Google1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/waldoinlondon.gif "Google2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/PSAgooglehat.gif "Google3"
 ![Google1][id_1]
 
 Personal privacy is being eroded by mans ever growing ability to index and search his universe. Google, a pioneer in efficient web surfing now aims to help you find everything! How does Google hope to accomplish this? The solution was simple, constant 24-hour surveillance of the human race.

@@ -5,7 +5,7 @@ date: 2005-11-28T06:00:00+0000
 release_date: 2015-10-19T13:45:03+0000
 lastmod: 2015-10-19T13:47:03+0000
 keywords: "kuno, bluetooth, phone, models, needs"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg"
 permalink: "/p/remember-today-tomorrow/"
 summary: "Originally published Monday November, 28th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /id10m.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg "id10mpds"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg "id10mpds"
 ![id10mpds][id_1]
 
 Our on-demand, technology-driven world has yielded much advancement in the personal record keeping field. For example, the AIM log gives hard copy records of every conversation that ever transpires online. This has become a great tool for sealing harassment charges and writing provocative revenge letters. Now, a feature in almost every messaging client, the world has begun to rely on their logs so much that demand has lead to a great new innovation: The ID-10m Personal Digital Stenographer by Kuno Robotics.

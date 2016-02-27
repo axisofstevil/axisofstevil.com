@@ -5,7 +5,7 @@ date: 2005-08-05T05:00:00+0000
 release_date: 2015-06-12T13:45:04+0000
 lastmod: 2015-06-12T13:45:04+0000
 keywords: "hawking, steve, axis, great, know"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg"
 permalink: "/p/stephen-hawking/"
 summary: "Originally published Friday August, 5th 2005"
 category: featured-steves
@@ -14,7 +14,7 @@ redirect_from:
   - /stephenhawking.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg "Stephenhawking1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking2.jpg "Stephenhawking2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/stephenhawkingmural.jpg "Stephenhawkingbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg "Stephenhawking1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking2.jpg "Stephenhawking2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawkingmural.jpg "Stephenhawkingbar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to endorse the sugject of physics and other universe related things, The Axis of Stevil would like to extend a helping hand to you,

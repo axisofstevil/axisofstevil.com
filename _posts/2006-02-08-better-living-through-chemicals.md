@@ -5,7 +5,7 @@ date: 2006-02-08T06:00:00+0000
 release_date: 2015-12-30T15:40:48+0000
 lastmod: 2015-12-30T19:09:02+0000
 keywords: "scaroel, plant, young, raleighs, stevans"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg"
 permalink: "/p/better-living-through-chemicals/"
 summary: "Originally published Wednesday February, 8th 2006"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /gluttoxipawn.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg "gluttoxipawn"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/gluttoxipawn.jpg "gluttoxipawn"
 ![gluttoxipawn][id_1]
 
 With [$4.95](http://www.bpg.bg/bulgarianrose/essentialoils/concrete/clarysage.phtml "$4.95") and a will to conquer, you can get your hands on enough scaroel to control five people. What is scaroel? It’s an extract from the Clary sage (Salvia) that has been used as a mind control agent in cigarettes and perfumes for the past 50 years. It is made from the process of mixing large quantities of the sage with hexidine. A 1gram mass of concentrated scaroel, when ingested, inhaled or even looked at under the right lighting, is thought to lessen a subject's ability to think independently; thus dulling any desires to question ideas presented to them. In larger doses (5-15grams) the compound can completely dumb a subject to a ‘Zombie-like' state.

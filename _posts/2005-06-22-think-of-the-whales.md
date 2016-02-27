@@ -5,7 +5,7 @@ date: 2005-06-22T05:00:00+0000
 release_date: 2015-02-18T19:45:14+0000
 lastmod: 2015-02-18T19:45:14+0000
 keywords: "luck, modern, shits, large, predicted"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
 permalink: "/p/think-of-the-whales/"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /whalesave.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg "Whales"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg "Whales"
 ![Whales][id_1]
 
 It is a fact of life that bad things happen. Sometimes they happen when you least expect them, such as, while driving to work, waiting for your lunch order, or sleeping near a box of markers. When you encounter these bad vibes, remember to look up and note your surroundings, to be sure that you do not take down anything else with you.

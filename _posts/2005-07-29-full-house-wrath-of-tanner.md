@@ -5,7 +5,7 @@ date: 2005-07-29T05:00:00+0000
 release_date: 2015-05-22T13:45:03+0000
 lastmod: 2015-05-22T13:45:03+0000
 keywords: "tanner, magic, danny, house, pack"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/magic.gif"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/magic.gif"
 permalink: "/p/full-house-wrath-of-tanner/"
 summary: "Originally published Friday July, 29th 2005"
 category: publications
@@ -14,22 +14,22 @@ redirect_from:
   - /tannerwrath.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/magic.gif "Magic"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/magic.gif "Magic"
 ![Magic][id_1]
 
 ### Click to Download ###
 
-[Land](http://d3e878vmunx8cm.cloudfront.net/assets/magicland.gif "Land")
+[Land](https://d3e878vmunx8cm.cloudfront.net/assets/magicland.gif "Land")
 
-[Kimmy Gibbler](http://d3e878vmunx8cm.cloudfront.net/assets/magicgibble.gif "Kimmy Gibbler")
+[Kimmy Gibbler](https://d3e878vmunx8cm.cloudfront.net/assets/magicgibble.gif "Kimmy Gibbler")
 
-[Mr. Woodchuck](http://d3e878vmunx8cm.cloudfront.net/assets/magicwoodchuck.gif "Mr. Woodchuck")
+[Mr. Woodchuck](https://d3e878vmunx8cm.cloudfront.net/assets/magicwoodchuck.gif "Mr. Woodchuck")
 
-[Uncle Joey](http://d3e878vmunx8cm.cloudfront.net/assets/magicjoey.gif "Uncle Joey")
+[Uncle Joey](https://d3e878vmunx8cm.cloudfront.net/assets/magicjoey.gif "Uncle Joey")
 
-[Jesse and The Rippers](http://d3e878vmunx8cm.cloudfront.net/assets/magicripper.gif "Jesse and The Rippers")
+[Jesse and The Rippers](https://d3e878vmunx8cm.cloudfront.net/assets/magicripper.gif "Jesse and The Rippers")
 
-[Danny Tanner Clean Sweep](http://d3e878vmunx8cm.cloudfront.net/assets/magicdanny.gif "Danny Tanner Clean Sweep")
+[Danny Tanner Clean Sweep](https://d3e878vmunx8cm.cloudfront.net/assets/magicdanny.gif "Danny Tanner Clean Sweep")
 
 A superior hand is the true mark of the warrior. Trump your magical opponents with a card pulled from the "Full House: Wrath of Tanner" Magic Expansion pack! Decimate any adversary with the might of this Miller-Boyett production!
 

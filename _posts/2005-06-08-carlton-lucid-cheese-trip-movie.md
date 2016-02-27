@@ -5,7 +5,7 @@ date: 2005-06-08T05:00:00+0000
 release_date: 2015-01-16T19:45:13+0000
 lastmod: 2015-01-16T19:45:13+0000
 keywords: "ballsflashmediacarltoncheesemadneswf, trip, goes, carlton, episode"
-image: "http://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness_thumb.png"
+image: "https://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness_thumb.png"
 permalink: "/p/carlton-lucid-cheese-trip-movie/"
 summary: "Originally published Wednesday June, 8th 2005"
 category: flash
@@ -15,4 +15,4 @@ redirect_from:
 
 The episode in which Carlton goes on a trip . . . uh . . .with balls.
 
-!#flash(http://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness.swf)
+!#flash(https://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness.swf)

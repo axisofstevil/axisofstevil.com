@@ -5,7 +5,7 @@ date: 2005-07-27T05:00:00+0000
 release_date: 2015-05-13T18:45:13+0000
 lastmod: 2015-05-13T18:45:13+0000
 keywords: "stall, stallitude, install, living, proce"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg"
 permalink: "/p/residential-solutions/"
 summary: "Originally published Wednesday July, 27th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /stallitude.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg "Stallitude"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bathroomlarge.jpg "Stallitude"
 ![Stallitude][id_1]
 
 With an ever-rising cost of living, many people have turned to new cheaper forms of housing. The Stallitude, is full-featured kit that will allow you to convert any standard sized bathroom stall into a comfy studio flat of the future. Using compartmental design and ergonomics to integrate and blend into any existing bathroom.

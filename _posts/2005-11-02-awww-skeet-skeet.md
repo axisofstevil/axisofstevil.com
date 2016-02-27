@@ -5,7 +5,7 @@ date: 2005-11-02T06:00:00+0000
 release_date: 2015-09-14T13:45:10+0000
 lastmod: 2015-09-14T13:45:10+0000
 keywords: "valentine, skeeter, service, hosting, skeeters"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg"
 permalink: "/p/awww-skeet-skeet/"
 summary: "Originally published Wednesday November, 2nd 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /skeeter.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg "Skeethost"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg "Skeethost"
 ![Skeethost][id_1]
 
 Pop culture entropy keeps most from dwelling on what happened to their once iconic favorites. These characters fade away from the spot light. Some make the transition to the mundane with grace and dignity, heading up legitimate corporate ventures, or lending their name to upscale doggy biscuits, and other consumer goods. Still others, like Skeeter Valentine have great difficultly creating a normal life post-stardom.

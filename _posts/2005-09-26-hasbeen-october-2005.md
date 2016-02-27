@@ -5,7 +5,7 @@ date: 2005-09-26T05:00:00+0000
 release_date: 2015-08-07T13:45:09+0000
 lastmod: 2015-08-07T13:45:09+0000
 keywords: "game, icarus, hard, right, films"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg"
 permalink: "/p/hasbeen-october-2005/"
 summary: "Originally published Monday September, 26th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /hasbeen1005.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg "Hasbeencover"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeenheffer.jpg "Hasbeenheffer"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/14tipsweb.jpg "Hasbeen14tips"[id_4]: http://d3e878vmunx8cm.cloudfront.net/assets/hasbeenicarus.jpg "Hasbeenicarus"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg "Hasbeencover"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeenheffer.jpg "Hasbeenheffer"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/14tipsweb.jpg "Hasbeen14tips"[id_4]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeenicarus.jpg "Hasbeenicarus"
 ![Hasbeencover][id_1]
 
 Some characters will always hang in the mind. These quirky and identifiable icons of film and television can, for a time, capture the heart of a nation. These characters, often, abruptly fall from the public spot light and become forgotten. What happened to Dudley Do-Right? Did Growing Pain’s Boner ever find a girl?

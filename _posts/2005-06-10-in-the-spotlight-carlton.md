@@ -5,7 +5,7 @@ date: 2005-06-10T05:00:00+0000
 release_date: 2015-01-23T19:45:08+0000
 lastmod: 2015-01-23T19:45:08+0000
 keywords: "carlton, water, mole, felt, purple"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg"
 permalink: "/p/in-the-spotlight-carlton/"
 summary: "Originally published Friday June, 10th 2005"
 category: publications
@@ -14,7 +14,7 @@ redirect_from:
   - /spotlightcarlton.htm
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg "CarltonSea"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/CarltonSea.jpg "CarltonSea"
 ![CarltonSea][id_1]
 
 There was a day unlike most for Carlton once. He had unexpectedly been tipped out of a canoe by a rather bumbly mole. He remarked while falling over "Good heavens, you oaf!” Carlton hit the cold water with a splash!

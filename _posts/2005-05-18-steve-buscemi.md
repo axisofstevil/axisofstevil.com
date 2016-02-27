@@ -5,7 +5,7 @@ date: 2005-05-18T05:00:00+0000
 release_date: 2014-12-01T19:45:17+0000
 lastmod: 2014-12-01T19:45:17+0000
 keywords: "steve, axis, acting, buscemi, stevil"
-image: "http://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg"
+image: "https://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg"
 permalink: "/p/steve-buscemi/"
 summary: "Originally published Wednesday May, 18th 2005"
 category: featured-steves
@@ -13,7 +13,7 @@ hashtag: "#axisofstevil_steve-buscemi"
 redirect_from:
 ---
 
-[id_1]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg "Stevebuscemi1"[id_2]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemi3.jpg "Stevebuscemi2"[id_3]: http://d3e878vmunx8cm.cloudfront.net/assets/buscemimural.gif "Stevebuscemibar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg "Stevebuscemi1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi3.jpg "Stevebuscemi2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemimural.gif "Stevebuscemibar"
 This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote success, The Axis of Stevil would like to salute you:
