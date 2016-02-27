@@ -10,6 +10,7 @@ permalink: "/p/everything-thinks-it/"
 summary: "Originally published Monday May, 9th 2005"
 category: language
 hashtag: "#axisofstevil_everything-thinks-it"
+excerpt: "Zephyr, a new word to learn on Monday May, 9th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Zephyr.jpg "zephyr"

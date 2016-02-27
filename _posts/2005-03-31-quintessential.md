@@ -10,6 +10,7 @@ permalink: "/p/quintessential/"
 summary: "Originally published Thursday March, 31st 2005"
 category: language
 hashtag: "#axisofstevil_quintessential"
+excerpt: "Quintessential, a new word to learn on Thursday March, 31st 2005"
 redirect_from:
   - /quintessential.htm
 ---

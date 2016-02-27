@@ -10,6 +10,7 @@ permalink: "/p/tumultuous/"
 summary: "Originally published Sunday March, 27th 2005"
 category: language
 hashtag: "#axisofstevil_tumultuous"
+excerpt: "Tumultuous, a new word to learn on Sunday March, 27th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/tumultuous.gif "tumultuous"

@@ -10,6 +10,7 @@ permalink: "/p/stevie-the-cat/"
 summary: "Originally published Wednesday June, 1st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-the-cat"
+excerpt: "Stevie The Cat honored for exceptional work as a Steve on Wednesday June, 1st 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg "Steviethecat1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecat2.jpg "Steviethecat2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecatmural.jpg "Steviethecatbar"

@@ -10,6 +10,7 @@ permalink: "/p/steve-willmont/"
 summary: "Originally published Wednesday November, 9th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-willmont"
+excerpt: "Steve Willmont honored for exceptional work as a Steve on Wednesday November, 9th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg "Stevewillmont1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmontmural.png "Stevewillmontbar"

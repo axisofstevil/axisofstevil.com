@@ -10,6 +10,7 @@ permalink: "/p/steve-zahn/"
 summary: "Originally published Thursday January, 6th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-zahn"
+excerpt: "Steve Zahn honored for exceptional work as a Steve on Thursday January, 6th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/security3.jpg "Stevezahn1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/silv3.jpg "Stevezahn2"

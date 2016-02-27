@@ -10,6 +10,7 @@ permalink: "/p/anthropomorphize/"
 summary: "Originally published Friday December, 9th 2005"
 category: language
 hashtag: "#axisofstevil_anthropomorphize"
+excerpt: "Anthropomorphize, a new word to learn on Friday December, 9th 2005"
 redirect_from:
   - /anthropomorphize.htm
 ---

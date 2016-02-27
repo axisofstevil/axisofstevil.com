@@ -10,6 +10,7 @@ permalink: "/p/stephen-colbert/"
 summary: "Originally published Wednesday June, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-colbert"
+excerpt: "Stephen Colbert honored for exceptional work as a Steve on Wednesday June, 22nd 2005"
 redirect_from:
   - /stephencolbert.htm
 ---

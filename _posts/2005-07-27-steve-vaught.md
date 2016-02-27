@@ -10,6 +10,7 @@ permalink: "/p/steve-vaught/"
 summary: "Originally published Wednesday July, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-vaught"
+excerpt: "Steve Vaught honored for exceptional work as a Steve on Wednesday July, 27th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg "Stevevaught1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaught2.jpg "Stevevaught2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaughtmural.jpg "Stevevaughtbar"

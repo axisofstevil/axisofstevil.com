@@ -10,6 +10,7 @@ permalink: "/p/steve-bowie/"
 summary: "Originally published Wednesday November, 23rd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-bowie"
+excerpt: "Steve Bowie honored for exceptional work as a Steve on Wednesday November, 23rd 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie1.jpg "Stevebowie1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie2.jpg "Stevebowie2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowiemural.jpg "Stevebowiebar"

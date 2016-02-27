@@ -10,6 +10,7 @@ permalink: "/p/steve-t-pizzawheel/"
 summary: "Originally published Wednesday March, 1st 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steve-t-pizzawheel"
+excerpt: "Steve T. Pizzawheel honored for exceptional work as a Steve on Wednesday March, 1st 2006"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheeltop.gif "Stevepizzawheel1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheelbottom.gif "Stevepizzawheel2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheelmural.gif "Stevepizzawheelbar"

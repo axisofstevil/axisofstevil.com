@@ -10,6 +10,7 @@ permalink: "/p/stephen-hawking/"
 summary: "Originally published Friday August, 5th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-hawking"
+excerpt: "Stephen Hawking honored for exceptional work as a Steve on Friday August, 5th 2005"
 redirect_from:
   - /stephenhawking.htm
 ---

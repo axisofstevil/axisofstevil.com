@@ -10,6 +10,7 @@ permalink: "/p/ameliorate/"
 summary: "Originally published Wednesday January, 11th 2006"
 category: language
 hashtag: "#axisofstevil_ameliorate"
+excerpt: "Ameliorate, a new word to learn on Wednesday January, 11th 2006"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/ameliorate.jpg "ameliorate"

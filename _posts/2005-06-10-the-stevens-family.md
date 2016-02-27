@@ -10,6 +10,7 @@ permalink: "/p/the-stevens-family/"
 summary: "Originally published Friday June, 10th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-stevens-family"
+excerpt: "The Stevens Family honored for exceptional work as a Steve on Friday June, 10th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg "Evenstevens1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevens1.jpg "Evenstevens2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevensmural.jpg "Evenstevensbar"

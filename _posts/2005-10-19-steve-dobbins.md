@@ -10,6 +10,7 @@ permalink: "/p/steve-dobbins/"
 summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-dobbins"
+excerpt: "Steve Dobbins honored for exceptional work as a Steve on Wednesday October, 19th 2005"
 redirect_from:
   - /stevedobbins.htm
 ---

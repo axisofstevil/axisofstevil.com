@@ -10,6 +10,7 @@ permalink: "/p/antidisestablishmentarianism/"
 summary: "Originally published Friday April, 8th 2005"
 category: language
 hashtag: "#axisofstevil_antidisestablishmentarianism"
+excerpt: "Antidisestablishmentarianism, a new word to learn on Friday April, 8th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg "antidisestablishmentarianism"

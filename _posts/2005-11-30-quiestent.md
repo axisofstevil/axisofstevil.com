@@ -10,6 +10,7 @@ permalink: "/p/quiestent/"
 summary: "Originally published Wednesday November, 30th 2005"
 category: language
 hashtag: "#axisofstevil_quiestent"
+excerpt: "Quiestent, a new word to learn on Wednesday November, 30th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/quiestent.gif "quiestent"

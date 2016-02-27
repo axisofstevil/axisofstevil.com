@@ -10,6 +10,7 @@ permalink: "/p/spoonerism/"
 summary: "Originally published Monday May, 16th 2005"
 category: language
 hashtag: "#axisofstevil_spoonerism"
+excerpt: "Spoonerism, a new word to learn on Monday May, 16th 2005"
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg "spoonerism"
