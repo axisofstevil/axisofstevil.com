@@ -11,7 +11,6 @@ summary: "Originally published Wednesday September, 21st 2005"
 category: flash
 hashtag: "#axisofstevil_djballmerfresh-soundboard"
 redirect_from:
-  - /djsteveballmer.htm
 ---
 
 Make your own funky-fresh Steve Ballmer beats.

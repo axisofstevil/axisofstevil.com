@@ -12,6 +12,7 @@ category: publications
 hashtag: "#axisofstevil_djsteveballmer"
 redirect_from:
   - /djsteveballmer.htm
+  - /steveballmer.htm
 ---
 
 [![dj-steve-ballmer-fresh](https://d3e878vmunx8cm.cloudfront.net/assets/stevefernosw.jpg)](https://d3e878vmunx8cm.cloudfront.net/assets/Infernolg.jpg)
