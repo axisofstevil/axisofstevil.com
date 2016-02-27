@@ -2,6 +2,7 @@
 layout: page
 title: History
 permalink: /history/
+excerpt: Discover the true origins of The Axis of Stevil, dating back over 2000 years before the birth of the original hipster, Jesus Christ.
 sitemap:
     priority: 0.9
     changefreq: 'weekly'

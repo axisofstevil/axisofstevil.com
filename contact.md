@@ -2,6 +2,7 @@
 layout: page
 title: Drop us a line
 permalink: /contact/
+excerpt: Drop us a line. The Axis of Stevil is always happy to hear from you.
 sitemap:
     priority: 0.9
     changefreq: 'weekly'

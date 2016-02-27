@@ -2,6 +2,7 @@
 layout: page
 title: Our mission
 permalink: /mission/
+excerpt: The Axis of Stevil is founded on the principle that any person may succeed and have a voice in this universe, even Steves.
 sitemap:
     priority: 0.9
     changefreq: 'weekly'

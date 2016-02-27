@@ -1,9 +1,9 @@
 title: Axis of Stevil
 email: stevenmaguire@gmail.com
-description: |
-    Axis of Stevil - Its the Beginning of Stevilization
+description: "Axis of Stevil - It's the Beginning of Stevilization"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.axisofstevil.com" # the base hostname & protocol for your site
+url: "https://www.axisofstevil.com" # the base hostname & protocol for your site
+enforce_ssl: www.axisofstevil.com
 content_baseurl: "https://axisofstevil.s3.amazonaws.com"
 service_url: "https://service.axisofstevil.com"
 twitter_username: AxisofStevil

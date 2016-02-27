@@ -2,6 +2,7 @@
 layout: page
 title: The Shirts
 permalink: /shirts/
+excerpt: The Axis of Stevil designed, screen printed, and distributed hundreds of t-shirts using modern designs and colors.
 image: 'http://d3e878vmunx8cm.cloudfront.net/assets/backissues.jpg'
 sitemap:
     priority: 0.9

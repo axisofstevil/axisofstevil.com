@@ -2,6 +2,7 @@
 layout: page
 title: Authenticity is a red herring
 permalink: /authenticity/
+excerpt: Original, genuine Axis of Stevil content was invented for this domain and has been in the market since 2005.
 sitemap:
     priority: 0.9
     changefreq: 'weekly'
