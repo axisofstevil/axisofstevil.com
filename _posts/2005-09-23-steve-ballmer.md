@@ -10,7 +10,6 @@ permalink: "/p/steve-ballmer/"
 summary: "Originally published Friday September, 23rd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-ballmer"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steveballmer1.jpg "Steveballmer1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steveballmer2.jpg "Steveballmer2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebalmermural.gif "Steveballmerbar"

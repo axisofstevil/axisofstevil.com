@@ -10,7 +10,6 @@ permalink: "/p/carlton-vs-carton-movie/"
 summary: "Originally published Friday February, 24th 2006"
 category: flash
 hashtag: "#axisofstevil_carlton-vs-carton-movie"
-redirect_from:
 ---
 
 Carlton defends himself from the gang of violence hungry Cartons.

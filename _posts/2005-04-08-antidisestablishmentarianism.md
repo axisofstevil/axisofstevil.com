@@ -10,7 +10,6 @@ permalink: "/p/antidisestablishmentarianism/"
 summary: "Originally published Friday April, 8th 2005"
 category: language
 hashtag: "#axisofstevil_antidisestablishmentarianism"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg "antidisestablishmentarianism"

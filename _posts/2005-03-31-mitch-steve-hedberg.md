@@ -10,7 +10,6 @@ permalink: "/p/mitch-steve-hedberg/"
 summary: "Originally published Thursday March, 31st 2005"
 category: featured-steves
 hashtag: "#axisofstevil_mitch-steve-hedberg"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg "Stevemitch1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/mitch1.jpg "Stevemitch2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/hedberg.gif "Stevemitchbar"

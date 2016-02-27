@@ -10,7 +10,6 @@ permalink: "/p/the-steve-who-can-not-be-named/"
 summary: "Originally published Monday August, 15th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-steve-who-can-not-be-named"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"

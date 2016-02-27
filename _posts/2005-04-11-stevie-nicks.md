@@ -10,7 +10,6 @@ permalink: "/p/stevie-nicks/"
 summary: "Originally published Monday April, 11th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stevie-nicks"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevie1.jpg "Stevienicks1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevie3.jpg "Stevienicks2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevie2.jpg "SteveCarellbar"

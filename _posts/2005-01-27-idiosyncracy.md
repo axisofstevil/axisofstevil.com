@@ -10,7 +10,6 @@ permalink: "/p/idiosyncracy/"
 summary: "Originally published Thursday January, 27th 2005"
 category: language
 hashtag: "#axisofstevil_idiosyncracy"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/idiosyncracy.gif "idiosyncrasy"

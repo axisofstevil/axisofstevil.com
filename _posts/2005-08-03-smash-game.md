@@ -10,7 +10,6 @@ permalink: "/p/smash-game/"
 summary: "Originally published Wednesday August, 3rd 2005"
 category: flash
 hashtag: "#axisofstevil_smash-game"
-redirect_from:
 ---
 
 Latest in bored at work video games.

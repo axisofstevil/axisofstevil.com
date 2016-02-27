@@ -10,7 +10,6 @@ permalink: "/p/steve-urkel/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-urkel"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg "SteveCarell1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel1.jpg "SteveCarell2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/urkelmural.jpg "SteveCarellbar"

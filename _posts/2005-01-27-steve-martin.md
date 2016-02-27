@@ -10,7 +10,6 @@ permalink: "/p/steve-martin/"
 summary: "Originally published Thursday January, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-martin"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg "Stevemartin1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-108.jpg "Stevemartin2"

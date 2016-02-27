@@ -10,7 +10,6 @@ permalink: "/p/except-movie/"
 summary: "Originally published Wednesday April, 27th 2005"
 category: flash
 hashtag: "#axisofstevil_except-movie"
-redirect_from:
 ---
 
 Excerpt from publication.

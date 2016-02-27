@@ -10,7 +10,6 @@ permalink: "/p/moon-dance/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: flash
 hashtag: "#axisofstevil_moon-dance"
-redirect_from:
 ---
 
 The episode in which Carlton has a dance party on the moon.

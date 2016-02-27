@@ -10,7 +10,6 @@ permalink: "/p/steven-spielberg/"
 summary: "Originally published Monday March, 28th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steven-spielberg"
-redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg "Stevenspielberg1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel7.gif "Stevenspielberg2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel.gif "Stevespielbergbar"

@@ -10,7 +10,6 @@ permalink: "/p/carlton-ultimate/"
 summary: "Originally published Monday April, 11th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-ultimate"
-redirect_from:
 ---
 
 !#flash(https://d3e878vmunx8cm.cloudfront.net/media/HotelCarlton.swf)

@@ -10,7 +10,6 @@ permalink: "/p/carlton-jumped-cartons/"
 summary: "Originally published Friday February, 24th 2006"
 category: comics
 hashtag: "#axisofstevil_carlton-jumped-cartons"
-redirect_from:
 ---
 
 !#flash(https://d3e878vmunx8cm.cloudfront.net/media/CarltonVsCarton.swf)
