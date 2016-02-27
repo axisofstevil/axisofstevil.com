@@ -10,6 +10,7 @@ permalink: "/p/except-movie/"
 summary: "Originally published Wednesday April, 27th 2005"
 category: flash
 hashtag: "#axisofstevil_except-movie"
+excerpt: "Fate is a relentless adversary. You won&#039;t be able to keep up with its assualt. How can you fight what doesn&#039;t exist yet?"
 ---
 
 Excerpt from publication.

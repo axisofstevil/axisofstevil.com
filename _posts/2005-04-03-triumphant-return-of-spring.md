@@ -10,6 +10,7 @@ permalink: "/p/triumphant-return-of-spring/"
 summary: "Originally published Sunday April, 3rd 2005"
 category: flash
 hashtag: "#axisofstevil_triumphant-return-of-spring"
+excerpt: "Spring has triumphantly returned and it is time to take a moment to reflect on the beauty that spring offers."
 ---
 
 Spring is here. Time to celebrate and enjoy!

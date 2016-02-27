@@ -10,6 +10,7 @@ permalink: "/p/djballmerfresh-soundboard/"
 summary: "Originally published Wednesday September, 21st 2005"
 category: flash
 hashtag: "#axisofstevil_djballmerfresh-soundboard"
+excerpt: "DJ Ballmer Fresh Sound Board is the only place to create your own funky-fresh beats with Steve Ballmer."
 ---
 
 Make your own funky-fresh Steve Ballmer beats.
