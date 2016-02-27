@@ -346,37 +346,77 @@
 
 })(window);
 
-(function ($, algoliasearch) {
-        var searchElement = $('#search');
-        var client = algoliasearch(searchElement.data('app-id'), searchElement.data('search-key'));
-        var index = client.initIndex('production.publications');
-        var baseUrl = searchElement.data('base-url');
-
-        function searchCallback(err, content) {
-            if (err) { return; }
-            if (content.query != $("#inputfield").val()) { return; }
-            if (content.hits.length == 0) { $('.results').hide(); return; }
-
-            res = '<div class="publication-list">';
-            for (var i = 0; i < content.hits.length; ++i) {
-                res += '<article><h2><a href="/p/' + content.hits[i].slug + '">' + content.hits[i].title + '</a></h2></article>';
+(function (document) {
+    var getAnchorByAttribute = function (attribute, value) {
+        var anchors = document.getElementsByTagName("A");
+        for (var i = 0; i < anchors.length; i++) {
+            if (anchors[i].attributes[attribute] && anchors[i].attributes[attribute].value == value) {
+                return anchors[i];
             }
-            res += '</div>';
-
-            searchElement.find('.results').html(res);
-            searchElement.find('.results').show();
         }
+        return null;
+    }
 
-        function search(query) {
-            if (query.length === 0) { searchElement.find('.results').hide(); return; }
-            index.search(query, { hitsPerPage: 5, getRankingInfo: 1 }, searchCallback);
+    var gotoNext = function () {
+        var nextLink = getAnchorByAttribute('rel', 'next');
+        if (nextLink && nextLink.attributes.href) {
+            window.location.href = nextLink.attributes.href.value;
         }
+    };
 
-        $(document).ready(function() {
-            var inputfield = searchElement.find('#inputfield');
+    var gotoPrevious = function () {
+        var previousLink = getAnchorByAttribute('rel', 'prev');
+        if (previousLink && previousLink.attributes.href) {
+            window.location.href = previousLink.attributes.href.value;
+        }
+    };
 
-            inputfield.keyup(function() {
-                search(inputfield.val());
-            });
+    var keyCodeMap = {
+        37: [gotoPrevious],
+        39: [gotoNext]
+    }
+
+    document.onkeydown = function (e) {
+        e = e || window.event;
+        if (keyCodeMap.hasOwnProperty(e.keyCode)) {
+            for (var i = 0;  i < keyCodeMap[e.keyCode].length; i++) {
+                keyCodeMap[e.keyCode][i]();
+            }
+        }
+    };
+})(document);
+
+(function ($, algoliasearch) {
+    var searchElement = $('#search');
+    var client = algoliasearch(searchElement.data('app-id'), searchElement.data('search-key'));
+    var index = client.initIndex('production.publications');
+    var baseUrl = searchElement.data('base-url');
+
+    function searchCallback(err, content) {
+        if (err) { return; }
+        if (content.query != $("#inputfield").val()) { return; }
+        if (content.hits.length == 0) { $('.results').hide(); return; }
+
+        res = '<div class="publication-list">';
+        for (var i = 0; i < content.hits.length; ++i) {
+            res += '<article><h2><a href="/p/' + content.hits[i].slug + '">' + content.hits[i].title + '</a></h2></article>';
+        }
+        res += '</div>';
+
+        searchElement.find('.results').html(res);
+        searchElement.find('.results').show();
+    }
+
+    function search(query) {
+        if (query.length === 0) { searchElement.find('.results').hide(); return; }
+        index.search(query, { hitsPerPage: 5, getRankingInfo: 1 }, searchCallback);
+    }
+
+    $(document).ready(function() {
+        var inputfield = searchElement.find('#inputfield');
+
+        inputfield.keyup(function() {
+            search(inputfield.val());
         });
+    });
 })($, algoliasearch);
