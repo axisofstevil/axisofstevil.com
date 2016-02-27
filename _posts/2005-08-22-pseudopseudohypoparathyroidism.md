@@ -5,7 +5,6 @@ date: 2005-08-22T05:00:00+0000
 release_date: 2015-07-01T13:45:03+0000
 lastmod: 2015-07-01T13:45:03+0000
 keywords: "pseudopseudohypoparathyroidism, axis, people, inherited, speech"
-image: "https://d3e878vmunx8cm.cloudfront.net"
 permalink: "/p/pseudopseudohypoparathyroidism/"
 summary: "Originally published Monday August, 22nd 2005"
 category: language
