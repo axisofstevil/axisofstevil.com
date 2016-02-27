@@ -8,6 +8,16 @@ layout: default
 <section class="publication">
     <div class="prose">
         {{ content | parse_flash }}
+        {% if page.next.url or page.previous.url %}
+        {% if page.next and page.previous %}
+            {% capture links %}<a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title }}">{{ page.previous.title }}</a> or <a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}</a>{% endcapture %}
+        {% elsif page.previous %}
+            {% capture links %}<a href="{{ page.previous.url }}" rel="prev" title="{{ page.previous.title }}">{{ page.previous.title }}</a>{% endcapture %}
+        {% else %}
+            {% capture links %}<a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}</a>{% endcapture %}
+        {% endif %}
+        <p class="read-on">If you'd like to keep reading we highly recommend {{ links }}.</p>
+        {% endif %}
     </div>
 </section>
 <section class="comments">

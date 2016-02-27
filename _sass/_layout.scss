@@ -49,7 +49,11 @@ body {
                 margin-bottom: 0;
             }
         }
-
+        .read-on {
+            padding-top: rem-calc(20);
+            border-top: rem-calc(1) solid #ececec;
+            font-style: italic;
+        }
         .featured-publication {
             @include grid-column(12);
             @media only screen and (min-width: 64.063em){
