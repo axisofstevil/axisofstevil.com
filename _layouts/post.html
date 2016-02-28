@@ -7,10 +7,9 @@ layout: default
 {% include hero.html %}
 <section class="publication">
     <div class="prose">
-        {% if page.category == 'featured-steves' %}
-        <p>This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.</p>
-        {% endif %}
+        {% include post-pre-roll.html %}
         {{ content | parse_flash }}
+        {% include post-notes.html %}
         {% if page.next.url or page.previous.url %}
         {% if page.next and page.previous %}
             {% capture links %}<a href="{{ page.previous.url | prepend: site.url }}" rel="prev" title="{{ page.previous.title }}">{{ page.previous.title }}</a> or <a href="{{ page.next.url | prepend: site.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}</a>{% endcapture %}
