@@ -37,6 +37,4 @@ The Axis of Stevil news desk will maintain a fabric chair with Stephen's name ir
 
 ![Stevecolbert2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevecolbertbar][id_3]

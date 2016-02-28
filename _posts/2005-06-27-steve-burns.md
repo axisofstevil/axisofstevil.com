@@ -27,6 +27,4 @@ Studies have shown that Blue’s Clues enhances the imaginations of youngsters b
 
 Most recently Steve has been working on a screenplay for an updated version of the Baby Sitter’s Club. The soon to be author of dramatic experiences some day hopes to settle down with a family nestled in the quiet cornucopia of stardom, Beverly Hills. The Axis of Stevil wishes the best for this charismatic and funfilled Steve.
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Steveburnsbar][id_2]

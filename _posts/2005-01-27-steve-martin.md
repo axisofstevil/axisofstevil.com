@@ -29,5 +29,3 @@ Steve has been apart of many productions, infiniti plus one to be exact, includi
 Steve was born in Waco, Texas on August 4, 1945. ONE GREAT STEVE FOR MAN, ONE GIANT STEVE FOR MANKIND!
 
 ![Stevemartin2][id_2]
-
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.

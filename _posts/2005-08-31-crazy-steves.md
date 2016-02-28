@@ -36,5 +36,3 @@ This was the scene the next day
 [Click For Fullsize View](https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelarge.jpg "Click For Fullsize View")
 
 The whereabouts of Crazy Steve are unknown and he is assumed to have gone up with his bricks. With no descendents we can only wonder what advancements could have come from the Crazy Steve Line.
-
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.

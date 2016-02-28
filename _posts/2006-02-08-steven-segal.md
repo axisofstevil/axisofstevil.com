@@ -35,6 +35,4 @@ While still acting now and then, Steven has slowed down to a more relaxed pace o
 
 ![Stevensega2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please contact us.
-
 ![Stevensegabar][id_3]

@@ -47,6 +47,4 @@ The Axis of Stevil regards Steve T. Pizzawheel as a culinary visionary, respecte
 
 ![Stevepizzawheel2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevepizzawheelbar][id_3]

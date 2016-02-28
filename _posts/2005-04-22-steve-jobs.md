@@ -33,6 +33,4 @@ There will always be a spot for Steve Jobs in the [Axis of Stevil](/ "Axis of St
 
 ![Stevejobs2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevejobsbar][id_3]

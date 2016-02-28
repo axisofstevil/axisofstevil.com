@@ -37,6 +37,4 @@ The Axis of Stevil has reason to believe that indisputable proof of Bowie’s ex
 
 ![Stevebowie2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevebowiebar][id_3]

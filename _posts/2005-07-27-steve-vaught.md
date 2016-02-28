@@ -33,6 +33,4 @@ Steve started thefatmanwalking.com to display his mission, photographs and progr
 
 ![Stevevaught2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevevaughtbar][id_3]

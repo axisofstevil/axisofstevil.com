@@ -29,6 +29,4 @@ There will always be a ball of yarn here for Stevie the Cat in the [Axis of Stev
 
 ![Steviethecat2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Steviethecatbar][id_3]

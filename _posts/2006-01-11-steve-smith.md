@@ -37,6 +37,4 @@ Research of the “Save The Smiths Foundation” cites Stevil energy as one of t
 
 ![Stevesmith2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevesmithbar][id_3]

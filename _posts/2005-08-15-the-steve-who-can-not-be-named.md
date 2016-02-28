@@ -33,6 +33,4 @@ Many companies and government agencies have sought 'The Steve who can not be nam
 
 Starting this fall 'The Steve who can not be named' will be touring high schools with his new act "Mind over Abstinence"; a hilarious production that teaches young men and women the benefits of not mind fucking one another.
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevewronkerbar][id_2]

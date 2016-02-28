@@ -29,6 +29,4 @@ His troll production factory was purchased for him by the diamond smuggler, Davi
 
 The Axis of Stevil takes time this week to honor a tremendous Steve, and would gladly encourage any young child to model his life accordingly.
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevewillmontbar][id_2]

@@ -29,6 +29,4 @@ There will always be a block of cheese here for Steve Urkel in the [Axis of Stev
 
 ![Steveurkel2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Steveurkelbar][id_3]

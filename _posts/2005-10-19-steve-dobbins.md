@@ -51,6 +51,4 @@ Steve spends his days flying airplanes, running his business (Lake Norman Charte
 
 ![Stevedobbins2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 ![Stevedobbinsbar][id_3]

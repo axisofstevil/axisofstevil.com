@@ -29,5 +29,3 @@ Steve has been apart of 30+ productions, including "Daddy Day Care", "National S
 Steve was born in Marshall, Minnesota on November 13, 1968. The world didn't know what it had unleashed.
 
 ![Stevezahn2][id_2]
-
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.

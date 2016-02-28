@@ -37,8 +37,6 @@ Unfazed by this, Steve Ballmer pledges to continue innovating and manipulating s
 
 ![Steveballmer2][id_2]
 
-If you know of a great Steve and would like to submit them to the Featured Section please [contact](/contact) us.
-
 [CHECK OUT THE DJ BALLMER FRESH SOUND BOARD](/p/djsteveballmer "CHECK OUT THE DJ BALLMER FRESH SOUND BOARD")
 
 ![Steveballmerbar][id_3]
