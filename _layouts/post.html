@@ -7,6 +7,9 @@ layout: default
 {% include hero.html %}
 <section class="publication">
     <div class="prose">
+        {% if page.category == 'featured-steves' %}
+        <p>This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.</p>
+        {% endif %}
         {{ content | parse_flash }}
         {% if page.next.url or page.previous.url %}
         {% if page.next and page.previous %}
