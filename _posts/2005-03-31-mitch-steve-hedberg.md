@@ -17,9 +17,7 @@ excerpt: "Mitch Hedberg honored for exceptional work as a Steve on Thursday Marc
 
 The Axis of Stevil is sad to hear the news that a very funny and talented comedian was unjustly taken from this world. His name may not be Steve, but it might as well be. His name will go down in the record books as one of the recipients of the honorary title of "Honorary Steve". The Axis of Stevil is sorry to see this young man leave us so soon. So, having said that . . .
 
-This week, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you:
-
-## MITCH HEDBERG ##
+This week, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you, **Mitch Hedberg**!
 
 ![Stevemitch1][id_1]
 

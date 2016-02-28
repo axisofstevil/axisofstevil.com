@@ -15,9 +15,7 @@ excerpt: "Steve Bowie honored for exceptional work as a Steve on Wednesday Novem
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie1.jpg "Stevebowie1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie2.jpg "Stevebowie2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowiemural.jpg "Stevebowiebar"
 
-In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on:
-
-## STEVE BOWIE ##
+In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on **Steve Bowie**!
 
 ![Stevebowie1][id_1]
 

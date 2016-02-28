@@ -15,9 +15,7 @@ excerpt: "Steve Vaught honored for exceptional work as a Steve on Wednesday July
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaught1.jpg "Stevevaught1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaught2.jpg "Stevevaught2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevevaughtmural.jpg "Stevevaughtbar"
 
-In an ongoing effort to support personal greatness and good health everywhere, The Axis of Stevil would like to take its belt off to you:
-
-## STEVE VAUGHT ##
+In an ongoing effort to support personal greatness and good health everywhere, The Axis of Stevil would like to take its belt off to you, **Steve Vaught**!
 
 ![Stevevaught1][id_1]
 

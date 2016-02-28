@@ -15,9 +15,7 @@ excerpt: "Steven Spielberg honored for exceptional work as a Steve on Monday Mar
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel6.jpg "Stevenspielberg1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel7.gif "Stevenspielberg2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/spiel.gif "Stevespielbergbar"
  
-This month, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you:
-
-## STEVEN SPIELBERG ##
+This month, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you, **Steven Spielberg**!
 
 ![Stevemspielberg1][id_1]
 

@@ -17,9 +17,7 @@ redirect_from:
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg "Stephenhawking1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking2.jpg "Stephenhawking2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawkingmural.jpg "Stephenhawkingbar"
 
-In an ongoing effort to endorse the sugject of physics and other universe related things, The Axis of Stevil would like to extend a helping hand to you,
-
-## STEPHEN HAWKING ##
+In an ongoing effort to endorse the sugject of physics and other universe related things, The Axis of Stevil would like to extend a helping hand to you, **Stephen Hawking**!
 
 ![Stephenhawking1][id_1]
 

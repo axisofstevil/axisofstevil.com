@@ -15,9 +15,7 @@ excerpt: "The Steve That Can Not Be Named honored for exceptional work as a Stev
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"
 
-In an ongoing effort to fool the world through hypnosis, The Axis of Stevil would like to send a hypnotic spell on:
-
-## 'The Steve that can not be named' ##
+In an ongoing effort to fool the world through hypnosis, The Axis of Stevil would like to send a hypnotic spell on **'The Steve that can not be named'**!
 
 ![Stevewronkeranim1][id_1]
 

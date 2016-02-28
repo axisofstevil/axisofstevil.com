@@ -15,9 +15,7 @@ excerpt: "Crazy Steves honored for exceptional work as a Steve on Wednesday Augu
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg "Crazystevelogo1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/crazysteveweb.jpg "Crazysteve2"
 
-In an ongoing effort to promote the everyday entrepreneur Steves, The Axis of Stevil would like to send its warmest memorial to:
-
-## CRAZY STEVE'S ##
+In an ongoing effort to promote the everyday entrepreneur Steves, The Axis of Stevil would like to send its warmest memorial to **Crazy Steve's**!
 
 ![Crazystevelogo1][id_1]
 

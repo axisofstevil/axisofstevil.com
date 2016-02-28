@@ -15,9 +15,7 @@ excerpt: "Steve Burns honored for exceptional work as a Steve on Monday June, 27
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif "Steveburns1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steveburnsmural.gif "Steveburnsbar"
 
-In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you:
-
-## STEVE BURNS ##
+In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you, **Steve Burns**!
 
 ![Steveburns1][id_1]
 

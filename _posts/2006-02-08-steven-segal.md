@@ -15,9 +15,7 @@ excerpt: "Steven Segal honored for exceptional work as a Steve on Wednesday Febr
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg "Stevensega1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal2.jpg "Stevensega2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensegalmural.jpg "Stevensegabar"
 
-Theres comes a time in every Steves' life where he is confused for this man, for that The Axis of Stevil bows to you:
-
-## STEVEN SEGAL ##
+Theres comes a time in every Steves' life where he is confused for this man, for that The Axis of Stevil bows to you, **Steven Segal**!
 
 ![Stevensega1][id_1]
 

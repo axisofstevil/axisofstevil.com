@@ -15,9 +15,7 @@ excerpt: "Steve Smith honored for exceptional work as a Steve on Wednesday Janua
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"
 
-In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on the namesake:
-
-## STEVE SMITH ##
+In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on the namesake **Steve Smith**!
 
 ![Stevesmith1][id_1]
 

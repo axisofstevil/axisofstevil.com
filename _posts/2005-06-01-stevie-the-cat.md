@@ -15,9 +15,7 @@ excerpt: "Stevie The Cat honored for exceptional work as a Steve on Wednesday Ju
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecat1.jpg "Steviethecat1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecat2.jpg "Steviethecat2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/steviethecatmural.jpg "Steviethecatbar"
 
-In an ongoing effort to break the animal barrier, The Axis of Stevil would like to salute you:
-
-## STEVIE THE CAT ##
+In an ongoing effort to break the animal barrier, The Axis of Stevil would like to salute you, **Stevie The Cat**!
 
 ![Steviethecat1][id_1]
 

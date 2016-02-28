@@ -15,9 +15,7 @@ excerpt: "The Stevens Family honored for exceptional work as a Steve on Friday J
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevens2.jpg "Evenstevens1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevens1.jpg "Evenstevens2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/evenstevensmural.jpg "Evenstevensbar"
 
-In an ongoing effort to endorse family unity, The Axis of Stevil would like to salute you:
-
-## THE STEVENS FAMILY ##
+In an ongoing effort to endorse family unity, The Axis of Stevil would like to salute you, **Stevens Family**!
 
 ![Evenstevens1][id_1]
 

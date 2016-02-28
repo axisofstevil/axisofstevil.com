@@ -15,9 +15,7 @@ excerpt: "Steve Ballmer honored for exceptional work as a Steve on Friday Septem
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steveballmer1.jpg "Steveballmer1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steveballmer2.jpg "Steveballmer2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebalmermural.gif "Steveballmerbar"
 
-In an ongoing effort to support doing your best, no matter how goofy you look, The Axis of Stevil would like to salute you:
-
-## STEVE BALLMER ##
+In an ongoing effort to support doing your best, no matter how goofy you look, The Axis of Stevil would like to salute you, **Steve Ballmer**!
 
 ![Steveballmer1][id_1]
 

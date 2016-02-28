@@ -13,11 +13,9 @@ hashtag: "#axisofstevil_steve-urkel"
 excerpt: "Steve Urkel honored for exceptional work as a Steve on Wednesday May, 11th 2005"
 ---
 
-[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg "SteveCarell1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel1.jpg "SteveCarell2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/urkelmural.jpg "SteveCarellbar"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg "SteveUrkle1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/urkel1.jpg "SteveUrkle2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/urkelmural.jpg "SteveUrkleBar"
 
-In an ongoing effort to promote progress, The Axis of Stevil would like to salute you:
-
-## STEVE URKEL ##
+In an ongoing effort to promote progress, The Axis of Stevil would like to salute you, **Steve Urkel**!
 
 ![Steveurkel1][id_1]
 

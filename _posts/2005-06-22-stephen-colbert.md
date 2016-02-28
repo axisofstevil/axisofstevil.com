@@ -17,9 +17,7 @@ redirect_from:
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg "Stephencolbert1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert6.jpg "Stephencolbert2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbertmural.jpg "Stephencolbertbar"
 
-In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you:
-
-## STEPHEN COLBERT ##
+In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you, **Stephen Colbert**!
 
 ![Stephencolbert1][id_1]
 

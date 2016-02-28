@@ -15,9 +15,7 @@ excerpt: "Steve T. Pizzawheel honored for exceptional work as a Steve on Wednesd
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheeltop.gif "Stevepizzawheel1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheelbottom.gif "Stevepizzawheel2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevepizzawheelmural.gif "Stevepizzawheelbar"
 
-In the unsuffering tradition of honoring food, dignity and magic, The Axis of Stevil turns its wheels of glory toward a more than deserving candidate:
-
-## STEVE T. PIZZAWHEEL ##
+In the unsuffering tradition of honoring food, dignity and magic, The Axis of Stevil turns its wheels of glory toward a more than deserving candidate, **Steve T. Pizzawheel**!
 
 ![Stevepizzawheel1][id_1]
 

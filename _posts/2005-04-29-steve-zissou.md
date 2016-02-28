@@ -15,9 +15,7 @@ excerpt: "Steve Zissou honored for exceptional work as a Steve on Friday April, 
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg "Stevezissou1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/zizzobottom.jpg "Stevezissou2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/zizoside.jpg "Stevezissoubar"
 
-In an ongoing effort to promote progress, The Axis of Stevil would like to salute you:
-
-## STEVE ZISSOU ##
+In an ongoing effort to promote progress, The Axis of Stevil would like to salute you, **Steve Zissou**!
 
 ![Stevezissou1][id_1]
 

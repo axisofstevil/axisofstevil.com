@@ -15,9 +15,7 @@ excerpt: "Steve Buscemi honored for exceptional work as a Steve on Wednesday May
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg "Stevebuscemi1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi3.jpg "Stevebuscemi2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemimural.gif "Stevebuscemibar"
 
-In an ongoing effort to promote success, The Axis of Stevil would like to salute you:
-
-## STEVE BUSCEMI ##
+In an ongoing effort to promote success, The Axis of Stevil would like to salute you, **Steve Buscemi**!
 
 ![Stevebuscemi1][id_1]
 

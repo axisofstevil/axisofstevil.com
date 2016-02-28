@@ -15,9 +15,7 @@ excerpt: "Steve Jobs honored for exceptional work as a Steve on Friday April, 22
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg "Stevejobs1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobs7.jpg "Stevejobs2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobsmural.jpg "Stevejobsbar"
 
-In an ongoing effort to promote progress, The Axis of Stevil would like to salute you:
-
-## STEVE JOBS ##
+In an ongoing effort to promote progress, The Axis of Stevil would like to salute you, **Steve Jobs**!
 
 ![Stevejobs1][id_1]
 

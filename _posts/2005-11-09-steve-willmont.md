@@ -15,9 +15,7 @@ excerpt: "Steve Willmont honored for exceptional work as a Steve on Wednesday No
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg "Stevewillmont1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmontmural.png "Stevewillmontbar"
 
-In an ongoing effort to promote sweet revenge for the senseless murder of your best friend, The Axis of Stevil shines a light on:
-
-## STEVE WILLMONT ##
+In an ongoing effort to promote sweet revenge for the senseless murder of your best friend, The Axis of Stevil shines a light on **Steve Willmont**!
 
 ![Stevewillmont1][id_1]
 

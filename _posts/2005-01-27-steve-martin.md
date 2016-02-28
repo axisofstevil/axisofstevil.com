@@ -16,9 +16,7 @@ excerpt: "Steve Martin honored for exceptional work as a Steve on Thursday Janua
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-49.jpg "Stevemartin1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/Steve_Martin-108.jpg "Stevemartin2"
 Steves and Stevens are everywhere. Seeing so many makes it very difficult to truly recognise the great Steves. Great Steves are what hold this organization together. Without great steves this would surely fail. Every month or so we like to shine a little light on some great , lesser known Steves. They may not be an official member yet, but they still deserve a little credit for what they do.
 
-This month, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you:
-
-## STEVE MARTIN ##
+This month, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you, **Steve Martin**!
 
 ![Stevemartin1][id_1]
 
