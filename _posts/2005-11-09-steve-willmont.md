@@ -14,7 +14,6 @@ excerpt: "Steve Willmont honored for exceptional work as a Steve on Wednesday No
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg "Stevewillmont1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmontmural.png "Stevewillmontbar"
-This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote sweet revenge for the senseless murder of your best friend, The Axis of Stevil shines a light on:
 

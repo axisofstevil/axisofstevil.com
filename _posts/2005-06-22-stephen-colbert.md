@@ -16,7 +16,6 @@ redirect_from:
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg "Stephencolbert1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert6.jpg "Stephencolbert2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbertmural.jpg "Stephencolbertbar"
-This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to support , the cliche, yet extremely important, First Ammendment Right to Stickin' it to the Man, The Axis of Stevil would like to salute you:
 

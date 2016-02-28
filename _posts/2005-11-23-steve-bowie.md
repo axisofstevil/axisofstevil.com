@@ -14,7 +14,6 @@ excerpt: "Steve Bowie honored for exceptional work as a Steve on Wednesday Novem
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie1.jpg "Stevebowie1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowie2.jpg "Stevebowie2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevebowiemural.jpg "Stevebowiebar"
-This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on:
 
@@ -32,9 +31,9 @@ Bowie spent his remaining days as a 2nd Lieutenant in the United States Army; fo
 
 Despite the cover up, the Legend of Steve Bowie grew from generation to generation. In 1927, Maria Varnetta published "Steve Bowie and The Court of Santa Fe"; an outlandish tale of magic powers, polygamy and child abuse that paints Steve Bowie as a twisted character bent on conquest, by any means. The book was a number-one seller and fueled the misconceptions of the legends validity, across the country.
 
-The name Steve Bowie stands the test of time and seems to infuse a man with great motivation. Currently, [Steve Bowie](http://www.jamesbowiefmc.com/misc.htm "Steve Bowie") is in Pasadena, California on his own quest of family heritage; once again, exemplifying the true caliber of a Steve.
+The name Steve Bowie stands the test of time and seems to infuse a man with great motivation. Currently, [Steve Bowie](https://web.archive.org/web/20060714180619/http://jamesbowiefmc.com/misc.htm "Steve Bowie") is in Pasadena, California on his own quest of family heritage; once again, exemplifying the true caliber of a Steve.
 
-The Axis of Stevil has reason to believe that indisputable proof of Bowie’s existence is located in a secret, airtight basement beneath The Alamo. While you spend time with family and enjoy large meals on this third Thursday of November, please remember The Legend of Steve Bowie: First King of Texas and write [Texas Congressman Lloyd Doggett](http://www.house.gov/doggett/doggett_ima/doggett_get_address_test.htm "Texas Congressman Lloyd Doggett") and demand the vault of King Bowie I be opened.
+The Axis of Stevil has reason to believe that indisputable proof of Bowie’s existence is located in a secret, airtight basement beneath The Alamo. While you spend time with family and enjoy large meals on this third Thursday of November, please remember The Legend of Steve Bowie: First King of Texas and write [Texas Congressman Lloyd Doggett](https://forms.house.gov/doggett/webforms/issue_subscribe.htm "Texas Congressman Lloyd Doggett") and demand the vault of King Bowie I be opened.
 
 ![Stevebowie2][id_2]
 

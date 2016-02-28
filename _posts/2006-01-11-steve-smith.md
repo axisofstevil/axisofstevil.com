@@ -14,7 +14,6 @@ excerpt: "Steve Smith honored for exceptional work as a Steve on Wednesday Janua
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"
-This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to promote the telling of a great story and providing a great American legend with life, The Axis of Stevil shines its spotlight on the namesake:
 
@@ -32,7 +31,7 @@ Though almost all names have an equal might, there are those names that can hand
 
 The Axis of Stevil would like to shine a spotlight on those Steve's who are implicated to the name Smith as well. The Steve Smith's of our world illustrate how a Steve's natural ability of perseverance can overcome any obstacle.
 
-There have been many Steve Smith's, no two alike but all showing what it is to be a Steve. From extraordinary [football talent](http://www.nfl.com/players/playerpage/235157 "football talent"), to an unusual [ability of percussion](http://www.vitalinformation.com/steve/ "ability of percussion") and even an [adapted ness at reality](http://www.stevesmith.com/ "adapted ness at reality"), Steve Smiths have marched on, defining their lives of the might of Stevil. Though fate cursed them with a bipolar epitaph, their spirits, refusing to play the victim, saw through the cosmic joke and embraced Stevilization. Elevating them to seats of greatness and notoriety. 
+There have been many Steve Smith's, no two alike but all showing what it is to be a Steve. From extraordinary [football talent](http://www.nfl.com/player/stevesmith/2504595/profile "football talent"), to an unusual [ability of percussion](http://www.vitalinformation.com/history.htm "ability of percussion") and even an [adapted ness at reality](http://www.stevesmith.com/ "adapted ness at reality"), Steve Smiths have marched on, defining their lives of the might of Stevil. Though fate cursed them with a bipolar epitaph, their spirits, refusing to play the victim, saw through the cosmic joke and embraced Stevilization. Elevating them to seats of greatness and notoriety. 
 
 Research of the “Save The Smiths Foundation” cites Stevil energy as one of the few saviors of the name. Steve Smiths unwittingly lose 26,350 units of Kinetic Stevil Energy to the black hole of Smith quarterly. To put it in perspective, that energy is equivalent to four Martha’s or nine Johns. This tremendous drain of the spirit would overtake almost anybody. Many, however, find this fact rewarding they better countless lives across the land by helping an underprivileged designation. 
 

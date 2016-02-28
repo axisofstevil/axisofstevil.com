@@ -14,7 +14,6 @@ excerpt: "The Steve That Can Not Be Named honored for exceptional work as a Stev
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkermural.jpg "Stevewronkerbar"
-This illustrious company is founded on the principle that everyone can be successful and have a voice to speak their ideas, even people as plain as the name given to millions of people each year, Steve! Every so often, the Axis of Stevil takes pleasure in shining the proverbial spotlight on a Steve who shows excellence in their field.
 
 In an ongoing effort to fool the world through hypnosis, The Axis of Stevil would like to send a hypnotic spell on:
 
