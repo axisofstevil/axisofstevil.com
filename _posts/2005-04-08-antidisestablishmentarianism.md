@@ -14,7 +14,6 @@ excerpt: "Antidisestablishmentarianism, a new word to learn on Friday April, 8th
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/antidisestablishmentarianism.jpg "antidisestablishmentarianism"
-The [Axis of Stevil.com](/ "Axis of Stevil.com") has many goals, one of which is to educate its followers. One of the first impressions people gain about other people is a speech impression. A persons memory will retain a lot of information about certain peoples speech. Among those, vocabulary rises to the top. Possessing a good vocabulary is as important as learning how to ride a bike. With or without it you w
 
 ## "antidisestablishmentarianism" ##
 
