@@ -4,29 +4,6 @@ title: Axis of Stevil - It's the Beginning of Stevilization
 excerpt: Delivering the best content from around the universe to your browser and email inbox every Monday, Wednesday, and Friday.
 ---
 
-<script type="application/ld+json">
-  {
-  "@context": "http://schema.org/",
-  "@type": "Organization",
-  "url": "{{ '/' | prepend:site.url }}",
-  "logo": "{{ '/img/logo.jpg' | prepend:site.content_baseurl }}",
-  "name": "{{ site.title }}",
-  "founder": {
-    "@context": "http://schema.org",
-    "@type": "Person",
-    "name": "Steven Maguire",
-    "email": "steven@axisofstevil.com",
-    "url": "https://stevenmaguire.com"
-  },
-  "description": "{{ site.description }}",
-  "sameAs" : [
-    "https://www.facebook.com/groups/axisofstevil",
-    "https://twitter.com/AxisofStevil",
-    "https://plus.google.com/113891354311111693698"
-  ]
-  }
-</script>
-
 {% assign pageNumber = paginator.page | times: 1 %}
 {% if pageNumber == 1 %}
 <section>
@@ -60,3 +37,25 @@ excerpt: Delivering the best content from around the universe to your browser an
         <p>If you've got questions or comments, <a href="/contact">We'd love to hear from you</a>.</p>
     </div>
 </section>
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org/",
+  "@type": "Organization",
+  "url": "{{ '/' | prepend:site.url }}",
+  "logo": "{{ '/img/logo.jpg' | prepend:site.content_baseurl }}",
+  "name": "{{ site.title }}",
+  "founder": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Steven Maguire",
+    "email": "steven@axisofstevil.com",
+    "url": "https://stevenmaguire.com"
+  },
+  "description": "{{ site.description }}",
+  "sameAs" : [
+    "https://www.facebook.com/groups/axisofstevil",
+    "https://twitter.com/AxisofStevil",
+    "https://plus.google.com/113891354311111693698"
+  ]
+  }
+</script>
