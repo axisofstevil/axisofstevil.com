@@ -40,7 +40,7 @@ navigation:
           label: 'Shirts'
 collections:
     - history
-
+array: []
 
 # Build settings
 markdown: kramdown

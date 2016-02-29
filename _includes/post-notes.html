@@ -1,37 +1,37 @@
+{% assign note_items = site.array %}
 {% if page.category == 'featured-steves' %}
-<p>Know of a great <strong>Steve</strong> and would like to submit them to be featured? Great! Please <a href="{{ '/contact/' | prepend: site.url }}">contact us</a>.</p>
+    {% capture call_to_action %}Know of a great <strong>Steve</strong> and would like to submit them to be featured? Great! Please <a href="{{ '/contact/' | prepend: site.url }}">contact us</a>.{% endcapture %}
+    {% assign note_items = note_items | push: call_to_action %}
 {% endif %}
 {% if page.category == 'language' %}
-<p>Know of a great <strong>word</strong> that we should highlight? Awesome! Please <a href="{{ '/contact/' | prepend: site.url }}">contact us</a>.</p>
+    {% capture call_to_action %}Know of a great <strong>word</strong> that we should highlight? Awesome! Please <a href="{{ '/contact/' | prepend: site.url }}">contact us</a>.{% endcapture %}
+    {% assign note_items = note_items | push: call_to_action %}
 {% endif %}
-
 {% for category in site.navigation.categories %}
-{% if category.slug == page.category %}
-{% capture category_url %}
-/{{ category.slug }}/
-{% endcapture %}
-{% capture category_name %}
-{{ category.label }}
-{% endcapture %}
-{% endif %}
+    {% if category.slug == page.category %}
+        {% capture category_url %}/{{ category.slug }}/{% endcapture %}
+        {% capture category_name %}{{ category.label }}{% endcapture %}
+    {% endif %}
 {% endfor %}
 {% if category_url and category_name %}
-<p>You are here: <span itemscope itemtype="http://schema.org/BreadcrumbList">
-  <span itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="{{ site.url }}">
-        <span itemprop="name">Universe</span></a>
-    <meta itemprop="position" content="1" />
-  </span>&raquo;<span itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="{{ category_url | prepend: site.url }}">
-        <span itemprop="name">{{ category_name }}</span></a>
-    <meta itemprop="position" content="2" />
-  </span>&raquo;<span itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="{{ page.url | prepend: site.url }}">
-      <span itemprop="name">{{ page.title }}</span></a>
-    <meta itemprop="position" content="3" />
-  </span>
-</span></p>
+    {% capture breadcrumbs %}You are here: <span itemscope itemtype="http://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope
+          itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{ site.url }}">
+            <span itemprop="name">Universe</span></a>
+        <meta itemprop="position" content="1" />
+      </span>&raquo;<span itemprop="itemListElement" itemscope
+          itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{ category_url | prepend: site.url }}">
+            <span itemprop="name">{{ category_name }}</span></a>
+        <meta itemprop="position" content="2" />
+      </span>&raquo;<span itemprop="itemListElement" itemscope
+          itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{ page.url | prepend: site.url }}">
+          <span itemprop="name">{{ page.title }}</span></a>
+        <meta itemprop="position" content="3" />
+      </span>
+    </span>{% endcapture %}
+    {% assign note_items = note_items | push: breadcrumbs %}
 {% endif %}
+{% if note_items %}<p>{{ note_items | join: ' ' }}</p>{% endif %}
