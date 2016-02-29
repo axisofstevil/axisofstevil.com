@@ -46,6 +46,9 @@ layout: default
   "@type": "Article",
   "url": "{{ page.url | prepend:site.url }}",
   "name": "{{ page.title }}",
+  "headline": "{{ page.title }}",
+  "image": "{{ page.image }}",
+  "description": "{{ page.excerpt | strip }}",
   "author": {
     "@context": "http://schema.org",
     "@type": "Organization",
@@ -62,8 +65,11 @@ layout: default
     "@context": "http://schema.org",
     "@type": "Organization",
     "name": "Axis of Stevil",
-    "url": "{{ '/' | prepend:site.url }}"
+    "url": "{{ '/' | prepend:site.url }}",
+    "logo": "{{ '/img/logo-tile.png' | prepend:site.content_baseurl }}",
   },
-  "dateCreated": "{{ page.date }}"
+  "dateCreated": "{{ page.date }}",
+  "datePublished": "{{ page.date }}",
+  "dateModified": "{{ page.lastmod }}",
   }
 </script>
