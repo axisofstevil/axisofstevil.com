@@ -50,7 +50,7 @@ layout: default
   "image": {
     "@context": "http://schema.org",
     "@type": "ImageObject",
-    "contentUrl": "{{ page.image }}"
+    "url": "{{ page.image }}"
   },
   "description": "{{ page.excerpt | strip }}",
   "author": {
@@ -73,7 +73,9 @@ layout: default
     "logo": {
       "@context": "http://schema.org",
       "@type": "ImageObject",
-      "contentUrl": "{{ '/img/logo-tile.png' | prepend:site.content_baseurl }}"
+      "url": "{{ '/img/logo-tile.png' | prepend:site.content_baseurl }}",
+      "width": 50,
+      "height": 50,
     }
   },
   "dateCreated": "{{ page.date }}",
