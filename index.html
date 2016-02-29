@@ -3,6 +3,25 @@ layout: default
 title: Axis of Stevil - It's the Beginning of Stevilization
 excerpt: Delivering the best content from around the universe to your browser and email inbox every Monday, Wednesday, and Friday.
 ---
+
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org/",
+  "@type": "Organization",
+  "url": "{{ '/' | prepend:site.url }}",
+  "logo": "{{ '/img/logo-tile.png' | prepend:site.content_baseurl }}",
+  "name": "{{ site.title }}",
+  "founder": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Steven Maguire",
+    "email": "steven@axisofstevil.com",
+    "url": "https://stevenmaguire.com"
+  },
+  "description": "{{ site.description }}"
+  }
+</script>
+
 {% assign pageNumber = paginator.page | times: 1 %}
 {% if pageNumber == 1 %}
 <section>
