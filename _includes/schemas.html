@@ -1,0 +1,70 @@
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "{{ '/' | prepend:site.url }}",
+      "logo": "{{ '/img/logo.jpg' | prepend:site.content_baseurl }}",
+      "name": "{{ site.title }}",
+      "founder": {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Steven Maguire",
+        "email": "steven@axisofstevil.com",
+        "url": "https://stevenmaguire.com"
+      },
+      "description": "{{ site.description }}",
+      "sameAs" : [
+        "https://www.facebook.com/groups/axisofstevil",
+        "https://twitter.com/AxisofStevil",
+        "https://plus.google.com/113891354311111693698"
+      ]
+      }
+    </script>
+    {% if page.layout == 'post' %}
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Article",
+      "url": "{{ page.url | prepend:site.url }}",
+      "name": "{{ page.title }}",
+      "headline": "{{ page.title }}",
+      "image": {
+        "@context": "http://schema.org",
+        "@type": "ImageObject",
+        "url": "{{ page.image }}",
+        "width": 696,
+        "height": 696
+      },
+      "description": "{{ page.excerpt | strip }}",
+      "author": {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Axis of Stevil",
+        "url": "{{ '/' | prepend:site.url }}"
+      },
+      "copyrightHolder": {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Axis of Stevil",
+        "url": "{{ '/' | prepend:site.url }}"
+      },
+      "publisher": {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Axis of Stevil",
+        "url": "{{ '/' | prepend:site.url }}",
+        "logo": {
+          "@context": "http://schema.org",
+          "@type": "ImageObject",
+          "url": "{{ '/img/logo-banner.png' | prepend:site.content_baseurl }}",
+          "width": 250,
+          "height": 50
+        }
+      },
+      "dateCreated": "{{ page.date }}",
+      "datePublished": "{{ page.date }}",
+      "dateModified": "{{ page.lastmod }}",
+      "mainEntityOfPage": "{{ page.url | prepend:site.url }}"
+      }
+    </script>
+    {% endif %}
