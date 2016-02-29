@@ -39,3 +39,31 @@ layout: default
         {% include join.html %}
     </div>
 </section>
+
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org/",
+  "@type": "Article",
+  "url": "{{ page.url | prepend:site.url }}",
+  "name": "{{ page.title }}",
+  "author": {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Axis of Stevil",
+    "url": "{{ '/' | prepend:site.url }}"
+  },
+  "copyrightHolder": {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Axis of Stevil",
+    "url": "{{ '/' | prepend:site.url }}"
+  },
+  "publisher": {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Axis of Stevil",
+    "url": "{{ '/' | prepend:site.url }}"
+  },
+  "dateCreated": "{{ page.date }}"
+  }
+</script>
