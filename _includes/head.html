@@ -34,4 +34,26 @@
         ga('create', 'UA-1132651-5', 'auto');
         ga('send', 'pageview');
     </script>
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "{{ '/' | prepend:site.url }}",
+      "logo": "{{ '/img/logo.jpg' | prepend:site.content_baseurl }}",
+      "name": "{{ site.title }}",
+      "founder": {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Steven Maguire",
+        "email": "steven@axisofstevil.com",
+        "url": "https://stevenmaguire.com"
+      },
+      "description": "{{ site.description }}",
+      "sameAs" : [
+        "https://www.facebook.com/groups/axisofstevil",
+        "https://twitter.com/AxisofStevil",
+        "https://plus.google.com/113891354311111693698"
+      ]
+      }
+    </script>
 </head>
