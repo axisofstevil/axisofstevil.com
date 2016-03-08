@@ -3,7 +3,7 @@ layout: post
 title: "Man On The Inside"
 date: 2006-03-27T06:00:00+0000
 release_date: 2016-03-07T14:45:01+0000
-lastmod: 2016-03-07T14:45:01+0000
+lastmod: 2016-03-07T14:47:02+0000
 keywords: "estevez, stevil, media, studio, meage"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/insideman.jpg"
 permalink: "/p/man-on-the-inside/"
