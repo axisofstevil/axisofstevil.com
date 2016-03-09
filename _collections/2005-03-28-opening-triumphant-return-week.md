@@ -7,7 +7,7 @@ lastmod: 2016-03-09T06:49:37+0000
 permalink: "/c/opening-triumphant-return-week/"
 ---
 
-![triumphgraph](http://axisofstevil.s3.amazonaws.com/assets/triumphgraph.gif "triumphgraph")
+![triumphgraph](https://d3e878vmunx8cm.cloudfront.net/assets/triumphgraph.gif "triumphgraph")
 
 National Triumph Week was established in 1976, as a week long celebration of all the victories you, as an indvidual, have. Founded by [Billy Carter](http://axisofstevil.s3.amazonaws.com/assets/billycarter1977poster.jpg "Billy Carter"), NTW has come a great ways from humble beginnings. The 1st national triumph week was held to honor of the Ford Pinto; a marvel at the time in gas tank car chassey placement. Since then the holiday has grown in popularity and scope. It became a hot bed of controversy in the late 90s when it was officially declared a pseudo-holiday in the April Editon of TIME magazine. TIME received over 740 thousand pieces of mail regarding the story. All but 13 of them praised and rejoiced about the Holiday. Those 13 troubled souls came together and demanded a retraction and apology. The "UnNTW-13", as they are so commonly called, was established in May 1998. This group of 13 people banded together to form a committee who mission it was to never let NTW be celebrated. In June 1998, suspiciously 12 of the 13 members dissappeared and later it was discovered in 1999 that the [13th became a warrior](http://axisofstevil.s3.amazonaws.com/assets/13thwarrior.jpg "13th became a warrior") and fought many people in battle re-enactments in front of a motion picture camera. With all negative backlash surrounding this holiday disbanded, The Axis of Stevil knew exactly what to do, BRING ON THE TRIUMPH!
 
@@ -30,15 +30,15 @@ The Axis of Stevil can no longer sit idly by and watch. The TRAS Initiative is a
 
 With the Axis of Stevil holdings equaling 20% of GDP, The Axis of Stevil expects to see the execution and completion of the TRAS Initiative to the fullest extent, therefore The Axis of Stevil offers as an aid to the eternal vigilance, these custom Patriotic Wallpapers.
 
-- [Download Wallpaper - 1600 x 1200](http://axisofstevil.s3.amazonaws.com/assets/PatriotWallpaper1600x1200.jpg)
-- [Download Wallpaper - 1280 x 854](http://axisofstevil.s3.amazonaws.com/assets/PatriotWallpaper1280x854.jpg)
-- [Download Wallpaper - 640 x 361](http://axisofstevil.s3.amazonaws.com/assets/PatriotWallpaper640x361.jpg)
+- [Download Wallpaper - 1600 x 1200](https://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaper1600x1200.jpg)
+- [Download Wallpaper - 1280 x 854](https://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaper1280x854.jpg)
+- [Download Wallpaper - 640 x 361](https://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaper640x361.jpg)
 
 * * *
 
 ## The Episode In Which Carlton Is Born
 
-!#flash(http://axisofstevil.s3.amazonaws.com/media/carltonbirth.swf)
+!#flash(https://d3e878vmunx8cm.cloudfront.net/media/carltonbirth.swf)
 
 * * *
 
@@ -46,7 +46,7 @@ With the Axis of Stevil holdings equaling 20% of GDP, The Axis of Stevil expects
 
 Spring is here. Time to celebrate and enjoy!
 
-!#flash(http://axisofstevil.s3.amazonaws.com/media/Triumphantsmall.swf)
+!#flash(https://d3e878vmunx8cm.cloudfront.net/media/Triumphantsmall.swf)
 
 * * *
 
@@ -58,7 +58,7 @@ The Axis of Stevil Welcomes the spring season with open arms. The returning warm
 
 ## In your hands
 
-![Handlogo](http://axisofstevil.s3.amazonaws.com/assets/Handlogo.gif "Handlogo")
+![Handlogo](https://d3e878vmunx8cm.cloudfront.net/assets/Handlogo.gif "Handlogo")
 
 The Axis of Stevil is an organization whos purpose it is to allow the everyday people of this world a place and a voice to express their artwork, their creativity. The Axis of Stevil strongly suggests that everyone who feels they have something to say, to seize this opportunity and be heard! The world is your playplace, your inspiration, your canvas. Take advantage of it!
 
