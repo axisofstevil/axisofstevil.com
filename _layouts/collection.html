@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign hero_image = page.image %}
+{% assign hero_headline = page.title %}
+{% assign hero_description = page.summary %}
+{% include hero.html %}
+{% capture markup %}
+{{ content | parse_flash }}
+{% endcapture %}
+<section>
+    <div class="prose grid">
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+        {{ markup | format_collection }}
+    </div>
+</section>
+

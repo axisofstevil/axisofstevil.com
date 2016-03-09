@@ -37,11 +37,18 @@ body {
         .gutter-sizer { width: 2%; }
 
         .grid-item {
-            float: left;
-            width: 21%;
+            float: none;
+            width: 96%;
         }
 
-        .grid-item--width2 { width: 46%; }
+        @media only screen and (min-width: 64.063em){
+            .grid-item {
+                float: left;
+                width: 46%;
+            }
+
+            .grid-item--width2 { width: 96%; }
+        }
     }
 
     section {
