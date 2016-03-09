@@ -6,11 +6,11 @@ layout: default
 {% assign hero_description = page.summary %}
 {% include hero.html %}
 {% capture markup %}
+{{ content | parse_flash }}
+{% endcapture %}
 <section>
     <div class="prose">
-        {{ content }}
+        {{ markup | format_page }}
     </div>
 </section>
-{% endcapture %}
-{{ markup | format_page }}
 

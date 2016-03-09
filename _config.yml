@@ -39,7 +39,9 @@ navigation:
         - slug: 'shirts'
           label: 'Shirts'
 collections:
-    - history
+    collections:
+      output: true
+    history:
 array: []
 
 # Build settings

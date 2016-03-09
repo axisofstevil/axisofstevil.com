@@ -28,6 +28,22 @@ body {
         z-index: 1001;
     }
 
+    .grid {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .gutter-sizer { width: 2%; }
+
+        .grid-item {
+            float: left;
+            width: 21%;
+        }
+
+        .grid-item--width2 { width: 46%; }
+    }
+
     section {
         .prose {
             @include grid-column(12);
