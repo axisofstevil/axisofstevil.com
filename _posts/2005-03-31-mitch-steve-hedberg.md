@@ -21,7 +21,7 @@ This week, [Axis of Stevil.com](/ "Axis of Stevil.com") salutes you, **Mitch Hed
 
 ![Stevemitch1][id_1]
 
-The [Axis of Stevil](/ "Axis of Stevil") is an organization who creates all of their messages and is in the business of informing, entertaining and helping. However, in this particular case, Mitch Hedburg deserves a really nice send off. [ComedyCentral.com](http://www.comedycentral.com/standup/central/detail.jhtml?p=/comedians/h/mitch_hedberg.xml "ComedyCentral.com") put it the best, with an awesome article and biography of the great, late Mitch hedberg. **ALL CREDIT FOR THE FOLLOWING ARTICLE BELONGS TO THE WRITERS OF COMEDY CENTRAL. IT IS TOO GOOD TO IGNORE**.
+The [Axis of Stevil](/ "Axis of Stevil") is an organization who creates all of their messages and is in the business of informing, entertaining and helping. However, in this particular case, Mitch Hedburg deserves a really nice send off. [ComedyCentral.com](http://www.cc.com/episodes/zbn3x6/comedy-central-presents-cc-presents--mitch-hedberg-season-1-ep-106 "ComedyCentral.com") put it the best, with an awesome article and biography of the great, late Mitch hedberg. **ALL CREDIT FOR THE FOLLOWING ARTICLE BELONGS TO THE WRITERS OF COMEDY CENTRAL. IT IS TOO GOOD TO IGNORE**.
 
 > "Tragically, Mitch Hedberg passed away on March 30, 2005. Mitch was a beloved member of the Comedy Central family, and we join with his fans in our sadness. He will be missed.
 >

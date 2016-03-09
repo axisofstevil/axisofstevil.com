@@ -31,6 +31,6 @@ The Axis of Stevil will be holding a coloring contest, starting April 13th and r
 
 ![BigfishExample][id_5]
 
-- [Download Stencil - 1600 x 1200](https://d3e878vmunx8cm.cloudfront.net/assets//assets/Beware-of-bigger-fish-1600.jpg)
+- [Download Stencil - 1600 x 1200](https://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-1600.jpg)
 - [Download Stencil - 1280 x 854](https://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-1280.jpg)
 - [Download Stencil - 800 x 600](https://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg)
