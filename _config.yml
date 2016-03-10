@@ -15,11 +15,15 @@ paginate_path: "/page/:num"
 sass:
     style: compressed
 exclude:
+    - bower.json
     - bower_components
-    - node_modules
-    - Rakefile
     - Gemfile
     - Gemfile.lock
+    - gulpfile.js
+    - package.json
+    - node_modules
+    - Rakefile
+    - README.md
 safe: false
 navigation:
     categories:
