@@ -9,10 +9,7 @@ layout: default
     {% if site.categories[page.category] %}
     <div class="publication-list">
         {% for post in site.categories[page.category] %}
-            {% assign index = forloop.index | times: 1 %}
-            {% if index > 1 or pageNumber > 1 %}
-            {% include post-item.html %}
-            {% endif %}
+        {% include post-item.html %}
         {% endfor %}
     </div>
     {% else %}
