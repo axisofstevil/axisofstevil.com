@@ -10,8 +10,6 @@ permalink: "/p/ripped-from-the-headlines/"
 summary: "Originally published Wednesday September, 28th 2005"
 category: publications
 hashtag: "#axisofstevil_ripped-from-the-headlines"
-redirect_from:
-  - /dolphinfriendly.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/killerDolphinslg.gif "KillerDolphins"

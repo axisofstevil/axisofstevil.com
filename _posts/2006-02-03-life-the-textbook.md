@@ -10,8 +10,6 @@ permalink: "/p/life-the-textbook/"
 summary: "Originally published Friday February, 3rd 2006"
 category: publications
 hashtag: "#axisofstevil_life-the-textbook"
-redirect_from:
-  - /wolverinecheck.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/wolverinecheck.jpg "wolverinecheck"

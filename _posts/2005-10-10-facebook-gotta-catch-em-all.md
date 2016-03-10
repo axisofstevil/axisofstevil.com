@@ -10,8 +10,6 @@ permalink: "/p/facebook-gotta-catch-em-all/"
 summary: "Originally published Monday October, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_facebook-gotta-catch-em-all"
-redirect_from:
-  - /facebook.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg "Facebook"

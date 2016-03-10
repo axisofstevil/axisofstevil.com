@@ -10,8 +10,6 @@ permalink: "/p/atm-of-justice/"
 summary: "Originally published Friday August, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_atm-of-justice"
-redirect_from:
-  - /atmofjustice.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/atmofjusticefull.jpg "AtmofJustice"

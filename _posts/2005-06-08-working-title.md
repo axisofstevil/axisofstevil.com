@@ -10,8 +10,6 @@ permalink: "/p/working-title/"
 summary: "Originally published Wednesday June, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_working-title"
-redirect_from:
-  - /workingtitle.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/thoughtrice.gif "Thoughtrice"

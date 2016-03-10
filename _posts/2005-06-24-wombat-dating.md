@@ -10,8 +10,6 @@ permalink: "/p/wombat-dating/"
 summary: "Originally published Friday June, 24th 2005"
 category: publications
 hashtag: "#axisofstevil_wombat-dating"
-redirect_from:
-  - /wombat.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg "Wombat"

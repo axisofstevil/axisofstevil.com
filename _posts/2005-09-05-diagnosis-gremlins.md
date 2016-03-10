@@ -10,8 +10,6 @@ permalink: "/p/diagnosis-gremlins/"
 summary: "Originally published Monday September, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_diagnosis-gremlins"
-redirect_from:
-  - /gotgremlins.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg "Gremlins"

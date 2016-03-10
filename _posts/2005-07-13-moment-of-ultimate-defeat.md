@@ -10,8 +10,6 @@ permalink: "/p/moment-of-ultimate-defeat/"
 summary: "Originally published Wednesday July, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_moment-of-ultimate-defeat"
-redirect_from:
-  - /digestiownd.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/digestiowndlarge.gif "Digestiownd"

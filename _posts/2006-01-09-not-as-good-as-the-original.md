@@ -10,8 +10,6 @@ permalink: "/p/not-as-good-as-the-original/"
 summary: "Originally published Monday January, 9th 2006"
 category: publications
 hashtag: "#axisofstevil_not-as-good-as-the-original"
-redirect_from:
-  - /landogogo.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/landogogoweb.jpg "landogogoweb"

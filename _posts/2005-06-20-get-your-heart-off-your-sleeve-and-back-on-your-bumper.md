@@ -10,8 +10,6 @@ permalink: "/p/get-your-heart-off-your-sleeve-and-back-on-your-bumper/"
 summary: "Originally published Monday June, 20th 2005"
 category: publications
 hashtag: "#axisofstevil_get-your-heart-off-your-sleeve-and-back-on-your-bumper"
-redirect_from:
-  - /blogbumper.htm
 ---
 
 [ID_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bumperstickerfull.jpg "BumperSticker"

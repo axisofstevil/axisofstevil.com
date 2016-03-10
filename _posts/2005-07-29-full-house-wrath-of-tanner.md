@@ -10,8 +10,6 @@ permalink: "/p/full-house-wrath-of-tanner/"
 summary: "Originally published Friday July, 29th 2005"
 category: publications
 hashtag: "#axisofstevil_full-house-wrath-of-tanner"
-redirect_from:
-  - /tannerwrath.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/magic.gif "Magic"

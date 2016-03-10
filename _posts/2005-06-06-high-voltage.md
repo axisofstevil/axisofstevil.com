@@ -10,8 +10,6 @@ permalink: "/p/high-voltage/"
 summary: "Originally published Monday June, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_high-voltage"
-redirect_from:
-  - /highvoltage.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/highbirds.jpg "Highvoltage"

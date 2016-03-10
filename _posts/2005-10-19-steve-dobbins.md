@@ -11,8 +11,6 @@ summary: "Originally published Wednesday October, 19th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-dobbins"
 excerpt: "Steve Dobbins honored for exceptional work as a Steve on Wednesday October, 19th 2005"
-redirect_from:
-  - /stevedobbins.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg "Stevedobbins1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins2.jpg "Stevedobbins2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevedobbinsmural.jpg "Stevedobbinsbar"

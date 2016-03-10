@@ -10,8 +10,6 @@ permalink: "/p/the-joys-of-life/"
 summary: "Originally published Wednesday January, 18th 2006"
 category: publications
 hashtag: "#axisofstevil_the-joys-of-life"
-redirect_from:
-  - /dunkindoozer.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg "joyofdoozers"

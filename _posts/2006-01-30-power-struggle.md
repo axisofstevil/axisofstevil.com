@@ -10,8 +10,6 @@ permalink: "/p/power-struggle/"
 summary: "Originally published Monday January, 30th 2006"
 category: publications
 hashtag: "#axisofstevil_power-struggle"
-redirect_from:
-  - /powerstruggle.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg "swatkatstakeover"

@@ -10,8 +10,6 @@ permalink: "/p/napoleon-dynomite/"
 summary: "Originally published Friday March, 10th 2006"
 category: publications
 hashtag: "#axisofstevil_napoleon-dynomite"
-redirect_from:
-  - /napoleondynamite.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/napoleondynamite.jpg "napoleondynamite"

@@ -10,8 +10,6 @@ permalink: "/p/lighter-side-of-animal-testing/"
 summary: "Originally published Monday July, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_lighter-side-of-animal-testing"
-redirect_from:
-  - /animaltest.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/girraffesmelltestlarge.jpg "GirraffeTest"

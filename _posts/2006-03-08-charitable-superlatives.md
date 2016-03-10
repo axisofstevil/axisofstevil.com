@@ -10,8 +10,6 @@ permalink: "/p/charitable-superlatives/"
 summary: "Originally published Wednesday March, 8th 2006"
 category: publications
 hashtag: "#axisofstevil_charitable-superlatives"
-redirect_from:
-  - /charity.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg "charity"

@@ -10,8 +10,6 @@ permalink: "/p/the-axis-of-montage/"
 summary: "Originally published Friday July, 1st 2005"
 category: publications
 hashtag: "#axisofstevil_the-axis-of-montage"
-redirect_from:
-  - /montage.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/montagewallweb.jpg "Montage"

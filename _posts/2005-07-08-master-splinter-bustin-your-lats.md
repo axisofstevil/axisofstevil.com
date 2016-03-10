@@ -10,8 +10,6 @@ permalink: "/p/master-splinter-bustin-your-lats/"
 summary: "Originally published Friday July, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_master-splinter-bustin-your-lats"
-redirect_from:
-  - /splintbook.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/splintbooklarge.jpg "Splintbook"

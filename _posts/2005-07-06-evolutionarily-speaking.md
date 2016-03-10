@@ -10,8 +10,6 @@ permalink: "/p/evolutionarily-speaking/"
 summary: "Originally published Wednesday July, 6th 2005"
 category: publications
 hashtag: "#axisofstevil_evolutionarily-speaking"
-redirect_from:
-  - /evownd.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg "Evolutionarily"

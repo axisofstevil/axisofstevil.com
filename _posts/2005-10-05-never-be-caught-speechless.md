@@ -10,8 +10,6 @@ permalink: "/p/never-be-caught-speechless/"
 summary: "Originally published Wednesday October, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_never-be-caught-speechless"
-redirect_from:
-  - /pandabook.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/pandabooklarge.jpg "Pandabook"

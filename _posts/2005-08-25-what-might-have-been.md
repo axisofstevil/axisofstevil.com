@@ -10,8 +10,6 @@ permalink: "/p/what-might-have-been/"
 summary: "Originally published Thursday August, 25th 2005"
 category: publications
 hashtag: "#axisofstevil_what-might-have-been"
-redirect_from:
-  - /lightmonkey.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/lightmonkeylarge.jpg "Lightmonkey"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/greenmonkeylarge.jpg "Greenmonkey"![Lightmonkey][id_1]

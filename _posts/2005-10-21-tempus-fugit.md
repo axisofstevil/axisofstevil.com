@@ -10,8 +10,6 @@ permalink: "/p/tempus-fugit/"
 summary: "Originally published Friday October, 21st 2005"
 category: publications
 hashtag: "#axisofstevil_tempus-fugit"
-redirect_from:
-  - /tempusfugit.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg "Timeburgler"

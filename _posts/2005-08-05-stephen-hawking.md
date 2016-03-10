@@ -11,8 +11,6 @@ summary: "Originally published Friday August, 5th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-hawking"
 excerpt: "Stephen Hawking honored for exceptional work as a Steve on Friday August, 5th 2005"
-redirect_from:
-  - /stephenhawking.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg "Stephenhawking1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking2.jpg "Stephenhawking2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawkingmural.jpg "Stephenhawkingbar"

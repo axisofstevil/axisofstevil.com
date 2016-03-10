@@ -3,7 +3,7 @@ layout: post
 title: "Don&#039;t Be A Dummy"
 date: 2006-03-29T06:00:00+0000
 release_date: 2016-03-09T14:45:02+0000
-lastmod: 2016-03-09T14:45:02+0000
+lastmod: 2016-03-09T14:46:03+0000
 keywords: "decoy, child, allow, people, high"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/babyEDS.jpg"
 permalink: "/p/dont-be-a-dummy/"

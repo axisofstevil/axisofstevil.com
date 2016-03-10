@@ -10,8 +10,6 @@ permalink: "/p/more-cluck-for-your-buck/"
 summary: "Originally published Monday May, 30th 2005"
 category: publications
 hashtag: "#axisofstevil_more-cluck-for-your-buck"
-redirect_from:
-  - /kickinchickin.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/kickinchicken.jpg "Kickinchickin"

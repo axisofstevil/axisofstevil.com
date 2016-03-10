@@ -10,8 +10,6 @@ permalink: "/p/the-new-age-of-villainy/"
 summary: "Originally published Friday July, 15th 2005"
 category: publications
 hashtag: "#axisofstevil_the-new-age-of-villainy"
-redirect_from:
-  - /villainy.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/DarkerBrothers.jpg "Villainy1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/drclaweegelarge.jpg "Villainy2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/kerdunkdlarge.jpg "Villainy3"

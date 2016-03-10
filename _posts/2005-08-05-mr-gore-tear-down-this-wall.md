@@ -10,8 +10,6 @@ permalink: "/p/mr-gore-tear-down-this-wall/"
 summary: "Originally published Friday August, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_mr-gore-tear-down-this-wall"
-redirect_from:
-  - /gorewall.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/alagoryfull.gif "GoreWall"

@@ -10,8 +10,6 @@ permalink: "/p/remember-today-tomorrow/"
 summary: "Originally published Monday November, 28th 2005"
 category: publications
 hashtag: "#axisofstevil_remember-today-tomorrow"
-redirect_from:
-  - /id10m.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg "id10mpds"

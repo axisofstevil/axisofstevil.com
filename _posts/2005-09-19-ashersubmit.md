@@ -10,8 +10,6 @@ permalink: "/p/ashersubmit/"
 summary: "Originally published Monday September, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_ashersubmit"
-redirect_from:
-  - /ashersubmit.htm
 ---
 
 ![asher-submit](https://d3e878vmunx8cm.cloudfront.net/assets/chap-stick.gif)

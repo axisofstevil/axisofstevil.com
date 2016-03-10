@@ -10,8 +10,6 @@ permalink: "/p/awww-skeet-skeet/"
 summary: "Originally published Wednesday November, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_awww-skeet-skeet"
-redirect_from:
-  - /skeeter.htm
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg "Skeethost"
