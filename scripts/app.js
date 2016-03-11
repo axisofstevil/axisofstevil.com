@@ -389,14 +389,11 @@
 
 (function (window) {
     var mc = new Hammer(document);
-    mc.on('swipe', function(ev) {
-        if (ev.direction === 1) {
-            console.log('next');
-            window.AOS.gotoNext();
-        } else if (ev.direction === 4) {
-            console.log('previous');
-            window.AOS.gotoPrevious();
-        }
+    mc.on('swipeleft', function(ev) {
+        window.AOS.gotoNext();
+    });
+    mc.on('swiperight', function(ev) {
+        window.AOS.gotoPrevious();
     });
 })(window);
 
