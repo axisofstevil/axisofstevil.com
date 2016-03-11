@@ -9,3 +9,16 @@
         color: $primary-color;
     }
 }
+
+.social {
+    padding: 10px 0px;
+    .fb-like {
+        vertical-align: top;
+    }
+    .fb_iframe_widget span {
+        vertical-align: text-top !important;
+    }
+    .twitter-tweet-button{
+        margin: 3px;
+    }
+}

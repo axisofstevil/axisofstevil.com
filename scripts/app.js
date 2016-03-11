@@ -372,18 +372,31 @@
 })(window);
 
 (function (document) {
+    var keysEngaged = [];
     var keyCodeMap = {
         37: [window.AOS.gotoPrevious],
         39: [window.AOS.gotoNext],
         82: [window.AOS.gotoRandom]
     }
-
     document.onkeydown = function (e) {
         e = e || window.event;
-        if (keyCodeMap.hasOwnProperty(e.keyCode)) {
-            for (var i = 0;  i < keyCodeMap[e.keyCode].length; i++) {
-                keyCodeMap[e.keyCode][i]();
+        var index = keysEngaged.indexOf(e.keyCode);
+        if (index == -1) {
+            keysEngaged.push(e.keyCode);
+        }
+    };
+    document.onkeyup = function (e) {
+        e = e || window.event;
+        var index = keysEngaged.indexOf(e.keyCode);
+        if (keysEngaged.length == 1 && index > -1) {
+            if (keyCodeMap.hasOwnProperty(e.keyCode)) {
+                for (var i = 0;  i < keyCodeMap[e.keyCode].length; i++) {
+                    keyCodeMap[e.keyCode][i]();
+                }
             }
+        }
+        if (index > -1) {
+            keysEngaged.splice(index, 1);
         }
     };
 })(document);

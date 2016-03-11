@@ -28,7 +28,12 @@ layout: default
     </div>
     {% if page.hashtag %}
     <div class="prose">
-        <p>Commenting on this piece is encouraged elsewhere on the web with your group of friends. Feel free to use <a href="http://twitter.com/search?q={{ page.hashtag | uri_escape }}">{{ page.hashtag }}</a>.</p>
+        <p>Commenting on this piece is encouraged elsewhere on the web with your group of friends. Feel free to use <a href="http://twitter.com/search?q={{ page.hashtag | uri_escape }}">{{ page.hashtag }}</a> or these here social media buttons.</p>
+        <div class="social">
+            <div class="fb-like" data-href="{{ page.url | prepend: site.url }}" data-layout="button_count" data-action="like" data-share="true"></div>
+            <a href="https://twitter.com/intent/tweet?button_hashtag={{ page.hashtag }}&text=Random%20insanity%20at%20it's%20finest at {{ page.url | prepend: site.url  }}" class="twitter-hashtag-button" data-related="AxisofStevil" data-url="{{ page.url }}">Tweet {{ page.hashtag }}</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
     </div>
     {% endif %}
 </section>
