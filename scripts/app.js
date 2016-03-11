@@ -234,6 +234,51 @@
         return q.join("&");
     }
 
+    window.AOS.goToRandom = function(onError) {
+        window.AOS.Http('GET', '/api/random/publication').then(
+            function (response) {
+                var url = '/p/'+response.slug;
+                window.AOS.redirect(url);
+            }, function (error) {
+                onError(error);
+            }
+        );
+    }
+
+    window.AOS.redirect = function(url) {
+        console.log(window.location.pathname)
+        if (window.location.pathname == '/random/') {
+            window.location.replace(url);
+        } else {
+            window.location = url;
+        }
+
+    }
+
+    window.AOS.getAnchorByAttribute = function (attribute, value) {
+        var anchors = document.getElementsByTagName("A");
+        for (var i = 0; i < anchors.length; i++) {
+            if (anchors[i].attributes[attribute] && anchors[i].attributes[attribute].value == value) {
+                return anchors[i];
+            }
+        }
+        return null;
+    }
+
+    window.AOS.gotoNext = function () {
+        var nextLink = window.AOS.getAnchorByAttribute('rel', 'next');
+        if (nextLink && nextLink.attributes.href) {
+            window.location.href = nextLink.attributes.href.value;
+        }
+    };
+
+    window.AOS.gotoPrevious = function () {
+        var previousLink = window.AOS.getAnchorByAttribute('rel', 'prev');
+        if (previousLink && previousLink.attributes.href) {
+            window.location.href = previousLink.attributes.href.value;
+        }
+    };
+
 })(window);
 
 (function (window) {
@@ -311,69 +356,25 @@
     var randomButton = window.document.getElementById('random');
     var l = Ladda.create(randomButton);
 
-    function goToRandom() {
-        l.start();
-        window.AOS.Http('GET', '/api/random/publication').then(
-            function (response) {
-                var url = '/p/'+response.slug;
-                l.stop();
-                redirect(url);
-            }, function (error) {
-                l.stop();
-                console.error("Failed!", error);
-            }
-        );
-    }
-
-    function redirect (url) {
-        console.log(window.location.pathname)
-        if (window.location.pathname == '/random/') {
-            window.location.replace(url);
-        } else {
-            window.location = url;
-        }
-
-    }
-
     randomButton.addEventListener('click', function (e) {
-        goToRandom();
+        l.start();
+        window.AOS.goToRandom(function (error) {
+            console.error("Failed!", error);
+            l.stop();
+        });
         e.preventDefault();
     });
 
     if (window.document.getElementById('load-random-post') !== null) {
-        goToRandom();
+        window.AOS.goToRandom();
     }
 
 })(window);
 
 (function (document) {
-    var getAnchorByAttribute = function (attribute, value) {
-        var anchors = document.getElementsByTagName("A");
-        for (var i = 0; i < anchors.length; i++) {
-            if (anchors[i].attributes[attribute] && anchors[i].attributes[attribute].value == value) {
-                return anchors[i];
-            }
-        }
-        return null;
-    }
-
-    var gotoNext = function () {
-        var nextLink = getAnchorByAttribute('rel', 'next');
-        if (nextLink && nextLink.attributes.href) {
-            window.location.href = nextLink.attributes.href.value;
-        }
-    };
-
-    var gotoPrevious = function () {
-        var previousLink = getAnchorByAttribute('rel', 'prev');
-        if (previousLink && previousLink.attributes.href) {
-            window.location.href = previousLink.attributes.href.value;
-        }
-    };
-
     var keyCodeMap = {
-        37: [gotoPrevious],
-        39: [gotoNext]
+        37: [window.AOS.gotoPrevious],
+        39: [window.AOS.gotoNext]
     }
 
     document.onkeydown = function (e) {
@@ -385,6 +386,49 @@
         }
     };
 })(document);
+
+(function (window) {
+    var touchstartX = 0;
+    var touchstartY = 0;
+    var touchendX = 0;
+    var touchendY = 0;
+
+    var gesuredZone = window.document.getElementsByTagName('body')[0];
+
+    gesuredZone.addEventListener('touchstart', function(event) {
+        touchstartX = event.screenX;
+        touchstartY = event.screenY;
+        console.log(touchstartX, touchstartY);
+    }, false);
+
+    gesuredZone.addEventListener('touchend', function(event) {
+        touchendX = event.screenX;
+        touchendY = event.screenY;
+        console.log(touchendX, touchendY);
+        handleGesure();
+    }, false);
+
+    function handleGesure() {
+        var swiped = 'swiped: ';
+        if (touchendX < touchstartX) {
+            window.AOS.gotoPrevious();
+            console.log(swiped + 'left!');
+        }
+        if (touchendX > touchstartX) {
+            window.AOS.gotoNext();
+            console.log(swiped + 'right!');
+        }
+        if (touchendY < touchstartY) {
+            console.log(swiped + 'down!');
+        }
+        if (touchendY > touchstartY) {
+            console.log(swiped + 'up!');
+        }
+        if (touchendY == touchstartY) {
+            console.log('tap!');
+        }
+    }
+})(window);
 
 (function ($, algoliasearch) {
     var searchElement = $('#search');
