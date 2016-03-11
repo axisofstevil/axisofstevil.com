@@ -234,7 +234,7 @@
         return q.join("&");
     }
 
-    window.AOS.goToRandom = function(onError) {
+    window.AOS.gotoRandom = function(onError) {
         window.AOS.Http('GET', '/api/random/publication').then(
             function (response) {
                 var url = '/p/'+response.slug;
@@ -358,7 +358,7 @@
 
     randomButton.addEventListener('click', function (e) {
         l.start();
-        window.AOS.goToRandom(function (error) {
+        window.AOS.gotoRandom(function (error) {
             console.error("Failed!", error);
             l.stop();
         });
@@ -366,7 +366,7 @@
     });
 
     if (window.document.getElementById('load-random-post') !== null) {
-        window.AOS.goToRandom();
+        window.AOS.gotoRandom();
     }
 
 })(window);
@@ -374,7 +374,8 @@
 (function (document) {
     var keyCodeMap = {
         37: [window.AOS.gotoPrevious],
-        39: [window.AOS.gotoNext]
+        39: [window.AOS.gotoNext],
+        82: [window.AOS.gotoRandom]
     }
 
     document.onkeydown = function (e) {
