@@ -388,46 +388,16 @@
 })(document);
 
 (function (window) {
-    var touchstartX = 0;
-    var touchstartY = 0;
-    var touchendX = 0;
-    var touchendY = 0;
-
-    var gesuredZone = window.document.getElementsByTagName('body')[0];
-
-    gesuredZone.addEventListener('touchstart', function(event) {
-        touchstartX = event.screenX;
-        touchstartY = event.screenY;
-        console.log(touchstartX, touchstartY);
-    }, false);
-
-    gesuredZone.addEventListener('touchend', function(event) {
-        touchendX = event.screenX;
-        touchendY = event.screenY;
-        console.log(touchendX, touchendY);
-        handleGesure();
-    }, false);
-
-    function handleGesure() {
-        var swiped = 'swiped: ';
-        if (touchendX < touchstartX) {
-            window.AOS.gotoPrevious();
-            console.log(swiped + 'left!');
-        }
-        if (touchendX > touchstartX) {
+    var mc = new Hammer(document);
+    mc.on('swipe', function(ev) {
+        if (ev.direction === 1) {
+            console.log('next');
             window.AOS.gotoNext();
-            console.log(swiped + 'right!');
+        } else if (ev.direction === 4) {
+            console.log('previous');
+            window.AOS.gotoPrevious();
         }
-        if (touchendY < touchstartY) {
-            console.log(swiped + 'down!');
-        }
-        if (touchendY > touchstartY) {
-            console.log(swiped + 'up!');
-        }
-        if (touchendY == touchstartY) {
-            console.log('tap!');
-        }
-    }
+    });
 })(window);
 
 (function ($, algoliasearch) {
