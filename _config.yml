@@ -47,6 +47,14 @@ collections:
       output: true
     history:
 array: []
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      is_post: true
+
 
 # Build settings
 markdown: kramdown
