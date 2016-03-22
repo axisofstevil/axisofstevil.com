@@ -5,10 +5,13 @@
     Axis of Stevil - Its the Beginning of Stevilization
     Steve at Axis of Stevil: Stevil, Steven, Axis, Art
     -->
+    {% capture title %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+    {% capture excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endcapture %}
+    {% capture description %}{% if excerpt != '' %}{{ excerpt }}{% else if page.is_post %}{{ page.content | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
     <meta charset="utf-8" />
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{{ description }}">
     <meta name="geo.placename" content="United States" />
     <meta name="geo.position" content="x;x" />
     <meta name="geo.region" content="usa" />
@@ -18,8 +21,8 @@
     <meta name="MobileOptimized" content="320">
     <meta property="og:url" content="{{ page.url | replace:'index.html','/' | prepend: site.baseurl | prepend: site.url }}" />
     {% if page.is_post %}<meta property="og:type" content="{% if page.category == 'featured-steves' %}profile{% else %}article{% endif %}" />{% endif %}
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
     {% if page.image %}
     <meta property="og:image" content="{{ page.image | replace:'https','http' }}" />
     <meta property="og:image:secure_url" content="{{ page.image }}" />
@@ -35,7 +38,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,900">
     <link rel="stylesheet" href="/styles/app.css" />
     <link rel="stylesheet" href="/styles/ladda-themeless.min.css" />
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{{ title }}</title>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
