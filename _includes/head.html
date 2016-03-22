@@ -20,7 +20,7 @@
     {% if page.is_post %}<meta property="og:type" content="{% if page.category == 'featured-steves' %}profile{% else %}article{% endif %}" />{% endif %}
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-    {% if page.image %}<meta property="og:image:secure_url" content="{{ page.image }}}" />{% endif %}
+    {% if page.image %}<meta property="og:image" content="{{ page.image | replace:'https','http' }}" /><meta property="og:image:secure_url" content="{{ page.image }}" />{% endif %}
     <meta property="fb:app_id" content="460887317433224" />
     <meta property="fb:admins" content="22202778" />
     <meta name="robots" content="index, follow" />
