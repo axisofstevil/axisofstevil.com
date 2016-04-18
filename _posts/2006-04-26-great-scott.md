@@ -3,7 +3,7 @@ layout: post
 title: "Great Scott"
 date: 2006-04-26T05:00:00+0000
 release_date: 2016-04-15T14:45:02+0000
-lastmod: 2016-04-15T14:45:02+0000
+lastmod: 2016-04-15T14:46:02+0000
 keywords: "gigalibre, results, monster, data, internet"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/surveymonster.jpg"
 permalink: "/p/great-scott/"
