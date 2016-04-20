@@ -3,7 +3,7 @@ layout: post
 title: "The American Experience"
 date: 2006-05-01T05:00:00+0000
 release_date: 2016-04-18T14:45:02+0000
-lastmod: 2016-04-18T14:45:02+0000
+lastmod: 2016-04-18T14:47:03+0000
 keywords: "american, leatherheads, golf, hardly, experience"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/leatherhead.jpg"
 permalink: "/p/the-american-experience/"
