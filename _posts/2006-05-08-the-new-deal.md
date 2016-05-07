@@ -12,9 +12,9 @@ category: publications
 hashtag: "#axisofstevil_the-new-deal"
 ---
 
-[Id_1]:/assets/bobbysdeal.jpg "bobbysdeal"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/bobbysdeal.jpg "bobbysdeal"
 
-![bobbysdeal][Id_1]
+![bobbysdeal][id_1]
 
 A great tragedy has struck the nation.  “Claimed” comedian and new game show host, Howie Mandel has been reported missing as of Saturday, May 6th.  He was last seen in a tavern outside of East Shore, Nebraska. Witnesses testify that he was in town to celebrate Cinco de Mayo and left the Rusty Bucket Tavern with three unidentified individuals wearing plastic-beaded necklaces and sombreros.
 
