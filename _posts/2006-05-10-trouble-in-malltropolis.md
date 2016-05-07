@@ -12,9 +12,9 @@ category: publications
 hashtag: "#axisofstevil_trouble-in-malltropolis"
 ---
 
-[Id_1]:/assets/clubbedseal.jpg "clubbedseal"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/clubbedseal.jpg "clubbedseal"
 
-![clubbedseal][Id_1]
+![clubbedseal][id_1]
 
 A new sensation is taking over the malls and teenage hang outs all over America. Just a year ago, *Clubbed Seal*, the newest fur club clothing hot spot, became the talk of the media and “cool” tables in high schools everywhere. The raver’s fur boutique, with its hip layout, mainstream up-beat music, and fur sported by J. Lo, Fergie, and Baby Spice has been attracting the crème de la crème of club going ladies. 
 

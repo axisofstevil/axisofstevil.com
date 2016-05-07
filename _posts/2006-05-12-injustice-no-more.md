@@ -12,9 +12,9 @@ category: publications
 hashtag: "#axisofstevil_injustice-no-more"
 ---
 
-[Id_1]:/assets/takebackyourbreak.jpg "takebackyourbreak"
+[id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/takebackyourbreak.jpg "takebackyourbreak"
 
-![takebackyourbreak][Id_1]
+![takebackyourbreak][id_1]
 
 Having a 9 to 5 seems to be the fate of every Steve at one time or another. The entire American public education system is merely preparation for monotonous office work.  It’s tiring just thinking about working for ‘the man’. There are many injustices that everyone must endure for the good of greater priorities; injustices that include taking orders from someone younger than you or having to clean the floors of the bathroom every night. However, there is one injustice that can be fought without the consequence of termination: the smoke break.
 
