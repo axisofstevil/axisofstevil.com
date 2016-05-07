@@ -3,7 +3,7 @@ layout: post
 title: "Injustice No More!"
 date: 2006-05-12T05:00:00+0000
 release_date: 2016-05-06T14:45:02+0000
-lastmod: 2016-05-06T14:45:02+0000
+lastmod: 2016-05-06T14:46:02+0000
 keywords: "cigarettes, smoke, break, imirette, smoking"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/takebackyourbreak.jpg"
 permalink: "/p/injustice-no-more/"
