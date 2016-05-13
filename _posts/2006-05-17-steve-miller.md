@@ -3,7 +3,7 @@ layout: post
 title: "Steve Miller"
 date: 2006-05-17T05:00:00+0000
 release_date: 2016-05-11T14:45:02+0000
-lastmod: 2016-05-11T14:45:02+0000
+lastmod: 2016-05-11T14:46:02+0000
 keywords: "miller, steve, band, scaggs, future"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevemiller1.jpg"
 permalink: "/p/steve-miller/"
