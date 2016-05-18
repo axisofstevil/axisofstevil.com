@@ -3,7 +3,7 @@ layout: post
 title: "Primetime Scoop"
 date: 2006-05-22T05:00:00+0000
 release_date: 2016-05-16T14:45:02+0000
-lastmod: 2016-05-16T14:45:02+0000
+lastmod: 2016-05-16T14:47:02+0000
 keywords: "time, mice, large, show, mouse"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/looniest.jpg"
 permalink: "/p/primetime-scoop/"
