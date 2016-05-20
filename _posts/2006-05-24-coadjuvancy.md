@@ -3,7 +3,7 @@ layout: post
 title: "Coadjuvancy"
 date: 2006-05-24T05:00:00+0000
 release_date: 2016-05-18T14:45:02+0000
-lastmod: 2016-05-18T14:45:02+0000
+lastmod: 2016-05-18T14:47:03+0000
 keywords: "axis, coadjuvancy, people, speech, stevilcom"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/girlsnightout.jpg"
 permalink: "/p/coadjuvancy/"
