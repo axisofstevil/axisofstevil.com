@@ -3,7 +3,7 @@ layout: post
 title: "It&#039;s A Hard Block Life"
 date: 2006-06-14T05:00:00+0000
 release_date: 2016-06-03T14:45:01+0000
-lastmod: 2016-06-03T14:45:01+0000
+lastmod: 2016-06-03T14:47:02+0000
 keywords: "bricks, brick, sando, blocks, cinder"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/blockparty.jpg"
 permalink: "/p/its-a-hard-block-life/"
