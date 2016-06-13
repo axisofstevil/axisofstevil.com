@@ -3,7 +3,7 @@ layout: post
 title: "Aggregate"
 date: 2006-06-21T05:00:00+0000
 release_date: 2016-06-10T14:45:02+0000
-lastmod: 2016-06-10T14:45:02+0000
+lastmod: 2016-06-10T14:47:02+0000
 keywords: "axis, aggregate, people, speech, vocabulary"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/aggregate.jpg"
 permalink: "/p/aggregate/"
