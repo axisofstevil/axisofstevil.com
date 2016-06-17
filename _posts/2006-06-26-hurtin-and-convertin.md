@@ -3,7 +3,7 @@ layout: post
 title: "Hurtin&#039; And Convertin&#039;"
 date: 2006-06-26T05:00:00+0000
 release_date: 2016-06-15T14:45:02+0000
-lastmod: 2016-06-15T14:45:02+0000
+lastmod: 2016-06-15T14:47:02+0000
 keywords: "games, holy, video, sport, fighter"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/holyhostility.jpg"
 permalink: "/p/hurtin-and-convertin/"
