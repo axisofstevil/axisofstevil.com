@@ -3,7 +3,7 @@ layout: post
 title: "Omg They Killed Kenny"
 date: 2006-07-07T05:00:00+0000
 release_date: 2016-06-22T14:45:02+0000
-lastmod: 2016-06-22T14:45:02+0000
+lastmod: 2016-06-22T14:47:02+0000
 keywords: "death, lays, time, corporation, come"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/kenlay_lies.jpg"
 permalink: "/p/omg-they-killed-kenny/"
@@ -29,4 +29,4 @@ His mission completed, Kenneth Lay's death was faked this week allowing the long
             
 The Axis of Stevil asks that all people white, black or alien take a moment and pour a 40 on the curb for another fallen soldier.
 
-["**Life is fleeting; Merchandise is 4ever!**"](http://www.cafepress.com/kenlayforever ""Life is fleeting; Merchandise is 4ever!"")
+[Life is fleeting; Merchandise is 4ever!](http://www.cafepress.com/kenlayforever)
