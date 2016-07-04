@@ -3,7 +3,7 @@ layout: post
 title: "Plucky Plucky Bo Bucky!"
 date: 2006-07-17T05:00:00+0000
 release_date: 2016-07-01T14:45:03+0000
-lastmod: 2016-07-01T14:45:03+0000
+lastmod: 2016-07-01T14:49:02+0000
 keywords: "plucky, game, duck, dance, name"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/NameGamePlucky.jpg"
 permalink: "/p/plucky-pluck-bo-bucky/"
