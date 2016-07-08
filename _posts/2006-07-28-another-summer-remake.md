@@ -3,7 +3,7 @@ layout: post
 title: "Another Summer Remake"
 date: 2006-07-28T05:00:00+0000
 release_date: 2016-07-06T14:45:02+0000
-lastmod: 2016-07-06T14:45:02+0000
+lastmod: 2016-07-06T14:47:03+0000
 keywords: "western, media, show, iran, music"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/HomelandBound.jpg"
 permalink: "/p/another-summer-remake/"
