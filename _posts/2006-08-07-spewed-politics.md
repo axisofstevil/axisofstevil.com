@@ -3,7 +3,7 @@ layout: post
 title: "Spew&#039;ed Politics"
 date: 2006-08-07T05:00:00+0000
 release_date: 2016-07-18T14:45:02+0000
-lastmod: 2016-07-18T14:45:02+0000
+lastmod: 2016-07-18T14:48:03+0000
 keywords: "fruit, animal, product, spewers, animals"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Spewers.jpg"
 permalink: "/p/spewed-politics/"
