@@ -3,7 +3,7 @@ layout: post
 title: "Steve Lubanski"
 date: 2006-08-14T05:00:00+0000
 release_date: 2016-07-22T14:45:02+0000
-lastmod: 2016-07-22T14:45:02+0000
+lastmod: 2016-07-22T14:50:03+0000
 keywords: "steve, rabbit, candace, lubanski, bunny"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/SteveLubanski1.jpg"
 permalink: "/p/steve-lubanski/"
