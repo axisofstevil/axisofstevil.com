@@ -3,7 +3,7 @@ layout: post
 title: "Safety Buff"
 date: 2006-08-16T05:00:00+0000
 release_date: 2016-07-27T14:45:02+0000
-lastmod: 2016-07-27T14:45:02+0000
+lastmod: 2016-07-27T14:47:02+0000
 keywords: "dari, flight, travel, private, good"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/DariAir.jpg"
 permalink: "/p/safety-buff/"
