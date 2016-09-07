@@ -3,7 +3,7 @@ layout: post
 title: "Miss Stevenson"
 date: 2006-10-20T05:00:00+0000
 release_date: 2016-09-05T14:45:02+0000
-lastmod: 2016-09-05T14:45:02+0000
+lastmod: 2016-09-05T14:47:02+0000
 keywords: "steve, stevil, axis, stevenson, minds"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevensonbar.jpg"
 permalink: "/p/miss-stevenson/"
