@@ -372,6 +372,7 @@
 })(window);
 
 (function (document) {
+    var formElements = ['input','textarea']
     var keysEngaged = [];
     var keyCodeMap = {
         37: [window.AOS.gotoPrevious],
@@ -380,6 +381,13 @@
     }
     document.onkeydown = function (e) {
         e = e || window.event;
+        try {
+            if (formElements.indexOf(e.target.localName) > -1) {
+                return;
+            }
+        } catch (error) {
+            console.log(error)
+        }
         var index = keysEngaged.indexOf(e.keyCode);
         if (index == -1) {
             keysEngaged.push(e.keyCode);
