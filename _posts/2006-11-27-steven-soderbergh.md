@@ -3,7 +3,7 @@ layout: post
 title: "Steve Soderbergh"
 date: 2006-11-27T06:00:00+0000
 release_date: 2016-09-21T14:45:02+0000
-lastmod: 2016-09-21T14:45:02+0000
+lastmod: 2016-09-21T14:47:02+0000
 keywords: "steven, soderbergh, steve, steves, film"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/StevenSoderbergh1.jpg"
 permalink: "/p/steven-soderbergh/"
