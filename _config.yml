@@ -9,6 +9,10 @@ service_url: "https://service.axisofstevil.com"
 twitter_username: AxisofStevil
 github_username:  axisofstevil
 keywords: "Axis of Stevil, Dinosaur, Pop, Accountant, Axis, Stevil, Steven, Art"
+contact_address:
+  - '228 Park Ave S #66165'
+  - 'New York, NY 10003-1502'
+  - 'USA'
 random_enabled: true
 paginate: 20
 paginate_path: "/page/:num"
