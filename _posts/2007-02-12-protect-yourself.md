@@ -3,7 +3,7 @@ layout: post
 title: "Protect Yourself"
 date: 2007-02-12T06:00:00+0000
 release_date: 2016-10-24T14:45:02+0000
-lastmod: 2016-10-24T14:45:02+0000
+lastmod: 2016-10-24T14:47:04+0000
 keywords: "strut, general, human, neil, transporter"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/GeneralTao.jpg"
 permalink: "/p/protect-yourself/"
