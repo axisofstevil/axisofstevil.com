@@ -3,7 +3,7 @@ layout: post
 title: "Weiner Pride"
 date: 2007-02-19T06:00:00+0000
 release_date: 2016-10-28T14:45:02+0000
-lastmod: 2016-10-28T14:45:02+0000
+lastmod: 2016-10-28T14:48:03+0000
 keywords: "just, restaurant, burger, american, webber"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/GaynW.jpg"
 permalink: "/p/weiner-pride/"
