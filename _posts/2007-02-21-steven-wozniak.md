@@ -3,7 +3,7 @@ layout: post
 title: "Steven Wozniak"
 date: 2007-02-21T06:00:00+0000
 release_date: 2016-10-31T14:45:03+0000
-lastmod: 2016-10-31T14:45:03+0000
+lastmod: 2016-10-31T14:47:02+0000
 keywords: "steve, steves, wozniak, apple, computers"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/SteveWozniak1.jpg"
 permalink: "/p/steven-wozniak/"
