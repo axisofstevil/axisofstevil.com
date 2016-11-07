@@ -3,7 +3,7 @@ layout: post
 title: "Pan Seared Hash"
 date: 2007-02-27T06:00:00+0000
 release_date: 2016-11-04T14:45:02+0000
-lastmod: 2016-11-04T14:45:02+0000
+lastmod: 2016-11-04T14:51:03+0000
 keywords: "chef, chefs, marijuana, judges, iron"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/friedchef.jpg"
 permalink: "/p/pan-seared-hash/"
