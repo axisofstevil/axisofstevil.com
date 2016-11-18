@@ -3,7 +3,7 @@ layout: post
 title: "War Czar Fun"
 date: 2007-04-13T05:00:00+0000
 release_date: 2016-11-16T14:45:03+0000
-lastmod: 2016-11-16T14:45:03+0000
+lastmod: 2016-11-16T14:47:03+0000
 keywords: "battleship, flintheart, glomgolds, game, carrier"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Flintheartglomgold.jpg"
 permalink: "/p/war-czar-fun/"
