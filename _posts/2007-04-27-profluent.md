@@ -3,7 +3,7 @@ layout: post
 title: "Profluent"
 date: 2007-04-27T05:00:00+0000
 release_date: 2016-11-21T14:45:02+0000
-lastmod: 2016-11-21T14:45:02+0000
+lastmod: 2016-11-21T14:47:02+0000
 keywords: "axis, profluent, vocabulary, people, speech"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/LanguageApril27.jpg"
 permalink: "/p/profluent/"
