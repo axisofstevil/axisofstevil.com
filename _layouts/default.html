@@ -3,9 +3,17 @@
     {% include head.html %}
     <body service-url="{{ site.service_url }}">
         {% include messages.html %}
-        {% include header.html %}
-        {{ content }}
-        {% include search.html %}
-        {% include footer.html %}
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    {% include header.html %}
+                    {{ content }}
+                </div>
+            </div>
+            {% include footer.html %}
+        </div>
+        {% include scripts.html %}
     </body>
 </html>

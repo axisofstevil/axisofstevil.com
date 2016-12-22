@@ -1,18 +1,83 @@
-<footer>
-    <p>&copy; 2005-{{ site.time | date: '%Y' }} The {{site.title}}, all rights reserved, all wrongs reversed. Please don't steal. <a href="/authenticity/">Beware of imitators</a>.</p>
-    <p>
-        Get in touch with us with <a href="/contact/">a form on the internet</a>
-        or <a href="https://axisofstevil.freshdesk.com/support/home">engage with the forum</a>
-        or there's always <a href="https://twitter.com/AxisofStevil">twitter</a> and <a href="https://www.facebook.com/groups/axisofstevil/">the book of faces</a>
-        or write to us The {{site.title}}, {{site.contact_address | join: ', '}}.
-    </p>
-</footer>
-<script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-<script src="https://rawgit.com/metafizzy/isotope-packery/master/packery-mode.pkgd.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.0/imagesloaded.pkgd.min.js"></script>
-<script src="/scripts/hammer.min.js"></script>
-<script src="/scripts/spin.min.js"></script>
-<script src="/scripts/ladda.min.js"></script>
-<script src="/scripts/app.js"></script>
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        {% include search.html %}
+
+        <!-- Menu -->
+        <nav id="menu" itemscope itemtype="http://schema.org/Organization">
+            <header class="major">
+                <h2>Menu</h2>
+            </header>
+            <ul>
+                <li><a href="/">Frontpage</a></li>
+                {% for category in site.navigation.categories %}
+                <li><a href="/{{ category.slug }}/">{{ category.label }} <small>({{ site.categories[category.slug] | size }})</small></a></li>
+                {% endfor %}
+                <!--
+                <li>
+                    <span class="opener">Submenu</span>
+                    <ul>
+                        <li><a href="#">Lorem Dolor</a></li>
+                        <li><a href="#">Ipsum Adipiscing</a></li>
+                        <li><a href="#">Tempus Magna</a></li>
+                        <li><a href="#">Feugiat Veroeros</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </nav>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Why <small>(tl;dr, we're crazy)</small></h2>
+            </header>
+            <div class="mini-posts">
+                {% for page in site.navigation.pages %}
+                <article>
+                    <h3>{{ page.label }}</h3>
+                    <figure><a href="/{{ page.slug }}/" class="image"><img src="{{ page.image }}" alt="{{ page.label }}" /></a></figure>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2 random-quote>{{ site.default_quote }}</h2>
+            </header>
+            <ul class="actions">
+                <li><a href="#" class="button" id="get-random">Look at Something Random</a></li>
+            </ul>
+        </section>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Get in touch</h2>
+            </header>
+            <p>
+                We invite you to use <a href="/contact/">a form on the internet</a>
+                or <a href="https://axisofstevil.freshdesk.com/support/home">engage with the forum</a>
+                or there's always <a href="https://twitter.com/{{site.twitter_username}}">twitter</a>
+                and <a href="https://www.facebook.com/groups/{{site.facebook_username}}">the book of faces</a>.
+            </p>
+            <ul class="contact">
+                <li class="fa-envelope-o"><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+                <li class="fa-phone">(919) 827-1942</li>
+                <li class="fa-pencil-square-o">
+                    The {{site.title}}<br/>
+                    {{site.contact_address | join: '<br/>'}}
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; 2005-{{ site.time | date: '%Y' }} The {{site.title}}, all rights reserved, all wrongs reversed. Please don't steal. <a href="/authenticity/">Beware of imitators</a>.</p>
+        </footer>
+    </div>
+</div>

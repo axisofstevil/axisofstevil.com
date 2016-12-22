@@ -1,16 +1,13 @@
 ---
 layout: default
 ---
-{% assign hero_image = page.image %}
-{% assign hero_headline = page.title %}
-{% assign hero_description = page.summary %}
-{% include hero.html %}
 {% capture markup %}
 {{ content | parse_flash }}
 {% endcapture %}
-<section>
-    <div class="prose">
-        {{ markup | format_page }}
-    </div>
+<section class="page {{ page.slug }}">
+    <header class="main">
+        <h1>{{ page.title }}</h1>
+    </header>
+    {{ markup | format_page }}
 </section>
 

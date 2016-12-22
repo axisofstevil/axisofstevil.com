@@ -1,6 +1,12 @@
+{%comment%}
+{% assign hero_image = page.image %}
+{% assign hero_headline = page.title %}
+{% assign hero_description = page.summary %}
+{% include hero.html %}
 <section class="hero" {% if hero_image %}style="background-image: url('{{ hero_image }}');"{% else %}style="{{ site.default_hero_image_css }}" random-photo{% endif %}>
     <div class="foreground">
         {% if hero_headline %}<h1>{{ hero_headline }}</h1>{% endif %}
         {% if hero_description %}<p>{{ hero_description }}</p>{% endif %}
     </div>
 </section>
+{%endcomment%}

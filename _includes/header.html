@@ -1,16 +1,9 @@
-<nav class="" itemscope itemtype="http://schema.org/Organization">
-    <div class="menu">
-        <div class="logo"><a href="{{ '/' | prepend:site.url }}"><img src="{{ '/img/logo-banner.png' | prepend:site.content_baseurl }}" alt="{{ site.title }}" /></a></div>
-        <div class="intrigue">
-            <a href="#" class="hamburger" id="burger"><svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg></a>
-            {% if site.random_enabled %}<a href="/random/" class="button radius mine random ladda-button" data-style="expand-right" data-spinner-color="#333" id="random"><span class="ladda-label">Be spontaneous</span></a>{% endif %}
-        </div>
-        <ul>
-            <li><label>What</label></li>
-            {% for category in site.navigation.categories %}<li><a href="/{{ category.slug }}/">{{ category.label }} <small>x {{ site.categories[category.slug] | size }}</small></a></li>{% endfor %}
-            <li><label>Why <small>(tl;dr, we're crazy)</small></label></li>
-            {% for page in site.navigation.pages %}<li><a href="/{{ page.slug }}/">{{ page.label }}</a></li>{% endfor %}
-            <li class="quote" random-quote>{{ site.default_quote }}</li>
-        </ul>
-    </div>
-</nav>
+<!-- Header -->
+<header id="header">
+    <a href="{{ '/' | prepend:site.url }}" class="logo"><img src="{{ '/img/logo-banner.png' | prepend:site.content_baseurl }}" alt="{{ site.title }}" /></a>
+    <ul class="icons">
+        <li><a href="https://twitter.com/{{site.twitter_username}}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://www.facebook.com/groups/{{site.facebook_username}}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="https://medium.com/{{site.medium_username}}" class="icon fa-medium"><span class="label">Medium</span></a></li>
+    </ul>
+</header>

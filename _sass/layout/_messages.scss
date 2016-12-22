@@ -1,0 +1,18 @@
+section.messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001;
+    .box {
+        margin: 1rem;
+        background: _palette(bg);
+        &.success {
+            border-color: _palette(fg);
+        }
+        &.failure {
+            background: _palette(accent);
+            color: _palette(bg);
+        }
+    }
+}

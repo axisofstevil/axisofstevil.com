@@ -11,8 +11,8 @@
 
         if (message) {
             messageElement = window.document.createElement('div');
-            window.AOS.AddClass(messageElement, 'message');
-            window.AOS.AddClass(messageElement, (success ? 'success' : 'warning'));
+            window.AOS.AddClass(messageElement, 'box');
+            window.AOS.AddClass(messageElement, (success ? 'success' : 'failure'));
             messageElement.innerHTML = '<p>' + message + '</p>';
 
             setTimeout(function () {
@@ -284,6 +284,9 @@
 (function (window) {
     var nav = window.document.getElementsByTagName("nav")[0];
     var burger = window.document.getElementById("burger");
+    if (!burger) {
+        return;
+    }
     burger.addEventListener("click", function(e){
         if (nav) {
             var targetClass = "open";
@@ -353,7 +356,10 @@
 
 (function (window) {
 
-    var randomButton = window.document.getElementById('random');
+    var randomButton = window.document.getElementById('get-random');
+    if (!randomButton) {
+        return;
+    }
     var l = Ladda.create(randomButton);
 
     randomButton.addEventListener('click', function (e) {
@@ -426,15 +432,16 @@
     var baseUrl = searchElement.data('base-url');
 
     function searchCallback(err, content) {
+        console.log(err, content);
         if (err) { return; }
         if (content.query != $("#inputfield").val()) { return; }
         if (content.hits.length == 0) { $('.results').hide(); return; }
 
-        res = '<div class="publication-list">';
+        res = '<div class="search-results"><ul>';
         for (var i = 0; i < content.hits.length; ++i) {
-            res += '<article><h2><a href="/p/' + content.hits[i].slug + '">' + content.hits[i].title + '</a></h2></article>';
+            res += '<li><a href="/p/' + content.hits[i].slug + '">' + content.hits[i].title + '</a></h2></li>';
         }
-        res += '</div>';
+        res += '</ul></div>';
 
         searchElement.find('.results').html(res);
         searchElement.find('.results').show();

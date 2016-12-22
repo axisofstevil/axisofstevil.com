@@ -6,6 +6,69 @@ excerpt: Delivering the best content from around the universe to your browser an
 
 {% assign pageNumber = paginator.page | times: 1 %}
 {% if pageNumber == 1 %}
+{% assign post = site.posts.first %}
+{% include posts/featured.html %}
+{% endif %}
+
+<!-- Section -->
+<section>
+    <header class="major">
+        <h2>Erat lacinia</h2>
+    </header>
+    <div class="features">
+        <article>
+            <span class="icon fa-diamond"></span>
+            <div class="content">
+                <h3>Portitor ullamcorper</h3>
+                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+            </div>
+        </article>
+        <article>
+            <span class="icon fa-paper-plane"></span>
+            <div class="content">
+                <h3>Sapien veroeros</h3>
+                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+            </div>
+        </article>
+        <article>
+            <span class="icon fa-rocket"></span>
+            <div class="content">
+                <h3>Quam lorem ipsum</h3>
+                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+            </div>
+        </article>
+        <article>
+            <span class="icon fa-signal"></span>
+            <div class="content">
+                <h3>Sed magna finibus</h3>
+                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Section -->
+<section>
+    <header class="major">
+        <h2>Recently Released</h2>
+    </header>
+    <div class="posts">
+        {% for post in site.posts %}
+            {% assign index = forloop.index | times: 1 %}
+            {% if index > 1 or pageNumber > 1 %}
+            {% include posts/item.html %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% comment %}
+    {% include pagination.html %}
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    {% endcomment %}
+</section>
+
+{%comment%}
+{% assign pageNumber = paginator.page | times: 1 %}
+{% if pageNumber == 1 %}
 <section>
     <div class="featured-publication">
         <h2>Just released</h2>
@@ -37,3 +100,4 @@ excerpt: Delivering the best content from around the universe to your browser an
         <p>If you've got questions or comments, <a href="/contact">We'd love to hear from you</a>.</p>
     </div>
 </section>
+{%endcomment%}

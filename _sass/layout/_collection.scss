@@ -1,0 +1,12 @@
+section.collection {
+    .posts {
+        article {
+            img {
+                margin: auto;
+                max-width: 100%;
+                border-radius: _size(border-radius);
+                display: block;
+            }
+        }
+    }
+}

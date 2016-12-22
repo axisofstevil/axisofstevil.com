@@ -1,5 +1,5 @@
 title: Axis of Stevil
-email: stevenmaguire@gmail.com
+email: "&#115;&#116;&#097;&#102;&#102;&#064;&#097;&#120;&#105;&#115;&#111;&#102;&#115;&#116;&#101;&#118;&#105;&#108;&#046;&#099;&#111;&#109;"
 description: "Axis of Stevil - It's the Beginning of Stevilization"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://www.axisofstevil.com" # the base hostname & protocol for your site
@@ -8,6 +8,8 @@ content_baseurl: "https://axisofstevil.s3.amazonaws.com"
 service_url: "https://service.axisofstevil.com"
 twitter_username: AxisofStevil
 github_username:  axisofstevil
+medium_username:  axis-of-stevil
+facebook_username: axisofstevil
 keywords: "Axis of Stevil, Dinosaur, Pop, Accountant, Axis, Stevil, Steven, Art"
 contact_address:
   - '228 Park Ave S #66165'
@@ -42,10 +44,13 @@ navigation:
     pages:
         - slug: 'mission'
           label: 'Mission'
+          image: "https://d3e878vmunx8cm.cloudfront.net/assets/chart.gif"
         - slug: 'history'
           label: 'History'
+          image: "https://d3e878vmunx8cm.cloudfront.net/assets/street.jpg"
         - slug: 'shirts'
           label: 'Shirts'
+          image: "https://d3e878vmunx8cm.cloudfront.net/assets/shirts_quilt_2.jpg"
 collections:
     collections:
       output: true

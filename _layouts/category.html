@@ -4,17 +4,18 @@ layout: default
 {% assign hero_headline = page.title %}
 {% unless hero_headline %}{% assign hero_headline = page.category %}{% endunless %}
 {% capture hero_description %}We've got {{ site.categories[page.category] | size }} of them.{% endcapture %}
-{% include hero.html %}
-<section>
+<section class="category">
+    <header class="main">
+        <h1>{{ hero_headline }}</h1>
+        <p>{{ hero_description }}</p>
+    </header>
     {% if site.categories[page.category] %}
-    <div class="publication-list">
+    <div class="posts">
         {% for post in site.categories[page.category] %}
-        {% include post-item.html %}
+        {% include posts/item.html %}
         {% endfor %}
     </div>
     {% else %}
-    <div class="publication-list">
-        <p>There are no posts for this category.</p>
-    </div>
+    <p>There are no posts for this category.</p>
     {% endif %}
 </section>
