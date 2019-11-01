@@ -35,7 +35,7 @@
         "width": 696,
         "height": 696
       },
-      "description": "{{ page.excerpt | strip }}",
+      "description": "{{ page.content | strip_html | truncate: 180 | strip }}",
       "author": {
         "@context": "http://schema.org",
         "@type": "Organization",
