@@ -62,3 +62,11 @@
     @import 'layout/page';
     @import 'layout/publication';
     @import 'layout/collection';
+
+.toggle-content {
+    display: none;
+}
+
+.toggle-content.is-visible {
+    display: block;
+}

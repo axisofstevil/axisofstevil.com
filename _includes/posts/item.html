@@ -1,6 +1,6 @@
 {% assign post_image = post.image %}
 {% unless post_image %}{% assign post_image = "https://d3e878vmunx8cm.cloudfront.net/img/logo_faded.jpg" %}{% endunless %}
-<article>
+<article id="{{ post.slug }}">
     <a href="{{ post.url | prepend: site.url }}" class="image">
         <noscript>
             <img src="{{ post_image }}" alt="{{ post.title }}" />

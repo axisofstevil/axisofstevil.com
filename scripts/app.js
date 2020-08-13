@@ -108,7 +108,7 @@
     };
 
     window.AOS.AddClass = function (element, className) {
-        return element.className = element.className.concat(' ' + className);
+        return element.className = element.className.concat(' ' + className).trim();
     };
 
     window.AOS.HasClass = function (element, className) {
@@ -493,4 +493,19 @@
         }
     }
     window.onload = lazyLoadImages;
+})(window);
+
+(function (window) {
+    var articleFilter = window.AOS.GetQueryStringParameter('af');
+    if (articleFilter) {
+        var matchingArticles = document.querySelectorAll('article[id*="'+articleFilter+'"]');
+        if (matchingArticles.length) {
+            document.querySelectorAll('article').forEach(function (element) {
+                window.AOS.AddClass(element, 'toggle-content');
+            });
+            matchingArticles.forEach(function (element) {
+                window.AOS.AddClass(element, 'is-visible');
+            });
+        }
+    }
 })(window);
