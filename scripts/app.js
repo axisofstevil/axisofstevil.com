@@ -498,9 +498,9 @@
 (function (window) {
     var articleFilter = window.AOS.GetQueryStringParameter('af');
     if (articleFilter) {
-        var matchingArticles = document.querySelectorAll('article[id*="'+articleFilter+'"]');
+        var matchingArticles = document.querySelectorAll('.posts article[id*="'+articleFilter+'"]');
         if (matchingArticles.length) {
-            document.querySelectorAll('article').forEach(function (element) {
+            document.querySelectorAll('.posts article').forEach(function (element) {
                 window.AOS.AddClass(element, 'toggle-content');
             });
             matchingArticles.forEach(function (element) {
