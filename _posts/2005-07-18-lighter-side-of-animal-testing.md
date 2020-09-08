@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Lighter Side Of Animal Testing"
-date: 2005-07-18T05:00:00+0000
-release_date: 2015-04-29T18:45:04+0000
-lastmod: 2015-04-29T18:45:04+0000
+date: 2005-07-18T00:00:00+0000
+release_date: 2015-04-29T13:45:04+0000
+lastmod: 2015-04-29T13:45:04+0000
 keywords: "animal, animals, product, work, testing"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/girraffesmelltestlarge.jpg"
 permalink: "/p/lighter-side-of-animal-testing/"

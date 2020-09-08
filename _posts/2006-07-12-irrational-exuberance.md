@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Irrational Exuberance"
-date: 2006-07-12T05:00:00+0000
-release_date: 2016-06-27T14:45:02+0000
-lastmod: 2016-06-27T14:47:03+0000
+date: 2006-07-12T00:00:00+0000
+release_date: 2016-06-27T09:45:02+0000
+lastmod: 2016-06-27T09:47:03+0000
 keywords: "park, outhouse, congreman, valley, trails"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/July13th2006.jpg"
 permalink: "/p/irrational-exuberance/"

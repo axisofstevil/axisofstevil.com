@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Master Splinter: Bustin&#039; Your Lats"
-date: 2005-07-08T05:00:00+0000
-release_date: 2015-04-06T18:45:11+0000
-lastmod: 2015-04-06T18:45:11+0000
+date: 2005-07-08T00:00:00+0000
+release_date: 2015-04-06T13:45:11+0000
+lastmod: 2015-04-06T13:45:11+0000
 keywords: "splintbooksplintbookid, aetssplintbooklargejpg"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/splintbooklarge.jpg"
 permalink: "/p/master-splinter-bustin-your-lats/"

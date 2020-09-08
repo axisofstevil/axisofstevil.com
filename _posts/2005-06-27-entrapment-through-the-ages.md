@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Entrapment Through The Ages"
-date: 2005-06-27T05:00:00+0000
-release_date: 2015-03-06T19:45:17+0000
-lastmod: 2015-03-06T19:45:17+0000
+date: 2005-06-27T00:00:00+0000
+release_date: 2015-03-06T13:45:17+0000
+lastmod: 2015-03-06T13:45:17+0000
 keywords: "reality, world, observaphobia, fear, wogbert"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg"
 permalink: "/p/entrapment-through-the-ages/"

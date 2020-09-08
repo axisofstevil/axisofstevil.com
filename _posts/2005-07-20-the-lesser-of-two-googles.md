@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Lesser Of Two Googles"
-date: 2005-07-20T05:00:00+0000
-release_date: 2015-05-06T18:45:05+0000
-lastmod: 2015-05-06T18:45:05+0000
+date: 2005-07-20T00:00:00+0000
+release_date: 2015-05-06T13:45:05+0000
+lastmod: 2015-05-06T13:45:05+0000
 keywords: "google, surveillance, people, clear, googles"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/pigterrorlarge.jpg"
 permalink: "/p/the-lesser-of-two-googles/"

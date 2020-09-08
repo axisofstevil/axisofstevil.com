@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Burns"
-date: 2005-06-27T05:00:00+0000
-release_date: 2015-03-09T18:45:09+0000
-lastmod: 2015-03-09T18:45:09+0000
+date: 2005-06-27T00:00:00+0000
+release_date: 2015-03-09T13:45:09+0000
+lastmod: 2015-03-09T13:45:09+0000
 keywords: "steve, axis, stevil, blues, green"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif"
 permalink: "/p/steve-burns/"

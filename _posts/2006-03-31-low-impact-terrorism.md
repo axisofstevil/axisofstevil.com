@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Low Impact Terrorism"
-date: 2006-03-31T06:00:00+0000
-release_date: 2016-03-11T14:45:01+0000
-lastmod: 2016-03-11T14:47:02+0000
+date: 2006-03-31T00:00:00+0000
+release_date: 2016-03-11T08:45:01+0000
+lastmod: 2016-03-11T08:47:02+0000
 keywords: "impact, terrorist, terrorism, just, subscription"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/lowimpact.jpg"
 permalink: "/p/low-impact-terrorism/"

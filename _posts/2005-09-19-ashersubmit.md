@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Asher Sarlin Contest Submission"
-date: 2005-09-19T05:00:01+0000
-release_date: 2015-07-29T13:45:04+0000
-lastmod: 2015-07-29T13:45:04+0000
+date: 2005-09-19T00:00:01+0000
+release_date: 2015-07-29T08:45:04+0000
+lastmod: 2015-07-29T08:45:04+0000
 keywords: "submitaetsslimjimsgifasher, submitaetsketchupgifasher, submitaetsslap, braceletsgifasher, submitaetsdeliciousgif"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/slap-bracelets.gif"
 permalink: "/p/ashersubmit/"

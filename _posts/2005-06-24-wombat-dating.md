@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Wombat Dating!"
-date: 2005-06-24T05:00:00+0000
-release_date: 2015-02-25T19:45:09+0000
-lastmod: 2015-02-25T19:45:09+0000
+date: 2005-06-24T00:00:00+0000
+release_date: 2015-02-25T13:45:09+0000
+lastmod: 2015-02-25T13:45:09+0000
 keywords: "wombat, wombats, creature, social, aware"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/wombatdatinglarge.jpg"
 permalink: "/p/wombat-dating/"

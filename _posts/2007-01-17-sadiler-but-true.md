@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Sadiler, But True"
-date: 2007-01-17T06:00:00+0000
-release_date: 2016-10-12T14:45:03+0000
-lastmod: 2016-10-12T14:47:03+0000
+date: 2007-01-17T00:00:00+0000
+release_date: 2016-10-12T09:45:03+0000
+lastmod: 2016-10-12T09:47:03+0000
 keywords: "officer, buttons, head, animal, turkey"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Mindy.jpg"
 permalink: "/p/sadiler-but-true/"

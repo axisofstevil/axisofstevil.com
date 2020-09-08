@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stephen Hawking"
-date: 2005-08-05T05:00:00+0000
-release_date: 2015-06-12T13:45:04+0000
-lastmod: 2015-06-12T13:45:04+0000
+date: 2005-08-05T00:00:00+0000
+release_date: 2015-06-12T08:45:04+0000
+lastmod: 2015-06-12T08:45:04+0000
 keywords: "hawking, steve, axis, great, know"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stephenhawking1.jpg"
 permalink: "/p/stephen-hawking/"

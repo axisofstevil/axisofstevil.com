@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Battle The Odds"
-date: 2005-05-11T05:00:00+0000
-release_date: 2014-11-03T19:45:05+0000
-lastmod: 2014-11-03T19:45:05+0000
+date: 2005-05-11T00:00:00+0000
+release_date: 2014-11-03T13:45:05+0000
+lastmod: 2014-11-03T13:45:05+0000
 keywords: "game, download, social, wallpaper"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg"
 permalink: "/p/battle-the-odds/"

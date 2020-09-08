@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Triumphant Return of the Pet Rock"
-date: 2005-04-08T05:00:00+0000
-release_date: 2014-09-05T18:45:09+0000
-lastmod: 2014-09-05T18:45:09+0000
+date: 2005-04-08T00:00:00+0000
+release_date: 2014-09-05T13:45:09+0000
+lastmod: 2014-09-05T13:45:09+0000
 keywords: "step, instructionsflashmediacarltonbirthswf, follow, build, born"
 image: "https://d3e878vmunx8cm.cloudfront.net/media/carltonbirth_thumb.png"
 permalink: "/p/triumphant-return-of-the-pet-rock/"

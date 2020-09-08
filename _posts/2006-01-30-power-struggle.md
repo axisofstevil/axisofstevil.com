@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Power Struggle"
-date: 2006-01-30T06:00:00+0000
-release_date: 2015-12-23T14:45:03+0000
-lastmod: 2015-12-23T14:47:03+0000
+date: 2006-01-30T00:00:00+0000
+release_date: 2015-12-23T08:45:03+0000
+lastmod: 2015-12-23T08:47:03+0000
 keywords: "city, megakat, swat, bone, razor"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/swatkatstakeover.jpg"
 permalink: "/p/power-struggle/"

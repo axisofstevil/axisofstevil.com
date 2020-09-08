@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Willmont"
-date: 2005-11-09T06:00:00+0000
-release_date: 2015-09-23T13:45:05+0000
-lastmod: 2015-09-23T13:45:05+0000
+date: 2005-11-09T00:00:00+0000
+release_date: 2015-09-23T08:45:05+0000
+lastmod: 2015-09-23T08:45:05+0000
 keywords: "steve, troll, axis, stevil, willmont"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevewillmont1.jpg"
 permalink: "/p/steve-willmont/"

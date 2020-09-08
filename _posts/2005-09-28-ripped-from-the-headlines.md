@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Ripped From The Headlines"
-date: 2005-09-28T05:00:00+0000
-release_date: 2015-08-10T13:45:03+0000
-lastmod: 2015-08-10T13:45:03+0000
+date: 2005-09-28T00:00:00+0000
+release_date: 2015-08-10T08:45:03+0000
+lastmod: 2015-08-10T08:45:03+0000
 keywords: "truehttpobserverguardiancoukinternationalstoryhtmlhttpobserverguardiancoukinternationalstoryhtml, httpobserverguardiancoukinternationalstoryhtml, intarweb, read, killerdolphinskillerdolphinsidif"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/killerDolphinslg.gif"
 permalink: "/p/ripped-from-the-headlines/"

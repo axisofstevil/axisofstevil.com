@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Imperceptible"
-date: 2005-07-22T05:00:00+0000
-release_date: 2015-05-08T18:45:04+0000
-lastmod: 2015-05-08T18:45:04+0000
+date: 2005-07-22T00:00:00+0000
+release_date: 2015-05-08T13:45:04+0000
+lastmod: 2015-05-08T13:45:04+0000
 keywords: "imperceptible, axis, vocabulary, speech, people"
 permalink: "/p/imperceptible/"
 summary: "Originally published Friday July, 22nd 2005"

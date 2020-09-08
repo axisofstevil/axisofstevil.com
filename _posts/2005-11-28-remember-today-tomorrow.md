@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Remember Today, Tomorrow!"
-date: 2005-11-28T06:00:00+0000
-release_date: 2015-10-19T13:45:03+0000
-lastmod: 2015-10-19T13:47:03+0000
+date: 2005-11-28T00:00:00+0000
+release_date: 2015-10-19T08:45:03+0000
+lastmod: 2015-10-19T08:47:03+0000
 keywords: "kuno, bluetooth, phone, models, needs"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg"
 permalink: "/p/remember-today-tomorrow/"

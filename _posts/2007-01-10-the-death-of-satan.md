@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Death Of Satan"
-date: 2007-01-10T06:00:00+0000
-release_date: 2016-10-05T14:45:03+0000
-lastmod: 2016-10-05T14:49:02+0000
+date: 2007-01-10T00:00:00+0000
+release_date: 2016-10-05T09:45:03+0000
+lastmod: 2016-10-05T09:49:02+0000
 keywords: "satan, east, martial, arts, back"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Herculekilled.jpg"
 permalink: "/p/the-death-of-satan/"

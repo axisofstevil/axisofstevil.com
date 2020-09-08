@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Seeing Is Believing"
-date: 2005-04-18T05:00:00+0000
-release_date: 2014-09-29T18:45:07+0000
-lastmod: 2014-09-29T18:45:07+0000
+date: 2005-04-18T00:00:00+0000
+release_date: 2014-09-29T13:45:07+0000
+lastmod: 2014-09-29T13:45:07+0000
 keywords: "axis, stevil, world, good, life"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg"
 permalink: "/p/seeing-is-believing/"

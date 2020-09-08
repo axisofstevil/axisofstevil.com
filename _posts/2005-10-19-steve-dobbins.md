@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Dobbins"
-date: 2005-10-19T05:00:00+0000
-release_date: 2015-08-26T13:45:11+0000
-lastmod: 2015-08-26T13:45:11+0000
+date: 2005-10-19T00:00:00+0000
+release_date: 2015-08-26T08:45:11+0000
+lastmod: 2015-08-26T08:45:11+0000
 keywords: "steve, chapter, life, dobbins, steves"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Stevedobbins1.jpg"
 permalink: "/p/steve-dobbins/"

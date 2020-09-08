@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stink No Longer"
-date: 2006-03-20T06:00:00+0000
-release_date: 2016-02-26T14:45:02+0000
-lastmod: 2016-02-26T14:47:02+0000
+date: 2006-03-20T00:00:00+0000
+release_date: 2016-02-26T08:45:02+0000
+lastmod: 2016-02-26T08:47:02+0000
 keywords: "symptoms, year, peltmegaly, clean, know"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/hippieintervention.jpg"
 permalink: "/p/stink-no-longer/"

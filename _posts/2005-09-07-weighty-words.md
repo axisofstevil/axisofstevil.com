@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Weighty Words"
-date: 2005-09-07T05:00:00+0000
-release_date: 2015-07-20T13:45:03+0000
-lastmod: 2015-07-20T13:45:03+0000
+date: 2005-09-07T00:00:00+0000
+release_date: 2015-07-20T08:45:03+0000
+lastmod: 2015-07-20T08:45:03+0000
 keywords: "weightwordresqlgweightwordlootlgidweightwordresqlgid, aetsweightywordresqlgjpg, weightwordlootlgid, aetsweightywordlootlgjpg"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/weightywordlootlg.jpg"
 permalink: "/p/weighty-words/"

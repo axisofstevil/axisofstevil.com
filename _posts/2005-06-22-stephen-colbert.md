@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stephen Colbert"
-date: 2005-06-22T05:00:00+0000
-release_date: 2015-02-16T19:45:07+0000
-lastmod: 2015-02-16T19:45:07+0000
+date: 2005-06-22T00:00:00+0000
+release_date: 2015-02-16T13:45:07+0000
+lastmod: 2015-02-16T13:45:07+0000
 keywords: "stephen, colbert, axis, stevil, world"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg"
 permalink: "/p/stephen-colbert/"

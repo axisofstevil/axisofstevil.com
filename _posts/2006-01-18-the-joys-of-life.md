@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Joys Of Life"
-date: 2006-01-18T06:00:00+0000
-release_date: 2015-12-09T14:45:04+0000
-lastmod: 2015-12-09T14:47:04+0000
+date: 2006-01-18T00:00:00+0000
+release_date: 2015-12-09T08:45:04+0000
+lastmod: 2015-12-09T08:47:04+0000
 keywords: "doozers, doozer, fraggle, life, dunkin"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg"
 permalink: "/p/the-joys-of-life/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Primetime Is The Right Time"
-date: 2006-04-12T05:00:00+0000
-release_date: 2016-03-25T14:45:02+0000
-lastmod: 2016-03-25T14:46:04+0000
+date: 2006-04-12T00:00:00+0000
+release_date: 2016-03-25T09:45:02+0000
+lastmod: 2016-03-25T09:46:04+0000
 keywords: "walton, challenge, show, family, work"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/waltonsweb.jpg"
 permalink: "/p/primetime-is-the-right-time/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Troxler"
-date: 2007-04-30T05:00:00+0000
-release_date: 2016-11-23T14:45:02+0000
-lastmod: 2016-11-23T14:51:03+0000
+date: 2007-04-30T00:00:00+0000
+release_date: 2016-11-23T08:45:02+0000
+lastmod: 2016-11-23T08:51:03+0000
 keywords: "county, guilford, troxler, axis, steve"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/troxlerbig.jpg"
 permalink: "/p/steve-troxler/"

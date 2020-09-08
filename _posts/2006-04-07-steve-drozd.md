@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Drozd"
-date: 2006-04-07T05:00:00+0000
-release_date: 2016-03-18T14:45:02+0000
-lastmod: 2016-03-18T14:46:02+0000
+date: 2006-04-07T00:00:00+0000
+release_date: 2016-03-18T09:45:02+0000
+lastmod: 2016-03-18T09:46:02+0000
 keywords: "steve, band, steven, drozd, musical"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/steveDrozdtop.gif"
 permalink: "/p/steve-drozd/"

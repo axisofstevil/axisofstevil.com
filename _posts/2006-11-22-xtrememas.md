@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Xtrememas"
-date: 2006-11-22T06:00:00+0000
-release_date: 2016-09-19T14:45:02+0000
-lastmod: 2016-09-19T14:48:03+0000
+date: 2006-11-22T00:00:00+0000
+release_date: 2016-09-19T09:45:02+0000
+lastmod: 2016-09-19T09:48:03+0000
 keywords: "teens, xtrememas, porters, burly, holiday"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/ProteensChristmas.jpg"
 permalink: "/p/xtrememas/"

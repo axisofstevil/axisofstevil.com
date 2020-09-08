@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "What Will You Do?"
-date: 2005-09-07T05:00:00+0000
-release_date: 2015-07-17T13:45:06+0000
-lastmod: 2015-07-17T13:45:06+0000
+date: 2005-09-07T00:00:00+0000
+release_date: 2015-07-17T08:45:06+0000
+lastmod: 2015-07-17T08:45:06+0000
 keywords: "time, movie, captain, crowd, adventure"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif"
 permalink: "/p/escoja-un-sendero-time-traveling-police-telephones/"

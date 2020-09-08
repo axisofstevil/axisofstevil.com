@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Young Minds Await"
-date: 2007-01-29T06:00:00+0000
-release_date: 2016-10-19T14:45:03+0000
-lastmod: 2016-10-19T14:47:02+0000
+date: 2007-01-29T00:00:00+0000
+release_date: 2016-10-19T09:45:03+0000
+lastmod: 2016-10-19T09:47:02+0000
 keywords: "cards, corroboration, game, question, testimony"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/Corroboration.jpg"
 permalink: "/p/young-minds-await/"

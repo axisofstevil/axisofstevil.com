@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Extreme Hoopin&#039;"
-date: 2005-08-08T05:00:00+0000
-release_date: 2015-06-15T13:45:03+0000
-lastmod: 2015-06-15T13:45:03+0000
+date: 2005-08-08T00:00:00+0000
+release_date: 2015-06-15T08:45:03+0000
+lastmod: 2015-06-15T08:45:03+0000
 keywords: "extreme, hoop, woodsy, sport, national"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg"
 permalink: "/p/extreme-hoopin/"

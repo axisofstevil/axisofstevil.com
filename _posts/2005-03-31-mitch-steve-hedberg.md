@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Mitch Hedberg"
-date: 2005-03-31T06:00:00+0000
-release_date: 2014-08-22T18:45:50+0000
-lastmod: 2014-08-22T18:45:50+0000
+date: 2005-03-31T00:00:00+0000
+release_date: 2014-08-22T13:45:50+0000
+lastmod: 2014-08-22T13:45:50+0000
 keywords: "mitch, comedy, axis, hedberg, stevil"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/mitch.jpg"
 permalink: "/p/mitch-steve-hedberg/"

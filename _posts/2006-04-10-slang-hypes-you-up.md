@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Slang Hypes You Up"
-date: 2006-04-10T05:00:00+0000
-release_date: 2016-03-23T14:45:02+0000
-lastmod: 2016-03-23T14:49:05+0000
+date: 2006-04-10T00:00:00+0000
+release_date: 2016-03-23T09:45:02+0000
+lastmod: 2016-03-23T09:49:05+0000
 keywords: "slang, drinks, public, caffeine, energy"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/slangcoflowchart.jpg"
 permalink: "/p/slang-hypes-you-up/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Trouble In Malltropolis"
-date: 2006-05-10T05:00:00+0000
-release_date: 2016-05-02T14:45:02+0000
-lastmod: 2016-05-02T14:46:04+0000
+date: 2006-05-10T00:00:00+0000
+release_date: 2016-05-02T09:45:02+0000
+lastmod: 2016-05-02T09:46:04+0000
 keywords: "clubbed, seal, walrus, mouth, results"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/clubbedseal.jpg"
 permalink: "/p/trouble-in-malltropolis/"

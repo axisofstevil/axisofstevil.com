@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Zissou"
-date: 2005-04-29T05:00:00+0000
-release_date: 2014-10-24T18:45:06+0000
-lastmod: 2014-10-24T18:45:06+0000
+date: 2005-04-29T00:00:00+0000
+release_date: 2014-10-24T13:45:06+0000
+lastmod: 2014-10-24T13:45:06+0000
 keywords: "steve, axis, ziou, stevil, salute"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/zizzotop.jpg"
 permalink: "/p/steve-zissou/"

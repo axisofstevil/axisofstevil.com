@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Case Study No. 2004341-919"
-date: 2005-07-06T05:00:00+0000
-release_date: 2015-04-01T18:45:11+0000
-lastmod: 2015-04-01T18:45:11+0000
+date: 2005-07-06T00:00:00+0000
+release_date: 2015-04-01T13:45:11+0000
+lastmod: 2015-04-01T13:45:11+0000
 keywords: "trapper, keeper, keepers, paper, binding"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/bindevolarge.jpg"
 permalink: "/p/evolutionarily-speaking/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steve Urkel"
-date: 2005-05-11T05:00:00+0000
-release_date: 2014-11-05T19:45:04+0000
-lastmod: 2014-11-05T19:45:04+0000
+date: 2005-05-11T00:00:00+0000
+release_date: 2014-11-05T13:45:04+0000
+lastmod: 2014-11-05T13:45:04+0000
 keywords: "steve, urkel, stevil, axis, stevecarellid"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/urkel4.jpg"
 permalink: "/p/steve-urkel/"

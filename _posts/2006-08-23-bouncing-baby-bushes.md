@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Bouncing Baby Bushes"
-date: 2006-08-23T05:00:00+0000
-release_date: 2016-08-01T14:45:02+0000
-lastmod: 2016-08-01T14:47:03+0000
+date: 2006-08-23T00:00:00+0000
+release_date: 2016-08-01T09:45:02+0000
+lastmod: 2016-08-01T09:47:03+0000
 keywords: "stevil, axis, steve, republicans, little"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/MakeLove.jpg"
 permalink: "/p/bouncing-baby-bushes/"

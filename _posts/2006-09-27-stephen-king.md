@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stephen King"
-date: 2006-09-27T05:00:00+0000
-release_date: 2016-08-22T14:45:02+0000
-lastmod: 2016-08-22T14:47:03+0000
+date: 2006-09-27T00:00:00+0000
+release_date: 2016-08-22T09:45:02+0000
+lastmod: 2016-08-22T09:47:03+0000
 keywords: "stephen, king, steve, axis, people"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/StephenKing1.jpg"
 permalink: "/p/stephen-king/"

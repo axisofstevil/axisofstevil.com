@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Stephen Minnesota"
-date: 2007-03-28T05:00:00+0000
-release_date: 2016-11-11T14:45:03+0000
-lastmod: 2016-11-11T14:47:02+0000
+date: 2007-03-28T00:00:00+0000
+release_date: 2016-11-11T08:45:03+0000
+lastmod: 2016-11-11T08:47:02+0000
 keywords: "stephen, steve, town, axis, stevil"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stephenmn1.jpg"
 permalink: "/p/stephen-minnesota/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Peanut Butter Ninja Time?"
-date: 2005-03-01T06:00:00+0000
-release_date: 2014-08-05T07:58:16+0000
-lastmod: 2014-08-12T09:00:33+0000
+date: 2005-03-01T00:00:00+0000
+release_date: 2014-08-05T02:58:16+0000
+lastmod: 2014-08-12T04:00:33+0000
 keywords: "entertaining, animation, bornflashmediaturtleswf, seion, instruction"
 image: "https://d3e878vmunx8cm.cloudfront.net/media/turtle_thumb.png"
 permalink: "/p/peanut-butter-ninja-time/"

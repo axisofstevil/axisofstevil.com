@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Not As Good As &#039;the Original&#039;"
-date: 2006-01-09T06:00:00+0000
-release_date: 2015-11-23T14:45:03+0000
-lastmod: 2015-11-23T14:47:03+0000
+date: 2006-01-09T00:00:00+0000
+release_date: 2015-11-23T08:45:03+0000
+lastmod: 2015-11-23T08:47:03+0000
 keywords: "laugh, olympics, steroid, drug, gogo"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/landogogoweb.jpg"
 permalink: "/p/not-as-good-as-the-original/"

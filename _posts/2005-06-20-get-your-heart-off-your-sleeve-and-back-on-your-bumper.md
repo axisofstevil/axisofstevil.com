@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Get Your Heart Off Your Sleeve And Back On Your Bumper"
-date: 2005-06-20T05:00:00+0000
-release_date: 2015-02-11T19:45:11+0000
-lastmod: 2015-02-11T19:45:11+0000
+date: 2005-06-20T00:00:00+0000
+release_date: 2015-02-11T13:45:11+0000
+lastmod: 2015-02-11T13:45:11+0000
 keywords: "axis, bumper, feel, stevil, mind"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/bumperstickerfull.jpg"
 permalink: "/p/get-your-heart-off-your-sleeve-and-back-on-your-bumper/"

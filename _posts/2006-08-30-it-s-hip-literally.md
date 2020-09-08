@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "It&#039;s Hip: Literally"
-date: 2006-08-30T05:00:00+0000
-release_date: 2016-08-05T14:45:02+0000
-lastmod: 2016-08-05T14:47:02+0000
+date: 2006-08-30T00:00:00+0000
+release_date: 2016-08-05T09:45:02+0000
+lastmod: 2016-08-05T09:47:02+0000
 keywords: "klip, phone, mobile, cellular, network"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/kLip_Buust.jpg"
 permalink: "/p/it-s-hip-literally/"

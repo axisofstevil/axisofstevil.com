@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Edible Enmity"
-date: 2006-08-04T05:00:00+0000
-release_date: 2016-07-13T14:45:02+0000
-lastmod: 2016-07-13T14:47:02+0000
+date: 2006-08-04T00:00:00+0000
+release_date: 2016-07-13T09:45:02+0000
+lastmod: 2016-07-13T09:47:02+0000
 keywords: "cheese, cheeses, velveeta, market, wensleydale"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/vforvelveeta.jpg"
 permalink: "/p/edible-enmity/"

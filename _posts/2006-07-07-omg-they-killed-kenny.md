@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Omg They Killed Kenny"
-date: 2006-07-07T05:00:00+0000
-release_date: 2016-06-22T14:45:02+0000
-lastmod: 2016-06-22T14:47:02+0000
+date: 2006-07-07T00:00:00+0000
+release_date: 2016-06-22T09:45:02+0000
+lastmod: 2016-06-22T09:47:02+0000
 keywords: "death, lays, time, corporation, come"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/kenlay_lies.jpg"
 permalink: "/p/omg-they-killed-kenny/"

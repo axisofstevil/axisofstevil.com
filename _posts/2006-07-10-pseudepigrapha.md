@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Pseudepigrapha"
-date: 2006-07-10T05:00:00+0000
-release_date: 2016-06-24T14:45:02+0000
-lastmod: 2016-06-24T14:47:02+0000
+date: 2006-07-10T00:00:00+0000
+release_date: 2016-06-24T09:45:02+0000
+lastmod: 2016-06-24T09:47:02+0000
 keywords: "axis, pseudepigrapha, speech, writings, people"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/pseudepigrapha.jpg"
 permalink: "/p/pseudepigrapha/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Pig On A Dig"
-date: 2006-02-13T06:00:00+0000
-release_date: 2016-01-18T14:45:02+0000
-lastmod: 2016-01-18T14:47:02+0000
+date: 2006-02-13T00:00:00+0000
+release_date: 2016-01-18T08:45:02+0000
+lastmod: 2016-01-18T08:47:02+0000
 keywords: "luvy, canal, lyman, tanker, water"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg"
 permalink: "/p/pig-on-a-dig/"

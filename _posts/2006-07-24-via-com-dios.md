@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Via Com Dios"
-date: 2006-07-24T05:00:00+0000
-release_date: 2016-07-04T14:45:02+0000
-lastmod: 2016-07-04T14:47:02+0000
+date: 2006-07-24T00:00:00+0000
+release_date: 2016-07-04T09:45:02+0000
+lastmod: 2016-07-04T09:47:02+0000
 keywords: "news, media, onion, fake, play"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/viacomdios.jpg"
 permalink: "/p/via-com-dios/"

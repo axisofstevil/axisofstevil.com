@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Think Of The Whales!"
-date: 2005-06-22T05:00:00+0000
-release_date: 2015-02-18T19:45:14+0000
-lastmod: 2015-02-18T19:45:14+0000
+date: 2005-06-22T00:00:00+0000
+release_date: 2015-02-18T13:45:14+0000
+lastmod: 2015-02-18T13:45:14+0000
 keywords: "luck, modern, shits, large, predicted"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/whalesavelarge.jpg"
 permalink: "/p/think-of-the-whales/"

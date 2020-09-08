@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Atm Of Justice"
-date: 2005-08-19T05:00:00+0000
-release_date: 2015-06-29T13:45:04+0000
-lastmod: 2015-06-29T13:45:04+0000
+date: 2005-08-19T00:00:00+0000
+release_date: 2015-06-29T08:45:04+0000
+lastmod: 2015-06-29T08:45:04+0000
 keywords: "justice, system, guilty, fozzie, enter"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/atmofjusticefull.jpg"
 permalink: "/p/atm-of-justice/"

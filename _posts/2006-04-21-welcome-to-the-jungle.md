@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Welcome To The Jungle"
-date: 2006-04-21T05:00:00+0000
-release_date: 2016-04-06T14:45:02+0000
-lastmod: 2016-04-06T14:46:03+0000
+date: 2006-04-21T00:00:00+0000
+release_date: 2016-04-06T09:45:02+0000
+lastmod: 2016-04-06T09:46:03+0000
 keywords: "mouse, morton, mice, turtle, enemy"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/mousebuilder.jpg"
 permalink: "/p/welcome-to-the-jungle/"

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Diagnosis: Gremlins"
-date: 2005-09-05T05:00:00+0000
-release_date: 2015-07-13T13:45:04+0000
-lastmod: 2015-07-13T13:45:04+0000
+date: 2005-09-05T00:00:00+0000
+release_date: 2015-07-13T08:45:04+0000
+lastmod: 2015-07-13T08:45:04+0000
 keywords: "luck, gremlins, hitler, done, take"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/gotgremlinslarge.jpg"
 permalink: "/p/diagnosis-gremlins/"

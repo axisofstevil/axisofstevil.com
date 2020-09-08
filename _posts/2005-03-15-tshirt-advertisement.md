@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "T-Shirt Advertisement"
-date: 2005-03-15T06:00:00+0000
-release_date: 2014-08-08T18:45:19+0000
-lastmod: 2014-08-12T09:00:33+0000
+date: 2005-03-15T00:00:00+0000
+release_date: 2014-08-08T13:45:19+0000
+lastmod: 2014-08-12T04:00:33+0000
 keywords: "shirt, stevil, line, stuck, headflashmediatshirtsswf"
 image: "https://d3e878vmunx8cm.cloudfront.net/media/tshirts_thumb.png"
 permalink: "/p/tshirt-advertisement/"

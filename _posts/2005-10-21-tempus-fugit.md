@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Tempus Fugit"
-date: 2005-10-21T05:00:00+0000
-release_date: 2015-08-31T13:45:04+0000
-lastmod: 2015-08-31T13:45:04+0000
+date: 2005-10-21T00:00:00+0000
+release_date: 2015-08-31T08:45:04+0000
+lastmod: 2015-08-31T08:45:04+0000
 keywords: "burglar, time, lantern, hamburglar, creature"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/timeburglerlarge.jpg"
 permalink: "/p/tempus-fugit/"

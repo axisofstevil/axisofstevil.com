@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "DJ Ballmer Fresh"
-date: 2005-09-19T05:00:00+0000
-release_date: 2015-07-24T13:45:07+0000
-lastmod: 2015-07-24T13:45:07+0000
+date: 2005-09-19T00:00:00+0000
+release_date: 2015-07-24T08:45:07+0000
+lastmod: 2015-07-24T08:45:07+0000
 keywords: "freshaetsstevefernoswjpgaetsinfernolgjpgflashmediadjballmerfreshswf, ballmer, steve"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevefernosw.jpg"
 permalink: "/p/djsteveballmer/"

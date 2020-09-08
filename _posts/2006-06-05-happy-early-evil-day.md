@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Happy (early) Evil Day"
-date: 2006-06-05T05:00:00+0000
-release_date: 2016-05-27T14:45:02+0000
-lastmod: 2016-05-27T14:46:02+0000
+date: 2006-06-05T00:00:00+0000
+release_date: 2016-05-27T09:45:02+0000
+lastmod: 2016-05-27T09:46:02+0000
 keywords: "fryer, brothers, darker, excision, sixth"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/excision.jpg"
 permalink: "/p/happy-early-evil-day/"

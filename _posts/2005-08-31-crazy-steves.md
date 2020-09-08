@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Crazy Steves"
-date: 2005-08-31T05:00:00+0000
-release_date: 2015-07-08T13:45:03+0000
-lastmod: 2015-07-08T13:45:03+0000
+date: 2005-08-31T00:00:00+0000
+release_date: 2015-07-08T08:45:03+0000
+lastmod: 2015-07-08T08:45:03+0000
 keywords: "steve, crazy, fireworks, brick, firework"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/crazystevelogo.jpg"
 permalink: "/p/crazy-steves/"

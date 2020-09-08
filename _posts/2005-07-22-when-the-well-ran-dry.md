@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "When The Well Ran Dry"
-date: 2005-07-22T05:00:00+0000
-release_date: 2015-05-11T18:45:12+0000
-lastmod: 2015-05-11T18:45:12+0000
+date: 2005-07-22T00:00:00+0000
+release_date: 2015-05-11T13:45:12+0000
+lastmod: 2015-05-11T13:45:12+0000
 keywords: "rangers, power, morphing, production, mighty"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/zordunemploylarge.jpg"
 permalink: "/p/when-the-well-ran-dry/"

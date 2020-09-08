@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Bi.a.h.s Convention 2005"
-date: 2005-11-21T06:00:00+0000
-release_date: 2015-10-09T13:45:03+0000
-lastmod: 2015-10-09T13:45:03+0000
+date: 2005-11-21T00:00:00+0000
+release_date: 2015-10-09T08:45:03+0000
+lastmod: 2015-10-09T08:45:03+0000
 keywords: "hunter, douglas, local, aociation, merkin"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/hermitconvention.jpg"
 permalink: "/p/biah-convention-2005/"

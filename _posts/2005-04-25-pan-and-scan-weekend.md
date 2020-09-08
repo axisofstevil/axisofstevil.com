@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Pan And Scan Weekend"
-date: 2005-04-25T05:00:00+0000
-release_date: 2014-10-10T18:45:17+0000
-lastmod: 2014-10-10T18:45:17+0000
+date: 2005-04-25T00:00:00+0000
+release_date: 2014-10-10T13:45:17+0000
+lastmod: 2014-10-10T13:45:17+0000
 keywords: "wallpaper, download, stevil, panscanid, eyes"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/1990webpub.jpg"
 permalink: "/p/pan-and-scan-weekend/"

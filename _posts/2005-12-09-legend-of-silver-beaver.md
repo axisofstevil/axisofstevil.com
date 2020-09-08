@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Tooth Is Loose"
-date: 2005-12-09T06:00:00+0000
-release_date: 2015-11-09T14:45:04+0000
-lastmod: 2015-11-09T14:47:03+0000
+date: 2005-12-09T00:00:00+0000
+release_date: 2015-11-09T08:45:04+0000
+lastmod: 2015-11-09T08:47:03+0000
 keywords: "beaver, silver, park, murder, beavers"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg"
 permalink: "/p/legend-of-silver-beaver/"

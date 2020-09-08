@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The New Deal"
-date: 2006-05-08T05:00:00+0000
-release_date: 2016-04-25T14:45:02+0000
-lastmod: 2016-04-25T14:46:04+0000
+date: 2006-05-08T00:00:00+0000
+release_date: 2016-04-25T09:45:02+0000
+lastmod: 2016-04-25T09:46:04+0000
 keywords: "generic, mandel, bobby, deal, show"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/bobbysdeal.jpg"
 permalink: "/p/the-new-deal/"

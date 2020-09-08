@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steven Segal"
-date: 2006-02-08T06:00:00+0000
-release_date: 2016-01-08T08:45:02+0000
-lastmod: 2016-01-08T08:46:02+0000
+date: 2006-02-08T00:00:00+0000
+release_date: 2016-01-08T02:45:02+0000
+lastmod: 2016-01-08T02:46:02+0000
 keywords: "steven, segal, steve, martial, great"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevensegal1.jpg"
 permalink: "/p/steven-segal/"

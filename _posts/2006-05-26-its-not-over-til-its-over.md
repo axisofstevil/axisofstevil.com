@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "It&#039;s Not Over Til It&#039;s Over"
-date: 2006-05-26T05:00:00+0000
-release_date: 2016-05-20T14:45:02+0000
-lastmod: 2016-05-20T14:47:02+0000
+date: 2006-05-26T00:00:00+0000
+release_date: 2016-05-20T09:45:02+0000
+lastmod: 2016-05-20T09:47:02+0000
 keywords: "time, photography, month, paper, point"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/stevilmosaicweb.jpg"
 permalink: "/p/its-not-over-til-its-over/"

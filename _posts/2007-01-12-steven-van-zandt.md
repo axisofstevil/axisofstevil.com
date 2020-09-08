@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Steven Van Zandt"
-date: 2007-01-12T06:00:00+0000
-release_date: 2016-10-07T14:45:03+0000
-lastmod: 2016-10-07T14:47:03+0000
+date: 2007-01-12T00:00:00+0000
+release_date: 2016-10-07T09:45:03+0000
+lastmod: 2016-10-07T09:47:03+0000
 keywords: "steven, steve, zandt, little, steves"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/VanZandt1.jpg"
 permalink: "/p/steven-van-zandt/"

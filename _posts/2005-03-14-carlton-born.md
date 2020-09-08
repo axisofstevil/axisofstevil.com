@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Episode In Which Carlton Is Born"
-date: 2005-03-14T06:00:00+0000
-release_date: 2014-08-06T18:45:19+0000
-lastmod: 2014-08-12T09:00:31+0000
+date: 2005-03-14T00:00:00+0000
+release_date: 2014-08-06T13:45:19+0000
+lastmod: 2014-08-12T04:00:31+0000
 keywords: "flashmediacarltonbirthswf"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/carlton-born.png"
 permalink: "/p/carlton-born/"

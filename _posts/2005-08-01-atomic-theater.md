@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Atomic Theater"
-date: 2005-08-01T05:00:00+0000
-release_date: 2015-05-25T13:45:04+0000
-lastmod: 2015-05-25T13:45:04+0000
+date: 2005-08-01T00:00:00+0000
+release_date: 2015-05-25T08:45:04+0000
+lastmod: 2015-05-25T08:45:04+0000
 keywords: "atom, paying, attention, basic, theater"
 image: "https://d3e878vmunx8cm.cloudfront.net/assets/atomictheatrelarge.jpg"
 permalink: "/p/atomic-theater/"
