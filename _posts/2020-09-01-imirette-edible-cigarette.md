@@ -3,7 +3,7 @@ layout: post
 title: "Imirette&copy; Edible Imitation Cigarettes"
 date: 2020-09-01T00:00:00+0000
 release_date: 2020-09-08T19:41:22+0000
-lastmod: 2020-09-08T19:41:22+0000
+lastmod: 2020-09-08T19:44:03+0000
 keywords: "smoke break, health, workplace"
 permalink: "/p/imirette-edible-cigarette/"
 summary: "Originally published Tuesday September, 1st 2020"
