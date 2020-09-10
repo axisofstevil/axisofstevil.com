@@ -11,6 +11,15 @@ summary: "Originally published Wednesday September, 20th 2006"
 category: language
 hashtag: "#axisofstevil_nebulaphobiathelmachypangram"
 excerpt: "Nebulaphobia, a new word to learn on Wednesday September, 20th 2006"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/nebulaphobia.jpg "nebulaphobia"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/thelymachy.jpg "thelymachy"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/pangram.jpg "pangram"

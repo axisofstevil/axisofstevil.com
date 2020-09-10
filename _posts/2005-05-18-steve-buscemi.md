@@ -11,6 +11,15 @@ summary: "Originally published Wednesday May, 18th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-buscemi"
 excerpt: "Steve Buscemi honored for exceptional work as a Steve on Wednesday May, 18th 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi4.jpg "Stevebuscemi1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemi3.jpg "Stevebuscemi2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/buscemimural.gif "Stevebuscemibar"

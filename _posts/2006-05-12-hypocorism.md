@@ -11,6 +11,15 @@ summary: "Originally published Friday May, 12th 2006"
 category: language
 hashtag: "#axisofstevil_hypocorism"
 excerpt: "Hypocorism, a new word to learn on Friday May, 12th 2006"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/hypocorism.jpg "hypocorism"

@@ -10,6 +10,11 @@ permalink: "/p/carlton-goldeneye/"
 summary: "Originally published Friday October, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-goldeneye"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ![carlton](https://d3e878vmunx8cm.cloudfront.net/assets/carlton64.jpg)

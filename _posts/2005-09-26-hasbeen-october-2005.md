@@ -10,6 +10,19 @@ permalink: "/p/hasbeen-october-2005/"
 summary: "Originally published Monday September, 26th 2005"
 category: publications
 hashtag: "#axisofstevil_hasbeen-october-2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeencoverweb.jpg "Hasbeencover"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeenheffer.jpg "Hasbeenheffer"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/14tipsweb.jpg "Hasbeen14tips"[id_4]: https://d3e878vmunx8cm.cloudfront.net/assets/hasbeenicarus.jpg "Hasbeenicarus"

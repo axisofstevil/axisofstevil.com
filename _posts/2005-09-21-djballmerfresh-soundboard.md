@@ -11,6 +11,23 @@ summary: "Originally published Wednesday September, 21st 2005"
 category: flash
 hashtag: "#axisofstevil_djballmerfresh-soundboard"
 excerpt: "DJ Ballmer Fresh Sound Board is the only place to create your own funky-fresh beats with Steve Ballmer."
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 Make your own funky-fresh Steve Ballmer beats.

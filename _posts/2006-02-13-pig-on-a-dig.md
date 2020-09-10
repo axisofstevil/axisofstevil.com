@@ -10,6 +10,19 @@ permalink: "/p/pig-on-a-dig/"
 summary: "Originally published Monday February, 13th 2006"
 category: publications
 hashtag: "#axisofstevil_pig-on-a-dig"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/jomarbuckle.jpg "jomarbuckle"

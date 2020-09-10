@@ -11,6 +11,15 @@ summary: "Originally published Wednesday January, 11th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steve-smith"
 excerpt: "Steve Smith honored for exceptional work as a Steve on Wednesday January, 11th 2006"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith1.gif "Stevesmith1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmith2.gif "Stevesmith2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevesmithmural.gif "Stevesmithbar"

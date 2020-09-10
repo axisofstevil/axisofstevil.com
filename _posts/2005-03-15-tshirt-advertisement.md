@@ -10,6 +10,15 @@ permalink: "/p/tshirt-advertisement/"
 summary: "Originally published Tuesday March, 15th 2005"
 category: flash
 hashtag: "#axisofstevil_tshirt-advertisement"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 Created as a parody of another popular flash animation, the first "commercial" for the Axis of Stevil t-shirt line is one that will get stuck in your head.

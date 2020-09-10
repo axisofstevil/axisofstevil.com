@@ -11,6 +11,15 @@ summary: "Originally published Thursday March, 31st 2005"
 category: language
 hashtag: "#axisofstevil_quintessential"
 excerpt: "Quintessential, a new word to learn on Thursday March, 31st 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/quintessential.gif "quintessential"

@@ -10,6 +10,19 @@ permalink: "/p/its-not-over-til-its-over/"
 summary: "Originally published Friday May, 26th 2006"
 category: publications
 hashtag: "#axisofstevil_its-not-over-til-its-over"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevilmosaicweb.jpg "stevilmosaicweb"

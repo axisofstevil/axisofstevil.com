@@ -10,6 +10,19 @@ permalink: "/p/weiner-pride/"
 summary: "Originally published Monday February, 19th 2007"
 category: publications
 hashtag: "#axisofstevil_weiner-pride"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/GaynW.jpg "GaynW"

@@ -11,6 +11,15 @@ summary: "Originally published Monday June, 27th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-burns"
 excerpt: "Steve Burns honored for exceptional work as a Steve on Monday June, 27th 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/steveburns.gif "Steveburns1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/steveburnsmural.gif "Steveburnsbar"

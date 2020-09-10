@@ -10,6 +10,19 @@ permalink: "/p/low-impact-terrorism/"
 summary: "Originally published Friday March, 31st 2006"
 category: publications
 hashtag: "#axisofstevil_low-impact-terrorism"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/lowimpact.jpg "lowimpact"

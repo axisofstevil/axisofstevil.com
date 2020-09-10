@@ -11,6 +11,15 @@ summary: "Originally published Wednesday March, 28th 2007"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-minnesota"
 excerpt: "Stephen Minnesota honored for exceptional work as a Steve on Wednesday March, 28th 2007"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenmn1.jpg "Stephen MN Map"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenmn2.jpg "Stephen MN"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephenmnbar.jpg "Stephen MN Bar"

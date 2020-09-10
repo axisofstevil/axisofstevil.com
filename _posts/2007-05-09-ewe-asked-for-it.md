@@ -10,6 +10,19 @@ permalink: "/p/ewe-asked-for-it/"
 summary: "Originally published Wednesday May, 9th 2007"
 category: publications
 hashtag: "#axisofstevil_ewe-asked-for-it"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Seguh.jpg "Seguh"

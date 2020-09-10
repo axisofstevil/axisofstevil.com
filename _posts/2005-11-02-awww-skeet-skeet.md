@@ -10,6 +10,19 @@ permalink: "/p/awww-skeet-skeet/"
 summary: "Originally published Wednesday November, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_awww-skeet-skeet"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/skeethostlarge.jpg "Skeethost"

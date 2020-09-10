@@ -10,6 +10,19 @@ permalink: "/p/trouble-in-malltropolis/"
 summary: "Originally published Wednesday May, 10th 2006"
 category: publications
 hashtag: "#axisofstevil_trouble-in-malltropolis"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/clubbedseal.jpg "clubbedseal"

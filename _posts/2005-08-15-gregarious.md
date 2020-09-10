@@ -10,6 +10,15 @@ summary: "Originally published Monday August, 15th 2005"
 category: language
 hashtag: "#axisofstevil_gregarious"
 excerpt: "Gregarious, a new word to learn on Monday August, 15th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ## "gregarious" ##

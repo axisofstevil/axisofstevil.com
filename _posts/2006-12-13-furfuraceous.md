@@ -11,6 +11,15 @@ summary: "Originally published Wednesday December, 13th 2006"
 category: language
 hashtag: "#axisofstevil_furfuraceous"
 excerpt: "Furfuraceous, a new word to learn on Wednesday December, 13th 2006"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/LanguageDec13.jpg "Furfuraceous"

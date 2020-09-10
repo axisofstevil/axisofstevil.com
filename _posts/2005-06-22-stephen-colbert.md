@@ -11,6 +11,15 @@ summary: "Originally published Wednesday June, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-colbert"
 excerpt: "Stephen Colbert honored for exceptional work as a Steve on Wednesday June, 22nd 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert5.jpg "Stephencolbert1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbert6.jpg "Stephencolbert2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stephencolbertmural.jpg "Stephencolbertbar"

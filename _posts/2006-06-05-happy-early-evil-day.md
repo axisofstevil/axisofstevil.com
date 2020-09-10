@@ -10,6 +10,19 @@ permalink: "/p/happy-early-evil-day/"
 summary: "Originally published Monday June, 5th 2006"
 category: publications
 hashtag: "#axisofstevil_happy-early-evil-day"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/excision.jpg "excision"[Id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/DB666b.jpg "DB666b"

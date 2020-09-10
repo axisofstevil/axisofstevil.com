@@ -10,6 +10,19 @@ permalink: "/p/great-scott/"
 summary: "Originally published Wednesday April, 26th 2006"
 category: publications
 hashtag: "#axisofstevil_great-scott"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/surveymonster.jpg "surveymonster"

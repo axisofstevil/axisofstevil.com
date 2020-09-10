@@ -9,6 +9,23 @@ permalink: "/p/carlton-lucid-cheese-trip/"
 summary: "Originally published Saturday August, 5th 2006"
 category: comics
 hashtag: "#axisofstevil_carlton-lucid-cheese-trip"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 !#flash(https://d3e878vmunx8cm.cloudfront.net/media/carltoncheesemadness.swf)

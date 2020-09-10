@@ -11,6 +11,23 @@ summary: "Originally published Sunday April, 3rd 2005"
 category: flash
 hashtag: "#axisofstevil_triumphant-return-of-spring"
 excerpt: "Spring has triumphantly returned and it is time to take a moment to reflect on the beauty that spring offers."
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 Spring is here. Time to celebrate and enjoy!

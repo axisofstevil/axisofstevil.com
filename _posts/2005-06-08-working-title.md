@@ -10,6 +10,19 @@ permalink: "/p/working-title/"
 summary: "Originally published Wednesday June, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_working-title"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/thoughtrice.gif "Thoughtrice"

@@ -11,6 +11,15 @@ summary: "Originally published Monday April, 30th 2007"
 category: featured-steves
 hashtag: "#axisofstevil_steve-troxler"
 excerpt: "Steve Troxler honored for exceptional work as a Steve on Monday April, 30th 2007"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/troxlerbig.jpg "troxlerbig"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/troxler1.jpg "Troxler1"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/troxlerbar.jpg "troxlerbar"

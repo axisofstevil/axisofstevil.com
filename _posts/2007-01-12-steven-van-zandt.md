@@ -11,6 +11,15 @@ summary: "Originally published Friday January, 12th 2007"
 category: featured-steves
 hashtag: "#axisofstevil_steven-van-zandt"
 excerpt: "Steven Van Zandt honored for exceptional work as a Steve on Friday January, 12th 2007"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/VanZandt1.jpg "VanZandt1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/VanZandt2.jpg "VanZandt2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/VanZandtbar.jpg "VanZandt Bar"

@@ -10,6 +10,19 @@ permalink: "/p/via-com-dios/"
 summary: "Originally published Monday July, 24th 2006"
 category: publications
 hashtag: "#axisofstevil_via-com-dios"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/viacomdios.jpg "viacomdios"

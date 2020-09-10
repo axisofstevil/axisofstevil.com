@@ -10,6 +10,19 @@ permalink: "/p/ripped-from-the-headlines/"
 summary: "Originally published Wednesday September, 28th 2005"
 category: publications
 hashtag: "#axisofstevil_ripped-from-the-headlines"
+contributions:
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/killerDolphinslg.gif "KillerDolphins"

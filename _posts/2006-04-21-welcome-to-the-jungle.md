@@ -10,6 +10,19 @@ permalink: "/p/welcome-to-the-jungle/"
 summary: "Originally published Friday April, 21st 2006"
 category: publications
 hashtag: "#axisofstevil_welcome-to-the-jungle"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/mousebuilder.jpg "mousebuilder"

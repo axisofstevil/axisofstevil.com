@@ -10,6 +10,11 @@ summary: "Originally published Wednesday October, 26th 2005"
 category: language
 hashtag: "#axisofstevil_cromulent"
 excerpt: "Cromulent, a new word to learn on Wednesday October, 26th 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ## "cromulent" ##

@@ -10,6 +10,19 @@ permalink: "/p/seeing-is-believing/"
 summary: "Originally published Monday April, 18th 2005"
 category: publications
 hashtag: "#axisofstevil_seeing-is-believing"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [p01]: https://d3e878vmunx8cm.cloudfront.net/assets/Seeingpenguinweb.jpg "Seeingpenguin"[p02]: https://d3e878vmunx8cm.cloudfront.net/assets/%5Bstevil%5D420web.jpg "Bstevil"[p03]: https://d3e878vmunx8cm.cloudfront.net/assets/Thurstonbanner.jpg "Thurston"[p04]: https://d3e878vmunx8cm.cloudfront.net/assets/colorin-web-example.jpg "Colorin"

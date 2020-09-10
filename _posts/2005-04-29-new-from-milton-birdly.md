@@ -10,6 +10,15 @@ permalink: "/p/new-from-milton-birdly/"
 summary: "Originally published Friday April, 29th 2005"
 category: flash
 hashtag: "#axisofstevil_new-from-milton-birdly"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 New from Milton Birdly: Birds are our friends and who doesnt like to play boards games with their friends?

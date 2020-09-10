@@ -10,6 +10,19 @@ permalink: "/p/vulgar-display-of-flour/"
 summary: "Originally published Wednesday August, 9th 2006"
 category: publications
 hashtag: "#axisofstevil_vulgar-display-of-flour"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/PanteraBread.jpg "PanteraBread"

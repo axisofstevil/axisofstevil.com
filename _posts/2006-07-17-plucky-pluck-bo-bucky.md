@@ -10,6 +10,19 @@ permalink: "/p/plucky-pluck-bo-bucky/"
 summary: "Originally published Monday July, 17th 2006"
 category: publications
 hashtag: "#axisofstevil_plucky-pluck-bo-bucky"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/NameGamePlucky.jpg "NameGamePlucky"

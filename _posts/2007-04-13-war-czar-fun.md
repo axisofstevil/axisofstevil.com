@@ -10,6 +10,19 @@ permalink: "/p/war-czar-fun/"
 summary: "Originally published Friday April, 13th 2007"
 category: publications
 hashtag: "#axisofstevil_war-czar-fun"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Flintheartglomgold.jpg "Flintheartglomgold"

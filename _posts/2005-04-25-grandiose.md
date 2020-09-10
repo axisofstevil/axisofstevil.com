@@ -11,6 +11,15 @@ summary: "Originally published Monday April, 25th 2005"
 category: language
 hashtag: "#axisofstevil_grandiose"
 excerpt: "Grandiose, a new word to learn on Monday April, 25th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 4
+    nickname: Zoe
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/grandiose.jpg "grandiose"

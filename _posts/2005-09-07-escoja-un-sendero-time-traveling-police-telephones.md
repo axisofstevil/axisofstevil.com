@@ -10,6 +10,19 @@ permalink: "/p/escoja-un-sendero-time-traveling-police-telephones/"
 summary: "Originally published Wednesday September, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_escoja-un-sendero-time-traveling-police-telephones"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/escoja-timetravellarge.gif "TimeTravel"

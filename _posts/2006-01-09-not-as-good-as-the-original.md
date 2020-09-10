@@ -10,6 +10,19 @@ permalink: "/p/not-as-good-as-the-original/"
 summary: "Originally published Monday January, 9th 2006"
 category: publications
 hashtag: "#axisofstevil_not-as-good-as-the-original"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/landogogoweb.jpg "landogogoweb"

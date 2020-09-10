@@ -10,6 +10,19 @@ permalink: "/p/entrapment-through-the-ages/"
 summary: "Originally published Monday June, 27th 2005"
 category: publications
 hashtag: "#axisofstevil_entrapment-through-the-ages"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/entrapmentlarge.jpg "Entrapment"

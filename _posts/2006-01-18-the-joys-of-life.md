@@ -10,6 +10,19 @@ permalink: "/p/the-joys-of-life/"
 summary: "Originally published Wednesday January, 18th 2006"
 category: publications
 hashtag: "#axisofstevil_the-joys-of-life"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/joyofdoozers.jpg "joyofdoozers"

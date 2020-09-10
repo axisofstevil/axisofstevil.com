@@ -9,6 +9,23 @@ permalink: "/p/carlton-moon-dance/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-moon-dance"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 !#flash(https://d3e878vmunx8cm.cloudfront.net/media/moondance.swf)

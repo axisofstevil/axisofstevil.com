@@ -11,6 +11,15 @@ summary: "Originally published Thursday January, 27th 2005"
 category: language
 hashtag: "#axisofstevil_idiosyncracy"
 excerpt: "Idiosyncrasy, a new word to learn on Thursday January, 27th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/idiosyncracy.gif "idiosyncrasy"

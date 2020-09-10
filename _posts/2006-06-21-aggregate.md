@@ -11,6 +11,15 @@ summary: "Originally published Wednesday June, 21st 2006"
 category: language
 hashtag: "#axisofstevil_aggregate"
 excerpt: "Aggregate, a new word to learn on Wednesday June, 21st 2006"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/aggregate.jpg "Aggregate"

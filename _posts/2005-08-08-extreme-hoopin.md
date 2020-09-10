@@ -10,6 +10,19 @@ permalink: "/p/extreme-hoopin/"
 summary: "Originally published Monday August, 8th 2005"
 category: publications
 hashtag: "#axisofstevil_extreme-hoopin"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 ![extreme-hoppin](https://d3e878vmunx8cm.cloudfront.net/assets/extremehoopinglarge.jpg)

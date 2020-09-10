@@ -10,6 +10,19 @@ permalink: "/p/atm-of-justice/"
 summary: "Originally published Friday August, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_atm-of-justice"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/atmofjusticefull.jpg "AtmofJustice"

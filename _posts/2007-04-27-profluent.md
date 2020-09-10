@@ -11,6 +11,15 @@ summary: "Originally published Friday April, 27th 2007"
 category: language
 hashtag: "#axisofstevil_profluent"
 excerpt: "Profluent, a new word to learn on Friday April, 27th 2007"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/LanguageApril27.jpg "profluent"

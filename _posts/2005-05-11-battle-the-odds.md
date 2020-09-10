@@ -10,6 +10,19 @@ permalink: "/p/battle-the-odds/"
 summary: "Originally published Wednesday May, 11th 2005"
 category: publications
 hashtag: "#axisofstevil_battle-the-odds"
+contributions:
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/guesswhoown3dweb.jpg "Guesswho1"

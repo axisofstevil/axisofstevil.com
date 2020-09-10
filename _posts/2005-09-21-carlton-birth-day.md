@@ -10,6 +10,11 @@ permalink: "/p/carlton-birth-day/"
 summary: "Originally published Wednesday September, 21st 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-birth-day"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ![carlton](https://d3e878vmunx8cm.cloudfront.net/assets/carltonwatchesbirth.jpg)

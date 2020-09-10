@@ -10,6 +10,19 @@ permalink: "/p/triumphant-return-of-the-american-spirit/"
 summary: "Originally published Tuesday April, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_triumphant-return-of-the-american-spirit"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/PatriotWallpaperweb.jpg "AmerispiritMain"

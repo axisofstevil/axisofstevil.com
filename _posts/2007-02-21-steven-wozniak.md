@@ -11,6 +11,15 @@ summary: "Originally published Wednesday February, 21st 2007"
 category: featured-steves
 hashtag: "#axisofstevil_steven-wozniak"
 excerpt: "Steven Wozniak honored for exceptional work as a Steve on Wednesday February, 21st 2007"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/SteveWozniak1.jpg "Steve Wozniak1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/SteveWozniak2.jpg "SteveWozniak2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/SteveWozniakbar.jpg "SteveWozniak Bar"

@@ -10,6 +10,19 @@ permalink: "/p/facebook-gotta-catch-em-all/"
 summary: "Originally published Monday October, 10th 2005"
 category: publications
 hashtag: "#axisofstevil_facebook-gotta-catch-em-all"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/facebookmon.jpg "Facebook"

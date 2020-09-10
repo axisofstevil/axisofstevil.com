@@ -10,6 +10,19 @@ permalink: "/p/mr-gore-tear-down-this-wall/"
 summary: "Originally published Friday August, 5th 2005"
 category: publications
 hashtag: "#axisofstevil_mr-gore-tear-down-this-wall"
+contributions:
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/alagoryfull.gif "GoreWall"

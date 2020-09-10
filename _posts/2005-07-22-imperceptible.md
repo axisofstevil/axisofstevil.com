@@ -10,6 +10,15 @@ summary: "Originally published Friday July, 22nd 2005"
 category: language
 hashtag: "#axisofstevil_imperceptible"
 excerpt: "Imperceptible, a new word to learn on Friday July, 22nd 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ## "imperceptible" ##

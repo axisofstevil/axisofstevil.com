@@ -11,6 +11,15 @@ summary: "Originally published Monday July, 10th 2006"
 category: language
 hashtag: "#axisofstevil_pseudepigrapha"
 excerpt: "Pseudepigrapha, a new word to learn on Monday July, 10th 2006"
+contributions:
+- type: featured_image
+  contributor:
+    id: 3
+    nickname: Dick
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/pseudepigrapha.jpg "pseudepigrapha"

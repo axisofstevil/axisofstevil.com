@@ -10,6 +10,11 @@ summary: "Originally published Monday August, 22nd 2005"
 category: language
 hashtag: "#axisofstevil_pseudopseudohypoparathyroidism"
 excerpt: "Pseudopseudohypoparathyroidism, a new word to learn on Monday August, 22nd 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ## "pseudopseudohypoparathyroidism" ##

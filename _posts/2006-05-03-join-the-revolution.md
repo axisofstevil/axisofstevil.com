@@ -10,6 +10,19 @@ permalink: "/p/join-the-revolution/"
 summary: "Originally published Wednesday May, 3rd 2006"
 category: publications
 hashtag: "#axisofstevil_join-the-revolution"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/LLR.jpg "LLR"

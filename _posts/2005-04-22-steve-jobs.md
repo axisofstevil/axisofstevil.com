@@ -11,6 +11,15 @@ summary: "Originally published Friday April, 22nd 2005"
 category: featured-steves
 hashtag: "#axisofstevil_steve-jobs"
 excerpt: "Steve Jobs honored for exceptional work as a Steve on Friday April, 22nd 2005"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobs.jpg "Stevejobs1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobs7.jpg "Stevejobs2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevejobsmural.jpg "Stevejobsbar"

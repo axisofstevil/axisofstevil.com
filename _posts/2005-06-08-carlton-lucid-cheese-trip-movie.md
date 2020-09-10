@@ -10,6 +10,23 @@ permalink: "/p/carlton-lucid-cheese-trip-movie/"
 summary: "Originally published Wednesday June, 8th 2005"
 category: flash
 hashtag: "#axisofstevil_carlton-lucid-cheese-trip-movie"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 The episode in which Carlton goes on a trip . . . uh . . .with balls.

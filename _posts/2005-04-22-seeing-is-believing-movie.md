@@ -11,6 +11,23 @@ summary: "Originally published Friday April, 22nd 2005"
 category: flash
 hashtag: "#axisofstevil_seeing-is-believing-movie"
 excerpt: "Experience a day in the life of a college campus through the lens of time-lapse photography."
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 Time lapse video compressed with flash.

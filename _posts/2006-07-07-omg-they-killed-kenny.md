@@ -10,6 +10,19 @@ permalink: "/p/omg-they-killed-kenny/"
 summary: "Originally published Friday July, 7th 2006"
 category: publications
 hashtag: "#axisofstevil_omg-they-killed-kenny"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [Id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/kenlay_lies.jpg "kenlay_lies"

@@ -11,6 +11,15 @@ summary: "Originally published Monday November, 27th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_steven-soderbergh"
 excerpt: "Steve Soderbergh honored for exceptional work as a Steve on Monday November, 27th 2006"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/StevenSoderbergh1.jpg "StevenSoderbergh1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/StevenSoderbergh2.jpg "StevenSoderbergh2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/StevenSoderberghbar.jpg "StevenSoderberghbar"

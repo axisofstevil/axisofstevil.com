@@ -10,6 +10,19 @@ permalink: "/p/djsteveballmer/"
 summary: "Originally published Monday September, 19th 2005"
 category: publications
 hashtag: "#axisofstevil_djsteveballmer"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [![dj-steve-ballmer-fresh](https://d3e878vmunx8cm.cloudfront.net/assets/stevefernosw.jpg)](https://d3e878vmunx8cm.cloudfront.net/assets/Infernolg.jpg)

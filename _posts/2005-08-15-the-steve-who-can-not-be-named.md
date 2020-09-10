@@ -11,6 +11,19 @@ summary: "Originally published Monday August, 15th 2005"
 category: featured-steves
 hashtag: "#axisofstevil_the-steve-who-can-not-be-named"
 excerpt: "The Steve That Can Not Be Named honored for exceptional work as a Steve on Monday August, 15th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevewronkeranim1.gif "stevewronkeranim1"

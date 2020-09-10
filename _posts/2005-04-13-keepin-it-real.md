@@ -10,6 +10,19 @@ permalink: "/p/keepin-it-real/"
 summary: "Originally published Wednesday April, 13th 2005"
 category: publications
 hashtag: "#axisofstevil_keepin-it-real"
+contributions:
+- type: featured_image
+  contributor:
+    id: 2
+    nickname: Graham
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Beware-of-bigger-fish-800.jpg "BigfishMain"[id_5]: https://d3e878vmunx8cm.cloudfront.net/assets/color-in-highres.jpg "BigfishExample"

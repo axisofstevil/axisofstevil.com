@@ -11,6 +11,15 @@ summary: "Originally published Wednesday November, 30th 2005"
 category: language
 hashtag: "#axisofstevil_quiestent"
 excerpt: "Quiestent, a new word to learn on Wednesday November, 30th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/quiestent.gif "quiestent"

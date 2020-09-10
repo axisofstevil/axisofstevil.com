@@ -10,6 +10,19 @@ permalink: "/p/legend-of-silver-beaver/"
 summary: "Originally published Friday December, 9th 2005"
 category: publications
 hashtag: "#axisofstevil_legend-of-silver-beaver"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/silverbeaver.jpg "silverbeaver"![silverbeaver][id_1]

@@ -11,6 +11,15 @@ summary: "Originally published Monday May, 16th 2005"
 category: language
 hashtag: "#axisofstevil_spoonerism"
 excerpt: "Spoonerism, a new word to learn on Monday May, 16th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 4
+    nickname: Zoe
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/Spoonerism.jpg "spoonerism"

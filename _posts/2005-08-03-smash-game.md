@@ -11,6 +11,15 @@ summary: "Originally published Wednesday August, 3rd 2005"
 category: flash
 hashtag: "#axisofstevil_smash-game"
 excerpt: "Rough day at work? Take it out on an imaginary being with a game of SMASH."
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 Latest in bored at work video games.

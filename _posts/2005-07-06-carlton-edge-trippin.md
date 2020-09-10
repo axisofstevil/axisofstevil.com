@@ -10,6 +10,11 @@ permalink: "/p/carlton-edge-trippin/"
 summary: "Originally published Wednesday July, 6th 2005"
 category: comics
 hashtag: "#axisofstevil_carlton-edge-trippin"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ![carlton](https://d3e878vmunx8cm.cloudfront.net/assets/carltonperspective.jpg)

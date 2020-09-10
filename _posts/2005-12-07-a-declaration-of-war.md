@@ -10,6 +10,19 @@ permalink: "/p/a-declaration-of-war/"
 summary: "Originally published Wednesday December, 7th 2005"
 category: publications
 hashtag: "#axisofstevil_a-declaration-of-war"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/terrordryerhead.jpg "terrordryerhead"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/terrordryerwolf.jpg "terrordryerwolf"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/terroriec.jpg "terroriec"[id_4]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorleeharvey.jpg "terrorleeharvey"[id_5]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorontheprowl.jpg "terrorprowl"[id_6]: https://d3e878vmunx8cm.cloudfront.net/assets/terrorsockposiedtoattack.jpg "terrorsock"

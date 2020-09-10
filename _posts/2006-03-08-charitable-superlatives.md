@@ -10,6 +10,19 @@ permalink: "/p/charitable-superlatives/"
 summary: "Originally published Wednesday March, 8th 2006"
 category: publications
 hashtag: "#axisofstevil_charitable-superlatives"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/charity.jpg "charity"

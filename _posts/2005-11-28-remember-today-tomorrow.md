@@ -10,6 +10,19 @@ permalink: "/p/remember-today-tomorrow/"
 summary: "Originally published Monday November, 28th 2005"
 category: publications
 hashtag: "#axisofstevil_remember-today-tomorrow"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/id10mpds.jpg "id10mpds"

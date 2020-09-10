@@ -10,6 +10,15 @@ summary: "Originally published Monday September, 5th 2005"
 category: language
 hashtag: "#axisofstevil_innocuous"
 excerpt: "Innocuous, a new word to learn on Monday September, 5th 2005"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
 ---
 
 ## "innocuous" ##

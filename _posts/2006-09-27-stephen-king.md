@@ -11,6 +11,15 @@ summary: "Originally published Wednesday September, 27th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_stephen-king"
 excerpt: "Stephen King honored for exceptional work as a Steve on Wednesday September, 27th 2006"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/StephenKing1.jpg "StephenKing1"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/StephenKing2.jpg "StephenKing2"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/StephenKingbar.jpg "StephenKingbar"

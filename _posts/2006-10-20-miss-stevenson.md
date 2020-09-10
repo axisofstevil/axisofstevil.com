@@ -11,6 +11,15 @@ summary: "Originally published Friday October, 20th 2006"
 category: featured-steves
 hashtag: "#axisofstevil_miss-stevenson"
 excerpt: "Miss Stevenson honored for exceptional work as a Steve on Friday October, 20th 2006"
+contributions:
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/stevensonbar.jpg "Stevensonbar"[id_2]: https://d3e878vmunx8cm.cloudfront.net/assets/stevenson1.jpg "Stevenson1"[id_3]: https://d3e878vmunx8cm.cloudfront.net/assets/stevenson2.jpg "Stevenson2"

@@ -10,6 +10,19 @@ permalink: "/p/ufn-sighting/"
 summary: "Originally published Friday September, 2nd 2005"
 category: publications
 hashtag: "#axisofstevil_ufn-sighting"
+contributions:
+- type: featured_image
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 1
+    nickname: Stevil
+- type: copywriting
+  contributor:
+    id: 2
+    nickname: Graham
 ---
 
 [id_1]: https://d3e878vmunx8cm.cloudfront.net/assets/flyingnunlarge.jpg "Flyingnun"
