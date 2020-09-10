@@ -8,6 +8,16 @@ layout: default
     </header>
     {% include posts/pre-roll.html %}
     {{ content | parse_flash }}
+    {% if page.contributions %}
+    <p>Contributors:
+    {% assign contribution_list = "" | split: ", " %}
+    {% for contribution in page.contributions %}
+        {% capture contribution_item %}{{ contribution.contributor.nickname }} ({{ contribution.type | split: "_" | join: " " | capitalize }}){% endcapture %}
+        {% assign contribution_list = contribution_list | push: contribution_item %}
+    {% endfor %}
+    <em>{{ contribution_list | join: ", " }}</em>
+    </p>
+    {% endif %}
     {% include posts/notes.html %}
     {% if page.next.url or page.previous.url %}
     {% if page.next and page.previous %}
