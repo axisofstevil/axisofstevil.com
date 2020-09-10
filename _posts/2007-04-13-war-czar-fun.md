@@ -13,8 +13,8 @@ hashtag: "#axisofstevil_war-czar-fun"
 contributions:
 - type: featured_image
   contributor:
-    id: 1
-    nickname: Stevil
+    id: 3
+    nickname: Dick
 - type: copywriting
   contributor:
     id: 1
