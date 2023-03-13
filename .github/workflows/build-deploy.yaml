@@ -44,7 +44,7 @@ jobs:
       - name: Build Site
         env:
           JEKYLL_ENV: "${{ vars.JEKYLL_ENV }}"
-        run: bundle exec jekyll build --trace
+        run: bundle exec rake
       - name: Create Build Log
         run: touch ./_site/build_${{ steps.set_build_timestamp.outputs.release_timestamp }}.txt
       - name: Set Build Directory
