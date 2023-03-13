@@ -18,7 +18,6 @@ gem "jekyll", "~> 4.2.2"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.16"
   gem "jekyll-sitemap"
-
   gem 'nokogiri'
   gem 'octopress-minify-html'
   gem 'jekyll-redirect-from'
