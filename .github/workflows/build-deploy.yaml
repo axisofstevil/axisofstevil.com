@@ -1,0 +1,70 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [ gh-pages, github-actions ]
+  pull_request:
+    branches: [ gh-pages, github-actions ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      target_env: ${{ steps.branch_check.outputs.environment }}
+    steps:
+      - name: Choose Environment
+        id: branch_check
+        run: |
+          echo "Running on branch ${{ github.ref }}"
+          if [ "${{ github.ref }}" = "refs/heads/gh-pages" ]; then
+            echo "environment=Production" >> $GITHUB_OUTPUT
+          else
+            echo "environment=Production" >> $GITHUB_OUTPUT
+          fi
+  build:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    outputs:
+      target_env: ${{ needs.setup.outputs.target_env }}
+    environment:
+      name: "${{ needs.setup.outputs.target_env }}"
+    steps:
+      - name: Set Build Timestamp
+        id: set_build_timestamp
+        run: echo "release_timestamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+      - name: Install Ruby dependencies
+        run: bundle install
+      # - name: Install JS dependencies
+      #   run: npm install
+      - name: Build Site
+        env:
+          JEKYLL_ENV: "${{ vars.JEKYLL_ENV }}"
+        run: bundle exec jekyll build --trace
+      - name: Create Build Log
+        run: touch ./_site/build_${{ steps.set_build_timestamp.outputs.release_timestamp }}.txt
+      - name: Set Build Directory
+        id: set_build_directory
+        run: echo "build_directory=./_site" >> $GITHUB_OUTPUT
+      - name: Sync with S3
+        env:
+          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        run: |
+          echo "############### COPY ##########################"
+          aws s3 cp ${{ steps.set_build_directory.outputs.build_directory }} s3://${{ vars.S3_BUCKET }}/_releases/${{ steps.set_build_timestamp.outputs.release_timestamp }} --only-show-errors --recursive --acl public-read --region ${{ vars.S3_REGION }}
+          echo "############### PRUNE CURRENT SITE ##############"
+          aws s3 rm s3://${{ vars.S3_BUCKET }}/ --only-show-errors --recursive --exclude="_releases/*" --region ${{ vars.S3_REGION }}
+          echo "############### LOAD LATEST RELEASE ##############"
+          aws s3 cp s3://${{ vars.S3_BUCKET }}/_releases/${{ steps.set_build_timestamp.outputs.release_timestamp }} s3://${{ vars.S3_BUCKET }}/ --only-show-errors --recursive --acl public-read --region ${{ vars.S3_REGION }}
+      - name: Invalidate Cloudfront Cache
+        env:
+          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        run: |
+          echo "############### CACHE INVALIDATION ##############"
+          aws cloudfront create-invalidation --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} --paths="/*" --region ${{ vars.S3_REGION }}
