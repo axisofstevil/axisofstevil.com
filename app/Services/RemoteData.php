@@ -45,9 +45,9 @@ class RemoteData
 
         usort($works, fn ($a, $b) => strcmp($b['date'], $a['date']));
 
+        $workPages = $this->pages($entries, $works);
         $collections = $jigsaw->getConfig('collections');
-        $collections->set('works.items', $this->pages($entries, $works));
-        $jigsaw->setConfig('collections', $collections);
+        $collections->set('works.items', $workPages);
 
         $issues = array_map(fn (array $f) => [
             'slug' => $f['slug'],
@@ -63,6 +63,9 @@ class RemoteData
             'name' => $c['name'],
             'count' => $c['entries'],
         ], $this->json($channelUrl.'/categories')['data'] ?? []);
+
+        $collections->set('divisions.items', $this->divisionPages($divisions, $workPages, count($works)));
+        $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
 
@@ -139,6 +142,53 @@ class RemoteData
         }
 
         return $pages;
+    }
+
+    /**
+     * Each division's page: its share of the output, its series, and its
+     * works (oldest first, with their place numbers) for the index and the
+     * yearbook.
+     *
+     * @param  list<array<string, mixed>>  $divisions
+     * @param  list<array<string, mixed>>  $workPages
+     * @return list<array<string, mixed>>
+     */
+    private function divisionPages(array $divisions, array $workPages, int $total): array
+    {
+        $items = [];
+
+        foreach ($divisions as $division) {
+            $works = array_values(array_filter($workPages, fn ($w) => $w['division'] === $division['slug']));
+            usort($works, fn ($a, $b) => $a['place'] <=> $b['place']);
+
+            $series = [];
+            foreach ($works as $w) {
+                if ($w['series'] !== null) {
+                    $series[$w['series']] = ($series[$w['series']] ?? 0) + 1;
+                }
+            }
+            arsort($series);
+
+            $items[] = [
+                'filename' => $division['slug'],
+                'title' => $division['name'].' — The Axis of Stevil',
+                'name' => $division['name'],
+                'slug' => $division['slug'],
+                'description' => "Every work filed in {$division['name']}, the Axis of Stevil's division of ".count($works).' works.',
+                'count' => count($works),
+                'share' => $total > 0 ? (int) round(count($works) / $total * 100) : 0,
+                'series' => $series,
+                'works' => array_map(fn ($w) => [
+                    'title' => $w['title'],
+                    'address' => $w['address'],
+                    'date' => $w['date'],
+                    'image' => $w['image'],
+                    'place' => $w['place'],
+                ], $works),
+            ];
+        }
+
+        return $items;
     }
 
     /**

@@ -978,6 +978,271 @@ a {
     width: 100%;
 }
 
+/* Division pages: a header plate, then the index or the yearbook (one switch, remembered). */
+.plate.division-head {
+    padding-bottom: var(--pad);
+}
+
+.division-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--pad) calc(var(--pad) * 2);
+}
+
+.division-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.55), 4.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.division-figure {
+    margin: 0;
+    text-align: right;
+    font-family: var(--display);
+}
+
+.division-figure b {
+    display: block;
+    font-size: clamp(2.5rem, calc(var(--col) * 0.42), 3.5rem);
+    line-height: 1;
+}
+
+.division-figure span,
+.division-series {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.division-series {
+    margin: 0;
+    align-self: end;
+    font-family: var(--display);
+}
+
+.view-switch {
+    grid-column: 2;
+    justify-self: end;
+    align-self: end;
+    display: inline-flex;
+    box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.division-series + .view-switch {
+    grid-column: 2;
+}
+
+.view-switch button {
+    appearance: none;
+    border: 0;
+    margin: 0;
+    padding: 10px 18px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.view-switch button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.view-switch button:hover:not([aria-pressed="true"]) {
+    background: var(--stock-light);
+}
+
+.view {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--half);
+}
+
+.js .view-yearbook,
+.js[data-division-view="yearbook"] .view-index {
+    display: none;
+}
+
+.js[data-division-view="yearbook"] .view-yearbook {
+    display: grid;
+}
+
+/* The index: three columns of letter groups, a slate thumb index on the right (a column and a half). */
+.index-sheet {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) calc(var(--half) * 3);
+}
+
+.index {
+    columns: 3;
+    column-gap: calc(var(--pad) * 2);
+}
+
+.index-group {
+    break-inside: avoid-column;
+    margin-bottom: var(--pad);
+}
+
+.index-letter {
+    margin: 0 0 6px;
+    font-family: var(--display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--red-ink);
+}
+
+.index ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.index li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+}
+
+.index li a {
+    text-decoration: none;
+}
+
+.index li a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.index li span {
+    flex: none;
+    font-size: 0.8125rem;
+    color: var(--muted);
+}
+
+.thumb-index {
+    background: var(--slate);
+    color: var(--stock);
+    padding: var(--pad) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.thumb-index a {
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.thumb-index a:hover {
+    background: var(--ink);
+}
+
+/* The yearbook: a band per year, its figure on two columns, its works as square plates. */
+.yearbook {
+    display: grid;
+    grid-template-columns: calc(var(--col) * 2 - var(--pad)) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
+}
+
+.year-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.48), 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.year-count {
+    margin: 8px 0 12px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.year-bar {
+    display: block;
+    height: 14px;
+    width: var(--w);
+    background: var(--red);
+}
+
+.year-works {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 3), 1fr));
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
+    padding: 10px;
+    text-decoration: none;
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+}
+
+.tile-image {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--stock-light);
+    box-shadow: inset 0 0 0 1px var(--major);
+}
+
+.tile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tile-blank {
+    background: var(--slate);
+}
+
+.tile-title {
+    margin-top: 4px;
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.tile-meta {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.tile:hover .tile-title {
+    color: var(--red-ink);
+}
+
 /* The colophon: on the sheet, below the last plate. */
 .colophon {
     padding: var(--half) 0 var(--half);
@@ -1088,6 +1353,10 @@ a {
 
     .spread {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .index {
+        columns: 2;
     }
 
     .notes-inner {
@@ -1251,6 +1520,50 @@ a {
     .exhibit {
         grid-template-columns: minmax(0, 1fr);
         row-gap: var(--pad);
+    }
+
+    .division-head {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .division-figure {
+        text-align: left;
+    }
+
+    .view-switch,
+    .division-series + .view-switch {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .index-sheet {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .thumb-index {
+        order: -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 10px var(--pad);
+    }
+
+    .thumb-index a {
+        width: auto;
+        padding: 4px 8px;
+    }
+
+    .index {
+        columns: 1;
+    }
+
+    .yearbook {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .year-works {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .colophon-lockup img {

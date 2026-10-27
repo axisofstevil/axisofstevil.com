@@ -18,7 +18,7 @@
         <link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="{{ $page->assetCss }}">
-        <script>document.documentElement.classList.add('js')</script>
+        <script>document.documentElement.classList.add('js');try{var v=localStorage.getItem('axis.divisionView');if(v==='yearbook')document.documentElement.dataset.divisionView=v}catch(e){}</script>
         <meta name="theme-color" content="#c73120">
         <link rel="icon" href="/assets/logo/axis-symbol.svg" type="image/svg+xml">
     </head>

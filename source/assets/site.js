@@ -163,3 +163,33 @@ const snapToGrid = (() => {
         }
     });
 })();
+
+// Division pages: the index or the yearbook, remembered for every division.
+(() => {
+    const buttons = document.querySelectorAll('.view-switch [data-view]');
+
+    if (buttons.length === 0) {
+        return;
+    }
+
+    const root = document.documentElement;
+    const show = (view) => {
+        root.dataset.divisionView = view;
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
+        snapToGrid();
+    };
+
+    show(root.dataset.divisionView === 'yearbook' ? 'yearbook' : 'index');
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            show(button.dataset.view);
+
+            try {
+                localStorage.setItem('axis.divisionView', button.dataset.view);
+            } catch (error) {
+                // Private windows can refuse storage; the switch still works for this page.
+            }
+        });
+    });
+})();

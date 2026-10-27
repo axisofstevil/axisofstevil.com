@@ -91,7 +91,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
         </nav>
     </section>
 
-    <section class="plate statement" aria-labelledby="divisions-title" data-snap>
+    <section id="divisions" class="plate statement" aria-labelledby="divisions-title" data-snap>
         <h2 id="divisions-title" class="section-title">Report of the Divisions</h2>
         <table class="ledger">
             <colgroup><col class="c-division"><col class="c-works"><col class="c-share"><col class="c-filed"></colgroup>

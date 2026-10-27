@@ -36,6 +36,11 @@ return [
             'path' => fn ($page) => trim($page->address, '/'),
             'sort' => '-date',
         ],
+        // Each division at /{slug}/ (items set by RemoteData).
+        'divisions' => [
+            'extends' => '_layouts.division',
+            'path' => '{filename}',
+        ],
     ],
 
     // A page's address, with the trailing slash the site has always used.
