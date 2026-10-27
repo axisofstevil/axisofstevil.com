@@ -43,9 +43,9 @@ description: Random insanity at its finest. The complete works of the Axis of St
     <section class="fold" aria-label="The report">
         <div class="fold-top" data-snap data-fill>
         <header class="plate cover" data-snap>
-            <div class="cover-chart" aria-hidden="true">
-                @foreach (array_slice($quarters, 0, 5) as $count)
-                <i style="--h: {{ max(8, round($count / $peak * 100)) }}%"></i>
+            <div class="cover-chart cover-bars" aria-hidden="true">
+                @foreach ($quarters as $label => $count)
+                <i style="--h: {{ max(2, round($count / $peak * 100)) }}%"></i>
                 @endforeach
             </div>
             <h1 class="cover-title">Annual<br>Report</h1>
