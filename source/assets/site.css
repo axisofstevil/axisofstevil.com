@@ -29,8 +29,11 @@
  * the sheet and sets the exact whole-pixel values; these are the fallbacks.
  */
 :root {
-    /* The logo's red; red-ink is the same hue deep enough for small text on the stock. */
-    --red: #ff1a00;
+    /*
+     * The logo's red (#ff1a00) stays in the mark. Large fields take a calmer
+     * red of the same hue; red-ink is deep enough for small text on the stock.
+     */
+    --red: #c73120;
     --red-ink: #c01300;
     --slate: #3f4a54;
     --stock: #e6e3dc;
@@ -178,13 +181,13 @@ a {
     color: var(--ink);
 }
 
-/* The symbol in its own colours, on a white plate of its own, three half-modules square on the cover's grid. */
+/* The symbol in its own colours, on a white plate of its own, two half-modules square on the cover's grid. */
 .seal {
     position: absolute;
     left: var(--half);
     top: var(--half);
-    width: calc(var(--half) * 3);
-    height: calc(var(--half) * 3);
+    width: calc(var(--half) * 2);
+    height: calc(var(--half) * 2);
     display: grid;
     place-items: center;
     background: #fff;
@@ -195,16 +198,16 @@ a {
 
 .seal-mark {
     width: auto;
-    height: 64%;
+    height: 80%;
 }
 
-/* The chart answers the seal: the same three half-modules, on the cover's right. */
+/* The chart answers the seal: the same two half-modules, on the cover's right. */
 .cover-chart {
     position: absolute;
     top: var(--half);
     right: var(--half);
-    width: calc(var(--half) * 3);
-    height: calc(var(--half) * 3);
+    width: calc(var(--half) * 2);
+    height: calc(var(--half) * 2);
     display: flex;
     align-items: flex-end;
     gap: calc(var(--pad) / 3);
@@ -242,8 +245,9 @@ a {
     text-transform: uppercase;
 }
 
-.cover .caption {
-    color: var(--ink);
+.cover .caption,
+.cover-line {
+    color: #fff;
 }
 
 .letter {
