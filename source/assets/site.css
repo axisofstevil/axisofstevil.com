@@ -1016,22 +1016,33 @@ a {
     line-height: 1;
 }
 
-.division-figure span,
-.division-series {
+.division-figure span {
     font-size: 0.8125rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
 }
 
-.division-series {
-    flex: 1;
-    min-width: 0;
-    margin: 0;
+/* The series counts, as a note at the top of the content. */
+.series-note {
+    margin: 0 0 var(--pad);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--major);
     font-family: var(--display);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.9375rem;
+    column-span: all;
+}
+
+.series-note span {
+    margin-right: 10px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.yearbook .series-note {
+    grid-column: 1 / -1;
 }
 
 /* The switch fills the plate's height at its right edge, sharing the keylines. */
@@ -1146,6 +1157,10 @@ a {
     gap: 4px;
 }
 
+.thumb-index {
+    align-self: stretch;
+}
+
 .thumb-index a {
     width: 100%;
     text-align: center;
@@ -1160,7 +1175,13 @@ a {
     background: var(--ink);
 }
 
-/* The yearbook: a band per year, its figure on two columns, its works as square plates. */
+/* The yearbook: bands stacked edge to edge, beside the same slate thumb index, one row per year. */
+.yearbook-bands {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* A band per year: its figure on two columns, its works as square plates. */
 .yearbook {
     display: grid;
     grid-template-columns: calc(var(--col) * 2 - var(--pad)) minmax(0, 1fr);
@@ -1540,12 +1561,6 @@ a {
 
     .division-title {
         padding-left: var(--pad);
-    }
-
-    .division-series {
-        flex-basis: 100%;
-        padding: 0 var(--pad);
-        white-space: normal;
     }
 
     .view-switch {

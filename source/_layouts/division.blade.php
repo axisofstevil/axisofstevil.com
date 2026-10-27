@@ -15,6 +15,7 @@
     $years = $works->groupBy(fn ($w) => substr($w['date'], 0, 4))->sortKeysDesc();
     $busiest = $years->map->count()->max() ?: 1;
     $short = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j');
+    $series = collect($page->series);
 @endphp
 
 @section('body')
@@ -24,9 +25,6 @@
     <header class="plate division-head" data-snap>
         <h1 class="division-title">{{ $page->name }}</h1>
         <p class="division-figure"><b>{{ $page->count }}</b> <span>works · {{ $page->share }}% of output</span></p>
-        @if (count($page->series) > 0)
-        <p class="division-series">@foreach ($page->series as $name => $n){{ $name }} {{ $n }}@if (! $loop->last) · @endif @endforeach</p>
-        @endif
         <div class="view-switch" role="group" aria-label="View">
             <button type="button" data-view="index" aria-pressed="true">Index</button>
             <button type="button" data-view="yearbook" aria-pressed="false">Yearbook</button>
@@ -36,6 +34,7 @@
     <div class="view view-index">
         <div class="index-sheet">
             <section class="plate index" aria-label="Index" data-snap>
+                @include('_partials.series-note')
                 @foreach ($letters as $letter => $group)
                 <div class="index-group" id="letter-{{ $letter === '#' ? 'num' : $letter }}">
                     <h2 class="index-letter">{{ $letter }}</h2>
@@ -57,8 +56,13 @@
     </div>
 
     <div class="view view-yearbook">
+        <div class="index-sheet yearbook-sheet">
+        <div class="yearbook-bands">
         @foreach ($years as $year => $group)
         <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
+            @if ($loop->first)
+            @include('_partials.series-note')
+            @endif
             <div class="year-figure">
                 <h2 id="year-{{ $year }}" class="year-title">{{ $year }}</h2>
                 <p class="year-count">{{ $group->count() }} {{ $group->count() === 1 ? 'work' : 'works' }} filed</p>
@@ -82,6 +86,13 @@
             <p class="caption">Yearbook {{ $year }} · {{ $page->name }}</p>
         </section>
         @endforeach
+        </div>
+        <nav class="plate thumb-index" aria-label="Years" data-snap>
+            @foreach ($years->keys() as $year)
+            <a href="#year-{{ $year }}">{{ $year }}</a>
+            @endforeach
+        </nav>
+        </div>
     </div>
 </main>
 
