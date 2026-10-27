@@ -1,0 +1,878 @@
+@font-face {
+    font-family: "Jost";
+    src: url("/assets/fonts/jost.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("/assets/fonts/source-serif-4.woff2") format("woff2");
+    font-weight: 200 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("/assets/fonts/source-serif-4-italic.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* The Axis Graphic Standards: one red, slate, stock and ink, on a 120px module grid. */
+:root {
+    --red: #d7261e;
+    --red-ink: #b51f18;
+    --slate: #3f4a54;
+    --stock: #e6e3dc;
+    --ink: #111;
+    --muted: #5a636b;
+    --keyline: rgba(17, 17, 17, 0.16);
+    --module: 120px;
+    --gap: 24px;
+    --display: "Jost", "Futura", sans-serif;
+    --text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-color: var(--slate) var(--stock);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--stock);
+    /* The manual's grid sheet: the module every plate is set on. */
+    background-image:
+        linear-gradient(var(--keyline) 1px, transparent 1px),
+        linear-gradient(90deg, var(--keyline) 1px, transparent 1px);
+    background-size: var(--module) var(--module);
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+}
+
+::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 3px;
+}
+
+.skip {
+    position: absolute;
+    left: var(--gap);
+    top: -100px;
+    padding: 12px 16px;
+    background: var(--ink);
+    color: var(--stock);
+    font-family: var(--display);
+    z-index: 10;
+}
+
+.skip:focus {
+    top: var(--gap);
+}
+
+/* A plate: a keylined unit of the manual, captioned at its foot. */
+.plate {
+    position: relative;
+    border: 1px solid var(--ink);
+    background: var(--stock);
+}
+
+.caption {
+    position: absolute;
+    left: 20px;
+    bottom: 14px;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.section-title,
+.letter-title,
+.cover-title,
+.unit-name {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+}
+
+.report {
+    padding: var(--gap);
+    display: grid;
+    gap: var(--gap);
+    max-width: 1680px;
+    margin: 0 auto;
+}
+
+/* First viewport: the cover, the letter, and the divisions along the foot. */
+.fold {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: var(--gap);
+    min-height: calc(100svh - 2 * var(--gap));
+}
+
+.cover {
+    grid-column: 1 / 7;
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--stock);
+    --mark-fill: var(--ink);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: var(--module) var(--module);
+    min-height: 560px;
+    padding: 28px;
+}
+
+.cover-mark {
+    width: clamp(120px, 14vw, 216px);
+    height: auto;
+    color: var(--stock);
+    display: block;
+}
+
+.cover-chart {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    height: clamp(120px, 14vw, 216px);
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.cover-chart i {
+    display: block;
+    width: clamp(18px, 2.4vw, 36px);
+    height: var(--h);
+    background: var(--stock);
+}
+
+.cover-title {
+    position: absolute;
+    left: 28px;
+    bottom: 110px;
+    margin: 0;
+    font-size: clamp(4rem, 8.6vw, 8.25rem);
+    line-height: 0.86;
+    letter-spacing: 0;
+}
+
+.cover-line {
+    position: absolute;
+    left: 28px;
+    bottom: 52px;
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.125rem, 1.6vw, 1.75rem);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.cover .caption {
+    left: 28px;
+    color: #fff;
+}
+
+.letter {
+    grid-column: 7 / 13;
+    padding: 28px 32px 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-title {
+    margin: 0 0 24px;
+    font-size: clamp(2.5rem, 4.2vw, 4rem);
+    line-height: 0.95;
+    max-width: 9ch;
+}
+
+.letter-body {
+    max-width: 62ch;
+}
+
+.letter-body p {
+    margin: 0 0 18px;
+    font-size: clamp(1.1875rem, 1.55vw, 1.5rem);
+    line-height: 1.5;
+}
+
+.letter-body .signed {
+    margin-top: 20px;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.letter-body .signed::before {
+    content: "— ";
+}
+
+.figures {
+    margin: auto 0 0;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    text-align: right;
+}
+
+.figures div {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.figures dt {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.figures dd {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.divisions {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.unit {
+    min-height: 168px;
+    padding: 20px 20px 44px;
+    margin-left: -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.unit:first-child {
+    margin-left: 0;
+}
+
+.unit-name {
+    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+    line-height: 1.02;
+}
+
+.unit-count {
+    font-family: var(--display);
+    font-size: 1rem;
+    color: var(--red-ink);
+}
+
+.unit:hover,
+.unit:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.unit:hover .unit-count,
+.unit:focus-visible .unit-count,
+.unit:hover .caption,
+.unit:focus-visible .caption {
+    color: var(--stock);
+}
+
+.unit-audit {
+    background: var(--slate);
+    color: var(--stock);
+}
+
+.unit-audit .unit-count,
+.unit-audit .caption {
+    color: var(--stock);
+}
+
+/* Below the fold: the statement, the results, the audit. */
+.statement,
+.results,
+.audit {
+    padding: 32px 32px 64px;
+}
+
+.section-title {
+    margin: 0 0 28px;
+    font-size: clamp(2rem, 3.4vw, 3.25rem);
+    line-height: 1;
+}
+
+.ledger {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ledger th,
+.ledger td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--keyline);
+    text-align: left;
+    vertical-align: top;
+}
+
+.ledger thead th {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--ink);
+}
+
+.ledger tbody th {
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ledger tbody th a {
+    text-decoration: none;
+}
+
+.ledger tbody th a:hover {
+    color: var(--red-ink);
+}
+
+.ledger thead .num {
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.ledger tbody .num,
+.ledger tfoot .num {
+    text-align: right;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    padding-right: 28px;
+}
+
+.ledger tfoot th,
+.ledger tfoot td {
+    border-top: 2px solid var(--ink);
+    border-bottom: 0;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.share-col {
+    width: 28%;
+}
+
+.share {
+    display: block;
+    height: 18px;
+    margin-top: 6px;
+    width: var(--w);
+    background: var(--red);
+}
+
+.filed a {
+    display: block;
+    text-decoration: none;
+}
+
+.filed a:hover {
+    text-decoration: underline;
+    color: var(--red-ink);
+}
+
+.results {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 48px;
+}
+
+.results .section-title {
+    grid-column: 1 / -1;
+}
+
+.chart {
+    margin: 0;
+    padding-top: 36px;
+}
+
+.bars {
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.bar {
+    position: relative;
+    flex: 1;
+    height: var(--h);
+    min-height: 2px;
+    background: var(--ink);
+}
+
+.bar:nth-child(4n + 1) {
+    background: var(--red);
+}
+
+.bar-count {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    padding-bottom: 6px;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.bar-label {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.chart figcaption {
+    margin-top: 44px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.issues {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+}
+
+.issues li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--keyline);
+}
+
+.issue-title {
+    font-family: var(--display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.issue-dates {
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.audit-lede {
+    margin: -12px 0 28px;
+    font-size: 1.1875rem;
+    max-width: 60ch;
+}
+
+.exhibit {
+    margin: 0 0 28px;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.exhibit-image {
+    display: block;
+    border: 1px solid var(--ink);
+    background: #fff;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.exhibit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.exhibit figcaption {
+    position: relative;
+    padding-top: 8px;
+}
+
+.exhibit-title {
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.02;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.exhibit-title:hover {
+    color: var(--red-ink);
+}
+
+.exhibit-facts {
+    margin: 24px 0 0;
+    border-top: 2px solid var(--ink);
+}
+
+.exhibit-facts div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--keyline);
+}
+
+.exhibit-facts dt {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.exhibit-facts dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.stamp {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 8px 16px;
+    border: 3px solid var(--red-ink);
+    color: var(--red-ink);
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transform: rotate(-4deg);
+}
+
+.action {
+    appearance: none;
+    border: 0;
+    padding: 16px 24px;
+    background: var(--slate);
+    color: var(--stock);
+    font-family: var(--display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s var(--ease);
+}
+
+.action:hover {
+    background: var(--ink);
+}
+
+.action[aria-busy="true"] {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* The colophon. */
+.colophon {
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 48px var(--gap) 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px 48px;
+    align-items: end;
+}
+
+.colophon-mark {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.colophon-svg {
+    width: 64px;
+    height: 64px;
+    color: var(--ink);
+    --mark-fill: var(--red);
+}
+
+.colophon-mark p {
+    margin: 0;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.colophon nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.colophon nav a {
+    text-decoration: none;
+}
+
+.colophon nav a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.colophon-line {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* The one motion: plates slide along the grid into place and lock, once. */
+@media (prefers-reduced-motion: no-preference) {
+    .js .fold .plate {
+        animation: lock 0.9s var(--ease) both;
+    }
+
+    .js .fold .letter {
+        animation-delay: 0.08s;
+    }
+
+    .js .fold .unit {
+        animation-delay: calc(0.16s + var(--i, 0) * 0.05s);
+    }
+
+    .exhibit.is-new {
+        animation: lock 0.7s var(--ease) both;
+    }
+
+    .exhibit.is-new .stamp {
+        animation: stamp 0.5s 0.35s var(--ease) both;
+    }
+}
+
+@keyframes lock {
+    from {
+        transform: translateY(24px);
+        opacity: 0;
+    }
+}
+
+@keyframes stamp {
+    from {
+        transform: rotate(-4deg) scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Narrower: the cover over the letter, divisions in rows of three, then two. */
+@media (max-width: 1100px) {
+    .fold {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cover,
+    .letter,
+    .divisions {
+        grid-column: 1;
+    }
+
+    .cover {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .divisions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .unit {
+        margin-top: -1px;
+    }
+
+    .unit:nth-child(3n + 1) {
+        margin-left: 0;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --gap: 16px;
+        --module: 80px;
+    }
+
+    .cover {
+        aspect-ratio: auto;
+        min-height: 440px;
+        padding: 20px;
+    }
+
+    .cover-title {
+        left: 20px;
+        bottom: 96px;
+        font-size: clamp(3.25rem, 17vw, 4.5rem);
+    }
+
+    .cover-line {
+        left: 20px;
+        right: 20px;
+        font-size: clamp(0.8125rem, 3.9vw, 0.9375rem);
+        letter-spacing: 0.1em;
+    }
+
+    .cover .caption {
+        left: 20px;
+    }
+
+    .cover-chart {
+        top: 20px;
+        right: 20px;
+        gap: 8px;
+    }
+
+    .letter,
+    .statement,
+    .results,
+    .audit {
+        padding: 22px 20px 56px;
+    }
+
+    .letter-title {
+        font-size: clamp(1.75rem, 9vw, 2.5rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 8.5vw, 2rem);
+    }
+
+    .figures {
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .divisions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .unit-name {
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .unit {
+        min-height: 132px;
+    }
+
+    .unit:nth-child(3n + 1) {
+        margin-left: -1px;
+    }
+
+    .unit:nth-child(2n + 1) {
+        margin-left: 0;
+    }
+
+    .share-col {
+        display: none;
+    }
+
+    .ledger tbody th {
+        font-size: 1.125rem;
+        white-space: normal;
+    }
+
+    .filed,
+    .ledger .filed-col {
+        display: none;
+    }
+
+    .bars {
+        height: 220px;
+        gap: 4px;
+    }
+
+    .bar-count {
+        font-size: 0.75rem;
+    }
+
+    .bar-label {
+        display: none;
+    }
+
+    .chart figcaption {
+        margin-top: 16px;
+    }
+
+    .exhibit {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .colophon {
+        grid-template-columns: 1fr;
+    }
+}
