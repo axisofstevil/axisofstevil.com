@@ -37,6 +37,8 @@
     --red-ink: #c01300;
     --slate: #3f4a54;
     --stock: #e6e3dc;
+    /* The stock, lifted: the same warm paper, for the one surface that needs emphasis. */
+    --stock-light: #f7f4ee;
     --ink: #111;
     --muted: #5a636b;
     --line: rgba(17, 17, 17, 0.13);
@@ -212,8 +214,8 @@ a {
 }
 
 /*
- * The imprint band: the cover's foot, two half-modules tall, on the stock
- * (no pure white anywhere: beside it the stock reads as dirty paper). The
+ * The imprint band: the cover's foot, two half-modules tall, on the lifted
+ * stock (never pure white: beside it the stock reads as dirty paper). The
  * wordmark lockup signs the cover in its own colours; the year and the plate
  * caption sit at the foot on the right like a report's imprint line, the
  * caption exactly where every other plate's caption sits.
@@ -224,7 +226,7 @@ a {
     right: 0;
     bottom: 0;
     height: calc(var(--half) * 2);
-    background: var(--stock);
+    background: var(--stock-light);
     box-shadow:
         inset 1px 1px 0 var(--ink),
         1px 1px 0 var(--ink);
