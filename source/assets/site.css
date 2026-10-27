@@ -212,7 +212,8 @@ a {
 }
 
 /*
- * The imprint band: the cover's foot, two half-modules tall, on white. The
+ * The imprint band: the cover's foot, two half-modules tall, on the stock
+ * (no pure white anywhere: beside it the stock reads as dirty paper). The
  * wordmark lockup signs the cover in its own colours; the year and the plate
  * caption sit at the foot on the right like a report's imprint line, the
  * caption exactly where every other plate's caption sits.
@@ -223,7 +224,7 @@ a {
     right: 0;
     bottom: 0;
     height: calc(var(--half) * 2);
-    background: #fff;
+    background: var(--stock);
     box-shadow:
         inset 1px 1px 0 var(--ink),
         1px 1px 0 var(--ink);
@@ -597,7 +598,7 @@ a {
 
 .exhibit-image {
     display: block;
-    background: #fff;
+    background: var(--stock);
     box-shadow: inset 0 0 0 1px var(--ink);
     aspect-ratio: 4 / 3;
     overflow: hidden;
