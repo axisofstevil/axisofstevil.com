@@ -688,22 +688,16 @@ a {
     align-items: center;
 }
 
-.colophon-mark {
-    display: flex;
-    align-items: center;
-    gap: var(--pad);
+/* The lockup, three columns wide: about one half-module tall. */
+.colophon-lockup {
+    display: block;
     padding-left: var(--pad);
 }
 
-.colophon-svg {
-    width: auto;
-    height: calc(var(--half) - 8px);
-}
-
-.colophon-mark p {
-    margin: 0;
-    font-size: 1.25rem;
-    font-style: italic;
+.colophon-lockup img {
+    display: block;
+    width: calc(var(--col) * 3 - var(--pad));
+    height: auto;
 }
 
 .colophon nav {
@@ -732,9 +726,8 @@ a {
     margin: 0;
     padding-left: var(--pad);
     font-family: var(--display);
-    font-size: 0.8125rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
     color: var(--muted);
 }
 
@@ -940,7 +933,7 @@ a {
         row-gap: var(--pad);
     }
 
-    .colophon-mark p {
-        font-size: 1.0625rem;
+    .colophon-lockup img {
+        width: calc(var(--col) * 3);
     }
 }
