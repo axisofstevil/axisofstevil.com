@@ -1,7 +1,0 @@
-source 'https://rubygems.org'
-gem 'github-pages'
-gem 'nokogiri'
-gem 'octopress-minify-html'
-gem 'jekyll-redirect-from'
-gem 'jekyll-paginate'
-gem 'rake'
