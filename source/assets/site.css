@@ -181,27 +181,7 @@ a {
     color: var(--ink);
 }
 
-/* The symbol in its own colours, on a white plate of its own, two half-modules square on the cover's grid. */
-.seal {
-    position: absolute;
-    left: var(--half);
-    top: var(--half);
-    width: calc(var(--half) * 2);
-    height: calc(var(--half) * 2);
-    display: grid;
-    place-items: center;
-    background: #fff;
-    box-shadow:
-        inset 1px 1px 0 var(--ink),
-        1px 1px 0 var(--ink);
-}
-
-.seal-mark {
-    width: auto;
-    height: 80%;
-}
-
-/* The chart answers the seal: the same two half-modules, on the cover's right. */
+/* The chart: two half-modules square, at the cover's top right. */
 .cover-chart {
     position: absolute;
     top: var(--half);
@@ -223,7 +203,7 @@ a {
 .cover-title {
     position: absolute;
     left: var(--pad);
-    bottom: calc(var(--half) * 2);
+    bottom: calc(var(--half) * 2 + var(--pad));
     margin: 0;
     color: var(--stock);
     font-size: clamp(3rem, calc(var(--col) * 1.12), 8.25rem);
@@ -231,23 +211,54 @@ a {
     letter-spacing: 0;
 }
 
-.cover-line {
+/*
+ * The imprint band: the cover's foot, two half-modules tall, on white. The
+ * wordmark lockup signs the cover in its own colours; the year and the plate
+ * caption sit at the foot on the right like a report's imprint line, the
+ * caption exactly where every other plate's caption sits.
+ */
+.cover-band {
     position: absolute;
-    left: var(--pad);
-    right: var(--pad);
-    bottom: var(--half);
-    margin: 0;
-    font-family: var(--display);
-    font-size: clamp(0.875rem, calc(var(--col) * 0.2), 1.75rem);
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--half) * 2);
+    background: #fff;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        1px 1px 0 var(--ink);
 }
 
-.cover .caption,
-.cover-line {
-    color: #fff;
+.cover-lockup {
+    position: absolute;
+    left: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
+    display: block;
+    height: calc(var(--half) * 0.9);
+    width: auto;
+}
+
+.cover-imprint {
+    position: absolute;
+    right: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font-family: var(--display);
+    font-size: clamp(0.875rem, calc(var(--col) * 0.15), 1.25rem);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+.cover-band .caption {
+    position: static;
+    line-height: 1;
 }
 
 .letter {
@@ -813,17 +824,30 @@ a {
     }
 
     .cover {
-        min-height: calc(var(--half) * 9);
+        min-height: calc(var(--half) * 11);
     }
 
     .cover-title {
+        bottom: calc(var(--half) * 3 + var(--pad));
         font-size: clamp(3rem, calc(var(--col) * 0.82), 4.5rem);
     }
 
-    .cover-line {
-        font-size: clamp(0.8125rem, calc(var(--col) * 0.16), 0.9375rem);
-        letter-spacing: 0.1em;
+    .cover-band {
+        height: calc(var(--half) * 3);
     }
+
+    .cover-lockup {
+        top: var(--pad);
+        bottom: auto;
+        max-width: calc(100% - var(--pad) * 2);
+    }
+
+    .cover-imprint {
+        left: var(--pad);
+        right: auto;
+        align-items: flex-start;
+    }
+
 
     .letter-title {
         font-size: clamp(1.75rem, calc(var(--col) * 0.36), 2.5rem);

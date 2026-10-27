@@ -43,15 +43,16 @@ description: Random insanity at its finest. The complete works of the Axis of St
     <section class="fold" aria-label="The report">
         <div class="fold-top" data-snap data-fill>
         <header class="plate cover" data-snap>
-            <div class="seal">@include('_partials.mark', ['class' => 'seal-mark'])</div>
             <div class="cover-chart" aria-hidden="true">
                 @foreach (array_slice($quarters, 0, 5) as $count)
                 <i style="--h: {{ max(8, round($count / $peak * 100)) }}%"></i>
                 @endforeach
             </div>
             <h1 class="cover-title">Annual<br>Report</h1>
-            <p class="cover-line">The Axis of Stevil · Circa {{ $page->build_time->year }}</p>
-            <p class="caption">Plate 1 · The Cover</p>
+            <div class="cover-band">
+                <img class="cover-lockup" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5">
+                <p class="cover-imprint"><span>Circa {{ $page->build_time->year }}</span><span class="caption">Plate 1 · The Cover</span></p>
+            </div>
         </header>
 
         <article class="plate letter" aria-labelledby="letter-title" data-snap>
