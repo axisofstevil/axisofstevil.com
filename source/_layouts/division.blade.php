@@ -3,8 +3,9 @@
 @php
     $works = collect($page->works)->map(fn ($w) => (array) (is_array($w) ? $w : $w->toArray()));
 
-    // The index: by title, ignoring leading quotes and punctuation; anything not starting with a letter files under #.
-    $sortKey = fn ($w) => mb_strtolower(preg_replace('/^[^\pL\pN]+/u', '', $w['title']));
+    // The index: by title, ignoring leading quotes, punctuation and articles (A Declaration Of War files under D);
+    // anything not starting with a letter files under #.
+    $sortKey = fn ($w) => mb_strtolower(preg_replace('/^(?:(?:a|an|the)\s+)?/iu', '', preg_replace('/^[^\pL\pN]+/u', '', $w['title'])));
     $letters = $works->sortBy($sortKey)->groupBy(function ($w) use ($sortKey) {
         $first = mb_strtoupper(mb_substr($sortKey($w), 0, 1));
         return preg_match('/\pL/u', $first) ? $first : '#';
@@ -18,7 +19,7 @@
 
 @section('body')
 <main id="main" class="report">
-    @include('_partials.running-head', ['trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions']])
+    @include('_partials.running-head', ['trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions', 'short' => 'Divisions']])
 
     <header class="plate division-head" data-snap>
         <h1 class="division-title">{{ $page->name }}</h1>

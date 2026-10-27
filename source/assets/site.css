@@ -732,6 +732,10 @@ a {
     text-decoration: none;
 }
 
+.running-short {
+    display: none;
+}
+
 .running-trail:hover {
     color: var(--red-ink);
     text-decoration: underline;
@@ -979,35 +983,36 @@ a {
 }
 
 /* Division pages: a header plate, then the index or the yearbook (one switch, remembered). */
+/* One half-module tall: the name, its figure, the series counts, the switch, on one line. */
 .plate.division-head {
-    padding-bottom: var(--pad);
+    min-height: var(--half);
+    padding: 0 0 0 var(--pad);
 }
 
 .division-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
-    gap: var(--pad) calc(var(--pad) * 2);
+    display: flex;
+    align-items: center;
+    gap: calc(var(--pad) * 1.5);
 }
 
 .division-title {
     margin: 0;
     font-family: var(--display);
-    font-size: clamp(2.5rem, calc(var(--col) * 0.55), 4.5rem);
+    font-size: clamp(1.25rem, calc(var(--col) * 0.22), 1.875rem);
     font-weight: 700;
-    line-height: 0.95;
+    line-height: 1;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .division-figure {
     margin: 0;
-    text-align: right;
     font-family: var(--display);
+    white-space: nowrap;
 }
 
 .division-figure b {
-    display: block;
-    font-size: clamp(2.5rem, calc(var(--col) * 0.42), 3.5rem);
+    font-size: clamp(1.125rem, calc(var(--col) * 0.18), 1.5rem);
     line-height: 1;
 }
 
@@ -1020,28 +1025,28 @@ a {
 }
 
 .division-series {
+    flex: 1;
+    min-width: 0;
     margin: 0;
-    align-self: end;
     font-family: var(--display);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* The switch fills the plate's height at its right edge, sharing the keylines. */
 .view-switch {
-    grid-column: 2;
-    justify-self: end;
-    align-self: end;
-    display: inline-flex;
-    box-shadow: inset 0 0 0 1px var(--ink);
-}
-
-.division-series + .view-switch {
-    grid-column: 2;
+    margin-left: auto;
+    align-self: stretch;
+    display: flex;
+    box-shadow: inset 1px 0 0 var(--ink);
 }
 
 .view-switch button {
     appearance: none;
     border: 0;
     margin: 0;
-    padding: 10px 18px;
+    padding: 0 var(--pad);
     background: transparent;
     color: var(--ink);
     font-family: var(--display);
@@ -1522,18 +1527,44 @@ a {
         row-gap: var(--pad);
     }
 
+    /* Phones: the name and figure, the series, then the switch as the plate's foot. */
+    .plate.division-head {
+        padding: calc(var(--pad) / 2) 0 0;
+    }
+
     .division-head {
-        grid-template-columns: minmax(0, 1fr);
+        flex-wrap: wrap;
+        row-gap: 8px;
+        column-gap: var(--pad);
     }
 
-    .division-figure {
-        text-align: left;
+    .division-title {
+        padding-left: var(--pad);
     }
 
-    .view-switch,
-    .division-series + .view-switch {
-        grid-column: 1;
-        justify-self: start;
+    .division-series {
+        flex-basis: 100%;
+        padding: 0 var(--pad);
+        white-space: normal;
+    }
+
+    .view-switch {
+        flex-basis: 100%;
+        margin-left: 0;
+        min-height: var(--half);
+        box-shadow: inset 0 1px 0 var(--ink);
+    }
+
+    .view-switch button {
+        flex: 1;
+    }
+
+    .running-long {
+        display: none;
+    }
+
+    .running-short {
+        display: inline;
     }
 
     .index-sheet {
