@@ -20,7 +20,15 @@
     font-display: swap;
 }
 
-/* The Axis Graphic Standards: one red, slate, stock and ink, on a 120px module grid. */
+/*
+ * The Axis Graphic Standards: one red, slate, stock and ink.
+ *
+ * Everything sits on one sheet of columns. The fine grid is drawn from that
+ * sheet (a line on every column, a fainter one on every half column), plates
+ * span whole columns with their keylines on the grid lines, and heights snap
+ * to whole half-modules (site.js measures the sheet and sets the exact
+ * values; these are the fallbacks).
+ */
 :root {
     --red: #d7261e;
     --red-ink: #b51f18;
@@ -28,12 +36,19 @@
     --stock: #e6e3dc;
     --ink: #111;
     --muted: #5a636b;
-    --keyline: rgba(17, 17, 17, 0.16);
-    --module: 120px;
-    --gap: 24px;
+    --major: rgba(17, 17, 17, 0.16);
+    --minor: rgba(17, 17, 17, 0.07);
     --display: "Jost", "Futura", sans-serif;
     --text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --cols: 12;
+    --margin: 24px;
+    --sheet: min(100vw - 2 * var(--margin), 1680px);
+    --sheet-left: calc((100vw - var(--sheet)) / 2);
+    --col: calc(var(--sheet) / var(--cols));
+    --half: calc(var(--col) / 2);
+    --pad: calc(var(--col) / 4);
 }
 
 *,
@@ -51,11 +66,17 @@ body {
     margin: 0;
     color: var(--ink);
     background-color: var(--stock);
-    /* The manual's grid sheet: the module every plate is set on. */
     background-image:
-        linear-gradient(var(--keyline) 1px, transparent 1px),
-        linear-gradient(90deg, var(--keyline) 1px, transparent 1px);
-    background-size: var(--module) var(--module);
+        linear-gradient(90deg, var(--major) 1px, transparent 1px),
+        linear-gradient(var(--major) 1px, transparent 1px),
+        linear-gradient(90deg, var(--minor) 1px, transparent 1px),
+        linear-gradient(var(--minor) 1px, transparent 1px);
+    background-size:
+        var(--col) var(--col),
+        var(--col) var(--col),
+        var(--half) var(--half),
+        var(--half) var(--half);
+    background-position: var(--sheet-left) 0;
     font-family: var(--text);
     font-size: 1.0625rem;
     line-height: 1.6;
@@ -80,7 +101,7 @@ a {
 
 .skip {
     position: absolute;
-    left: var(--gap);
+    left: var(--margin);
     top: -100px;
     padding: 12px 16px;
     background: var(--ink);
@@ -90,24 +111,45 @@ a {
 }
 
 .skip:focus {
-    top: var(--gap);
+    top: var(--margin);
 }
 
-/* A plate: a keylined unit of the manual, captioned at its foot. */
+/* The sheet: whole columns wide, starting on a grid line, sections a half-module apart. */
+.report,
+.colophon {
+    width: var(--sheet);
+    margin: 0 auto;
+}
+
+.report {
+    padding-top: var(--half);
+    display: grid;
+    row-gap: var(--half);
+}
+
+/*
+ * A plate: a keylined unit of the manual, captioned at its foot. Its left and
+ * top keylines are drawn inside it, its right and bottom ones just outside,
+ * so every edge lands on a grid line and neighbours share one line.
+ */
 .plate {
     position: relative;
-    border: 1px solid var(--ink);
     background: var(--stock);
+    padding: var(--pad) var(--pad) calc(var(--pad) + 2rem);
+    box-shadow:
+        inset 1px 1px 0 var(--edge, var(--ink)),
+        1px 1px 0 var(--edge, var(--ink));
 }
 
 .caption {
     position: absolute;
-    left: 20px;
-    bottom: 14px;
+    left: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
     margin: 0;
     font-family: var(--display);
     font-size: 0.8125rem;
     font-weight: 500;
+    line-height: 1;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
@@ -124,100 +166,95 @@ a {
     text-wrap: balance;
 }
 
-.report {
-    padding: var(--gap);
+/* First viewport: the cover and the letter, six columns each, over six two-column division plates. */
+.fold-top {
     display: grid;
-    gap: var(--gap);
-    max-width: 1680px;
-    margin: 0 auto;
-}
-
-/* First viewport: the cover, the letter, and the divisions along the foot. */
-.fold {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: minmax(0, 1fr) auto;
-    gap: var(--gap);
-    min-height: calc(100svh - 2 * var(--gap));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: calc(var(--half) * 9);
 }
 
 .cover {
-    grid-column: 1 / 7;
-    background: var(--red);
-    border-color: var(--red);
-    color: var(--stock);
+    --edge: var(--red);
     --mark-fill: var(--ink);
+    background-color: var(--red);
+    /* The sheet grid continues across the cover, in its own ink. */
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
-    background-size: var(--module) var(--module);
-    min-height: 560px;
-    padding: 28px;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size:
+        var(--col) var(--col),
+        var(--col) var(--col),
+        var(--half) var(--half),
+        var(--half) var(--half);
+    color: var(--stock);
 }
 
 .cover-mark {
-    width: clamp(120px, 14vw, 216px);
+    position: absolute;
+    left: var(--pad);
+    top: var(--pad);
+    width: calc(var(--col) * 2 - var(--pad) * 2);
     height: auto;
     color: var(--stock);
-    display: block;
 }
 
 .cover-chart {
     position: absolute;
-    top: 28px;
-    right: 28px;
-    height: clamp(120px, 14vw, 216px);
+    top: var(--pad);
+    right: var(--pad);
+    width: calc(var(--col) * 2 - var(--pad) * 2);
+    height: calc(var(--col) * 2 - var(--pad) * 2);
     display: flex;
     align-items: flex-end;
-    gap: 12px;
+    gap: calc(var(--pad) / 3);
 }
 
 .cover-chart i {
     display: block;
-    width: clamp(18px, 2.4vw, 36px);
+    flex: 1;
     height: var(--h);
     background: var(--stock);
 }
 
 .cover-title {
     position: absolute;
-    left: 28px;
-    bottom: 110px;
+    left: var(--pad);
+    bottom: calc(var(--half) * 2);
     margin: 0;
-    font-size: clamp(4rem, 8.6vw, 8.25rem);
+    font-size: clamp(3rem, calc(var(--col) * 1.12), 8.25rem);
     line-height: 0.86;
     letter-spacing: 0;
 }
 
 .cover-line {
     position: absolute;
-    left: 28px;
-    bottom: 52px;
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--half);
     margin: 0;
     font-family: var(--display);
-    font-size: clamp(1.125rem, 1.6vw, 1.75rem);
+    font-size: clamp(0.875rem, calc(var(--col) * 0.2), 1.75rem);
     font-weight: 500;
+    line-height: 1;
     letter-spacing: 0.22em;
     text-transform: uppercase;
 }
 
 .cover .caption {
-    left: 28px;
     color: #fff;
 }
 
 .letter {
-    grid-column: 7 / 13;
-    padding: 28px 32px 64px;
     display: flex;
     flex-direction: column;
 }
 
 .letter-title {
-    margin: 0 0 24px;
-    font-size: clamp(2.5rem, 4.2vw, 4rem);
+    margin: 0 0 var(--pad);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.56), 4.5rem);
     line-height: 0.95;
-    max-width: 9ch;
 }
 
 .letter-body {
@@ -225,13 +262,13 @@ a {
 }
 
 .letter-body p {
-    margin: 0 0 18px;
-    font-size: clamp(1.1875rem, 1.55vw, 1.5rem);
+    margin: 0 0 1rem;
+    font-size: clamp(1.1875rem, calc(var(--col) * 0.19), 1.5rem);
     line-height: 1.5;
 }
 
 .letter-body .signed {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-family: var(--display);
     font-size: 1rem;
     font-weight: 600;
@@ -243,12 +280,13 @@ a {
     content: "— ";
 }
 
+/* Three figures, each two columns wide, splitting on the column lines. */
 .figures {
     margin: auto 0 0;
-    padding-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 40px;
+    padding-top: var(--pad);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: calc(var(--pad) * 2);
     text-align: right;
 }
 
@@ -268,40 +306,41 @@ a {
 .figures dd {
     margin: 0;
     font-family: var(--display);
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(2rem, calc(var(--col) * 0.4), 3.25rem);
     font-weight: 700;
     line-height: 1;
 }
 
 .divisions {
-    grid-column: 1 / 13;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .unit {
-    min-height: 168px;
-    padding: 20px 20px 44px;
-    margin-left: -1px;
+    min-height: calc(var(--half) * 3);
+    padding-bottom: var(--pad);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 0.5rem;
     text-decoration: none;
     transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
 }
 
-.unit:first-child {
-    margin-left: 0;
+.unit-name {
+    font-size: clamp(1.0625rem, calc(var(--col) * 0.172), 1.75rem);
+    line-height: 1.02;
+    letter-spacing: 0;
 }
 
-.unit-name {
-    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
-    line-height: 1.02;
+.unit .caption {
+    position: static;
 }
 
 .unit-count {
+    margin-top: auto;
     font-family: var(--display);
     font-size: 1rem;
+    line-height: 1.2;
     color: var(--red-ink);
 }
 
@@ -329,29 +368,42 @@ a {
 }
 
 /* Below the fold: the statement, the results, the audit. */
-.statement,
-.results,
-.audit {
-    padding: 32px 32px 64px;
-}
-
 .section-title {
-    margin: 0 0 28px;
-    font-size: clamp(2rem, 3.4vw, 3.25rem);
+    margin: 0 0 var(--pad);
+    font-size: clamp(2rem, calc(var(--col) * 0.42), 3.25rem);
     line-height: 1;
 }
 
+/*
+ * The ledger's columns fall on the sheet's: division 3, works 1, share 3,
+ * filed 5. Each column's width includes the double padding gap after it.
+ */
 .ledger {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.ledger col.c-division,
+.ledger col.c-share {
+    width: calc(var(--col) * 3);
+}
+
+.ledger col.c-works {
+    width: var(--col);
 }
 
 .ledger th,
 .ledger td {
-    padding: 14px 16px 14px 0;
-    border-bottom: 1px solid var(--keyline);
+    padding: 14px calc(var(--pad) * 2) 14px 0;
+    border-bottom: 1px solid var(--major);
     text-align: left;
     vertical-align: top;
+}
+
+.ledger th:last-child,
+.ledger td:last-child {
+    padding-right: 0;
 }
 
 .ledger thead th {
@@ -369,7 +421,6 @@ a {
     font-size: 1.375rem;
     font-weight: 700;
     text-transform: uppercase;
-    white-space: nowrap;
 }
 
 .ledger tbody th a {
@@ -380,18 +431,15 @@ a {
     color: var(--red-ink);
 }
 
-.ledger thead .num {
-    font-size: 0.8125rem;
-    font-weight: 500;
+.ledger .num {
+    text-align: right;
 }
 
 .ledger tbody .num,
 .ledger tfoot .num {
-    text-align: right;
     font-family: var(--display);
     font-size: 1.375rem;
     font-weight: 600;
-    padding-right: 28px;
 }
 
 .ledger tfoot th,
@@ -402,10 +450,6 @@ a {
     font-size: 1.375rem;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-.share-col {
-    width: 28%;
 }
 
 .share {
@@ -426,10 +470,12 @@ a {
     color: var(--red-ink);
 }
 
+/* Results: the chart on eight columns, the issues on four. */
 .results {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 48px;
+    grid-template-columns: calc(var(--col) * 8 - var(--pad) * 2) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
+    align-content: start;
 }
 
 .results .section-title {
@@ -442,7 +488,7 @@ a {
 }
 
 .bars {
-    height: 320px;
+    height: calc(var(--half) * 5);
     display: flex;
     align-items: flex-end;
     gap: 10px;
@@ -457,7 +503,7 @@ a {
     background: var(--ink);
 }
 
-.bar:nth-child(4n + 1) {
+.bar.year-start {
     background: var(--red);
 }
 
@@ -495,6 +541,8 @@ a {
     padding: 0;
     list-style: none;
     border-top: 2px solid var(--ink);
+    align-self: start;
+    margin-top: 36px;
 }
 
 .issues li {
@@ -502,7 +550,7 @@ a {
     justify-content: space-between;
     gap: 16px;
     padding: 12px 0;
-    border-bottom: 1px solid var(--keyline);
+    border-bottom: 1px solid var(--major);
 }
 
 .issue-title {
@@ -518,23 +566,24 @@ a {
 }
 
 .audit-lede {
-    margin: -12px 0 28px;
+    margin: 0 0 var(--pad);
     font-size: 1.1875rem;
     max-width: 60ch;
 }
 
+/* The exhibit: the picture on seven columns, its facts on five. */
 .exhibit {
-    margin: 0 0 28px;
+    margin: 0 0 var(--pad);
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: 32px;
+    grid-template-columns: calc(var(--col) * 7 - var(--pad) * 2) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
     align-items: start;
 }
 
 .exhibit-image {
     display: block;
-    border: 1px solid var(--ink);
     background: #fff;
+    box-shadow: inset 0 0 0 1px var(--ink);
     aspect-ratio: 4 / 3;
     overflow: hidden;
 }
@@ -548,13 +597,12 @@ a {
 
 .exhibit figcaption {
     position: relative;
-    padding-top: 8px;
 }
 
 .exhibit-title {
     display: block;
     font-family: var(--display);
-    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    font-size: clamp(1.75rem, calc(var(--col) * 0.33), 2.5rem);
     font-weight: 700;
     line-height: 1.02;
     text-transform: uppercase;
@@ -566,7 +614,7 @@ a {
 }
 
 .exhibit-facts {
-    margin: 24px 0 0;
+    margin: var(--pad) 0 0;
     border-top: 2px solid var(--ink);
 }
 
@@ -574,7 +622,7 @@ a {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid var(--keyline);
+    border-bottom: 1px solid var(--major);
 }
 
 .exhibit-facts dt {
@@ -593,7 +641,7 @@ a {
 
 .stamp {
     display: inline-block;
-    margin-top: 28px;
+    margin-top: var(--pad);
     padding: 8px 16px;
     border: 3px solid var(--red-ink);
     color: var(--red-ink);
@@ -606,6 +654,7 @@ a {
 }
 
 .action {
+    display: inline-block;
     appearance: none;
     border: 0;
     padding: 16px 24px;
@@ -615,6 +664,7 @@ a {
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: 0.08em;
+    text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s var(--ease);
@@ -629,26 +679,25 @@ a {
     cursor: progress;
 }
 
-/* The colophon. */
+/* The colophon: on the sheet, below the last plate. */
 .colophon {
-    max-width: 1680px;
-    margin: 0 auto;
-    padding: 48px var(--gap) 64px;
+    padding: var(--half) 0 var(--half);
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px 48px;
-    align-items: end;
+    grid-template-columns: calc(var(--col) * 6) minmax(0, 1fr);
+    row-gap: var(--pad);
+    align-items: center;
 }
 
 .colophon-mark {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--pad);
+    padding-left: var(--pad);
 }
 
 .colophon-svg {
-    width: 64px;
-    height: 64px;
+    width: calc(var(--half) - 8px);
+    height: calc(var(--half) - 8px);
     color: var(--ink);
     --mark-fill: var(--red);
 }
@@ -662,7 +711,9 @@ a {
 .colophon nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 8px 28px;
+    padding-right: var(--pad);
     font-family: var(--display);
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -681,6 +732,7 @@ a {
 .colophon-line {
     grid-column: 1 / -1;
     margin: 0;
+    padding-left: var(--pad);
     font-family: var(--display);
     font-size: 0.8125rem;
     letter-spacing: 0.16em;
@@ -713,7 +765,7 @@ a {
 
 @keyframes lock {
     from {
-        transform: translateY(24px);
+        transform: translateY(var(--half));
         opacity: 0;
     }
 }
@@ -725,133 +777,151 @@ a {
     }
 }
 
-/* Narrower: the cover over the letter, divisions in rows of three, then two. */
+/* Narrower: the cover over the letter, divisions three to a row. Still twelve columns. */
 @media (max-width: 1100px) {
-    .fold {
+    .fold-top {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .cover,
-    .letter,
-    .divisions {
-        grid-column: 1;
-    }
-
     .cover {
-        min-height: 0;
-        aspect-ratio: 4 / 3;
+        min-height: calc(var(--half) * 10);
     }
 
     .divisions {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .unit {
-        margin-top: -1px;
-    }
-
-    .unit:nth-child(3n + 1) {
-        margin-left: 0;
-    }
-
     .results {
-        grid-template-columns: 1fr;
-        row-gap: 40px;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .issues {
+        margin-top: 0;
+    }
+
+    .colophon {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .colophon nav {
+        justify-content: flex-start;
+        padding-left: var(--pad);
     }
 }
 
+/* Phones: four columns. */
 @media (max-width: 640px) {
     :root {
-        --gap: 16px;
-        --module: 80px;
+        --cols: 4;
+        --margin: 16px;
     }
 
     .cover {
-        aspect-ratio: auto;
-        min-height: 440px;
-        padding: 20px;
+        min-height: calc(var(--half) * 9);
     }
 
     .cover-title {
-        left: 20px;
-        bottom: 96px;
-        font-size: clamp(3.25rem, 17vw, 4.5rem);
+        font-size: clamp(3rem, calc(var(--col) * 0.82), 4.5rem);
     }
 
     .cover-line {
-        left: 20px;
-        right: 20px;
-        font-size: clamp(0.8125rem, 3.9vw, 0.9375rem);
+        font-size: clamp(0.8125rem, calc(var(--col) * 0.16), 0.9375rem);
         letter-spacing: 0.1em;
     }
 
-    .cover .caption {
-        left: 20px;
-    }
-
-    .cover-chart {
-        top: 20px;
-        right: 20px;
-        gap: 8px;
-    }
-
-    .letter,
-    .statement,
-    .results,
-    .audit {
-        padding: 22px 20px 56px;
-    }
-
     .letter-title {
-        font-size: clamp(1.75rem, 9vw, 2.5rem);
+        font-size: clamp(1.75rem, calc(var(--col) * 0.36), 2.5rem);
     }
 
     .section-title {
-        font-size: clamp(1.75rem, 8.5vw, 2rem);
+        font-size: clamp(1.75rem, calc(var(--col) * 0.34), 2rem);
     }
 
+    .letter-body p {
+        font-size: 1.1875rem;
+    }
+
+    /* Three figures can't split four columns: on phones they become a ledger. */
     .figures {
+        grid-template-columns: minmax(0, 1fr);
+        border-top: 2px solid var(--ink);
+        padding-top: 0;
+        margin-top: var(--pad);
+    }
+
+    .figures div {
+        flex-direction: row;
         justify-content: space-between;
-        gap: 16px;
+        align-items: baseline;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--major);
     }
 
+    .figures dd {
+        font-size: 1.75rem;
+    }
+
+    /* On four columns the division plates become full-width rows: name, count, plate. */
     .divisions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .unit-name {
-        overflow-wrap: break-word;
-        hyphens: auto;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .unit {
-        min-height: 132px;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: baseline;
+        column-gap: var(--pad);
+        row-gap: 0.25rem;
     }
 
-    .unit:nth-child(3n + 1) {
-        margin-left: -1px;
+    .unit-name {
+        font-size: 1.25rem;
     }
 
-    .unit:nth-child(2n + 1) {
-        margin-left: 0;
+    .unit-count {
+        margin-top: 0;
+        text-align: right;
     }
 
-    .share-col {
+    .unit .caption {
+        grid-column: 1 / -1;
+    }
+
+    /* On four columns the ledger keeps division and works, the figures ending on the plate's inner edge. */
+    .ledger {
+        table-layout: auto;
+    }
+
+    .ledger col.c-division,
+    .ledger col.c-works {
+        width: auto;
+    }
+
+    .ledger .num {
+        width: 1%;
+        white-space: nowrap;
+    }
+
+    .ledger .c-share,
+    .ledger .c-filed,
+    .ledger .share-col,
+    .ledger .filed,
+    .ledger .filed-col {
         display: none;
     }
 
     .ledger tbody th {
         font-size: 1.125rem;
-        white-space: normal;
     }
 
-    .filed,
-    .ledger .filed-col {
-        display: none;
+    .ledger .num {
+        padding-right: 0;
     }
 
     .bars {
-        height: 220px;
+        height: calc(var(--half) * 5);
         gap: 4px;
     }
 
@@ -868,11 +938,11 @@ a {
     }
 
     .exhibit {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
     }
 
-    .colophon {
-        grid-template-columns: 1fr;
+    .colophon-mark p {
+        font-size: 1.0625rem;
     }
 }

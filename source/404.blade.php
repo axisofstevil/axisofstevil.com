@@ -6,7 +6,7 @@ permalink: 404.html
 
 @section('body')
 <main id="main" class="report">
-    <section class="plate statement">
+    <section class="plate statement" data-snap>
         <h1 class="section-title">Not on record</h1>
         <p class="audit-lede">No work has been filed at this address. It may have moved, or it may never have been filed at all.</p>
         <p><a class="action" href="/">Return to the report</a></p>

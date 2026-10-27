@@ -41,7 +41,8 @@ description: Random insanity at its finest. The complete works of the Axis of St
 @section('body')
 <main id="main" class="report">
     <section class="fold" aria-label="The report">
-        <header class="plate cover">
+        <div class="fold-top" data-snap data-fill>
+        <header class="plate cover" data-snap>
             @include('_partials.mark', ['class' => 'cover-mark'])
             <div class="cover-chart" aria-hidden="true">
                 @foreach (array_slice($quarters, 0, 5) as $count)
@@ -53,7 +54,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
             <p class="caption">Plate 1 · The Cover</p>
         </header>
 
-        <article class="plate letter" aria-labelledby="letter-title">
+        <article class="plate letter" aria-labelledby="letter-title" data-snap>
             <h2 id="letter-title" class="letter-title">To Our Shareholders</h2>
             <div class="letter-body">
                 @if ($mission['summary'] ?? null)<p>{{ $mission['summary'] }}</p>@endif
@@ -67,21 +68,22 @@ description: Random insanity at its finest. The complete works of the Axis of St
             </dl>
             <p class="caption">Plate 2 · Letter to Shareholders</p>
         </article>
+        </div>
 
-        <nav class="divisions" aria-label="Divisions">
+        <nav class="divisions" aria-label="Divisions" data-snap>
             @foreach ($lead as $i => $division)
-            <a class="plate unit" href="/{{ $division['slug'] }}/" style="--i: {{ $i }}">
+            <a class="plate unit" data-snap href="/{{ $division['slug'] }}/" style="--i: {{ $i }}">
                 <span class="unit-name">{{ $division['name'] }}</span>
                 <span class="unit-count">{{ $division['count'] }} works</span>
                 <span class="caption">Plate {{ $i + 3 }}</span>
             </a>
             @endforeach
-            <a class="plate unit" href="#results" style="--i: 4">
+            <a class="plate unit" data-snap href="#results" style="--i: 4">
                 <span class="unit-name">Quarterly Results</span>
                 <span class="unit-count">{{ $issues->count() }} issues</span>
                 <span class="caption">Plate 7</span>
             </a>
-            <a class="plate unit unit-audit" href="#audit" data-audit style="--i: 5">
+            <a class="plate unit unit-audit" data-snap href="#audit" data-audit style="--i: 5">
                 <span class="unit-name">Random Audit</span>
                 <span class="unit-count">Pull any work</span>
                 <span class="caption">Plate 8</span>
@@ -89,9 +91,10 @@ description: Random insanity at its finest. The complete works of the Axis of St
         </nav>
     </section>
 
-    <section class="plate statement" aria-labelledby="divisions-title">
+    <section class="plate statement" aria-labelledby="divisions-title" data-snap>
         <h2 id="divisions-title" class="section-title">Report of the Divisions</h2>
         <table class="ledger">
+            <colgroup><col class="c-division"><col class="c-works"><col class="c-share"><col class="c-filed"></colgroup>
             <thead><tr><th scope="col">Division</th><th scope="col" class="num">Works</th><th scope="col" class="share-col">Share of output</th><th scope="col" class="filed-col">Most recently filed</th></tr></thead>
             <tbody>
                 @foreach ($divisions as $division)
@@ -111,15 +114,15 @@ description: Random insanity at its finest. The complete works of the Axis of St
         <p class="caption">Plate 9 · Report of the Divisions</p>
     </section>
 
-    <section id="results" class="plate results" aria-labelledby="results-title">
+    <section id="results" class="plate results" aria-labelledby="results-title" data-snap>
         <h2 id="results-title" class="section-title">Quarterly Results</h2>
         <figure class="chart">
             <div class="bars">
                 @foreach ($quarters as $label => $count)
-                <div class="bar" style="--h: {{ round($count / $peak * 100) }}%"><span class="bar-count">{{ $count }}</span><span class="bar-label">{{ $label }}</span></div>
+                <div @class(['bar', 'year-start' => str_ends_with($label, 'Q1')]) style="--h: {{ round($count / $peak * 100) }}%"><span class="bar-count">{{ $count }}</span><span class="bar-label">{{ $label }}</span></div>
                 @endforeach
             </div>
-            <figcaption>Weekly issues released each quarter, on the Monday, Wednesday and Friday cadence.</figcaption>
+            <figcaption>Weekly issues released each quarter, on the Monday, Wednesday and Friday cadence. Each year opens in red.</figcaption>
         </figure>
         <ol class="issues">
             @foreach ($issues->take(6) as $issue)
@@ -129,7 +132,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
         <p class="caption">Plate 10 · Quarterly Results</p>
     </section>
 
-    <section id="audit" class="plate audit" aria-labelledby="audit-title">
+    <section id="audit" class="plate audit" aria-labelledby="audit-title" data-snap>
         <h2 id="audit-title" class="section-title">Random Audit</h2>
         <p class="audit-lede">Any work on record may be pulled for inspection at any time.</p>
         @if ($exhibit)
