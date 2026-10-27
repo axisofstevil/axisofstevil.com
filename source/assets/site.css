@@ -716,6 +716,111 @@ a {
     background: var(--stock-light);
 }
 
+.running-left {
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    min-width: 0;
+}
+
+/* The running head shows the wordmark lockup; on phones beside a division's name, the symbol alone. */
+.running-lockup .running-symbol {
+    display: none;
+}
+
+/* The division switcher: the page's name, which opens the list of divisions. */
+.switcher {
+    position: relative;
+}
+
+.switcher summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    margin-left: -8px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.switcher summary::-webkit-details-marker {
+    display: none;
+}
+
+.switcher summary:hover,
+.switcher[open] summary {
+    background: var(--stock);
+}
+
+.running-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.125rem, calc(var(--col) * 0.2), 1.625rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.switcher-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s var(--ease);
+}
+
+.switcher[open] .switcher-chevron {
+    transform: rotate(180deg);
+}
+
+.switcher-menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 10px);
+    left: -8px;
+    min-width: calc(var(--col) * 2.5);
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: var(--stock-light);
+    box-shadow:
+        inset 0 0 0 1px var(--ink),
+        0 12px 28px rgba(17, 17, 17, 0.18);
+}
+
+.switcher-menu a {
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--pad);
+    padding: 8px 16px;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.switcher-menu a span {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.switcher-menu a:hover,
+.switcher-menu a:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+    outline: none;
+}
+
+.switcher-menu a:hover span,
+.switcher-menu a:focus-visible span {
+    color: var(--stock);
+}
+
+.switcher-menu a[aria-current="page"] {
+    color: var(--red-ink);
+}
+
 .running-lockup img {
     display: block;
     height: calc(var(--half) * 0.55);
@@ -983,26 +1088,23 @@ a {
 }
 
 /* Division pages: a header plate, then the index or the yearbook (one switch, remembered). */
-/* One half-module tall: the name, its figure, the series counts, the switch, on one line. */
-.plate.division-head {
-    min-height: var(--half);
-    padding: 0 0 0 var(--pad);
+/*
+ * The masthead: the running head, then the division's bar directly beneath,
+ * one half-module tall and a half-module narrower on each side, sharing the
+ * head's keyline: its figure and the view switch.
+ */
+.masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
 }
 
-.division-head {
+.plate.division-bar {
+    min-height: var(--half);
+    margin: 0 var(--half);
+    padding: 0 0 0 var(--pad);
     display: flex;
     align-items: center;
     gap: calc(var(--pad) * 1.5);
-}
-
-.division-title {
-    margin: 0;
-    font-family: var(--display);
-    font-size: clamp(1.25rem, calc(var(--col) * 0.22), 1.875rem);
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
-    white-space: nowrap;
 }
 
 .division-figure {
@@ -1559,18 +1661,34 @@ a {
         row-gap: var(--pad);
     }
 
-    /* Phones: the name and figure, the series, then the switch as the plate's foot. */
-    .plate.division-head {
-        padding: calc(var(--pad) / 2) 0 0;
+    /* Phones: the lockup gives way to the symbol's room; the trail steps aside for the switcher. */
+    .running-head .running-trail {
+        display: none;
     }
 
-    .division-head {
+    .running-left {
+        gap: calc(var(--pad) / 2);
+    }
+
+    .running-lockup img {
+        height: calc(var(--half) * 0.55);
+    }
+
+    .running-head:has(.switcher) .running-lockup .running-wordmark {
+        display: none;
+    }
+
+    .running-head:has(.switcher) .running-lockup .running-symbol {
+        display: block;
+    }
+
+    .plate.division-bar {
         flex-wrap: wrap;
+        padding: calc(var(--pad) / 2) 0 0;
         row-gap: 8px;
-        column-gap: var(--pad);
     }
 
-    .division-title {
+    .division-bar .division-figure {
         padding-left: var(--pad);
     }
 

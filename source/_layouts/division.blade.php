@@ -20,16 +20,23 @@
 
 @section('body')
 <main id="main" class="report">
-    @include('_partials.running-head', ['trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions', 'short' => 'Divisions']])
+    <div class="masthead">
+        @include('_partials.running-head', [
+            'trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions', 'short' => 'Divisions'],
+            'switcher' => [
+                'current' => $page->name,
+                'options' => collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all(),
+            ],
+        ])
 
-    <header class="plate division-head" data-snap>
-        <h1 class="division-title">{{ $page->name }}</h1>
-        <p class="division-figure"><b>{{ $page->count }}</b> <span>works · {{ $page->share }}% of output</span></p>
-        <div class="view-switch" role="group" aria-label="View">
-            <button type="button" data-view="index" aria-pressed="true">Index</button>
-            <button type="button" data-view="yearbook" aria-pressed="false">Yearbook</button>
+        <div class="plate division-bar" data-snap>
+            <p class="division-figure"><b>{{ $page->count }}</b> <span>works · {{ $page->share }}% of output</span></p>
+            <div class="view-switch" role="group" aria-label="View">
+                <button type="button" data-view="index" aria-pressed="true">Index</button>
+                <button type="button" data-view="yearbook" aria-pressed="false">Yearbook</button>
+            </div>
         </div>
-    </header>
+    </div>
 
     <div class="view view-index">
         <div class="index-sheet">
