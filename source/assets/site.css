@@ -737,10 +737,10 @@ a {
     text-decoration: underline;
 }
 
-/* The work page: a report spread, the work on seven columns, its notes on five. */
+/* The work page: a report spread, the work on nine columns, its notes on three. */
 .spread {
     display: grid;
-    grid-template-columns: calc(var(--col) * 7) minmax(0, 1fr);
+    grid-template-columns: calc(var(--col) * 9) minmax(0, 1fr);
 }
 
 .work-title {
@@ -895,8 +895,39 @@ a {
 
 .neighbours {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
+}
+
+/* The credits close the work, above its caption. */
+.credits {
+    max-width: 66ch;
+    margin: var(--pad) 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px calc(var(--pad) * 2);
+}
+
+.credits div {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.credits dt {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.credits dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
 }
 
 .neighbour {

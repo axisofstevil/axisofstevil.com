@@ -23,6 +23,13 @@
             <div class="work-body">
                 @yield('content')
             </div>
+            @if ($byRole)
+            <dl class="credits">
+                @foreach ($byRole as $role => $names)
+                <div><dt>{{ $role }}</dt><dd>{{ implode(', ', $names) }}</dd></div>
+                @endforeach
+            </dl>
+            @endif
             <p class="caption">Plate {{ $page->place }} · {{ $page->division_name }}</p>
         </article>
 
@@ -35,9 +42,6 @@
                     <div><dt>Series</dt><dd>{{ $page->series }}</dd></div>
                     @endif
                     <div><dt>Filed</dt><dd>{{ $filed }}</dd></div>
-                    @foreach ($byRole as $role => $names)
-                    <div><dt>{{ $role }}</dt><dd>{{ implode(', ', $names) }}</dd></div>
-                    @endforeach
                     <div><dt>Place</dt><dd>{{ $page->place }} of {{ $page->of }}</dd></div>
                 </dl>
 
