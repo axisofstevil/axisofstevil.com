@@ -9,7 +9,6 @@ description: Random insanity at its finest. The complete works of the Axis of St
     $issues = collect($page->issues->toArray());
     $divisions = collect($page->divisions->toArray());
     $pages = $page->pages->toArray();
-    $mission = $pages['mission'] ?? null;
     $authenticity = $pages['authenticity'] ?? null;
 
     // The four divisions the site has always led with, in its own order.
@@ -58,9 +57,9 @@ description: Random insanity at its finest. The complete works of the Axis of St
         <article class="plate letter" aria-labelledby="letter-title" data-snap>
             <h2 id="letter-title" class="letter-title">To Our Shareholders</h2>
             <div class="letter-body">
-                @if ($mission['summary'] ?? null)<p>{{ $mission['summary'] }}</p>@endif
                 @if ($authenticity['summary'] ?? null)<p>{{ $authenticity['summary'] }}</p>@endif
-                <p class="signed">The Board</p>
+                <p>We are proud to report that random insanity has remained at the finest status, and that every work on record remains in active service.</p>
+                <p class="signed">Stevil</p>
             </div>
             <dl class="figures">
                 <div><dt>Founded</dt><dd>{{ $page->founded }}</dd></div>
