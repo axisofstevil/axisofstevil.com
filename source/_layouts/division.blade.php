@@ -48,9 +48,11 @@
                 <p class="caption">Index · {{ $page->name }}</p>
             </section>
             <nav class="plate thumb-index" aria-label="Letters" data-snap>
+            <div class="thumb-list">
                 @foreach ($letters->keys() as $letter)
                 <a href="#letter-{{ $letter === '#' ? 'num' : $letter }}">{{ $letter }}</a>
                 @endforeach
+            </div>
             </nav>
         </div>
     </div>
@@ -88,9 +90,11 @@
         @endforeach
         </div>
         <nav class="plate thumb-index" aria-label="Years" data-snap>
+            <div class="thumb-list">
             @foreach ($years->keys() as $year)
             <a href="#year-{{ $year }}">{{ $year }}</a>
             @endforeach
+            </div>
         </nav>
         </div>
     </div>

@@ -1151,10 +1151,20 @@ a {
     background: var(--slate);
     color: var(--stock);
     padding: var(--pad) 0;
+}
+
+/* The options stay in view beside a long list; capped to the window, they scroll on their own. */
+.thumb-list {
+    position: sticky;
+    top: var(--half);
+    max-height: calc(100svh - var(--half) * 2);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--stock) var(--slate);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 0;
 }
 
 .thumb-index {
@@ -1164,7 +1174,7 @@ a {
 .thumb-index a {
     width: 100%;
     text-align: center;
-    padding: 4px 0;
+    padding: 3px 0;
     font-family: var(--display);
     font-size: 1.25rem;
     font-weight: 700;
@@ -1588,10 +1598,15 @@ a {
 
     .thumb-index {
         order: -1;
+        padding: 10px var(--pad);
+    }
+
+    .thumb-list {
+        position: static;
+        max-height: none;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding: 10px var(--pad);
     }
 
     .thumb-index a {
