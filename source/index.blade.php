@@ -43,7 +43,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
     <section class="fold" aria-label="The report">
         <div class="fold-top" data-snap data-fill>
         <header class="plate cover" data-snap>
-            @include('_partials.mark', ['class' => 'cover-mark'])
+            <div class="seal">@include('_partials.mark', ['class' => 'seal-mark'])</div>
             <div class="cover-chart" aria-hidden="true">
                 @foreach (array_slice($quarters, 0, 5) as $count)
                 <i style="--h: {{ max(8, round($count / $peak * 100)) }}%"></i>

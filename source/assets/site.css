@@ -29,8 +29,9 @@
  * the sheet and sets the exact whole-pixel values; these are the fallbacks.
  */
 :root {
-    --red: #d7261e;
-    --red-ink: #b51f18;
+    /* The logo's red; red-ink is the same hue deep enough for small text on the stock. */
+    --red: #ff1a00;
+    --red-ink: #c01300;
     --slate: #3f4a54;
     --stock: #e6e3dc;
     --ink: #111;
@@ -168,31 +169,42 @@ a {
 
 .cover {
     --edge: var(--red);
-    --mark-fill: var(--ink);
     background-color: var(--red);
     /* The sheet grid continues across the cover, in its own ink. */
     background-image:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
     background-size: var(--half) var(--half);
-    color: var(--stock);
+    color: var(--ink);
 }
 
-.cover-mark {
+/* The symbol in its own colours, on a white plate of its own, three half-modules square on the cover's grid. */
+.seal {
     position: absolute;
-    left: var(--pad);
-    top: var(--pad);
-    width: calc(var(--col) * 2 - var(--pad) * 2);
-    height: auto;
-    color: var(--stock);
+    left: var(--half);
+    top: var(--half);
+    width: calc(var(--half) * 3);
+    height: calc(var(--half) * 3);
+    display: grid;
+    place-items: center;
+    background: #fff;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        1px 1px 0 var(--ink);
 }
 
+.seal-mark {
+    width: auto;
+    height: 64%;
+}
+
+/* The chart answers the seal: the same three half-modules, on the cover's right. */
 .cover-chart {
     position: absolute;
-    top: var(--pad);
-    right: var(--pad);
-    width: calc(var(--col) * 2 - var(--pad) * 2);
-    height: calc(var(--col) * 2 - var(--pad) * 2);
+    top: var(--half);
+    right: var(--half);
+    width: calc(var(--half) * 3);
+    height: calc(var(--half) * 3);
     display: flex;
     align-items: flex-end;
     gap: calc(var(--pad) / 3);
@@ -210,6 +222,7 @@ a {
     left: var(--pad);
     bottom: calc(var(--half) * 2);
     margin: 0;
+    color: var(--stock);
     font-size: clamp(3rem, calc(var(--col) * 1.12), 8.25rem);
     line-height: 0.86;
     letter-spacing: 0;
@@ -230,7 +243,7 @@ a {
 }
 
 .cover .caption {
-    color: #fff;
+    color: var(--ink);
 }
 
 .letter {
@@ -683,10 +696,8 @@ a {
 }
 
 .colophon-svg {
-    width: calc(var(--half) - 8px);
+    width: auto;
     height: calc(var(--half) - 8px);
-    color: var(--ink);
-    --mark-fill: var(--red);
 }
 
 .colophon-mark p {
