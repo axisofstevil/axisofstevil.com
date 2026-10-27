@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\WorkBody;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
 use RuntimeException;
@@ -35,13 +36,18 @@ class RemoteData
         $channelUrl = rtrim($channelUrl, '/');
         $zone = $jigsaw->getConfig('timezone');
 
-        $works = array_map(fn (array $e) => $this->work($e, $zone), $this->all($channelUrl.'/entries?per_page=100'));
+        $entries = $this->all($channelUrl.'/entries?per_page=100');
+        $works = array_map(fn (array $e) => $this->work($e, $zone), $entries);
 
         if ($works === []) {
             throw new RuntimeException("The channel ({$channelUrl}) returned no works: not building a site without them.");
         }
 
         usort($works, fn ($a, $b) => strcmp($b['date'], $a['date']));
+
+        $collections = $jigsaw->getConfig('collections');
+        $collections->set('works.items', $this->pages($entries, $works));
+        $jigsaw->setConfig('collections', $collections);
 
         $issues = array_map(fn (array $f) => [
             'slug' => $f['slug'],
@@ -91,6 +97,48 @@ class RemoteData
             'image' => $e['image'] ?? null,
             'credits' => array_map(fn ($c) => $c['name'], $e['credits'] ?? []),
         ];
+    }
+
+    /**
+     * Each work's own page: its body as Markdown, its credits by role, its
+     * place in its division (1 is the earliest) and its neighbours there.
+     *
+     * @param  list<array<string, mixed>>  $entries
+     * @param  list<array<string, mixed>>  $works  newest first
+     * @return list<array<string, mixed>>
+     */
+    private function pages(array $entries, array $works): array
+    {
+        $bySlug = array_column($entries, null, 'slug');
+        $byDivision = [];
+
+        foreach (array_reverse($works) as $work) {
+            $byDivision[$work['division']][] = $work;
+        }
+
+        $pages = [];
+
+        foreach ($byDivision as $division => $list) {
+            foreach ($list as $i => $work) {
+                $e = $bySlug[$work['slug']];
+                $pick = fn (?array $w) => $w === null ? null : ['title' => $w['title'], 'address' => $w['address'], 'image' => $w['image'], 'date' => $w['date']];
+
+                $pages[] = [
+                    ...$work,
+                    'filename' => $work['slug'],
+                    'description' => $e['summary'] ?? $e['teaser'] ?? null,
+                    'keywords' => array_values(array_filter(array_map('trim', explode(',', (string) ($e['meta_keywords'] ?? ''))))),
+                    'roles' => array_map(fn ($c) => ['name' => $c['name'], 'roles' => $c['roles'] ?? []], $e['credits'] ?? []),
+                    'place' => $i + 1,
+                    'of' => count($list),
+                    'older' => $pick($list[$i - 1] ?? null),
+                    'newer' => $pick($list[$i + 1] ?? null),
+                    'content' => WorkBody::clean((string) ($e['body'] ?? ''), $e['image'] ?? null, $e['title']),
+                ];
+            }
+        }
+
+        return $pages;
     }
 
     /**

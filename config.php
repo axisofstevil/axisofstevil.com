@@ -29,6 +29,15 @@ return [
     'works' => [],
     'pages' => [],
 
+    // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
+    'collections' => [
+        'works' => [
+            'extends' => '_layouts.work',
+            'path' => fn ($page) => trim($page->address, '/'),
+            'sort' => '-date',
+        ],
+    ],
+
     // A page's address, with the trailing slash the site has always used.
     'link' => fn ($page) => rtrim($page->getPath(), '/').'/',
 ];

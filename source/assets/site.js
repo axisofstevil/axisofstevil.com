@@ -54,6 +54,12 @@ const snapToGrid = (() => {
     document.fonts?.ready.then(schedule);
     window.addEventListener('resize', schedule);
 
+    // Pictures and players that arrive later change heights: snap again as each lands.
+    document.querySelectorAll('[data-snap] img, [data-snap] iframe, [data-snap] video').forEach((media) => {
+        media.addEventListener('load', schedule);
+        media.addEventListener('loadedmetadata', schedule);
+    });
+
     return schedule;
 })();
 
@@ -133,5 +139,27 @@ const snapToGrid = (() => {
 
             audit();
         });
+    });
+})();
+
+// On a work's page: go to a work pulled at random from the register.
+(() => {
+    const button = document.querySelector('[data-audit-go]');
+
+    if (!button) {
+        return;
+    }
+
+    button.addEventListener('click', async () => {
+        button.setAttribute('aria-busy', 'true');
+
+        try {
+            const response = await fetch('/audit.json');
+            const works = (await response.json()).filter((work) => work.a !== window.location.pathname);
+            window.location.href = works[Math.floor(Math.random() * works.length)].a;
+        } catch (error) {
+            button.removeAttribute('aria-busy');
+            button.textContent = 'The register is unavailable. Try again';
+        }
     });
 })();
