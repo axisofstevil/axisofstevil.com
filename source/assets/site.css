@@ -24,10 +24,9 @@
  * The Axis Graphic Standards: one red, slate, stock and ink.
  *
  * Everything sits on one sheet of columns. The fine grid is drawn from that
- * sheet (a line on every column, a fainter one on every half column), plates
- * span whole columns with their keylines on the grid lines, and heights snap
- * to whole half-modules (site.js measures the sheet and sets the exact
- * values; these are the fallbacks).
+ * sheet in half-column squares, one weight, so every plate edge (whole
+ * columns across, whole half-modules down) lands on a line. site.js measures
+ * the sheet and sets the exact whole-pixel values; these are the fallbacks.
  */
 :root {
     --red: #d7261e;
@@ -36,8 +35,8 @@
     --stock: #e6e3dc;
     --ink: #111;
     --muted: #5a636b;
+    --line: rgba(17, 17, 17, 0.13);
     --major: rgba(17, 17, 17, 0.16);
-    --minor: rgba(17, 17, 17, 0.07);
     --display: "Jost", "Futura", sans-serif;
     --text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -67,15 +66,9 @@ body {
     color: var(--ink);
     background-color: var(--stock);
     background-image:
-        linear-gradient(90deg, var(--major) 1px, transparent 1px),
-        linear-gradient(var(--major) 1px, transparent 1px),
-        linear-gradient(90deg, var(--minor) 1px, transparent 1px),
-        linear-gradient(var(--minor) 1px, transparent 1px);
-    background-size:
-        var(--col) var(--col),
-        var(--col) var(--col),
-        var(--half) var(--half),
-        var(--half) var(--half);
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
     background-position: var(--sheet-left) 0;
     font-family: var(--text);
     font-size: 1.0625rem;
@@ -118,7 +111,7 @@ a {
 .report,
 .colophon {
     width: var(--sheet);
-    margin: 0 auto;
+    margin-left: var(--sheet-left);
 }
 
 .report {
@@ -179,15 +172,9 @@ a {
     background-color: var(--red);
     /* The sheet grid continues across the cover, in its own ink. */
     background-image:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-    background-size:
-        var(--col) var(--col),
-        var(--col) var(--col),
-        var(--half) var(--half),
-        var(--half) var(--half);
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
     color: var(--stock);
 }
 
