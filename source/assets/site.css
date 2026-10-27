@@ -200,7 +200,6 @@ a {
     display: flex;
     align-items: flex-end;
     gap: 4px;
-    box-shadow: 0 2px 0 var(--stock);
 }
 
 .cover-bars i {
