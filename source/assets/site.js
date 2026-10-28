@@ -262,10 +262,10 @@ const snapToGrid = (() => {
     });
 })();
 
-// A series' introduction sits beside its banner wherever the room beside is
-// wide enough to read (it wraps beneath only when it isn't: phones). When the
-// words run taller than the banner, the band grows and the banner is ruled
-// beneath as well, a framed picture in the band's corner.
+// A series' introduction sits beside its banner, within the banner's height:
+// the band is never taller than its banner. Words that run taller step down a
+// size or two (to 13px) and tighten their margins; only when they still don't
+// fit (narrow screens) do they take their own row beneath the banner.
 (() => {
     const bands = [...document.querySelectorAll('.series-intro')].filter((band) => band.querySelector('.series-banner') && band.querySelector('.series-text'));
 
@@ -277,12 +277,23 @@ const snapToGrid = (() => {
         bands.forEach((band) => {
             const banner = band.querySelector('.series-banner');
             const text = band.querySelector('.series-text');
+            const fits = () => text.offsetLeft >= banner.offsetLeft + banner.offsetWidth && text.offsetHeight <= banner.offsetHeight;
 
-            band.classList.remove('series-intro--stacked', 'series-intro--tall');
-            const stacked = text.offsetLeft < banner.offsetLeft + banner.offsetWidth;
+            band.classList.remove('series-intro--stacked');
+            text.style.fontSize = '';
+            text.style.paddingBlock = '';
 
-            band.classList.toggle('series-intro--stacked', stacked);
-            band.classList.toggle('series-intro--tall', !stacked && text.offsetHeight > banner.offsetHeight);
+            for (const step of [() => {}, () => (text.style.fontSize = '14px'), () => (text.style.fontSize = '13px'), () => (text.style.paddingBlock = '6px')]) {
+                step();
+
+                if (fits()) {
+                    return;
+                }
+            }
+
+            text.style.fontSize = '';
+            text.style.paddingBlock = '';
+            band.classList.add('series-intro--stacked');
         });
         snapToGrid();
     };

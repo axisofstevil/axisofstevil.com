@@ -1880,8 +1880,7 @@ a {
     line-height: 1.5;
 }
 
-/* The words taller than the banner, or beneath it (site.js): the banner ruled beneath too. */
-.series-intro--tall .series-banner,
+/* The words beneath the banner (site.js): the banner ruled beneath too. */
 .series-intro--stacked .series-banner {
     box-shadow:
         1px 0 0 var(--ink),
@@ -1889,7 +1888,7 @@ a {
         1px 1px 0 var(--ink);
 }
 
-/* No room beside the banner to read (phones): the words on their own row beneath it. */
+/* No fitting beside the banner (narrow screens): the words on their own row beneath it. */
 .series-intro--stacked .series-text {
     flex-basis: 100%;
     align-self: auto;
