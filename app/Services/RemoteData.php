@@ -107,6 +107,9 @@ class RemoteData
         $jigsaw->setConfig('collections', $collections);
         $jigsaw->setConfig('organisation', array_map(fn ($o) => ['label' => $o['label'], 'address' => $o['address']], $organisation));
 
+        // The old site's addresses, forwarded by the build (App\Services\Redirects).
+        $jigsaw->setConfig('redirects', array_map(fn (array $r) => ['from' => $r['from'], 'to' => $r['to']], $this->json($channelUrl.'/redirects')['data'] ?? []));
+
         $jigsaw->setConfig('pages', $pages);
         $jigsaw->setConfig('works', $works);
         $jigsaw->setConfig('issues', $issues);

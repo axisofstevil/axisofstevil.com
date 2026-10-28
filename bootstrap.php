@@ -11,6 +11,7 @@ $events->beforeBuild([
 
 $events->afterBuild([
     Services\AuditFile::class,
+    Services\Redirects::class,
     Services\ImageAttributes::class,
     Services\Assets::class,
 ]);

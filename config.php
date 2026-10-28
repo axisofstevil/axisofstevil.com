@@ -29,6 +29,7 @@ return [
     'works' => [],
     'pages' => [],
     'organisation' => [],
+    'redirects' => [],
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [
