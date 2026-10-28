@@ -2432,9 +2432,16 @@ a {
         flex: none;
     }
 
+    /* Both menus hang from the running head, across its width, so neither runs off the screen. */
+    .crumb {
+        position: static;
+    }
+
+    .switcher-menu,
     .crumb + .crumb .switcher-menu {
-        left: auto;
+        left: 0;
         right: 0;
+        min-width: 0;
     }
 
     .plate.division-bar {
@@ -2536,4 +2543,40 @@ a {
     .letter-question::before {
         position: static;
     }
+}
+
+/*
+ * Long words and addresses never push the page wider: headlines and titles
+ * hyphenate, then break if they must; addresses break anywhere; a player
+ * pasted at a fixed width fits its column.
+ */
+.work-title,
+.entry-word,
+.letter-question,
+.neighbour-title,
+.tile-title,
+.running-title {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+}
+
+.work-body a,
+.notes a {
+    overflow-wrap: anywhere;
+}
+
+/* A run nothing can break (the old forms' "Name: ________") breaks rather than overflow. */
+.work-body {
+    overflow-wrap: break-word;
+}
+
+.work-body iframe,
+.work-body video {
+    max-width: 100%;
+}
+
+.work-body iframe[width] {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
 }
