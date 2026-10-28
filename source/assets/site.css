@@ -1827,18 +1827,31 @@ a {
 }
 
 /*
- * A series' banner and introduction, as written for it, at the top of its
- * listing: the banner at no more than its own size, the words beside it.
+ * A series' banner and introduction, as written for it: a band across the top
+ * of the listing plate, edge to edge. The banner sits snug in its top left
+ * corner, at no more than its own size; the rest of the band, engraved with a
+ * fine hatch, carries the introduction.
  */
 .series-intro {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: var(--pad) calc(var(--pad) * 1.5);
-    margin: 0 0 var(--pad);
-    padding-bottom: var(--pad);
-    border-bottom: 1px solid var(--major);
+    margin: calc(var(--pad) * -1) calc(var(--pad) * -1) var(--pad);
+    background:
+        repeating-linear-gradient(135deg, rgba(17, 17, 17, 0.07) 0 1px, transparent 1px 5px),
+        var(--stock-light);
     column-span: all;
+}
+
+/* Its keylines drawn over the banner, as on every plate: top and left, and a rule beneath. */
+.series-intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        inset 0 -1px 0 var(--ink);
 }
 
 .yearbook .series-intro {
@@ -1848,18 +1861,23 @@ a {
 .series-banner {
     display: block;
     flex: 0 1 auto;
+    align-self: flex-start;
     width: auto;
-    max-width: min(100%, 26rem);
+    max-width: 100%;
     height: auto;
-    box-shadow: 0 0 0 1px var(--major);
 }
 
 .series-text {
     flex: 1 1 18rem;
     min-width: 0;
-    max-width: 62ch;
+    align-self: center;
+    padding: var(--pad);
     font-size: 1.0625rem;
     line-height: 1.55;
+}
+
+.series-text > * {
+    max-width: 62ch;
 }
 
 .series-text > :first-child {
