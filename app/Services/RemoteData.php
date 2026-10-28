@@ -198,6 +198,7 @@ class RemoteData
             'figure' => 'works · '.count($divisions).' divisions',
             'note_label' => 'Divisions',
             'note' => array_column($divisions, 'count', 'name'),
+            'note_links' => array_map(fn ($slug) => "/{$slug}/", array_column($divisions, 'slug', 'name')),
             'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => $w['division_name']], $all),
         ];
 
