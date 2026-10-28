@@ -1127,7 +1127,7 @@ a {
     align-items: center;
     /* Where the picture is narrower than the plate: a fine printed dot, never flat paper. */
     background:
-        radial-gradient(circle at 1px 1px, var(--major) 1px, transparent 1.4px) 0 0 / 6px 6px,
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
         var(--stock-light);
 }
 
