@@ -2867,22 +2867,32 @@ a {
 }
 
 /*
- * A weekly issue (/issues/{slug}/): the front page as it ran, in the 2005
- * order and rhythm (a caps heading, the picture, the opening words, Read
- * more), set in the report's type, one block after another down the plate.
+ * A weekly issue (/issues/{slug}/): a broadsheet front page on the sheet's
+ * grid, each piece set where a paper would set it by what it is. The lead
+ * story and the week's other stories in the main columns, excerpts ending in
+ * a jump line to the rest; a rail of boxes (Language, Featured Steve, Ask
+ * Stevil, notices); the strips across the Funnies; the week's gags and art as
+ * captioned plates; the Tune of the Week as a record sleeve beside Back
+ * Issues; earlier and later issues at the foot. Whole pieces stand whole.
  */
-.issue-masthead {
-    margin: 0 0 var(--pad);
-    padding-bottom: var(--pad);
-    border-bottom: 2px solid var(--ink);
+.plate.issue {
+    padding-top: calc(var(--pad) * 1.5);
 }
 
-.issue-dateline {
+.issue-masthead {
+    margin-bottom: calc(var(--pad) * 1.5);
+    text-align: center;
+}
+
+.issue-folio {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 4px 16px;
-    margin: 0 0 12px;
+    align-items: baseline;
+    gap: 4px 24px;
+    margin: 0;
+    padding: 8px 0;
+    border-top: 1px solid var(--ink);
     font-family: var(--display);
     font-size: 0.8125rem;
     letter-spacing: 0.14em;
@@ -2890,228 +2900,533 @@ a {
     color: var(--muted);
 }
 
-.issue-dateline span:first-child {
+.issue-satellite b {
     color: var(--red-ink);
-    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.issue-folio--under {
+    border-top: 0;
+    border-bottom: 1px solid var(--ink);
+    box-shadow: 0 -4px 0 -1px var(--stock), 0 -5px 0 -1px var(--ink);
 }
 
 .issue-name {
     margin: 0;
+    padding: calc(var(--pad) * 0.75) 0 calc(var(--pad) * 0.5);
+    border-top: 3px solid var(--ink);
     font-family: var(--display);
-    font-size: clamp(2rem, calc(var(--col) * 0.42), 3.25rem);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.75), 6rem);
     font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.01em;
+    line-height: 0.92;
+    letter-spacing: -0.005em;
     text-transform: uppercase;
     text-wrap: balance;
 }
 
-.issue-block {
-    padding: var(--pad) 0;
-    border-bottom: 1px solid var(--major);
+/* Above the fold: the stories, and the rail beside them. */
+.issue-front {
+    display: grid;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: calc(var(--pad) * 2);
 }
 
-.issue-heading {
-    display: block;
-    margin: 0 0 12px;
+.issue-front--full {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.issue-kicker,
+.issue-box-label {
+    margin: 0 0 8px;
     font-family: var(--display);
-    font-size: clamp(1.375rem, calc(var(--col) * 0.22), 1.75rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    text-wrap: balance;
+    color: var(--red-ink);
 }
 
-.issue-heading a {
+.issue-box-label a,
+.issue-headline a,
+.issue-story-headline a,
+.issue-box-title a {
     color: inherit;
     text-decoration: none;
 }
 
-.issue-heading a:hover {
+.issue-headline a:hover,
+.issue-story-headline a:hover,
+.issue-box-title a:hover,
+.issue-box-label a:hover {
     color: var(--red-ink);
 }
 
-.issue-subhead {
-    margin: -6px 0 12px;
+.issue-headline {
+    margin: 0 0 var(--pad);
     font-family: var(--display);
-    font-size: 0.9375rem;
-    letter-spacing: 0.04em;
-    color: var(--muted);
+    font-size: clamp(2rem, calc(var(--col) * 0.5), 3.75rem);
+    font-weight: 700;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-wrap: balance;
 }
 
-.issue-picture {
-    display: inline-block;
+.issue-lead-picture,
+.issue-story-picture {
+    display: block;
+}
+
+.issue-lead-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--pad) calc(var(--pad) * 2);
+}
+
+.issue-lead-picture {
+    flex: 0 1 auto;
     max-width: 100%;
-    margin-bottom: 16px;
 }
 
-.issue-picture img,
-.issue-words img {
+.issue-lead-picture img {
     display: block;
     max-width: 100%;
+    max-height: 34rem;
+    width: auto;
     height: auto;
-    box-shadow: 0 0 0 1px var(--major);
+    box-shadow: 0 0 0 1px var(--ink);
 }
 
-.issue-words {
+.issue-lead-body .issue-copy {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
+
+.issue-copy {
+    font-family: var(--text);
     font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
 }
 
-.issue-words > :last-child {
+.issue-copy > * {
+    margin: 0 0 0.9em;
+}
+
+.issue-copy > :last-child {
     margin-bottom: 0;
 }
 
-/* Read more, in the 2005 page's red; the work's division beside it. */
-.issue-more {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    margin: 16px 0 0;
-    font-family: var(--display);
+.issue-copy img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-.issue-more a {
+.issue-copy blockquote {
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--major);
+    font-style: italic;
+}
+
+/* The lead's words in newspaper columns, opened by a capital. */
+.issue-copy--columns {
+    columns: 2 16rem;
+    column-gap: calc(var(--pad) * 2);
+    column-rule: 1px solid var(--major);
+}
+
+.issue-copy--columns > :is(figure, blockquote, img) {
+    break-inside: avoid-column;
+}
+
+.issue-copy--columns > p:first-of-type::first-letter {
+    float: left;
+    margin: 0.06em 0.08em 0 0;
+    font-family: var(--display);
+    font-size: 3.6em;
+    font-weight: 700;
+    line-height: 0.8;
     color: var(--red-ink);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+}
+
+/* An excerpt's way to the rest, as a paper jumps a story. */
+.issue-jump {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--text);
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--red-ink);
     text-decoration: none;
 }
 
-.issue-more a:hover {
+.issue-jump:hover {
     text-decoration: underline;
 }
 
-.issue-more span {
-    font-size: 0.8125rem;
+/* The week's other stories, beneath the lead. */
+.issue-story {
+    margin-top: calc(var(--pad) * 1.5);
+    padding-top: var(--pad);
+    border-top: 2px solid var(--ink);
+}
+
+.issue-story-headline {
+    margin: 0 0 12px;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, calc(var(--col) * 0.28), 2.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.issue-story-body {
+    display: flow-root;
+}
+
+.issue-story-picture {
+    float: left;
+    width: clamp(8rem, calc(var(--col) * 2), 14rem);
+    margin: 4px var(--pad) 8px 0;
+}
+
+.issue-story-picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* The rail: ruled boxes, one under the other. */
+.issue-rail {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--pad) * 1.25);
+    padding-left: calc(var(--pad) * 2);
+    margin-left: calc(var(--pad) * -2);
+    border-left: 1px solid var(--ink);
+}
+
+.issue-box {
+    padding-top: 12px;
+    border-top: 3px solid var(--ink);
+}
+
+.issue-box .issue-copy {
+    font-size: 0.9375rem;
+}
+
+.issue-box-title {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+/* Language, whole: the word as the dictionary sets it. */
+.issue-box--language h2 {
+    margin: 0 0 4px;
+    font-family: var(--text);
+    font-size: 1.875rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.1;
+}
+
+.issue-box--language img {
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.issue-steve-portrait img {
+    display: block;
+    max-width: 100%;
+    max-height: 18rem;
+    width: auto;
+    height: auto;
+    margin-bottom: 12px;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Ask Stevil, whole: the reader's question set large, then the answer. */
+.issue-box--letter blockquote {
+    margin: 0 0 1em;
+    padding: 0 0 0 14px;
+    border-left: 3px solid var(--red);
+    font-family: var(--display);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.issue-box--letter blockquote p:last-child {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.issue-box--notice {
+    padding: 12px 16px 16px;
+    border: 1px solid var(--ink);
+    border-top-width: 3px;
+    background: var(--stock-light);
+}
+
+/* A band across the page, headed like a section of the paper. */
+.issue-band {
+    margin-top: calc(var(--pad) * 2);
+}
+
+.issue-band-title {
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    margin: 0 0 var(--pad);
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.issue-band-title::before,
+.issue-band-title::after {
+    content: "";
+    flex: 1;
+    height: 5px;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+/* The Funnies: each strip whole, centred, captioned beneath. */
+.issue-strip {
+    margin: 0 0 calc(var(--pad) * 1.5);
+    text-align: center;
+}
+
+.issue-strip-picture > *,
+.issue-strip-picture p {
+    margin: 0 0 12px;
+}
+
+.issue-strip-picture img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+    vertical-align: top;
+}
+
+.issue-strip figcaption,
+.issue-plate figcaption {
+    font-family: var(--display);
+    font-size: 0.9375rem;
+}
+
+.issue-strip figcaption a,
+.issue-plate figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-strip figcaption a:hover,
+.issue-plate figcaption a:hover {
+    color: var(--red-ink);
+}
+
+.issue-strip figcaption b {
+    margin-right: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+/* The week's gags and art: captioned plates, set in columns as they fall. */
+.issue-plates {
+    columns: 3 15rem;
+    column-gap: calc(var(--pad) * 2);
+}
+
+.issue-plates--one {
+    columns: auto;
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+.issue-plate {
+    break-inside: avoid;
+    margin: 0 0 calc(var(--pad) * 1.5);
+}
+
+.issue-plate-picture img,
+.issue-plate-picture .flash-stage {
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-plate .issue-copy {
+    font-size: 0.9375rem;
+}
+
+.issue-plate figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid var(--ink);
+    font-weight: 600;
+}
+
+.issue-plate figcaption span {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* A week with no story leads with its first plate, whole and large. */
+.issue-lead--plate {
+    margin: 0;
+    text-align: center;
+}
+
+.issue-lead--plate img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-lead--plate figcaption {
+    margin-top: 12px;
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.issue-lead--plate figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* The foot: the Tune of the Week as a record sleeve, beside the archive. */
+.issue-foot {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(var(--pad) * 2);
+    margin-top: calc(var(--pad) * 2);
+    padding-top: var(--pad);
+    border-top: 3px solid var(--ink);
+}
+
+.issue-foot--one {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.issue-sleeve {
+    display: grid;
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    align-items: end;
+    gap: var(--pad);
+    margin-bottom: var(--pad);
+}
+
+.issue-sleeve-picture {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--ink), 6px 6px 0 var(--slate);
+}
+
+.issue-sleeve-track {
+    margin: 0 0 6px;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, calc(var(--col) * 0.26), 2.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-wrap: balance;
+}
+
+.issue-sleeve-artist {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.9375rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
 }
 
-/* Language and Featured Steve: a banner to the week's piece. */
-.issue-banner {
-    display: flex;
-    align-items: stretch;
-    gap: var(--pad);
-    color: inherit;
-    text-decoration: none;
-    background: var(--stock-light);
-    box-shadow: 0 0 0 1px var(--ink);
+.issue-tune-bio {
+    font-size: 0.9375rem;
 }
 
-.issue-banner-picture {
-    flex: 0 0 auto;
-    width: clamp(7rem, calc(var(--col) * 1.75), 11rem);
+.issue-archive-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ink);
+}
+
+.issue-archive-list a {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--major);
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-archive-list a:hover .issue-archive-title {
+    color: var(--red-ink);
+}
+
+.issue-archive-thumb {
+    width: 3rem;
     aspect-ratio: 1;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--major);
     overflow: hidden;
 }
 
-.issue-banner-picture img {
+.issue-archive-thumb img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.issue-banner-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    min-width: 0;
-    padding: 12px var(--pad) 12px 0;
-}
-
-.issue-banner-text .issue-heading {
-    margin: 0;
-    font-size: 0.875rem;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-}
-
-.issue-banner-title {
+.issue-archive-title {
     font-family: var(--display);
-    font-size: clamp(1.375rem, calc(var(--col) * 0.22), 1.75rem);
-    font-weight: 700;
-    line-height: 1.1;
-}
-
-.issue-banner-more {
-    font-family: var(--display);
-    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--red-ink);
 }
 
-.issue-banner:hover .issue-banner-title {
-    color: var(--red-ink);
-}
-
-/* The Tune of the Week: the artist's picture, the track and who they are. */
-.issue-tune {
-    display: grid;
-    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
-    gap: var(--pad);
-    align-items: start;
-}
-
-.issue-tune-picture {
-    display: block;
-    width: 100%;
-    height: auto;
-    box-shadow: 0 0 0 1px var(--major);
-}
-
-.issue-tune-track {
+.issue-archive-date {
     font-family: var(--display);
-}
-
-/* Back Issues: the list the week pointed back to. */
-.issue-back {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    border-top: 2px solid var(--ink);
-    max-width: 40rem;
-}
-
-.issue-back li {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--major);
-    font-family: var(--display);
-}
-
-.issue-back a {
-    color: inherit;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.issue-back a:hover {
-    color: var(--red-ink);
-}
-
-.issue-back span {
     color: var(--muted);
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
 }
 
-/* Earlier and later issues, at the foot of the issue. */
+/* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
     gap: var(--pad);
-    margin-top: var(--pad);
+    margin-top: calc(var(--pad) * 2);
     padding-top: var(--pad);
-    border-top: 2px solid var(--ink);
+    border-top: 3px solid var(--ink);
 }
 
 .issue-pager-link {
@@ -3124,16 +3439,26 @@ a {
 }
 
 .issue-pager-link--later {
-    grid-column: 2;
+    grid-column: 3;
     text-align: right;
 }
 
-.issue-pager-when {
+.issue-pager-when,
+.issue-pager-link--none,
+.issue-pager-all {
     font-family: var(--display);
     font-size: 0.8125rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
+}
+
+.issue-pager-all {
+    grid-column: 2;
+    grid-row: 1;
+    color: var(--red-ink);
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .issue-pager-title {
@@ -3147,12 +3472,48 @@ a.issue-pager-link:hover .issue-pager-title {
     color: var(--red-ink);
 }
 
-.issue-pager-link--none {
-    font-family: var(--display);
-    font-size: 0.8125rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
+@media (max-width: 1000px) {
+    .issue-front {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-rail {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .issue-foot {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .issue-folio {
+        justify-content: center;
+    }
+
+    .issue-story-picture {
+        float: none;
+        width: auto;
+        max-width: 100%;
+        margin: 0 0 12px;
+    }
+
+    .issue-sleeve {
+        grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+    }
+
+    .issue-pager {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-pager-all,
+    .issue-pager-link--later {
+        grid-column: 1;
+        grid-row: auto;
+        text-align: left;
+    }
 }
 
 /* The homepage's recent issues, now links, and the way to every issue. */
@@ -3174,21 +3535,3 @@ a.issue-title:hover {
     text-decoration: none;
 }
 
-@media (max-width: 700px) {
-    .issue-tune {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .issue-tune-picture {
-        max-width: 14rem;
-    }
-
-    .issue-pager {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .issue-pager-link--later {
-        grid-column: 1;
-        text-align: left;
-    }
-}

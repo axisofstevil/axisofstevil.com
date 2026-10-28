@@ -188,7 +188,7 @@ class RemoteData
                 'of' => count($oldestFirst),
                 'description' => 'Issue No. '.($i + 1).' of the Axis of Stevil, the week of '.CarbonImmutable::parse($f['starts_on'])->format('F j, Y').'.',
                 'blocks' => $blocks,
-                'works' => count(array_filter($blocks, fn ($b) => in_array($b['kind'], ['teaser', 'banner'], true) && ! $b['refeature'])),
+                'works' => count(array_filter($blocks, fn ($b) => isset($b['address']) && ! $b['refeature'])),
                 'earlier' => $pick($oldestFirst[$i - 1] ?? null),
                 'later' => $pick($oldestFirst[$i + 1] ?? null),
             ];
@@ -198,11 +198,14 @@ class RemoteData
     }
 
     /**
-     * One block of an issue as the page shows it, faithful to the 2005
-     * front pages: a teaser (its heading, a picture where the words carry
-     * none, the words, a way to the work), a banner (Language or Featured
-     * Steve: the section, the work, its picture), the Tune of the Week, or
-     * Back Issues. A block for a work no longer on file is left out.
+     * One block of an issue, described by what it is, so the page can set
+     * each where a front page would: a story (a publication or a letter, an
+     * excerpt ending in a jump line to the rest, or whole), a strip for the
+     * Funnies, a plate (the week's gags, art and Flash, whole, captioned), a
+     * notice (a few words from the offices), a letter to Ask Stevil (whole),
+     * the week's Language entry (whole) or Featured Steve (its portrait and
+     * opening line), the Tune of the Week, or Back Issues. A block for a work
+     * no longer on file is left out.
      *
      * @param  array<string, mixed>  $item
      * @param  array<string, array<string, mixed>>  $works  by slug
@@ -211,6 +214,9 @@ class RemoteData
     private function block(array $item, array $works): ?array
     {
         $markdown = fn (string $text, ?string $image, string $title) => trim(MarkdownExtra::defaultTransform(WorkBody::clean($text, $image, $title, $this->stills)));
+        // Words a reader reads (not picture references, pictures or markup), and the pictures and movies shown.
+        $words = fn (string $md) => preg_match_all("/[\pL\pN']+/u", (string) preg_replace(['/^\[[^\]]+\]:.*$/m', '/!\[[^\]]*\](?:\[[^\]]*\]|\([^)]*\))|!#flash\([^)]*\)|<[^>]+>|\([^)]*\)/'], '', $md));
+        $pictures = fn (string $md) => preg_match_all('/!\[|!#flash|<img|<embed/i', $md);
 
         switch ($item['type'] ?? null) {
             case 'entry':
@@ -221,31 +227,37 @@ class RemoteData
                 }
 
                 $text = trim((string) ($item['teaser'] ?? ''));
-                $section = match ($w['division']) {
-                    'comics', 'letters' => $w['series'] ?? $w['title'],
-                    'ask-stevil' => 'Ask Stevil',
-                    'language' => 'Language',
-                    'featured-steves' => 'Featured Steve',
-                    default => $w['title'],
-                };
-                $banner = ($item['role'] ?? null) === 'banner';
-
-                return [
-                    'kind' => $banner ? 'banner' : 'teaser',
-                    'refeature' => ($item['role'] ?? null) === 'refeature',
-                    'heading' => $item['heading'] ?? $section,
-                    // The work's own title, where the heading is its section's.
-                    'title' => ($item['heading'] ?? $section) === $w['title'] ? null : $w['title'],
+                $body = (string) ($w['content'] ?? '');
+                $role = $item['role'] ?? 'teaser';
+                $block = [
+                    'kicker' => $item['heading'] ?? null,
+                    'title' => $w['title'],
                     'address' => $w['address'],
                     'division' => $w['division_name'],
-                    'image' => $banner || ($w['image'] !== null && preg_match('/!\[|!#flash|<img|<embed/i', $text) !== 1) ? $w['image'] : null,
+                    'place' => $w['place'],
+                    'series' => $w['series'],
+                    'refeature' => $role === 'refeature',
+                    'image' => $w['image'],
                     'html' => $text === '' ? '' : $markdown($text, $w['image'], $w['title']),
+                    // An excerpt (the rest is on the work's page): fewer than nine in ten of its words.
+                    'whole' => $words($text) >= $words($body) * 0.9,
+                    'shows_picture' => $pictures($text) > 0,
                 ];
+
+                return match (true) {
+                    $w['division'] === 'language' => [...$block, 'kind' => 'language', 'html' => $markdown($body, null, $w['title']), 'whole' => true],
+                    $w['division'] === 'featured-steves' => [...$block, 'kind' => 'steve', 'html' => $this->opening($body)],
+                    $w['division'] === 'comics' => [...$block, 'kind' => 'strip'],
+                    $w['division'] === 'ask-stevil' => [...$block, 'kind' => 'letter'],
+                    in_array($w['division'], ['publications', 'letters'], true) => [...$block, 'kind' => 'story'],
+                    // The week's gags, art and movies: a picture, whole. A few words and nothing else: a notice.
+                    $pictures($text) > 0 || ($text === '' && $w['image'] !== null) => [...$block, 'kind' => 'plate'],
+                    default => [...$block, 'kind' => 'notice'],
+                };
 
             case 'featured_track':
                 return [
                     'kind' => 'tune',
-                    'heading' => 'Featured Artist: '.$item['artist']['name'],
                     'artist' => $item['artist']['name'],
                     'image' => $item['artist']['image'] ?? null,
                     'track' => $item['track']['title'] ?? null,
@@ -254,13 +266,38 @@ class RemoteData
 
             case 'back_issues':
                 return [
-                    'kind' => 'back',
-                    'heading' => 'Back Issues',
-                    'entries' => array_values(array_filter(array_map(fn (array $e) => isset($works[$e['slug']]) ? ['title' => $works[$e['slug']]['title'], 'address' => $works[$e['slug']]['address'], 'date' => $works[$e['slug']]['date']] : null, $item['entries'] ?? []))),
+                    'kind' => 'archive',
+                    'entries' => array_values(array_filter(array_map(fn (array $e) => isset($works[$e['slug']]) ? [
+                        'title' => $works[$e['slug']]['title'],
+                        'address' => $works[$e['slug']]['address'],
+                        'date' => $works[$e['slug']]['date'],
+                        'image' => $works[$e['slug']]['image'],
+                        'division' => $works[$e['slug']]['division_name'],
+                    ] : null, $item['entries'] ?? []))),
                 ];
         }
 
         return null;
+    }
+
+    /**
+     * A piece's opening line, for a box that points to it: its first paragraph
+     * of words, cut at a sentence near thirty words.
+     */
+    private function opening(string $markdown): string
+    {
+        foreach (preg_split('/\n\s*\n/', $markdown) ?: [] as $paragraph) {
+            $paragraph = trim((string) preg_replace(['/^\[[^\]]+\]:.*$/m', '/!\[[^\]]*\](?:\[[^\]]*\]|\([^)]*\))/', '/^#+\s*|\s*#+$/m', '/^>\s?/m'], '', $paragraph));
+            $plain = trim(strip_tags(MarkdownExtra::defaultTransform($paragraph)));
+
+            if (str_word_count($plain) >= 8) {
+                $cut = preg_match('/^(.{80,220}?[.!?])(\s|$)/u', $plain, $m) === 1 ? $m[1] : (mb_strlen($plain) > 220 ? rtrim(mb_substr($plain, 0, 200)).'…' : $plain);
+
+                return '<p>'.e($cut).'</p>';
+            }
+        }
+
+        return '';
     }
 
     /**
