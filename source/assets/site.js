@@ -262,9 +262,10 @@ const snapToGrid = (() => {
     });
 })();
 
-// A series' introduction sits beside its banner only while it fits within the
-// banner's height; longer than that, it takes its own row beneath, so the band
-// is never taller than its banner beside the words.
+// A series' introduction sits beside its banner wherever the room beside is
+// wide enough to read (it wraps beneath only when it isn't: phones). When the
+// words run taller than the banner, the band grows and the banner is ruled
+// beneath as well, a framed picture in the band's corner.
 (() => {
     const bands = [...document.querySelectorAll('.series-intro')].filter((band) => band.querySelector('.series-banner') && band.querySelector('.series-text'));
 
@@ -277,8 +278,11 @@ const snapToGrid = (() => {
             const banner = band.querySelector('.series-banner');
             const text = band.querySelector('.series-text');
 
-            band.classList.remove('series-intro--stacked');
-            band.classList.toggle('series-intro--stacked', text.offsetLeft < banner.offsetLeft + banner.offsetWidth || text.offsetHeight > banner.offsetHeight);
+            band.classList.remove('series-intro--stacked', 'series-intro--tall');
+            const stacked = text.offsetLeft < banner.offsetLeft + banner.offsetWidth;
+
+            band.classList.toggle('series-intro--stacked', stacked);
+            band.classList.toggle('series-intro--tall', !stacked && text.offsetHeight > banner.offsetHeight);
         });
         snapToGrid();
     };
