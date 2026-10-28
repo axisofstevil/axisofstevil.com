@@ -11,6 +11,9 @@ namespace App;
  * - YouTube's old `<embed src="…youtube.com/v/ID">` (once with a stray `<`):
  *   a privacy-enhanced YouTube player.
  * - An `<embed>` of a movie file (.mov, .mp4, .m4v): a standard video player.
+ *
+ * And a YouTube address alone on its line (watch, youtu.be, embed, shorts or
+ * live) is shown as its privacy-enhanced player.
  */
 class WorkBody
 {
@@ -32,9 +35,17 @@ class WorkBody
             $body,
         );
 
-        return (string) preg_replace_callback(
+        $player = fn (array $m) => "\n\n".'<figure class="video"><iframe src="https://www.youtube-nocookie.com/embed/'.$m[1].'" title="'.e($title).'" loading="lazy" allowfullscreen></iframe></figure>'."\n\n";
+
+        $body = (string) preg_replace_callback(
             '/<+embed[^>]*src="https?:\/\/(?:www\.)?youtube\.com\/v\/([\w-]{6,})[^"]*"[^>]*>(?:\s*<\/embed>)?/i',
-            fn (array $m) => "\n\n".'<figure class="video"><iframe src="https://www.youtube-nocookie.com/embed/'.$m[1].'" title="'.e($title).'" loading="lazy" allowfullscreen></iframe></figure>'."\n\n",
+            $player,
+            $body,
+        );
+
+        return (string) preg_replace_callback(
+            '/^[ \t]*<?(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:[^\s>]*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})[^\s>]*>?[ \t]*$/im',
+            $player,
             $body,
         );
     }
