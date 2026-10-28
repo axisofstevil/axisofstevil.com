@@ -215,3 +215,62 @@ const snapToGrid = (() => {
         }
     });
 })();
+
+// Flash movies: the thumbnail's button swaps in Ruffle, loaded only when asked.
+(() => {
+    const figures = document.querySelectorAll('figure.flash[data-swf]');
+
+    if (figures.length === 0) {
+        return;
+    }
+
+    const base = 'https://unpkg.com/@ruffle-rs/ruffle@0.7.1/';
+    let ruffle = null;
+
+    const load = () =>
+        (ruffle ??= new Promise((resolve, reject) => {
+            window.RufflePlayer = window.RufflePlayer || {};
+            window.RufflePlayer.config = {
+                publicPath: base,
+                autoplay: 'on',
+                unmuteOverlay: 'hidden',
+                splashScreen: false,
+                letterbox: 'on',
+            };
+
+            const script = document.createElement('script');
+            script.src = `${base}ruffle.js`;
+            script.onload = () => resolve(window.RufflePlayer.newest());
+            script.onerror = () => {
+                ruffle = null;
+                reject(new Error('Ruffle did not load'));
+            };
+            document.head.append(script);
+        }));
+
+    figures.forEach((figure) => {
+        const stage = figure.querySelector('.flash-stage');
+        const button = figure.querySelector('.flash-play');
+        const image = stage.querySelector('img');
+
+        button.addEventListener('click', async () => {
+            button.setAttribute('aria-busy', 'true');
+
+            try {
+                const player = (await load()).createPlayer();
+                const ratio = image && image.naturalWidth ? image.naturalWidth / image.naturalHeight : 4 / 3;
+
+                player.style.aspectRatio = String(ratio);
+                stage.replaceChildren(player);
+                await (player.ruffle?.() ?? player).load({ url: figure.dataset.swf });
+                snapToGrid();
+            } catch (error) {
+                button.removeAttribute('aria-busy');
+
+                if (!figure.querySelector('.flash-error')) {
+                    figure.insertAdjacentHTML('beforeend', '<p class="flash-error">The movie could not be played here.</p>');
+                }
+            }
+        });
+    });
+})();

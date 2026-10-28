@@ -946,8 +946,65 @@ a {
     margin: 0 0 var(--pad);
 }
 
-.work-body figure.flash img {
+.work-body figure.flash .flash-stage {
+    position: relative;
     margin-bottom: 8px;
+}
+
+.work-body figure.flash img {
+    display: block;
+}
+
+/* Played in Ruffle where scripts run; otherwise the thumbnail stands alone. */
+.flash-play {
+    display: none;
+}
+
+.js .flash-play {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.js .flash-play::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--col);
+    height: var(--col);
+    transform: translate(-50%, -50%);
+    background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center / 50% no-repeat;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.flash-play:hover::after,
+.flash-play:focus-visible::after {
+    background-color: var(--ink);
+}
+
+.flash-play[aria-busy='true']::after {
+    opacity: 0.6;
+}
+
+.work-body figure.flash ruffle-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.flash-error {
+    margin: 8px 0 0;
+    color: var(--red-ink);
 }
 
 .work-body figure figcaption {
