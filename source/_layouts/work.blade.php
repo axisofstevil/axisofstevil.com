@@ -102,10 +102,6 @@
                 @endforeach
             </dl>
             @endif
-            <div class="audit-foot" data-audit-only hidden>
-                <p>Random Audit · No. <span data-audit-no></span> inspected.</p>
-                <button type="button" class="action" data-audit-next>Pull another work</button>
-            </div>
             <p class="caption">Plate {{ $page->place }} · {{ $page->division_name }}</p>
         </article>
 

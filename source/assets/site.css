@@ -693,8 +693,7 @@ a {
     color: var(--stock);
 }
 
-.plate.audit-bar[hidden],
-.audit-foot[hidden] {
+.plate.audit-bar[hidden] {
     display: none;
 }
 
@@ -754,25 +753,6 @@ a {
 .audit-controls button[aria-busy='true'] {
     opacity: 0.7;
     cursor: progress;
-}
-
-/* The foot of a work on the run: the natural place to finish is the place to go on. */
-.audit-foot {
-    margin: var(--pad) 0;
-    padding-top: var(--pad);
-    border-top: 2px solid var(--ink);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--pad);
-}
-
-.audit-foot p {
-    margin: 0;
-    font-family: var(--display);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
 }
 
 .action {

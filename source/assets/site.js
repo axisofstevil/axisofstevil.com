@@ -117,8 +117,8 @@ const snapToGrid = (() => {
 
 // Random Audit: a run through every work in a shuffled order, kept in this tab
 // (sessionStorage) so addresses stay plain. Beginning pulls the first work;
-// each work on the run shows its number and the way on (the bar, the foot of
-// the work, or R); End stops the run and leaves the reader on the work.
+// each work on the run shows its number and the way on (the bar, held at the
+// top, or R); End stops the run and leaves the reader on the work.
 // Nothing is pulled twice until every work has been seen.
 (() => {
     const key = 'axis.audit';
@@ -201,7 +201,7 @@ const snapToGrid = (() => {
 
     // On the run: show where it stands, and keep it going.
     const show = (on) => {
-        document.querySelectorAll('[data-audit-bar], [data-audit-only]').forEach((el) => (el.hidden = !on));
+        document.querySelectorAll('[data-audit-bar]').forEach((el) => (el.hidden = !on));
         document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = on));
         document.documentElement.classList.toggle('on-audit', on);
         snapToGrid();
