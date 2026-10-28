@@ -1144,6 +1144,77 @@ a {
     margin: 0;
 }
 
+/* A comic of several pictures: one at a time on the matte, snapping into place. */
+.slides {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    align-items: center;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slides:focus-visible {
+    outline-offset: 6px;
+}
+
+.slide {
+    margin: 0;
+    /* Room for the picture's keyline, which the track would clip. */
+    padding: 1px;
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    scroll-snap-align: center;
+}
+
+.slide figcaption {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.slide-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    font-family: var(--display);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+.slide-controls button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+.slide-controls button:hover,
+.slide-controls button:focus-visible {
+    background: var(--red);
+}
+
+.slide-controls button:disabled {
+    opacity: 0.3;
+    cursor: default;
+    background: var(--ink);
+}
+
 /* The label under a plate: its title (the notes give its series and date). */
 .work-label {
     margin: 0 0 var(--pad);

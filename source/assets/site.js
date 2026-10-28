@@ -348,3 +348,30 @@ const snapToGrid = (() => {
         });
     });
 })();
+
+// A comic of several pictures: arrows and the count follow the slides, which also scroll by swipe or keys.
+document.querySelectorAll('[data-slideshow]').forEach((show) => {
+    const track = show.querySelector('.slides');
+    const slides = [...track.children];
+    const at = show.querySelector('[data-slide-at]');
+    const [back, on] = show.querySelectorAll('[data-slide]');
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const update = () => {
+        const index = current();
+        at.textContent = index + 1;
+        back.disabled = index === 0;
+        on.disabled = index === slides.length - 1;
+    };
+
+    [back, on].forEach((button) =>
+        button.addEventListener('click', () => {
+            const next = Math.min(slides.length - 1, Math.max(0, current() + Number(button.dataset.slide)));
+            track.scrollTo({ left: next * track.clientWidth, behavior: still.matches ? 'auto' : 'smooth' });
+        }),
+    );
+
+    track.addEventListener('scroll', () => window.requestAnimationFrame(update), { passive: true });
+    update();
+});

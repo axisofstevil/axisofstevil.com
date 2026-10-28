@@ -36,11 +36,11 @@ class WorkLayout
 
     /**
      * @param  array<string, array{0: int, 1: int}>  $sizes  known picture sizes, by address
-     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string}
+     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string, slides: list<array{html: string, caption: string}>}
      */
     public static function split(string $html, ?string $division, array $sizes = []): array
     {
-        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => ''];
+        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => []];
 
         if (trim($html) === '') {
             return $parts;
@@ -116,7 +116,19 @@ class WorkLayout
                 $lead[] = $node;
             }
 
-            return [...$parts, 'layout' => 'plate', 'lead' => $html($lead), 'body' => $html(array_slice($blocks, count($lead)))];
+            $body = $html(array_slice($blocks, count($lead)));
+
+            // A comic of several pictures is a slideshow: its own order, a front-page teaser (or thumbnail) last.
+            $images = $division === 'comics' ? self::images($lead) : [];
+            if (count($images) > 1) {
+                $teaser = fn (DOMElement $image): bool => preg_match('/(?:tease|\.thumb\.)/i', basename($image->getAttribute('src'))) === 1;
+                usort($images, fn (DOMElement $a, DOMElement $b): int => $teaser($a) <=> $teaser($b));
+                $slides = array_map(fn (DOMElement $image): array => ['html' => (string) $dom->saveHTML($image), 'caption' => $teaser($image) ? 'Front-page teaser' : ''], $images);
+
+                return [...$parts, 'layout' => 'plate', 'slides' => $slides, 'body' => $body];
+            }
+
+            return [...$parts, 'layout' => 'plate', 'lead' => $html($lead), 'body' => $body];
         }
 
         // A Featured Steve: the pictures after the last paragraph trail it; the tall, narrow one is the film strip.
@@ -148,6 +160,27 @@ class WorkLayout
         $path = dirname(__DIR__).'/cache/image-sizes.json';
 
         return $sizes ??= is_file($path) ? (json_decode((string) file_get_contents($path), true) ?: []) : [];
+    }
+
+    /**
+     * Every picture in the blocks, in order.
+     *
+     * @param  list<DOMNode>  $blocks
+     * @return list<DOMElement>
+     */
+    private static function images(array $blocks): array
+    {
+        $images = [];
+
+        foreach ($blocks as $node) {
+            if ($node instanceof DOMElement) {
+                foreach ($node->tagName === 'img' ? [$node] : iterator_to_array($node->getElementsByTagName('img')) as $image) {
+                    $images[] = $image;
+                }
+            }
+        }
+
+        return $images;
     }
 
     /**

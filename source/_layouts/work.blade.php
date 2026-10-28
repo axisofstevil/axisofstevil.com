@@ -36,7 +36,23 @@
                 @case('plate')
                 @case('movie')
                     {{-- The picture (or the player) is the work; the title labels it. --}}
+                    @if ($parts['slides'])
+                    {{-- Several pictures: one at a time, swiped or stepped through (site.js). --}}
+                    <div class="work-plate work-body" data-slideshow>
+                        <div class="slides" tabindex="0" aria-label="{{ count($parts['slides']) }} pictures; scroll sideways for the next">
+                            @foreach ($parts['slides'] as $slide)
+                            <figure class="slide">{!! $slide['html'] !!}@if ($slide['caption'])<figcaption>{{ $slide['caption'] }}</figcaption>@endif</figure>
+                            @endforeach
+                        </div>
+                        <div class="slide-controls">
+                            <button type="button" data-slide="-1" aria-label="Previous picture">←</button>
+                            <span class="slide-count" aria-live="polite"><b data-slide-at>1</b> of {{ count($parts['slides']) }}</span>
+                            <button type="button" data-slide="1" aria-label="Next picture">→</button>
+                        </div>
+                    </div>
+                    @else
                     <div class="work-plate work-body">{!! $parts['lead'] !!}</div>
+                    @endif
                     <header class="work-label">
                         <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
                     </header>
