@@ -8,6 +8,22 @@
         ? ['name' => 'All Works', 'slug' => 'works', 'series' => []]
         : $divisions->firstWhere('slug', $division ?? null);
 
+    // The weekly issues: Issues, its menu the years; on an issue, that issue's year beneath.
+    if (($division ?? null) === 'issues') {
+        $issues = collect($page->issues)->map(fn ($i) => (array) (is_array($i) ? $i : $i->toArray()));
+        $years = $issues->groupBy(fn ($i) => substr($i['starts_on'], 0, 4))->sortKeys();
+        $crumbs[] = [
+            'name' => 'Issues',
+            'href' => '/issues/',
+            'here' => ($here ?? null) === 'issues',
+            'label' => 'Choose a year',
+            'menu' => [
+                ['name' => 'All Issues', 'href' => '/issues/', 'count' => $issues->count()],
+                ...$years->map(fn ($group, $year) => ['name' => (string) $year, 'href' => "/issues/#year-{$year}", 'count' => $group->count()])->values()->all(),
+            ],
+        ];
+    }
+
     if ($parent) {
         $crumbs[] = [
             'name' => $parent['name'],

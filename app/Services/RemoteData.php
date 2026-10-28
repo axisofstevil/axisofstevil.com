@@ -28,6 +28,13 @@ class RemoteData
 
     private Client $api;
 
+    /**
+     * Each Flash movie's still, by its address (set by pages()), for the issues' teasers too.
+     *
+     * @var array<string, string>
+     */
+    private array $stills = [];
+
     public function __construct()
     {
         $this->api = new Client;
@@ -53,18 +60,22 @@ class RemoteData
 
         usort($works, fn ($a, $b) => strcmp($b['date'], $a['date']));
 
-        $workPages = $this->pages($entries, $works);
-        $collections = $jigsaw->getConfig('collections');
-        $collections->set('works.items', $workPages);
+        // The weekly issues (front pages), each with its blocks in order, newest first.
+        $frontPages = $this->json($channelUrl.'/front-pages?include=items')['data'] ?? [];
+        usort($frontPages, fn ($a, $b) => strcmp($b['starts_on'], $a['starts_on']));
 
         $issues = array_map(fn (array $f) => [
             'slug' => $f['slug'],
             'title' => $f['title'],
             'starts_on' => $f['starts_on'],
             'ends_on' => $f['ends_on'],
-        ], $this->all($channelUrl.'/front-pages?per_page=100'));
+            'address' => "/issues/{$f['slug']}/",
+        ], $frontPages);
 
-        usort($issues, fn ($a, $b) => strcmp($b['starts_on'], $a['starts_on']));
+        $workPages = $this->pages($entries, $works, $this->ranIn($frontPages));
+        $collections = $jigsaw->getConfig('collections');
+        $collections->set('works.items', $workPages);
+        $collections->set('issue_pages.items', $this->issuePages($frontPages, $workPages));
 
         $divisions = array_map(fn (array $c) => [
             'slug' => $c['slug'],
@@ -126,6 +137,133 @@ class RemoteData
     }
 
     /**
+     * The issue that first carried each work (a teaser or banner for it, the
+     * week it was new; re-features don't count), by the work's slug.
+     *
+     * @param  list<array<string, mixed>>  $frontPages  newest first
+     * @return array<string, array{title: string, address: string, starts_on: string}>
+     */
+    private function ranIn(array $frontPages): array
+    {
+        $ranIn = [];
+
+        foreach (array_reverse($frontPages) as $f) {
+            foreach ($f['items'] ?? [] as $item) {
+                if (($item['type'] ?? null) === 'entry' && in_array($item['role'] ?? null, ['teaser', 'banner'], true)) {
+                    $ranIn[$item['entry']['slug']] ??= ['title' => $f['title'], 'address' => "/issues/{$f['slug']}/", 'starts_on' => $f['starts_on']];
+                }
+            }
+        }
+
+        return $ranIn;
+    }
+
+    /**
+     * Each weekly issue's page at /issues/{slug}/: its number (1 is the
+     * first), its run, and its blocks in the order the week ran them, each
+     * ready for the page; then its earlier and later issues.
+     *
+     * @param  list<array<string, mixed>>  $frontPages  newest first
+     * @param  list<array<string, mixed>>  $workPages
+     * @return list<array<string, mixed>>
+     */
+    private function issuePages(array $frontPages, array $workPages): array
+    {
+        $bySlug = array_column($workPages, null, 'slug');
+        $oldestFirst = array_reverse($frontPages);
+        $pick = fn (?array $f) => $f === null ? null : ['title' => $f['title'], 'address' => "/issues/{$f['slug']}/", 'starts_on' => $f['starts_on'], 'ends_on' => $f['ends_on']];
+        $items = [];
+
+        foreach ($oldestFirst as $i => $f) {
+            $blocks = array_values(array_filter(array_map(fn (array $item) => $this->block($item, $bySlug), $f['items'] ?? [])));
+
+            $items[] = [
+                'filename' => $f['slug'],
+                'address' => "/issues/{$f['slug']}/",
+                'name' => $f['title'],
+                'title' => $f['title'].' — Issue No. '.($i + 1).' — The Axis of Stevil',
+                'starts_on' => $f['starts_on'],
+                'ends_on' => $f['ends_on'],
+                'number' => $i + 1,
+                'of' => count($oldestFirst),
+                'description' => 'Issue No. '.($i + 1).' of the Axis of Stevil, the week of '.CarbonImmutable::parse($f['starts_on'])->format('F j, Y').'.',
+                'blocks' => $blocks,
+                'works' => count(array_filter($blocks, fn ($b) => in_array($b['kind'], ['teaser', 'banner'], true) && ! $b['refeature'])),
+                'earlier' => $pick($oldestFirst[$i - 1] ?? null),
+                'later' => $pick($oldestFirst[$i + 1] ?? null),
+            ];
+        }
+
+        return $items;
+    }
+
+    /**
+     * One block of an issue as the page shows it, faithful to the 2005
+     * front pages: a teaser (its heading, a picture where the words carry
+     * none, the words, a way to the work), a banner (Language or Featured
+     * Steve: the section, the work, its picture), the Tune of the Week, or
+     * Back Issues. A block for a work no longer on file is left out.
+     *
+     * @param  array<string, mixed>  $item
+     * @param  array<string, array<string, mixed>>  $works  by slug
+     * @return array<string, mixed>|null
+     */
+    private function block(array $item, array $works): ?array
+    {
+        $markdown = fn (string $text, ?string $image, string $title) => trim(MarkdownExtra::defaultTransform(WorkBody::clean($text, $image, $title, $this->stills)));
+
+        switch ($item['type'] ?? null) {
+            case 'entry':
+                $w = $works[$item['entry']['slug']] ?? null;
+
+                if ($w === null) {
+                    return null;
+                }
+
+                $text = trim((string) ($item['teaser'] ?? ''));
+                $section = match ($w['division']) {
+                    'comics', 'letters' => $w['series'] ?? $w['title'],
+                    'ask-stevil' => 'Ask Stevil',
+                    'language' => 'Language',
+                    'featured-steves' => 'Featured Steve',
+                    default => $w['title'],
+                };
+                $banner = ($item['role'] ?? null) === 'banner';
+
+                return [
+                    'kind' => $banner ? 'banner' : 'teaser',
+                    'refeature' => ($item['role'] ?? null) === 'refeature',
+                    'heading' => $item['heading'] ?? $section,
+                    // The work's own title, where the heading is its section's.
+                    'title' => ($item['heading'] ?? $section) === $w['title'] ? null : $w['title'],
+                    'address' => $w['address'],
+                    'division' => $w['division_name'],
+                    'image' => $banner || ($w['image'] !== null && preg_match('/!\[|!#flash|<img|<embed/i', $text) !== 1) ? $w['image'] : null,
+                    'html' => $text === '' ? '' : $markdown($text, $w['image'], $w['title']),
+                ];
+
+            case 'featured_track':
+                return [
+                    'kind' => 'tune',
+                    'heading' => 'Featured Artist: '.$item['artist']['name'],
+                    'artist' => $item['artist']['name'],
+                    'image' => $item['artist']['image'] ?? null,
+                    'track' => $item['track']['title'] ?? null,
+                    'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
+                ];
+
+            case 'back_issues':
+                return [
+                    'kind' => 'back',
+                    'heading' => 'Back Issues',
+                    'entries' => array_values(array_filter(array_map(fn (array $e) => isset($works[$e['slug']]) ? ['title' => $works[$e['slug']]['title'], 'address' => $works[$e['slug']]['address'], 'date' => $works[$e['slug']]['date']] : null, $item['entries'] ?? []))),
+                ];
+        }
+
+        return null;
+    }
+
+    /**
      * A work as the views use it: its address on the site, its date in the
      * publication's time zone, and its division.
      *
@@ -157,7 +295,7 @@ class RemoteData
      * @param  list<array<string, mixed>>  $works  newest first
      * @return list<array<string, mixed>>
      */
-    private function pages(array $entries, array $works): array
+    private function pages(array $entries, array $works, array $ranIn = []): array
     {
         $bySlug = array_column($entries, null, 'slug');
         $byDivision = [];
@@ -175,6 +313,7 @@ class RemoteData
 
         // Else the still the archive keeps beside a movie ({name}.thumb.png), where there is one.
         $stills = [...$this->archivedStills($entries, $stills), ...$stills];
+        $this->stills = $stills;
 
         foreach (array_reverse($works) as $work) {
             $byDivision[$work['division']][] = $work;
@@ -197,6 +336,8 @@ class RemoteData
                     'roles' => array_map(fn ($c) => ['name' => $c['name'], 'roles' => $c['roles'] ?? []], $e['credits'] ?? []),
                     'place' => $i + 1,
                     'of' => count($list),
+                    // The weekly issue that first carried it, if one did.
+                    'ran_in' => $ranIn[$work['slug']] ?? null,
                     'older' => $pick($list[$i - 1] ?? null),
                     'newer' => $pick($list[$i + 1] ?? null),
                     'content' => WorkBody::clean((string) ($e['body'] ?? ''), $e['image'] ?? null, $e['title'], $stills),

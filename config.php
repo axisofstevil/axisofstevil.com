@@ -49,6 +49,12 @@ return [
             'extends' => '_layouts.division',
             'path' => fn ($page) => trim($page->address, '/'),
         ],
+        // Each weekly issue (front page) at /issues/{slug}/ (items set by RemoteData).
+        'issue_pages' => [
+            'extends' => '_layouts.issue',
+            'path' => fn ($page) => trim($page->address, '/'),
+            'sort' => 'number',
+        ],
     ],
 
     // A page's address, with the trailing slash the site has always used.

@@ -131,6 +131,9 @@
                     <div><dt>Series</dt><dd><a href="/{{ $page->division }}/{{ $page->series_slug }}/">{{ $page->series }}</a></dd></div>
                     @endif
                     <div><dt>Filed</dt><dd>{{ $filed }}</dd></div>
+                    @if ($page->ran_in)
+                    <div><dt>Ran in</dt><dd><a href="{{ $page->ran_in['address'] }}">{{ $page->ran_in['title'] }}</a></dd></div>
+                    @endif
                     <div><dt>Place</dt><dd>{{ $page->place }} of {{ $page->of }}</dd></div>
                 </dl>
 

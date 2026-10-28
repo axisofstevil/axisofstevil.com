@@ -2865,3 +2865,330 @@ a {
 .is-enlarged-open body {
     overflow: hidden;
 }
+
+/*
+ * A weekly issue (/issues/{slug}/): the front page as it ran, in the 2005
+ * order and rhythm (a caps heading, the picture, the opening words, Read
+ * more), set in the report's type, one block after another down the plate.
+ */
+.issue-masthead {
+    margin: 0 0 var(--pad);
+    padding-bottom: var(--pad);
+    border-bottom: 2px solid var(--ink);
+}
+
+.issue-dateline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 16px;
+    margin: 0 0 12px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-dateline span:first-child {
+    color: var(--red-ink);
+    font-weight: 600;
+}
+
+.issue-name {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2rem, calc(var(--col) * 0.42), 3.25rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.issue-block {
+    padding: var(--pad) 0;
+    border-bottom: 1px solid var(--major);
+}
+
+.issue-heading {
+    display: block;
+    margin: 0 0 12px;
+    font-family: var(--display);
+    font-size: clamp(1.375rem, calc(var(--col) * 0.22), 1.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.issue-heading a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-heading a:hover {
+    color: var(--red-ink);
+}
+
+.issue-subhead {
+    margin: -6px 0 12px;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.issue-picture {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 16px;
+}
+
+.issue-picture img,
+.issue-words img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.issue-words {
+    font-size: 1.0625rem;
+}
+
+.issue-words > :last-child {
+    margin-bottom: 0;
+}
+
+/* Read more, in the 2005 page's red; the work's division beside it. */
+.issue-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin: 16px 0 0;
+    font-family: var(--display);
+}
+
+.issue-more a {
+    color: var(--red-ink);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.issue-more a:hover {
+    text-decoration: underline;
+}
+
+.issue-more span {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* Language and Featured Steve: a banner to the week's piece. */
+.issue-banner {
+    display: flex;
+    align-items: stretch;
+    gap: var(--pad);
+    color: inherit;
+    text-decoration: none;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-banner-picture {
+    flex: 0 0 auto;
+    width: clamp(7rem, calc(var(--col) * 1.75), 11rem);
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.issue-banner-picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.issue-banner-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    padding: 12px var(--pad) 12px 0;
+}
+
+.issue-banner-text .issue-heading {
+    margin: 0;
+    font-size: 0.875rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+}
+
+.issue-banner-title {
+    font-family: var(--display);
+    font-size: clamp(1.375rem, calc(var(--col) * 0.22), 1.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.issue-banner-more {
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+.issue-banner:hover .issue-banner-title {
+    color: var(--red-ink);
+}
+
+/* The Tune of the Week: the artist's picture, the track and who they are. */
+.issue-tune {
+    display: grid;
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+    gap: var(--pad);
+    align-items: start;
+}
+
+.issue-tune-picture {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.issue-tune-track {
+    font-family: var(--display);
+}
+
+/* Back Issues: the list the week pointed back to. */
+.issue-back {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+    max-width: 40rem;
+}
+
+.issue-back li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+}
+
+.issue-back a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.issue-back a:hover {
+    color: var(--red-ink);
+}
+
+.issue-back span {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Earlier and later issues, at the foot of the issue. */
+.issue-pager {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pad);
+    margin-top: var(--pad);
+    padding-top: var(--pad);
+    border-top: 2px solid var(--ink);
+}
+
+.issue-pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-pager-link--later {
+    grid-column: 2;
+    text-align: right;
+}
+
+.issue-pager-when {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-pager-title {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a.issue-pager-link:hover .issue-pager-title {
+    color: var(--red-ink);
+}
+
+.issue-pager-link--none {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* The homepage's recent issues, now links, and the way to every issue. */
+a.issue-title {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.issue-title:hover {
+    color: var(--red-ink);
+}
+
+.issues-all a {
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .issue-tune {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-tune-picture {
+        max-width: 14rem;
+    }
+
+    .issue-pager {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-pager-link--later {
+        grid-column: 1;
+        text-align: left;
+    }
+}

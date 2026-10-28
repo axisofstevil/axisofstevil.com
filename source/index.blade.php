@@ -131,8 +131,9 @@ description: Random insanity at its finest. The complete works of the Axis of St
         </figure>
         <ol class="issues">
             @foreach ($issues->take(6) as $issue)
-            <li><span class="issue-title">{{ $issue['title'] }}</span><span class="issue-dates">{{ $fmt($issue['starts_on']) }}</span></li>
+            <li><a class="issue-title" href="{{ $issue['address'] }}">{{ $issue['title'] }}</a><span class="issue-dates">{{ $fmt($issue['starts_on']) }}</span></li>
             @endforeach
+            <li class="issues-all"><a href="/issues/">Every issue on record <span aria-hidden="true">→</span></a><span class="issue-dates">{{ $issues->count() }}</span></li>
         </ol>
         <p class="caption">Plate 10 · Quarterly Results</p>
     </section>
