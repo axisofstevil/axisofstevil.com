@@ -101,6 +101,7 @@ class RemoteData
             'series' => $e['series']['name'] ?? null,
             'series_slug' => $e['series']['slug'] ?? null,
             'image' => $e['image'] ?? null,
+            'rating' => $e['rating'] ?? null,
             'credits' => array_map(fn ($c) => $c['name'], $e['credits'] ?? []),
         ];
     }

@@ -630,18 +630,35 @@ a {
 
 .audit-pile {
     position: relative;
+    display: block;
+    width: auto;
     aspect-ratio: 4 / 3;
     margin: var(--pad) var(--half);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
 }
 
+.audit-pile:focus-visible {
+    outline-offset: 12px;
+}
+
+/*
+ * The pile looks three deep however many it holds: the top card square, the
+ * next two stepped back and turned; any deeper lie exactly under the third.
+ * --d is a card's depth (0 on top), set by site.js as the pile is dealt.
+ */
 .audit-card {
+    --v: min(var(--d), 2);
     position: absolute;
     inset: 0;
     background: var(--stock-light);
     box-shadow:
         inset 0 0 0 1px var(--ink),
         0 10px 24px rgba(17, 17, 17, 0.14);
-    transform: translate(calc((var(--n) - 1) * 18px), calc((1 - var(--n)) * 10px)) rotate(calc((var(--n) - 1) * 5deg));
+    transform: translate(calc(var(--v) * -16px), calc(var(--v) * 10px)) rotate(calc(var(--v) * -4deg));
+    transition: transform 0.35s var(--ease);
     overflow: hidden;
 }
 
@@ -650,6 +667,11 @@ a {
     height: 100%;
     object-fit: contain;
     display: block;
+}
+
+.audit-pile:hover .audit-card[data-top],
+.audit-pile:focus-visible .audit-card[data-top] {
+    transform: translate(4px, -4px) rotate(1deg);
 }
 
 /*

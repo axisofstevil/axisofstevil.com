@@ -29,10 +29,13 @@ description: Random insanity at its finest. The complete works of the Axis of St
     $peak = max($quarters) ?: 1;
     $largest = $divisions->max('count') ?: 1;
 
-    // The audit's pile: three pictured works, a different three each day; the span of years on file.
+    // The audit's pile: up to fifteen five-star works with pictures, dealt in a new order each day
+    // (any pictured works until some are rated); the span of years on file.
     $pictured = $works->filter(fn ($w) => $w['image'] ?? null)->values();
-    $pile = $pictured->isEmpty() ? collect() : collect(range(0, min(2, $pictured->count() - 1)))
-        ->map(fn ($n) => $pictured[($page->build_time->dayOfYear * 7 + $n * 53) % $pictured->count()]);
+    $starred = $pictured->where('rating', 5)->values();
+    $pile = ($starred->isNotEmpty() ? $starred : $pictured)
+        ->sortBy(fn ($w) => crc32($page->build_time->toDateString().$w['address']))
+        ->take(15)->values();
     $onFile = $works->map(fn ($w) => (int) substr($w['date'], 0, 4));
     $fmt = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j, Y');
 @endphp
@@ -143,11 +146,11 @@ description: Random insanity at its finest. The complete works of the Axis of St
             <a class="action" href="/works/" data-audit-start>Begin the audit</a>
         </div>
         @if ($pile->isNotEmpty())
-        <div class="audit-pile" aria-hidden="true">
+        <button type="button" class="audit-pile" data-pile aria-label="Shuffle the pile">
             @foreach ($pile as $work)
-            <span class="audit-card" style="--n: {{ $loop->index }}"><img src="{{ $work['image'] }}" alt="" loading="lazy"></span>
+            <span class="audit-card" style="--d: {{ $loop->index }}; z-index: {{ $pile->count() - $loop->index }}"><img src="{{ $work['image'] }}" alt="" @if ($loop->index > 2) loading="lazy" @endif></span>
             @endforeach
-        </div>
+        </button>
         @endif
         <p class="caption">Plate 11 · Random Audit</p>
     </section>

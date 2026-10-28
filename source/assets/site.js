@@ -63,6 +63,58 @@ const snapToGrid = (() => {
     return schedule;
 })();
 
+// The audit's pile: a click deals the top card off and under, and the rest step up.
+(() => {
+    const pile = document.querySelector('[data-pile]');
+    let cards = pile ? [...pile.querySelectorAll('.audit-card')] : [];
+
+    if (cards.length < 2) {
+        return;
+    }
+
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let dealing = false;
+
+    const lay = () =>
+        cards.forEach((card, depth) => {
+            card.style.setProperty('--d', depth);
+            card.style.zIndex = cards.length - depth;
+            card.toggleAttribute('data-top', depth === 0);
+        });
+
+    lay();
+
+    pile.addEventListener('click', () => {
+        if (dealing) {
+            return;
+        }
+
+        const top = cards[0];
+        const under = () => {
+            cards = [...cards.slice(1), top];
+            lay();
+        };
+
+        if (still.matches) {
+            under();
+            return;
+        }
+
+        // Off to the side, then under the pile once it's clear of it.
+        dealing = true;
+        top.style.transform = 'translate(72%, -16%) rotate(14deg)';
+        top.addEventListener(
+            'transitionend',
+            () => {
+                under();
+                top.style.transform = '';
+                window.setTimeout(() => (dealing = false), 350);
+            },
+            { once: true },
+        );
+    });
+})();
+
 // Random Audit: a run through every work in a shuffled order, kept in this tab
 // (sessionStorage) so addresses stay plain. Beginning pulls the first work;
 // each work on the run shows its number and the way on (the bar, the foot of
