@@ -1524,9 +1524,18 @@ a {
     min-width: 0;
     margin: 0;
     font-family: var(--display);
-    font-size: 0.875rem;
-    letter-spacing: 0.04em;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
     color: var(--muted);
+}
+
+.colophon-line span {
+    display: block;
+}
+
+.colophon-line a:hover {
+    color: var(--red-ink);
 }
 
 .colophon nav {
