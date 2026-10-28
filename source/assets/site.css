@@ -1119,14 +1119,30 @@ a {
 
 .work-plate,
 .work-hero {
+    position: relative;
     max-width: none;
     margin: calc(var(--pad) * -1) calc(var(--pad) * -1) var(--pad);
-    padding: var(--pad);
+    padding: 0;
     display: grid;
     justify-items: center;
-    gap: var(--pad);
-    background: var(--stock-light);
-    box-shadow: inset 0 -1px 0 var(--ink);
+    align-items: center;
+    /* Where the picture is narrower than the plate: a fine printed dot, never flat paper. */
+    background:
+        radial-gradient(circle at 1px 1px, var(--major) 1px, transparent 1.4px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+/* Its keylines drawn over the picture, which runs to the edges: top and left, as on every plate, and a rule beneath. */
+.work-plate::after,
+.work-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        inset 0 -1px 0 var(--ink);
 }
 
 .work-plate > *,
@@ -1134,9 +1150,14 @@ a {
     margin: 0;
 }
 
+.work-plate figure.flash figcaption {
+    padding: 10px var(--pad);
+}
+
 .work-plate img,
 .work-hero img {
     margin: 0 auto;
+    box-shadow: none;
 }
 
 .work-plate figure {
@@ -1144,7 +1165,7 @@ a {
     margin: 0;
 }
 
-/* A comic of several pictures: one at a time on the matte, snapping into place. */
+/* A comic of several pictures: one at a time, snapping into place; its controls sit on it. */
 .slides {
     width: 100%;
     display: grid;
@@ -1162,57 +1183,81 @@ a {
 }
 
 .slides:focus-visible {
-    outline-offset: 6px;
+    outline-offset: -3px;
 }
 
 .slide {
+    position: relative;
     margin: 0;
-    /* Room for the picture's keyline, which the track would clip. */
-    padding: 1px;
     display: grid;
     justify-items: center;
-    gap: 10px;
     scroll-snap-align: center;
 }
 
-.slide figcaption {
+/* Small chips in the picture's lower corners: what a slide is, and where you are. */
+.slide figcaption,
+.slide-count {
+    position: absolute;
+    bottom: 10px;
+    padding: 5px 8px;
+    background: var(--ink);
+    color: var(--stock-light);
     font-family: var(--display);
-    font-size: 0.8125rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
-.slide-controls {
-    display: flex;
-    align-items: center;
-    gap: var(--pad);
-    font-family: var(--display);
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
 }
 
-.slide-controls button {
-    width: 40px;
-    height: 40px;
+.slide figcaption {
+    left: 10px;
+}
+
+.slide-count {
+    right: 10px;
+    z-index: 2;
+}
+
+.slide-count b {
+    font-weight: 700;
+}
+
+/* Previous and next: slim bars on the plate's edges, over the picture. */
+.slide-step {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 36px;
+    height: 64px;
+    transform: translateY(-50%);
     border: 0;
     background: var(--ink);
     color: var(--stock-light);
     font-size: 1.125rem;
     cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
 }
 
-.slide-controls button:hover,
-.slide-controls button:focus-visible {
+.slide-step[data-slide="-1"] {
+    left: 0;
+}
+
+.slide-step[data-slide="1"] {
+    right: 0;
+}
+
+.slide-step:hover,
+.slide-step:focus-visible {
     background: var(--red);
+    opacity: 1;
 }
 
-.slide-controls button:disabled {
-    opacity: 0.3;
-    cursor: default;
-    background: var(--ink);
+.slide-step:disabled {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* The label under a plate: its title (the notes give its series and date). */

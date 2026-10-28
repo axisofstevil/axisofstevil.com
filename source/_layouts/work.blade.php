@@ -44,11 +44,9 @@
                             <figure class="slide">{!! $slide['html'] !!}@if ($slide['caption'])<figcaption>{{ $slide['caption'] }}</figcaption>@endif</figure>
                             @endforeach
                         </div>
-                        <div class="slide-controls">
-                            <button type="button" data-slide="-1" aria-label="Previous picture">←</button>
-                            <span class="slide-count" aria-live="polite"><b data-slide-at>1</b> of {{ count($parts['slides']) }}</span>
-                            <button type="button" data-slide="1" aria-label="Next picture">→</button>
-                        </div>
+                        <button type="button" class="slide-step" data-slide="-1" aria-label="Previous picture">←</button>
+                        <button type="button" class="slide-step" data-slide="1" aria-label="Next picture">→</button>
+                        <span class="slide-count" aria-live="polite"><b data-slide-at>1</b> of {{ count($parts['slides']) }}</span>
                     </div>
                     @else
                     <div class="work-plate work-body">{!! $parts['lead'] !!}</div>
