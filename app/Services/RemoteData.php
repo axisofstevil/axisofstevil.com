@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\IssueLayout;
 use App\WorkBody;
+use App\WorkLayout;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
 use Michelf\MarkdownExtra;
@@ -175,7 +177,7 @@ class RemoteData
         $items = [];
 
         foreach ($oldestFirst as $i => $f) {
-            $blocks = array_values(array_filter(array_map(fn (array $item) => $this->block($item, $bySlug), $f['items'] ?? [])));
+            $blocks = self::shownOnce(array_values(array_filter(array_map(fn (array $item) => $this->block($item, $bySlug), $f['items'] ?? []))));
 
             $items[] = [
                 'filename' => $f['slug'],
@@ -188,6 +190,8 @@ class RemoteData
                 'of' => count($oldestFirst),
                 'description' => 'Issue No. '.($i + 1).' of the Axis of Stevil, the week of '.CarbonImmutable::parse($f['starts_on'])->format('F j, Y').'.',
                 'blocks' => $blocks,
+                // The week composed as a front page: ranked, in rows that end together.
+                'layout' => IssueLayout::compose($blocks, WorkLayout::knownSizes()),
                 'works' => count(array_filter($blocks, fn ($b) => isset($b['address']) && ! $b['refeature'])),
                 'earlier' => $pick($oldestFirst[$i - 1] ?? null),
                 'later' => $pick($oldestFirst[$i + 1] ?? null),
@@ -230,6 +234,8 @@ class RemoteData
                 $body = (string) ($w['content'] ?? '');
                 $role = $item['role'] ?? 'teaser';
                 $block = [
+                    'section' => $w['division'],
+                    'date' => $w['date'],
                     'kicker' => $item['heading'] ?? null,
                     'title' => $w['title'],
                     'address' => $w['address'],
@@ -244,16 +250,21 @@ class RemoteData
                     'shows_picture' => $pictures($text) > 0,
                 ];
 
-                return match (true) {
+                $kinded = match (true) {
                     $w['division'] === 'language' => [...$block, 'kind' => 'language', 'html' => $markdown($body, null, $w['title']), 'whole' => true],
-                    $w['division'] === 'featured-steves' => [...$block, 'kind' => 'steve', 'html' => $this->opening($body)],
-                    $w['division'] === 'comics' => [...$block, 'kind' => 'strip'],
+                    $w['division'] === 'featured-steves' => [...$block, 'kind' => 'steve', 'html' => $w['excerpt'] !== null ? $markdown($w['excerpt'], null, $w['title']) : $this->opening($body)],
+                    // A strip is the comic itself, whole: its pictures or movie, never a teaser's words.
+                    $w['division'] === 'comics' => [...$block, 'kind' => 'strip', 'html' => $markdown($body, $w['image'], $w['title']), 'shows_picture' => $pictures($body) > 0],
                     $w['division'] === 'ask-stevil' => [...$block, 'kind' => 'letter'],
-                    in_array($w['division'], ['publications', 'letters'], true) => [...$block, 'kind' => 'story'],
+                    // A story's words alone (any pictures they carried dropped); the work's own picture goes beside them.
+                    in_array($w['division'], ['publications', 'letters'], true) => [...$block, 'kind' => 'story', 'letter' => $w['division'] === 'letters', 'html' => self::wordsOnly($block['html']), 'shows_picture' => false],
                     // The week's gags, art and movies: a picture, whole. A few words and nothing else: a notice.
                     $pictures($text) > 0 || ($text === '' && $w['image'] !== null) => [...$block, 'kind' => 'plate'],
                     default => [...$block, 'kind' => 'notice'],
                 };
+
+                // How much reading it is, for the page's composition (App\IssueLayout).
+                return [...$kinded, 'words' => str_word_count(strip_tags((string) $kinded['html']))];
 
             case 'featured_track':
                 return [
@@ -278,6 +289,44 @@ class RemoteData
         }
 
         return null;
+    }
+
+    /**
+     * A week's pictures and movies, each shown once: a strip or plate whose
+     * every picture and movie an earlier block already shows (the same Carlton
+     * movie as a comic and as Flash) is left out.
+     *
+     * @param  list<array<string, mixed>>  $blocks  in the order the week ran them
+     * @return list<array<string, mixed>>
+     */
+    private static function shownOnce(array $blocks): array
+    {
+        $seen = [];
+        $kept = [];
+
+        foreach ($blocks as $block) {
+            preg_match_all('/(?:src|data-swf)="([^"]+)"/', (string) ($block['html'] ?? ''), $m);
+            $media = array_unique([...$m[1], ...(in_array($block['kind'], ['strip', 'plate'], true) && ! ($block['shows_picture'] ?? false) && ($block['image'] ?? null) ? [$block['image']] : [])]);
+
+            if (in_array($block['kind'], ['strip', 'plate'], true) && $media !== [] && array_diff($media, $seen) === []) {
+                continue;
+            }
+
+            array_push($seen, ...$media);
+            $kept[] = $block;
+        }
+
+        return $kept;
+    }
+
+    /**
+     * A story's words without the pictures and movies its teaser carried.
+     */
+    private static function wordsOnly(string $html): string
+    {
+        $html = (string) preg_replace(['#<figure\b.*?</figure>#s', '#<img\b[^>]*>#', '#<p>\s*(?:<a\b[^>]*>\s*</a>\s*)*</p>#'], '', $html);
+
+        return trim($html);
     }
 
     /**
@@ -369,6 +418,8 @@ class RemoteData
                     'description' => $e['summary'] ?? $e['teaser'] ?? null,
                     // Where the work first ran, on the site before this one.
                     'original_url' => $e['original_url'] ?? null,
+                    // The excerpt written for it (an issue shows it where it points to the piece).
+                    'excerpt' => ($e['teaser'] ?? null) ?: null,
                     'keywords' => array_values(array_filter(array_map('trim', explode(',', (string) ($e['meta_keywords'] ?? ''))))),
                     'roles' => array_map(fn ($c) => ['name' => $c['name'], 'roles' => $c['roles'] ?? []], $e['credits'] ?? []),
                     'place' => $i + 1,

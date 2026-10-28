@@ -14,24 +14,11 @@
     };
     $volume = ['2005' => 'I', '2006' => 'II', '2007' => 'III'][substr($page->starts_on, 0, 4)] ?? '';
 
-    // The front page, set by what each piece is; each place keeps the order the week ran them.
+    // The week composed as a front page (App\IssueLayout): ranked, in rows that end together.
+    $layout = (array) $page->layout;
     $blocks = collect($page->blocks)->map(fn ($b) => (array) $b);
-    $stories = $blocks->where('kind', 'story')->values();
-    $plates = $blocks->where('kind', 'plate')->values();
-    // The lead: the week's first story; a week without one leads with its first plate.
-    $lead = $stories->first() ?? $plates->first();
-    $stories = $stories->reject(fn ($b) => $b === $lead)->values();
-    $plates = $plates->reject(fn ($b) => $b === $lead)->values();
-    $rail = $blocks->whereIn('kind', ['language', 'steve', 'letter', 'notice'])->values();
-    // A week with nothing for the rail sets its other stories there, beside the lead; otherwise they pair up beneath it.
-    if ($rail->isEmpty() && $stories->isNotEmpty()) {
-        $rail = $stories->map(fn ($b) => [...$b, 'kind' => 'story'])->values();
-        $stories = collect();
-    }
-    $strips = $blocks->where('kind', 'strip')->values();
-    $tune = $blocks->firstWhere('kind', 'tune');
+    $tunes = $blocks->where('kind', 'tune')->values();
     $archive = $blocks->firstWhere('kind', 'archive');
-
     $jump = fn ($b) => 'Continued in '.$b['division'].', Plate '.$b['place'];
 @endphp
 
@@ -54,161 +41,48 @@
             </p>
         </header>
 
-        <div class="issue-front @if ($rail->isEmpty()) issue-front--full @endif">
-            <div class="issue-main">
-                @if ($lead)
-                @if ($lead['kind'] === 'story')
-                <section class="issue-lead" aria-label="The lead">
-                    <p class="issue-kicker">{{ $lead['kicker'] ?? ($lead['refeature'] ? 'Classic Stevil' : $lead['division']) }}</p>
-                    <h2 class="issue-headline"><a href="{{ $lead['address'] }}">{{ $lead['title'] }}</a></h2>
-                    {{-- The picture beside the words where there's room, the words in columns. --}}
-                    <div class="issue-lead-body">
-                        @if ($lead['image'] && ! $lead['shows_picture'])
-                        <a class="issue-lead-picture" href="{{ $lead['address'] }}"><img src="{{ $lead['image'] }}" alt="{{ $lead['title'] }}"></a>
-                        @endif
-                        <div class="issue-copy issue-copy--columns">{!! $lead['html'] !!}</div>
-                    </div>
-                    @unless ($lead['whole'])
-                    <a class="issue-jump" href="{{ $lead['address'] }}">{{ $jump($lead) }} <span aria-hidden="true">→</span></a>
-                    @endunless
-                </section>
-                @else
-                {{-- No story this week: its first picture leads, whole. --}}
-                <figure class="issue-lead issue-lead--plate">
-                    <div class="issue-plate-picture">{!! $lead['html'] !== '' ? $lead['html'] : '<img src="'.e($lead['image']).'" alt="'.e($lead['title']).'">' !!}</div>
-                    <figcaption><a href="{{ $lead['address'] }}">{{ $lead['kicker'] ?? $lead['title'] }}</a></figcaption>
-                </figure>
-                @endif
-                @endif
+        @foreach ($layout['note'] ?? [] as $note)
+        <p class="issue-note"><b>{{ $note['kicker'] ?? 'From the offices' }}</b> <span>{!! strip_tags($note['html'], '<a><em><strong><i><b>') !!}</span></p>
+        @endforeach
 
-                @if ($stories->isNotEmpty())
-                <div class="issue-stories @if ($stories->count() === 1) issue-stories--one @endif">
-                @foreach ($stories as $story)
-                <section class="issue-story">
-                    <p class="issue-kicker">{{ $story['kicker'] ?? ($story['refeature'] ? 'Classic Stevil' : ($story['series'] ?? $story['division'])) }}</p>
-                    <h2 class="issue-story-headline"><a href="{{ $story['address'] }}">{{ $story['title'] }}</a></h2>
-                    <div class="issue-story-body">
-                        @if ($story['image'] && ! $story['shows_picture'])
-                        <a class="issue-story-picture" href="{{ $story['address'] }}"><img src="{{ $story['image'] }}" alt="" loading="lazy"></a>
-                        @endif
-                        <div class="issue-copy">{!! $story['html'] !!}</div>
-                    </div>
-                    @unless ($story['whole'])
-                    <a class="issue-jump" href="{{ $story['address'] }}">{{ $jump($story) }} <span aria-hidden="true">→</span></a>
-                    @endunless
-                </section>
+        @foreach ($layout['rows'] ?? [] as $row)
+        <div class="issue-row @if ($loop->first) issue-row--lead @endif">
+            @foreach ($row as $cell)
+            @if ($cell['type'] === 'stack')
+            <div class="issue-cell issue-stack" style="--grow: {{ $cell['grow'] }}">
+                @foreach ($cell['cells'] as $inner)
+                @include('_partials.issue-cell', ['cell' => $inner, 'jump' => $jump])
                 @endforeach
-                </div>
-                @endif
             </div>
-
-            @if ($rail->isNotEmpty())
-            <aside class="issue-rail" aria-label="Also in this issue">
-                @foreach ($rail as $box)
-                @switch($box['kind'])
-                    @case('language')
-                    <section class="issue-box issue-box--language">
-                        <p class="issue-box-label"><a href="{{ $box['address'] }}">Language</a></p>
-                        <div class="issue-copy">{!! $box['html'] !!}</div>
-                    </section>
-                    @break
-
-                    @case('steve')
-                    <section class="issue-box issue-box--steve">
-                        <p class="issue-box-label">Featured Steve</p>
-                        @if ($box['image'])
-                        <a class="issue-steve-portrait" href="{{ $box['address'] }}"><img src="{{ $box['image'] }}" alt="{{ $box['title'] }}" loading="lazy"></a>
-                        @endif
-                        <h3 class="issue-box-title"><a href="{{ $box['address'] }}">{{ $box['title'] }}</a></h3>
-                        <div class="issue-copy">{!! $box['html'] !!}</div>
-                        <a class="issue-jump" href="{{ $box['address'] }}">{{ $jump($box) }} <span aria-hidden="true">→</span></a>
-                    </section>
-                    @break
-
-                    @case('letter')
-                    <section class="issue-box issue-box--letter">
-                        <p class="issue-box-label"><a href="{{ $box['address'] }}">Ask Stevil</a></p>
-                        <div class="issue-copy">{!! $box['html'] !!}</div>
-                        @unless ($box['whole'])
-                        <a class="issue-jump" href="{{ $box['address'] }}">{{ $jump($box) }} <span aria-hidden="true">→</span></a>
-                        @endunless
-                    </section>
-                    @break
-
-                    @case('story')
-                    <section class="issue-box issue-box--story">
-                        <p class="issue-box-label">{{ $box['kicker'] ?? ($box['refeature'] ? 'Classic Stevil' : ($box['series'] ?? $box['division'])) }}</p>
-                        <h3 class="issue-box-title"><a href="{{ $box['address'] }}">{{ $box['title'] }}</a></h3>
-                        @if ($box['image'] && ! $box['shows_picture'])
-                        <a class="issue-box-picture" href="{{ $box['address'] }}"><img src="{{ $box['image'] }}" alt="" loading="lazy"></a>
-                        @endif
-                        <div class="issue-copy">{!! $box['html'] !!}</div>
-                        @unless ($box['whole'])
-                        <a class="issue-jump" href="{{ $box['address'] }}">{{ $jump($box) }} <span aria-hidden="true">→</span></a>
-                        @endunless
-                    </section>
-                    @break
-
-                    @case('notice')
-                    <section class="issue-box issue-box--notice">
-                        <p class="issue-box-label">From the offices</p>
-                        <h3 class="issue-box-title"><a href="{{ $box['address'] }}">{{ $box['kicker'] ?? $box['title'] }}</a></h3>
-                        <div class="issue-copy">{!! $box['html'] !!}</div>
-                    </section>
-                    @break
-                @endswitch
-                @endforeach
-            </aside>
+            @else
+            @include('_partials.issue-cell', ['cell' => $cell, 'jump' => $jump])
             @endif
-        </div>
-
-        @if ($strips->isNotEmpty())
-        <section class="issue-band issue-funnies" aria-labelledby="funnies-{{ $page->number }}">
-            <h2 class="issue-band-title" id="funnies-{{ $page->number }}">The Funnies</h2>
-            @foreach ($strips as $strip)
-            <figure class="issue-strip">
-                <div class="issue-strip-picture">{!! $strip['shows_picture'] ? $strip['html'] : ($strip['image'] ? '<img src="'.e($strip['image']).'" alt="'.e($strip['title']).'" loading="lazy">' : $strip['html']) !!}</div>
-                <figcaption><a href="{{ $strip['address'] }}"><b>{{ $strip['series'] ?? $strip['division'] }}</b> {{ $strip['title'] }}</a></figcaption>
-            </figure>
             @endforeach
-        </section>
-        @endif
+        </div>
+        @endforeach
 
-        @if ($plates->isNotEmpty())
-        <section class="issue-band issue-plates-band" aria-labelledby="plates-{{ $page->number }}">
-            <h2 class="issue-band-title" id="plates-{{ $page->number }}">Also this week</h2>
-            <div class="issue-plates @if ($plates->count() === 1) issue-plates--one @endif">
-                @foreach ($plates as $plate)
-                <figure class="issue-plate">
-                    @if ($plate['kicker'])
-                    <p class="issue-kicker">{{ $plate['kicker'] }}</p>
-                    @endif
-                    <div class="issue-plate-picture issue-copy">{!! $plate['html'] !== '' ? $plate['html'] : '<img src="'.e($plate['image']).'" alt="'.e($plate['title']).'" loading="lazy">' !!}</div>
-                    <figcaption><a href="{{ $plate['address'] }}">{{ $plate['title'] }}</a><span>{{ $plate['division'] }}</span></figcaption>
-                </figure>
+        @if ($tunes->isNotEmpty() || $archive)
+        <div class="issue-foot @if ($tunes->isEmpty() || ! $archive) issue-foot--one @endif">
+            @if ($tunes->isNotEmpty())
+            <div class="issue-tunes">
+                @foreach ($tunes as $tune)
+                <section class="issue-tune" aria-label="Tune of the Week">
+                    <p class="issue-box-label">Tune of the Week @if ($tunes->count() > 1)<span>{{ $loop->iteration }} of {{ $tunes->count() }}</span>@endif</p>
+                    <div class="issue-sleeve">
+                        @if ($tune['image'])
+                        <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
+                        @endif
+                        <div class="issue-sleeve-label">
+                            @if ($tune['track'])
+                            <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
+                            @endif
+                            <p class="issue-sleeve-artist">{{ $tune['artist'] }}</p>
+                        </div>
+                    </div>
+                    <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
+                </section>
                 @endforeach
             </div>
-        </section>
-        @endif
-
-        @if ($tune || $archive)
-        <div class="issue-foot @if (! $tune || ! $archive) issue-foot--one @endif">
-            @if ($tune)
-            <section class="issue-tune" aria-label="Tune of the Week">
-                <p class="issue-box-label">Tune of the Week</p>
-                <div class="issue-sleeve">
-                    @if ($tune['image'])
-                    <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
-                    @endif
-                    <div class="issue-sleeve-label">
-                        @if ($tune['track'])
-                        <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
-                        @endif
-                        <p class="issue-sleeve-artist">{{ $tune['artist'] }}</p>
-                    </div>
-                </div>
-                <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
-            </section>
             @endif
 
             @if ($archive)

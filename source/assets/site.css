@@ -3399,6 +3399,18 @@ figure.flash.is-enlarged ruffle-player {
     font-size: 0.9375rem;
 }
 
+.issue-tunes {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--pad) * 1.5);
+}
+
+.issue-box-label span {
+    margin-left: 8px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
 .issue-archive-list {
     margin: 0;
     padding: 0;
@@ -3574,3 +3586,228 @@ a.issue-title:hover {
     text-decoration: none;
 }
 
+
+/*
+ * The composed front page (App\IssueLayout): rows whose cells end together.
+ * A row's cells grow in proportion: a whole piece by its shape (so whole
+ * pieces share one height), never past its own width; writing by its length.
+ * A story's own picture is cropped to take the row's slack.
+ */
+.issue-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+    margin: 0 0 var(--pad);
+    padding: 10px 16px;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink);
+    font-size: 1rem;
+}
+
+.issue-note b {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+.issue-row {
+    display: flex;
+    align-items: stretch;
+    gap: calc(var(--pad) * 1.5);
+    padding: var(--pad) 0;
+}
+
+.issue-row + .issue-row {
+    border-top: 1px solid var(--ink);
+}
+
+.issue-row--lead {
+    padding-top: 0;
+}
+
+.issue-cell {
+    flex: var(--grow) 1 0;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Writing after another cell: a column rule before it. */
+.issue-row > * + .issue-text,
+.issue-row > * + .issue-stack {
+    border-left: 1px solid var(--ink);
+    padding-left: calc(var(--pad) * 1.5);
+}
+
+.issue-whole {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--natural);
+}
+
+.issue-whole-picture > *,
+.issue-whole-picture p {
+    margin: 0;
+}
+
+.issue-whole-picture img,
+.issue-whole-picture figure.flash .flash-stage,
+.issue-whole-picture figure.flash ruffle-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-whole-picture img + img {
+    margin-top: 6px;
+}
+
+.issue-whole figcaption {
+    margin-top: 10px;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.issue-whole figcaption .issue-kicker {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.issue-whole figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-whole figcaption a:hover {
+    color: var(--red-ink);
+}
+
+.issue-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-story .issue-headline {
+    margin-bottom: 12px;
+    font-size: clamp(1.375rem, calc(var(--col) * 0.26), 2rem);
+}
+
+.issue-story--lead .issue-headline {
+    font-size: clamp(2rem, calc(var(--col) * 0.5), 3.75rem);
+}
+
+/* A story's own picture, cropped to fill whatever height its row has to spare. */
+.issue-crop {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 9rem;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-story--lead .issue-crop {
+    min-height: 20rem;
+}
+
+.issue-crop--portrait {
+    min-height: 7rem;
+}
+
+.issue-crop img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The writing stacked beside the lead: the last piece takes the column's spare height. */
+.issue-stack {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--pad) * 1.25);
+}
+
+.issue-stack > .issue-cell {
+    flex: 0 0 auto;
+    border-left: 0;
+    padding-left: 0;
+}
+
+.issue-stack > .issue-cell:last-child {
+    flex: 1 1 auto;
+}
+
+.issue-text.issue-box {
+    padding-top: 12px;
+    border-top: 3px solid var(--ink);
+}
+
+.issue-row > .issue-text.issue-box {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.issue-box--plate img,
+.issue-box--strip img {
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+@media (max-width: 760px) {
+    .issue-row {
+        flex-wrap: wrap;
+    }
+
+    .issue-cell {
+        flex-basis: 100%;
+    }
+
+    .issue-row > * + .issue-text,
+    .issue-row > * + .issue-stack {
+        border-left: 0;
+        padding-left: 0;
+        padding-top: var(--pad);
+        border-top: 1px solid var(--ink);
+    }
+
+    .issue-story--lead .issue-crop {
+        min-height: 14rem;
+    }
+}
+
+/* A piece of pictures and words in turn: its parts side by side, in order, at one height. */
+.issue-parts {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.issue-part {
+    flex: var(--grow) 1 0;
+    min-width: 0;
+}
+
+.issue-part--whole {
+    max-width: var(--natural);
+}
+
+.issue-part--whole a {
+    display: block;
+}
+
+@media (max-width: 760px) {
+    .issue-parts {
+        flex-wrap: wrap;
+    }
+
+    .issue-part {
+        flex-basis: 100%;
+    }
+}
