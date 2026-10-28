@@ -2685,3 +2685,45 @@ a {
 .is-paged .story-page + .story-page {
     margin-top: 0;
 }
+
+/* A playing Flash movie can fill the screen. */
+.flash-enlarge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.flash-enlarge:hover,
+.flash-enlarge:focus-visible {
+    background: var(--red);
+    opacity: 1;
+}
+
+.flash-enlarge svg {
+    width: 12px;
+    height: 12px;
+}
+
+.work-body figure.flash ruffle-player:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    background: #000;
+    box-shadow: none;
+}

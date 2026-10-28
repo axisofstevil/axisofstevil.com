@@ -123,7 +123,8 @@ class WorkLayout
             $body = $html(array_slice($blocks, count($lead)));
 
             // A comic of several pictures is a slideshow: its own order, a front-page teaser (or thumbnail) last.
-            $images = $division === 'comics' ? self::images($lead) : [];
+            // One with a player keeps its stack: the slideshow holds pictures, and would drop the movie.
+            $images = $division === 'comics' && ! array_filter($lead, $player) ? self::images($lead) : [];
             if (count($images) > 1) {
                 $teaser = fn (DOMElement $image): bool => preg_match('/(?:tease|\.thumb\.)/i', basename($image->getAttribute('src'))) === 1;
                 usort($images, fn (DOMElement $a, DOMElement $b): int => $teaser($a) <=> $teaser($b));

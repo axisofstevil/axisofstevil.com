@@ -169,6 +169,9 @@ class RemoteData
             }
         }
 
+        // Else the still the archive keeps beside a movie ({name}.thumb.png), where there is one.
+        $stills = [...$this->archivedStills($entries, $stills), ...$stills];
+
         foreach (array_reverse($works) as $work) {
             $byDivision[$work['division']][] = $work;
         }
@@ -295,6 +298,50 @@ class RemoteData
         ];
 
         return $items;
+    }
+
+    /**
+     * The movies with no still from a work, and the stills the archive keeps beside them
+     * ({name}.thumb.png). Each answer is remembered between builds (.cache/stills.json).
+     *
+     * @param  list<array<string, mixed>>  $entries
+     * @param  array<string, string>  $known
+     * @return array<string, string>
+     */
+    private function archivedStills(array $entries, array $known): array
+    {
+        $path = dirname(__DIR__, 2).'/.cache/stills.json';
+        $cache = is_file($path) ? (json_decode((string) file_get_contents($path), true) ?: []) : [];
+        $found = [];
+
+        foreach ($entries as $e) {
+            preg_match_all('/!#flash\(([^)\s]+)\)/', (string) ($e['body'] ?? ''), $movies);
+
+            foreach ($movies[1] as $movie) {
+                if (isset($known[$movie]) || ! str_ends_with(strtolower($movie), '.swf')) {
+                    continue;
+                }
+
+                $still = substr($movie, 0, -4).'.thumb.png';
+
+                if (! array_key_exists($still, $cache)) {
+                    try {
+                        $cache[$still] = $this->api->head($still, ['http_errors' => false])->getStatusCode() === 200;
+                    } catch (\Throwable) {
+                        $cache[$still] = false;
+                    }
+                }
+
+                if ($cache[$still]) {
+                    $found[$movie] = $still;
+                }
+            }
+        }
+
+        @mkdir(dirname($path), 0777, true);
+        file_put_contents($path, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+        return $found;
     }
 
     /**

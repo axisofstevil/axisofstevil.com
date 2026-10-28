@@ -338,6 +338,16 @@ const snapToGrid = (() => {
                 stage.replaceChildren(player);
                 await (player.ruffle?.() ?? player).load({ url: figure.dataset.swf });
                 snapToGrid();
+
+                // Larger, where the browser allows: the movie fills the screen at its own proportions.
+                if (document.fullscreenEnabled) {
+                    const enlarge = document.createElement('button');
+                    enlarge.type = 'button';
+                    enlarge.className = 'flash-enlarge';
+                    enlarge.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4.5v-3h3M7.5 1.5h3v3M10.5 7.5v3h-3M4.5 10.5h-3v-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Full screen';
+                    enlarge.addEventListener('click', () => player.requestFullscreen?.().catch(() => {}));
+                    stage.append(enlarge);
+                }
             } catch (error) {
                 button.removeAttribute('aria-busy');
 
