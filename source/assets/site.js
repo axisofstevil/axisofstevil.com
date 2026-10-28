@@ -263,9 +263,10 @@ const snapToGrid = (() => {
 })();
 
 // A series' introduction sits beside its banner, within the banner's height:
-// the band is never taller than its banner. Words that run taller step down a
-// size or two (to 13px) and tighten their margins; only when they still don't
-// fit (narrow screens) do they take their own row beneath the banner.
+// the band is never taller than its banner. Words that run taller step down
+// one size (to 14px, never smaller: it must still read as meant) and tighten
+// their margins; when they still don't fit, they take their own row beneath
+// the banner, at full size.
 (() => {
     const bands = [...document.querySelectorAll('.series-intro')].filter((band) => band.querySelector('.series-banner') && band.querySelector('.series-text'));
 
@@ -283,7 +284,7 @@ const snapToGrid = (() => {
             text.style.fontSize = '';
             text.style.paddingBlock = '';
 
-            for (const step of [() => {}, () => (text.style.fontSize = '14px'), () => (text.style.fontSize = '13px'), () => (text.style.paddingBlock = '6px')]) {
+            for (const step of [() => {}, () => (text.style.fontSize = '14px'), () => (text.style.paddingBlock = '6px')]) {
                 step();
 
                 if (fits()) {
