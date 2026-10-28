@@ -2653,3 +2653,11 @@ a {
         row-gap: 4px;
     }
 }
+
+.chronology-event img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    box-shadow: 0 0 0 1px var(--ink);
+}
