@@ -1024,6 +1024,15 @@ a {
     display: block;
 }
 
+/* A Flash movie with no picture of its own: the printed dot, its proportions, the play button. */
+.flash-stage--blank {
+    max-width: 100%;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
 /* Played in Ruffle where scripts run; otherwise the thumbnail stands alone. */
 .flash-play {
     display: none;

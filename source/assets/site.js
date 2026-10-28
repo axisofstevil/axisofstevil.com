@@ -334,7 +334,7 @@ const snapToGrid = (() => {
                 const player = (await load()).createPlayer();
                 const ratio = image && image.naturalWidth ? image.naturalWidth / image.naturalHeight : 4 / 3;
 
-                player.style.aspectRatio = String(ratio);
+                player.style.aspectRatio = stage.dataset.ratio ?? String(ratio);
                 stage.replaceChildren(player);
                 await (player.ruffle?.() ?? player).load({ url: figure.dataset.swf });
                 snapToGrid();

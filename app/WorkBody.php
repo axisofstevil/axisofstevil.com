@@ -26,7 +26,11 @@ class WorkBody
                 ? '<img src="'.e($thumbnail).'" alt="'.e($title).', a Flash movie" loading="lazy">'
                 : '';
 
-            return "\n\n".'<figure class="flash" data-swf="'.e($m[1]).'"><div class="flash-stage">'.$picture.'<button type="button" class="flash-play">Play the Flash movie</button></div></figure>'."\n\n";
+            // No picture to stand in for it: a placeholder in the movie's proportions (from its name, "400x120"), else 4:3.
+            $ratio = preg_match('/(\d{2,4})x(\d{2,4})/', basename($m[1]), $size) === 1 ? $size[1].' / '.$size[2] : '4 / 3';
+            $stage = $picture === '' ? '<div class="flash-stage flash-stage--blank" style="aspect-ratio: '.$ratio.'" data-ratio="'.e($ratio).'">' : '<div class="flash-stage">';
+
+            return "\n\n".'<figure class="flash" data-swf="'.e($m[1]).'">'.$stage.$picture.'<button type="button" class="flash-play">Play the Flash movie</button></div></figure>'."\n\n";
         }, $body);
 
         $body = (string) preg_replace_callback(
