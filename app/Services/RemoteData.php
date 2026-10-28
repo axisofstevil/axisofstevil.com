@@ -5,6 +5,7 @@ namespace App\Services;
 use App\WorkBody;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
+use Michelf\MarkdownExtra;
 use RuntimeException;
 use TightenCo\Jigsaw\Jigsaw;
 
@@ -73,7 +74,10 @@ class RemoteData
 
         $divisions = array_map(fn (array $d) => [...$d, 'series' => $this->series($d['slug'], $workPages)], $divisions);
 
-        $collections->set('divisions.items', $this->divisionPages($divisions, $workPages, count($works)));
+        // Each series' banner and introduction (Markdown), as written for it.
+        $introductions = array_column($this->all($channelUrl.'/series'), null, 'slug');
+
+        $collections->set('divisions.items', $this->divisionPages($divisions, $workPages, count($works), $introductions));
         $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
@@ -234,9 +238,10 @@ class RemoteData
      *
      * @param  list<array<string, mixed>>  $divisions
      * @param  list<array<string, mixed>>  $workPages
+     * @param  array<string, array<string, mixed>>  $introductions  each series' banner and description, by slug
      * @return list<array<string, mixed>>
      */
-    private function divisionPages(array $divisions, array $workPages, int $total): array
+    private function divisionPages(array $divisions, array $workPages, int $total, array $introductions = []): array
     {
         $items = [];
 
@@ -274,6 +279,8 @@ class RemoteData
                     'figure' => ($series['count'] === 1 ? 'work' : 'works').' · '.(count($works) > 0 ? (int) round($series['count'] / count($works) * 100) : 0).'% of '.$division['name'],
                     'note_label' => null,
                     'note' => [],
+                    'banner' => $introductions[$series['slug']]['banner'] ?? null,
+                    'introduction' => ($text = $introductions[$series['slug']]['description'] ?? null) === null ? null : MarkdownExtra::defaultTransform($text),
                     'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => 'Plate '.$w['place']], $inSeries),
                 ];
             }

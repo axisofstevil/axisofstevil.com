@@ -1826,6 +1826,50 @@ a {
     grid-column: 1 / -1;
 }
 
+/*
+ * A series' banner and introduction, as written for it, at the top of its
+ * listing: the banner at no more than its own size, the words beside it.
+ */
+.series-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pad) calc(var(--pad) * 1.5);
+    margin: 0 0 var(--pad);
+    padding-bottom: var(--pad);
+    border-bottom: 1px solid var(--major);
+    column-span: all;
+}
+
+.yearbook .series-intro {
+    grid-column: 1 / -1;
+}
+
+.series-banner {
+    display: block;
+    flex: 0 1 auto;
+    width: auto;
+    max-width: min(100%, 26rem);
+    height: auto;
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.series-text {
+    flex: 1 1 18rem;
+    min-width: 0;
+    max-width: 62ch;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+}
+
+.series-text > :first-child {
+    margin-top: 0;
+}
+
+.series-text > :last-child {
+    margin-bottom: 0;
+}
+
 /* The switch fills the plate's height at its right edge, sharing the keylines. */
 .view-switch {
     margin-left: auto;

@@ -37,6 +37,7 @@
     <div class="view view-index">
         <div class="index-sheet">
             <section class="plate index" aria-label="Index" data-snap>
+                @include('_partials.series-intro')
                 @include('_partials.series-note')
                 @foreach ($letters as $letter => $group)
                 <div class="index-group" id="letter-{{ $letter === '#' ? 'num' : $letter }}">
@@ -66,6 +67,7 @@
         @foreach ($years as $year => $group)
         <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
             @if ($loop->first)
+            @include('_partials.series-intro')
             @include('_partials.series-note')
             @endif
             <div class="year-figure">
