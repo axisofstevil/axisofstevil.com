@@ -1,6 +1,6 @@
 <header class="plate running-head" data-snap>
     <nav class="running-left" aria-label="Breadcrumb">
-        <a class="running-lockup" href="/"><img class="running-wordmark" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil: the report" width="456" height="76.5"><img class="running-symbol" src="/assets/logo/axis-symbol.svg" alt="The Axis of Stevil: the report" width="61" height="77"></a>
+        <a class="running-lockup" href="/"><img class="running-wordmark" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img class="running-symbol" src="/assets/logo/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
         @if ($switcher ?? null)
         @php($tag = $switcher['heading'] ?? false ? 'h1' : 'p')
         @php($options = [['label' => 'All Works', 'href' => '/works/', 'count' => collect($page->divisions)->sum('count')], ...collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all()])

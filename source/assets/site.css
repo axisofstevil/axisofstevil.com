@@ -1409,33 +1409,44 @@ a {
     color: var(--red-ink);
 }
 
-/* The colophon: on the sheet, below the last plate. */
-.colophon {
-    padding: var(--half) 0 var(--half);
-    display: grid;
-    grid-template-columns: calc(var(--col) * 6) minmax(0, 1fr);
-    row-gap: var(--pad);
+/* The colophon: a plate one half-module tall, a half-module below the last plate: the lockup, the line, the links. */
+.plate.colophon {
+    min-height: var(--half);
+    margin-top: var(--half);
+    margin-bottom: var(--half);
+    padding: 0 var(--pad);
+    display: flex;
     align-items: center;
+    gap: var(--pad);
+    background: var(--stock-light);
 }
 
-/* The lockup, three columns wide: about one half-module tall. */
 .colophon-lockup {
     display: block;
-    padding-left: var(--pad);
+    flex: none;
 }
 
 .colophon-lockup img {
     display: block;
-    width: calc(var(--col) * 3 - var(--pad));
-    height: auto;
+    height: calc(var(--half) * 0.55);
+    width: auto;
+}
+
+.colophon-line {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
 }
 
 .colophon nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 8px 28px;
-    padding-right: var(--pad);
+    gap: 6px 24px;
     font-family: var(--display);
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -1449,16 +1460,6 @@ a {
 .colophon nav a:hover {
     color: var(--red-ink);
     text-decoration: underline;
-}
-
-.colophon-line {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding-left: var(--pad);
-    font-family: var(--display);
-    font-size: 0.9375rem;
-    letter-spacing: 0.04em;
-    color: var(--muted);
 }
 
 /* The one motion: plates slide along the grid into place and lock, once. */
@@ -1533,13 +1534,21 @@ a {
         margin-top: 0;
     }
 
-    .colophon {
-        grid-template-columns: minmax(0, 1fr);
+    /* Narrower: the lockup and links on the first row, the line beneath. */
+    .plate.colophon {
+        flex-wrap: wrap;
+        row-gap: 4px;
+        padding-top: calc(var(--pad) / 2);
+        padding-bottom: calc(var(--pad) / 2);
+    }
+
+    .colophon-line {
+        order: 3;
+        flex-basis: 100%;
     }
 
     .colophon nav {
-        justify-content: flex-start;
-        padding-left: var(--pad);
+        margin-left: auto;
     }
 }
 
@@ -1773,7 +1782,10 @@ a {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .colophon-lockup img {
-        width: calc(var(--col) * 3);
+    .colophon nav {
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-basis: 100%;
+        order: 2;
     }
 }
