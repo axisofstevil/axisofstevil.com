@@ -18,6 +18,13 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 class RemoteData
 {
+    /**
+     * The organisation's pages the site publishes, in the order its index lists them.
+     */
+    private const ORGANISATION = ['mission', 'history', 'shirts', 'authenticity', 'contact'];
+
+    private const ORGANISATION_LABELS = ['mission' => 'Mission', 'history' => 'History', 'shirts' => 'Shirts', 'authenticity' => 'Authenticity', 'contact' => 'Contact'];
+
     private Client $api;
 
     public function __construct()
@@ -70,10 +77,35 @@ class RemoteData
         $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
+        $organisation = [];
+        $timeline = $this->json($channelUrl.'/timeline')['data'] ?? [];
 
         foreach ($this->json($channelUrl.'/pages')['data'] ?? [] as $p) {
             $pages[$p['slug']] = ['title' => $p['title'], 'summary' => $p['summary'] ?? null, 'path' => $p['path']];
+
+            // The organisation's own pages, each at its path; History carries the chronology.
+            if (in_array($p['slug'], self::ORGANISATION, true)) {
+                $organisation[] = [
+                    'filename' => $p['slug'],
+                    'address' => '/'.trim((string) $p['path'], '/').'/',
+                    'title' => $p['title'],
+                    'slug' => $p['slug'],
+                    'label' => self::ORGANISATION_LABELS[$p['slug']],
+                    'description' => $p['summary'] ?? null,
+                    'summary' => $p['summary'] ?? null,
+                    'image' => $p['image'] ?? null,
+                    'original_url' => $p['original_url'] ?? null,
+                    'timeline' => $p['slug'] === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'description' => $t['description']], $timeline) : [],
+                    'content' => WorkBody::clean((string) ($p['body'] ?? ''), $p['image'] ?? null, $p['title']),
+                ];
+            }
         }
+
+        usort($organisation, fn ($a, $b) => array_search($a['slug'], self::ORGANISATION, true) <=> array_search($b['slug'], self::ORGANISATION, true));
+        $collections = $jigsaw->getConfig('collections');
+        $collections->set('organisation.items', $organisation);
+        $jigsaw->setConfig('collections', $collections);
+        $jigsaw->setConfig('organisation', array_map(fn ($o) => ['label' => $o['label'], 'address' => $o['address']], $organisation));
 
         $jigsaw->setConfig('pages', $pages);
         $jigsaw->setConfig('works', $works);

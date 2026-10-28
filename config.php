@@ -28,6 +28,7 @@ return [
     'issues' => [],
     'works' => [],
     'pages' => [],
+    'organisation' => [],
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [
@@ -35,6 +36,11 @@ return [
             'extends' => '_layouts.work',
             'path' => fn ($page) => trim($page->address, '/'),
             'sort' => '-date',
+        ],
+        // The organisation's own pages at their paths: /mission/, /history/… (items set by RemoteData).
+        'organisation' => [
+            'extends' => '_layouts.page',
+            'path' => fn ($page) => trim($page->address, '/'),
         ],
         // Each division at /{slug}/, each series beneath it at /{division}/{series}/,
         // and All Works at /works/ (items set by RemoteData).

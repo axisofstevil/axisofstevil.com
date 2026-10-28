@@ -2580,3 +2580,76 @@ a {
     height: auto;
     aspect-ratio: 16 / 9;
 }
+
+/* The organisation's index, in the notes: every page, the one you're on marked. */
+.organisation-index {
+    margin: 0 0 var(--pad);
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+}
+
+.organisation-index a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.organisation-index a:hover {
+    color: var(--red-ink);
+}
+
+.organisation-index a[aria-current] {
+    color: var(--red-ink);
+}
+
+.organisation-index a[aria-current]::before {
+    content: "\2192\00a0";
+}
+
+/* History's chronology: the year in the margin, the event beside it, on one rule. */
+.chronology {
+    max-width: 72ch;
+    margin: var(--pad) 0 var(--pad);
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+}
+
+.chronology li {
+    display: grid;
+    grid-template-columns: 9ch minmax(0, 1fr);
+    column-gap: var(--pad);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--major);
+}
+
+.chronology-year {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.125rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.chronology-event {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+}
+
+.chronology-event a {
+    color: var(--red-ink);
+}
+
+@media (max-width: 640px) {
+    .chronology li {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+    }
+}
