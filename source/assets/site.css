@@ -1164,7 +1164,7 @@ a {
     margin: 0;
 }
 
-/* The label under a plate: its title, then its series and date. */
+/* The label under a plate: its title (the notes give its series and date). */
 .work-label {
     margin: 0 0 var(--pad);
     display: flex;
@@ -1177,15 +1177,6 @@ a {
 .work-label .work-title {
     margin: 0;
     font-size: clamp(1.375rem, calc(var(--col) * 0.26), 2rem);
-}
-
-.work-dateline {
-    margin: 0;
-    font-family: var(--display);
-    font-size: 0.8125rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
 }
 
 /* An article opens with a drop cap, in the logo's ink red. */
