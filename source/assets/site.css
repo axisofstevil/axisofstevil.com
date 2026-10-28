@@ -1018,7 +1018,6 @@ a {
 
 .work-body figure.flash .flash-stage {
     position: relative;
-    margin-bottom: 8px;
 }
 
 .work-body figure.flash img {
@@ -1148,10 +1147,6 @@ a {
 .work-plate > *,
 .work-hero > * {
     margin: 0;
-}
-
-.work-plate figure.flash figcaption {
-    padding: 10px var(--pad);
 }
 
 .work-plate img,

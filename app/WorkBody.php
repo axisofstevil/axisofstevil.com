@@ -6,8 +6,8 @@ namespace App;
  * A work's body as the site renders it. The Markdown is kept as written;
  * two kinds of embedded media from 2005–2007 are translated:
  *
- * - `!#flash(...swf)`: the work's thumbnail, labelled as a Flash movie, with
- *   a button that plays it in Ruffle (site.js) where scripts run.
+ * - `!#flash(...swf)`: the work's thumbnail, with a button that plays it in
+ *   Ruffle (site.js) where scripts run.
  * - YouTube's old `<embed src="…youtube.com/v/ID">` (once with a stray `<`):
  *   a privacy-enhanced YouTube player.
  * - An `<embed>` of a movie file (.mov, .mp4, .m4v): a standard video player.
@@ -26,7 +26,7 @@ class WorkBody
                 ? '<img src="'.e($thumbnail).'" alt="'.e($title).', a Flash movie" loading="lazy">'
                 : '';
 
-            return "\n\n".'<figure class="flash" data-swf="'.e($m[1]).'"><div class="flash-stage">'.$picture.'<button type="button" class="flash-play">Play the Flash movie</button></div><figcaption>Flash movie</figcaption></figure>'."\n\n";
+            return "\n\n".'<figure class="flash" data-swf="'.e($m[1]).'"><div class="flash-stage">'.$picture.'<button type="button" class="flash-play">Play the Flash movie</button></div></figure>'."\n\n";
         }, $body);
 
         $body = (string) preg_replace_callback(
