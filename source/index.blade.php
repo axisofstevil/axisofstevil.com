@@ -58,7 +58,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
             <h2 id="letter-title" class="letter-title">To Our Shareholders</h2>
             <div class="letter-body">
                 @if ($authenticity['summary'] ?? null)<p>{{ $authenticity['summary'] }}</p>@endif
-                <p>We are proud to report that random insanity has remained at the finest status, and that every work on record remains in active service.</p>
+                <p>We are proud to report that random insanity has remained at the finest status, and that <a href="/works/">every work on record</a> remains in active service.</p>
                 <p class="signed">Stevil</p>
             </div>
             <dl class="figures">
