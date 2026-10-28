@@ -1960,6 +1960,22 @@ a {
 .index-group {
     break-inside: avoid-column;
     margin-bottom: var(--pad);
+    scroll-margin-top: var(--pad);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The letter just jumped to from the thumb index: lifted onto white paper, ruled round, outside its own lines so nothing moves. */
+.index-group:target {
+    background-color: var(--stock-light);
+    box-shadow:
+        0 0 0 12px var(--stock-light),
+        0 0 0 13px var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .index-group {
+        transition: none;
+    }
 }
 
 .index-letter {
