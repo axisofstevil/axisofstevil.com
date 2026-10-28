@@ -92,7 +92,8 @@ class WorkLayout
         if ($division === 'ask-stevil' && ($kinds[0] ?? null) === 'quote') {
             $question = $blocks[0];
             $lines = array_values(array_filter(iterator_to_array($question->childNodes), fn (DOMNode $node): bool => trim((string) $node->textContent) !== ''));
-            $asker = count($lines) > 1 ? trim((string) end($lines)->textContent) : '';
+            // The page sets its own dash before the reader's name: theirs (-, --, ~) goes, and a row of dashes signs nothing.
+            $asker = count($lines) > 1 ? trim((string) preg_replace('/^[\s\\\\\-~—–]+|[\s\-~—–]+$/u', '', (string) end($lines)->textContent)) : '';
             $quote = count($lines) > 1 ? $html(array_slice($lines, 0, -1)) : $html($lines);
 
             return [...$parts, 'layout' => 'letter', 'quote' => $quote, 'asker' => $asker, 'body' => $html(array_slice($blocks, 1))];
