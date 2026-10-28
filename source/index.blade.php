@@ -109,7 +109,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
                 </tr>
                 @endforeach
             </tbody>
-            <tfoot><tr><th scope="row">Total</th><td class="num">{{ $divisions->sum('count') }}</td><td colspan="2"></td></tr></tfoot>
+            <tfoot><tr><th scope="row"><a href="/works/">Total</a></th><td class="num">{{ $divisions->sum('count') }}</td><td colspan="2"></td></tr></tfoot>
         </table>
         <p class="caption">Plate 9 · Report of the Divisions</p>
     </section>

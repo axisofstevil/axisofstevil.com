@@ -146,8 +146,8 @@ class RemoteData
 
     /**
      * Each division's page: its share of the output, its series, and its
-     * works (oldest first, with their place numbers) for the index and the
-     * yearbook.
+     * works (oldest first, labelled by their place numbers) for the index and
+     * the yearbook; then All Works, every work labelled by its division.
      *
      * @param  list<array<string, mixed>>  $divisions
      * @param  list<array<string, mixed>>  $workPages
@@ -176,19 +176,47 @@ class RemoteData
                 'slug' => $division['slug'],
                 'description' => "Every work filed in {$division['name']}, the Axis of Stevil's division of ".count($works).' works.',
                 'count' => count($works),
-                'share' => $total > 0 ? (int) round(count($works) / $total * 100) : 0,
-                'series' => $series,
-                'works' => array_map(fn ($w) => [
-                    'title' => $w['title'],
-                    'address' => $w['address'],
-                    'date' => $w['date'],
-                    'image' => $w['image'],
-                    'place' => $w['place'],
-                ], $works),
+                'figure' => (count($works) === 1 ? 'work' : 'works').' · '.($total > 0 ? (int) round(count($works) / $total * 100) : 0).'% of output',
+                'note_label' => 'Series',
+                'note' => $series,
+                'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => 'Plate '.$w['place']], $works),
             ];
         }
 
+        $all = $workPages;
+        usort($all, fn ($a, $b) => [$a['date'], $a['place']] <=> [$b['date'], $b['place']]);
+
+        $items[] = [
+            'filename' => 'works',
+            'title' => 'All Works — The Axis of Stevil',
+            'name' => 'All Works',
+            'slug' => 'works',
+            'description' => 'Every work filed by the Axis of Stevil since 2005: '.count($all).' works in '.count($divisions).' divisions.',
+            'count' => count($all),
+            'figure' => 'works · '.count($divisions).' divisions',
+            'note_label' => 'Divisions',
+            'note' => array_column($divisions, 'count', 'name'),
+            'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => $w['division_name']], $all),
+        ];
+
         return $items;
+    }
+
+    /**
+     * A work as a division page lists it.
+     *
+     * @param  array<string, mixed>  $w
+     * @return array<string, mixed>
+     */
+    private function listed(array $w): array
+    {
+        return [
+            'title' => $w['title'],
+            'address' => $w['address'],
+            'date' => $w['date'],
+            'image' => $w['image'],
+            'place' => $w['place'],
+        ];
     }
 
     /**

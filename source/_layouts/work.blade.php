@@ -18,7 +18,6 @@
     @include('_partials.running-head', ['switcher' => [
         'current' => $page->division_name,
         'href' => '/'.$page->division.'/',
-        'options' => collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all(),
     ]])
 
     <div class="spread" data-snap>

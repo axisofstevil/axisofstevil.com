@@ -12,27 +12,25 @@
     })->sortKeys();
 
     // The yearbook: newest first throughout, the years and the works within each year.
-    $years = $works->sortByDesc('place')->groupBy(fn ($w) => substr($w['date'], 0, 4))->sortKeysDesc();
+    $years = $works->sortBy([['date', 'desc'], ['place', 'desc']])->groupBy(fn ($w) => substr($w['date'], 0, 4))->sortKeysDesc();
     $busiest = $years->map->count()->max() ?: 1;
     $short = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j');
-    $series = collect($page->series);
+    $note = collect($page->note);
 @endphp
 
 @section('body')
 <main id="main" class="report">
     <div class="masthead">
         @include('_partials.running-head', [
-            'trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions', 'short' => 'Divisions'],
             'switcher' => [
                 'current' => $page->name,
                 'href' => '/'.$page->slug.'/',
                 'heading' => true,
-                'options' => collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all(),
             ],
         ])
 
         <div class="plate division-bar" data-snap>
-            <p class="division-figure"><b>{{ $page->count }}</b> <span>works · {{ $page->share }}% of output</span></p>
+            <p class="division-figure"><b>{{ $page->count }}</b> <span>{{ $page->figure }}</span></p>
             <div class="view-switch" role="group" aria-label="View">
                 <button type="button" data-view="index" aria-pressed="true">Index</button>
                 <button type="button" data-view="yearbook" aria-pressed="false">Yearbook</button>
@@ -49,7 +47,7 @@
                     <h2 class="index-letter">{{ $letter }}</h2>
                     <ul>
                         @foreach ($group as $work)
-                        <li><a href="{{ $work['address'] }}">{{ $work['title'] }}</a><span>Plate {{ $work['place'] }} · {{ substr($work['date'], 0, 4) }}</span></li>
+                        <li><a href="{{ $work['address'] }}">{{ $work['title'] }}</a><span>{{ $work['label'] }} · {{ substr($work['date'], 0, 4) }}</span></li>
                         @endforeach
                     </ul>
                 </div>
@@ -89,7 +87,7 @@
                         <span class="tile-image tile-blank"></span>
                         @endif
                         <span class="tile-title">{{ $work['title'] }}</span>
-                        <span class="tile-meta">Plate {{ $work['place'] }} · {{ $short($work['date']) }}</span>
+                        <span class="tile-meta">{{ $work['label'] }} · {{ $short($work['date']) }}</span>
                     </a>
                 </li>
                 @endforeach

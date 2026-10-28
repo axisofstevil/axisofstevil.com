@@ -449,8 +449,14 @@ a {
     text-transform: uppercase;
 }
 
-.ledger tbody th a {
+.ledger tbody th a,
+.ledger tfoot th a {
     text-decoration: none;
+}
+
+.ledger tfoot th a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
 }
 
 .ledger tbody th a:hover {
