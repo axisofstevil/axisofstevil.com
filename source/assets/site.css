@@ -2023,8 +2023,32 @@ a {
     display: block;
 }
 
+/* No picture on file: the plates' printed dot, and the symbol, small and muted, where the picture would be. */
 .tile-blank {
-    background: var(--slate);
+    position: relative;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+.tile-blank::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 28%;
+    height: 34%;
+    background: var(--muted);
+    opacity: 0.35;
+    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.tile:hover .tile-blank::after,
+.tile:focus-visible .tile-blank::after {
+    background: var(--red);
+    opacity: 0.8;
 }
 
 .tile-title {
