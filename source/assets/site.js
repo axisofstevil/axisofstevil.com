@@ -339,15 +339,50 @@ const snapToGrid = (() => {
                 await (player.ruffle?.() ?? player).load({ url: figure.dataset.swf });
                 snapToGrid();
 
-                // Larger, where the browser allows: the movie fills the screen at its own proportions.
-                if (document.fullscreenEnabled) {
-                    const enlarge = document.createElement('button');
-                    enlarge.type = 'button';
-                    enlarge.className = 'flash-enlarge';
-                    enlarge.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4.5v-3h3M7.5 1.5h3v3M10.5 7.5v3h-3M4.5 10.5h-3v-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Full screen';
-                    enlarge.addEventListener('click', () => player.requestFullscreen?.().catch(() => {}));
-                    stage.append(enlarge);
-                }
+                // Larger: the playing movie grows in place over the page (as Zoom does for pictures),
+                // fitted to the window at its own proportions; it keeps playing as it opens and closes.
+                const [w, h] = (stage.dataset.ratio ?? '').split('/').map(Number);
+                stage.style.setProperty('--ratio', w && h ? w / h : ratio);
+
+                const enlarge = document.createElement('button');
+                enlarge.type = 'button';
+                enlarge.className = 'flash-enlarge';
+                enlarge.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 4.5v-3h3M7.5 1.5h3v3M10.5 7.5v3h-3M4.5 10.5h-3v-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Enlarge';
+
+                const close = document.createElement('button');
+                close.type = 'button';
+                close.className = 'flash-close';
+                close.textContent = 'Close';
+
+                const shut = () => {
+                    figure.classList.remove('is-enlarged');
+                    figure.style.minHeight = '';
+                    document.documentElement.classList.remove('is-enlarged-open');
+                    document.removeEventListener('keydown', onKey);
+                    enlarge.focus();
+                };
+                const onKey = (event) => event.key === 'Escape' && shut();
+
+                enlarge.addEventListener('click', () => {
+                    // Hold the movie's place on the page while it's out of it.
+                    figure.style.minHeight = `${figure.offsetHeight}px`;
+                    figure.classList.add('is-enlarged');
+                    document.documentElement.classList.add('is-enlarged-open');
+                    document.addEventListener('keydown', onKey);
+                    close.focus();
+                });
+                close.addEventListener('click', shut);
+
+                // Offered only where the overlay would be meaningfully larger (a wide movie on an upright phone isn't).
+                const worth = () => {
+                    const r = Number(stage.style.getPropertyValue('--ratio')) || ratio;
+                    const room = Math.min(window.innerWidth - 48, (window.innerHeight - 96) * r);
+                    enlarge.hidden = !figure.classList.contains('is-enlarged') && room < player.getBoundingClientRect().width * 1.15;
+                };
+                worth();
+                window.addEventListener('resize', worth);
+                stage.addEventListener('click', (event) => event.target === stage && figure.classList.contains('is-enlarged') && shut());
+                stage.append(enlarge, close);
             } catch (error) {
                 button.removeAttribute('aria-busy');
 

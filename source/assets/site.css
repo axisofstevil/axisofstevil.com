@@ -2686,8 +2686,9 @@ a {
     margin-top: 0;
 }
 
-/* A playing Flash movie can fill the screen. */
-.flash-enlarge {
+/* A playing Flash movie can be enlarged, over the page, as Zoom does for pictures. */
+.flash-enlarge,
+.flash-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -2720,10 +2721,52 @@ a {
     height: 12px;
 }
 
-.work-body figure.flash ruffle-player:fullscreen {
-    width: 100vw;
-    height: 100vh;
-    aspect-ratio: auto;
-    background: #000;
+.flash-close,
+.flash-enlarge[hidden] {
+    display: none;
+}
+
+.is-enlarged .flash-enlarge {
+    display: none;
+}
+
+.work-body figure.flash.is-enlarged .flash-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(17, 17, 17, 0.94);
     box-shadow: none;
+}
+
+.work-body figure.flash.is-enlarged ruffle-player {
+    width: min(calc(100vw - 48px), calc((100vh - 96px) * var(--ratio, 1.333)));
+    width: min(calc(100vw - 48px), calc((100dvh - 96px) * var(--ratio, 1.333)));
+    height: auto;
+    box-shadow: 0 0 0 1px rgba(247, 244, 238, 0.3);
+}
+
+.is-enlarged .flash-close {
+    position: fixed;
+    display: inline-flex;
+    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    right: 12px;
+    padding: 10px 14px;
+    background: var(--stock-light);
+    color: var(--ink);
+    font-size: 0.875rem;
+    opacity: 1;
+}
+
+.is-enlarged .flash-close:hover,
+.is-enlarged .flash-close:focus-visible {
+    background: var(--red);
+    color: var(--stock-light);
+}
+
+.is-enlarged-open,
+.is-enlarged-open body {
+    overflow: hidden;
 }
