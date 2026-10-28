@@ -2039,7 +2039,7 @@ a {
     width: 28%;
     height: 34%;
     background: var(--muted);
-    opacity: 0.16;
+    opacity: 0.08;
     -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
     mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
     transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
