@@ -21,13 +21,9 @@
 @section('body')
 <main id="main" class="report">
     <div class="masthead">
-        @include('_partials.running-head', [
-            'switcher' => [
-                'current' => $page->name,
-                'href' => '/'.$page->slug.'/',
-                'heading' => true,
-            ],
-        ])
+        @include('_partials.running-head', $page->parent
+            ? ['division' => $page->parent, 'series' => $page->slug, 'here' => 'series']
+            : ['division' => $page->slug, 'here' => 'division'])
 
         <div class="plate division-bar" data-snap>
             <p class="division-figure"><b>{{ $page->count }}</b> <span>{{ $page->figure }}</span></p>

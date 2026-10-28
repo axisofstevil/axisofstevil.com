@@ -1805,6 +1805,26 @@ a {
         display: block;
     }
 
+    /* A series beneath its division: the series' name gives way first, and its menu opens leftward. */
+    .crumb {
+        min-width: 0;
+    }
+
+    .crumb + .crumb .running-title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .crumb + .crumb .switcher {
+        flex: none;
+    }
+
+    .crumb + .crumb .switcher-menu {
+        left: auto;
+        right: 0;
+    }
+
     .plate.division-bar {
         flex-wrap: wrap;
         padding: calc(var(--pad) / 2) 0 0;

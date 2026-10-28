@@ -36,10 +36,11 @@ return [
             'path' => fn ($page) => trim($page->address, '/'),
             'sort' => '-date',
         ],
-        // Each division at /{slug}/ (items set by RemoteData).
+        // Each division at /{slug}/, each series beneath it at /{division}/{series}/,
+        // and All Works at /works/ (items set by RemoteData).
         'divisions' => [
             'extends' => '_layouts.division',
-            'path' => '{filename}',
+            'path' => fn ($page) => trim($page->address, '/'),
         ],
     ],
 

@@ -194,25 +194,31 @@ const snapToGrid = (() => {
     });
 })();
 
-// The division switcher: close it on Escape or a click elsewhere.
+// The breadcrumb's switchers: one open at a time, closed on Escape or a click elsewhere.
 (() => {
-    const switcher = document.querySelector('.switcher');
+    const switchers = [...document.querySelectorAll('.switcher')];
 
-    if (!switcher) {
-        return;
-    }
+    switchers.forEach((switcher) => {
+        switcher.addEventListener('toggle', () => {
+            if (switcher.open) {
+                switchers.forEach((other) => other !== switcher && (other.open = false));
+            }
+        });
 
-    document.addEventListener('click', (event) => {
-        if (switcher.open && !switcher.contains(event.target)) {
-            switcher.open = false;
-        }
+        switcher.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && switcher.open) {
+                switcher.open = false;
+                switcher.querySelector('summary').focus();
+            }
+        });
     });
 
-    switcher.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && switcher.open) {
-            switcher.open = false;
-            switcher.querySelector('summary').focus();
-        }
+    document.addEventListener('click', (event) => {
+        switchers.forEach((switcher) => {
+            if (switcher.open && !switcher.contains(event.target)) {
+                switcher.open = false;
+            }
+        });
     });
 })();
 

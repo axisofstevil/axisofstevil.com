@@ -64,6 +64,8 @@ class RemoteData
             'count' => $c['entries'],
         ], $this->json($channelUrl.'/categories')['data'] ?? []);
 
+        $divisions = array_map(fn (array $d) => [...$d, 'series' => $this->series($d['slug'], $workPages)], $divisions);
+
         $collections->set('divisions.items', $this->divisionPages($divisions, $workPages, count($works)));
         $jigsaw->setConfig('collections', $collections);
 
@@ -97,6 +99,7 @@ class RemoteData
             'division' => $e['category']['slug'] ?? null,
             'division_name' => $e['category']['name'] ?? null,
             'series' => $e['series']['name'] ?? null,
+            'series_slug' => $e['series']['slug'] ?? null,
             'image' => $e['image'] ?? null,
             'credits' => array_map(fn ($c) => $c['name'], $e['credits'] ?? []),
         ];
@@ -147,9 +150,33 @@ class RemoteData
     }
 
     /**
+     * A division's series, most works first, each at /{division}/{series}/.
+     *
+     * @param  list<array<string, mixed>>  $workPages
+     * @return list<array{name: string, slug: string, count: int, address: string}>
+     */
+    private function series(string $division, array $workPages): array
+    {
+        $series = [];
+
+        foreach ($workPages as $w) {
+            if ($w['division'] === $division && $w['series_slug'] !== null) {
+                $series[$w['series_slug']] ??= ['name' => $w['series'], 'slug' => $w['series_slug'], 'count' => 0, 'address' => "/{$division}/{$w['series_slug']}/"];
+                $series[$w['series_slug']]['count']++;
+            }
+        }
+
+        usort($series, fn ($a, $b) => [$b['count'], $a['name']] <=> [$a['count'], $b['name']]);
+
+        return $series;
+    }
+
+    /**
      * Each division's page: its share of the output, its series, and its
      * works (oldest first, labelled by their place numbers) for the index and
-     * the yearbook; then All Works, every work labelled by its division.
+     * the yearbook; then each series' page beneath its division, the same
+     * listing for its works; then All Works, every work labelled by its
+     * division.
      *
      * @param  list<array<string, mixed>>  $divisions
      * @param  list<array<string, mixed>>  $workPages
@@ -163,16 +190,9 @@ class RemoteData
             $works = array_values(array_filter($workPages, fn ($w) => $w['division'] === $division['slug']));
             usort($works, fn ($a, $b) => $a['place'] <=> $b['place']);
 
-            $series = [];
-            foreach ($works as $w) {
-                if ($w['series'] !== null) {
-                    $series[$w['series']] = ($series[$w['series']] ?? 0) + 1;
-                }
-            }
-            arsort($series);
-
             $items[] = [
                 'filename' => $division['slug'],
+                'address' => "/{$division['slug']}/",
                 'title' => $division['name'].' — The Axis of Stevil',
                 'name' => $division['name'],
                 'slug' => $division['slug'],
@@ -180,9 +200,29 @@ class RemoteData
                 'count' => count($works),
                 'figure' => (count($works) === 1 ? 'work' : 'works').' · '.($total > 0 ? (int) round(count($works) / $total * 100) : 0).'% of output',
                 'note_label' => 'Series',
-                'note' => $series,
+                'note' => array_column($division['series'], 'count', 'name'),
+                'note_links' => array_column($division['series'], 'address', 'name'),
                 'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => 'Plate '.$w['place']], $works),
             ];
+
+            foreach ($division['series'] as $series) {
+                $inSeries = array_values(array_filter($works, fn ($w) => $w['series_slug'] === $series['slug']));
+
+                $items[] = [
+                    'filename' => $division['slug'].'--'.$series['slug'],
+                    'address' => $series['address'],
+                    'title' => $series['name'].' — '.$division['name'].' — The Axis of Stevil',
+                    'name' => $series['name'],
+                    'slug' => $series['slug'],
+                    'parent' => $division['slug'],
+                    'description' => "Every work in {$series['name']}, a series of {$series['count']} in the Axis of Stevil's {$division['name']} division.",
+                    'count' => $series['count'],
+                    'figure' => ($series['count'] === 1 ? 'work' : 'works').' · '.(count($works) > 0 ? (int) round($series['count'] / count($works) * 100) : 0).'% of '.$division['name'],
+                    'note_label' => null,
+                    'note' => [],
+                    'works' => array_map(fn ($w) => [...$this->listed($w), 'label' => 'Plate '.$w['place']], $inSeries),
+                ];
+            }
         }
 
         $all = $workPages;
@@ -190,6 +230,7 @@ class RemoteData
 
         $items[] = [
             'filename' => 'works',
+            'address' => '/works/',
             'title' => 'All Works — The Axis of Stevil',
             'name' => 'All Works',
             'slug' => 'works',

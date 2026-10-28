@@ -15,10 +15,7 @@
 
 @section('body')
 <main id="main" class="report">
-    @include('_partials.running-head', ['switcher' => [
-        'current' => $page->division_name,
-        'href' => '/'.$page->division.'/',
-    ]])
+    @include('_partials.running-head', ['division' => $page->division, 'series' => $page->series_slug])
 
     <div class="spread" data-snap>
         <article class="plate work" aria-labelledby="work-title" data-snap>
@@ -42,7 +39,7 @@
                 <dl class="facts">
                     <div><dt>Division</dt><dd><a href="/{{ $page->division }}/">{{ $page->division_name }}</a></dd></div>
                     @if ($page->series)
-                    <div><dt>Series</dt><dd>{{ $page->series }}</dd></div>
+                    <div><dt>Series</dt><dd><a href="/{{ $page->division }}/{{ $page->series_slug }}/">{{ $page->series }}</a></dd></div>
                     @endif
                     <div><dt>Filed</dt><dd>{{ $filed }}</dd></div>
                     <div><dt>Place</dt><dd>{{ $page->place }} of {{ $page->of }}</dd></div>
