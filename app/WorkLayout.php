@@ -5,6 +5,7 @@ namespace App;
 use DOMDocument;
 use DOMElement;
 use DOMNode;
+use App\Services\ImageAttributes;
 use DOMXPath;
 
 /**
@@ -131,14 +132,25 @@ class WorkLayout
             return [...$parts, 'layout' => 'plate', 'lead' => $html($lead), 'body' => $body];
         }
 
-        // A Featured Steve: the pictures after the last paragraph trail it; the tall, narrow one is the film strip.
+        // A Featured Steve: the pictures after the last paragraph trail it; the tall, narrow one is the
+        // film strip. It often shares a paragraph with the photo before it, so each picture is judged alone.
         if ($division === 'featured-steves') {
             $last = max(array_keys(array_filter($kinds, fn (string $k): bool => $k !== 'media')) ?: [-1]);
-            $trailing = array_slice($blocks, $last + 1);
-            $strip = array_values(array_filter($trailing, fn (DOMNode $node): bool => self::isTall($node, $sizes)));
-            $kept = array_values(array_filter($blocks, fn (DOMNode $node): bool => ! in_array($node, $strip, true)));
+            $strip = [];
 
-            return [...$parts, 'layout' => 'steve', 'body' => $html($kept), 'aside' => $html($strip)];
+            foreach (array_slice($blocks, $last + 1) as $node) {
+                foreach (self::images([$node]) as $image) {
+                    if (self::isTall($image, $sizes)) {
+                        $strip[] = (string) $dom->saveHTML($image);
+                        $image->parentNode?->removeChild($image);
+                    }
+                }
+            }
+
+            // A paragraph the strip leaves empty goes with it.
+            $kept = array_values(array_filter($blocks, fn (DOMNode $node): bool => ! $node instanceof DOMElement || $node->tagName !== 'p' || trim((string) $node->textContent) !== '' || $node->getElementsByTagName('img')->length > 0));
+
+            return [...$parts, 'layout' => 'steve', 'body' => $html($kept), 'aside' => implode("\n", $strip)];
         }
 
         // An article: a picture that opens it leads the page. A drop cap only when it opens on a
@@ -164,7 +176,7 @@ class WorkLayout
     public static function knownSizes(): array
     {
         static $sizes = null;
-        $path = dirname(__DIR__).'/cache/image-sizes.json';
+        $path = dirname(__DIR__).'/'.ImageAttributes::CACHE;
 
         return $sizes ??= is_file($path) ? (json_decode((string) file_get_contents($path), true) ?: []) : [];
     }
@@ -213,7 +225,8 @@ class WorkLayout
     }
 
     /**
-     * Twice as tall as it is wide, by its known size, or named as a strip (…bar.jpg) when its size isn't known.
+     * Twice as tall as it is wide, by its size (measured now if no build has yet), or named as a strip
+     * (…bar.jpg, …mural.jpg) when it can't be measured.
      *
      * @param  array<string, array{0: int, 1: int}>  $sizes
      */
@@ -226,10 +239,16 @@ class WorkLayout
         $image = $node->tagName === 'img' ? $node : $node->getElementsByTagName('img')->item(0);
         $src = $image instanceof DOMElement ? $image->getAttribute('src') : '';
 
+        // Not measured yet (a fresh checkout): measure it now.
+        if (! isset($sizes[$src][0]) && preg_match('/^https?:\/\//', $src) === 1) {
+            $size = @getimagesize($src);
+            $sizes[$src] = $size === false ? [0, 0] : [$size[0], $size[1]];
+        }
+
         if (isset($sizes[$src][0], $sizes[$src][1]) && $sizes[$src][0] > 0) {
             return $sizes[$src][1] >= 2 * $sizes[$src][0];
         }
 
-        return preg_match('/bar\.(?:jpe?g|png|gif)$/i', $src) === 1;
+        return preg_match('/(?:bar|mural)\.(?:jpe?g|png|gif)$/i', $src) === 1;
     }
 }

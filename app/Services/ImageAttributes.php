@@ -15,11 +15,12 @@ use TightenCo\Jigsaw\Jigsaw;
  * (the one at the top of the page), which loads at once.
  *
  * Sizes are read from the start of each file (the header holds them) and kept
- * in cache/image-sizes.json between builds.
+ * in .cache/image-sizes.json between builds.
  */
 class ImageAttributes
 {
-    private const CACHE = 'cache/image-sizes.json';
+    // Outside Jigsaw's own cache/, which it empties on every build.
+    public const CACHE = '.cache/image-sizes.json';
 
     public function handle(Jigsaw $jigsaw): void
     {
