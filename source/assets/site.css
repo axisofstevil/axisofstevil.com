@@ -1867,6 +1867,8 @@ a {
     max-width: 100%;
     height: auto;
     max-height: 9.375rem;
+    /* The plate's keyline down its right edge, where the hatch begins. */
+    box-shadow: 1px 0 0 var(--ink);
 }
 
 .series-text {
