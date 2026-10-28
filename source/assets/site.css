@@ -1114,6 +1114,198 @@ a {
     box-shadow: 0 0 0 1px var(--ink);
 }
 
+/*
+ * A work's page takes its body's shape (App\WorkLayout). The picture-led
+ * shapes set the picture on the lifted stock, matted, at its own size (the
+ * 2005 files are small; they are never stretched), the title as its label.
+ */
+.work-eyebrow {
+    margin: 0 0 10px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.work-head {
+    margin-bottom: var(--pad);
+}
+
+.work-head .work-title {
+    margin-bottom: 0;
+}
+
+.work-plate,
+.work-hero {
+    max-width: none;
+    margin: calc(var(--pad) * -1) calc(var(--pad) * -1) var(--pad);
+    padding: var(--pad);
+    display: grid;
+    justify-items: center;
+    gap: var(--pad);
+    background: var(--stock-light);
+    box-shadow: inset 0 -1px 0 var(--ink);
+}
+
+.work-plate > *,
+.work-hero > * {
+    margin: 0;
+}
+
+.work-plate img,
+.work-hero img {
+    margin: 0 auto;
+}
+
+.work-plate figure {
+    width: 100%;
+    margin: 0;
+}
+
+/* The label under a plate: its title, then its series and date. */
+.work-label {
+    margin: 0 0 var(--pad);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px var(--pad);
+}
+
+.work-label .work-title {
+    margin: 0;
+    font-size: clamp(1.375rem, calc(var(--col) * 0.26), 2rem);
+}
+
+.work-dateline {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* An article opens with a drop cap, in the logo's ink red. */
+.work-body--opening > p:first-of-type::first-letter {
+    float: left;
+    margin: 0.08em 0.1em 0 0;
+    font-family: var(--display);
+    font-size: 3.4em;
+    font-weight: 700;
+    line-height: 0.8;
+    color: var(--red-ink);
+}
+
+/* A Featured Steve: the piece, and the film strip beside it as it first ran, held in view. */
+.steve-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: calc(var(--pad) * 2);
+    align-items: start;
+}
+
+.film-strip {
+    position: sticky;
+    top: calc(var(--half) + 16px);
+    max-width: none;
+    display: grid;
+    gap: 8px;
+}
+
+.film-strip > * {
+    margin: 0;
+}
+
+.film-strip img {
+    max-height: calc(100vh - var(--col));
+    width: auto;
+    margin: 0;
+}
+
+/* Words: a dictionary entry, its illustration beside it. */
+.entry {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: calc(var(--pad) * 2);
+    align-items: start;
+}
+
+.entry-word {
+    margin: 0 0 var(--pad);
+    font-family: var(--text);
+    font-size: clamp(2.75rem, calc(var(--col) * 0.7), 5.5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+.entry-body > p:first-child {
+    font-family: var(--display);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.entry-body blockquote {
+    font-style: italic;
+}
+
+.entry-figure {
+    max-width: none;
+}
+
+.entry-figure > * {
+    margin: 0;
+}
+
+/* Ask Stevil: the reader's letter, signed, then the reply. */
+.letter-head {
+    margin-bottom: var(--pad);
+    padding-bottom: var(--pad);
+    border-bottom: 2px solid var(--ink);
+}
+
+.letter-question {
+    position: relative;
+    margin: 0 0 12px;
+    max-width: 32ch;
+    font-family: var(--text);
+    font-size: clamp(1.625rem, calc(var(--col) * 0.32), 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.22;
+    text-wrap: balance;
+}
+
+.letter-question::before {
+    content: "\201C";
+    position: absolute;
+    left: -0.5em;
+    color: var(--red-ink);
+}
+
+.letter-quote {
+    max-width: 60ch;
+    font-style: italic;
+}
+
+.letter-asker {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.letter-asker::before {
+    content: "\2014 ";
+}
+
 .notes {
     background: var(--stock-light);
 }
@@ -2023,5 +2215,27 @@ a {
 @media (max-width: 400px) {
     .audit-word {
         display: none;
+    }
+}
+
+/* Phones: one column; the film strip follows the piece, centred. */
+@media (max-width: 640px) {
+    .steve-columns,
+    .entry {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .film-strip {
+        position: static;
+        justify-items: center;
+    }
+
+    .film-strip img {
+        max-height: 80vh;
+    }
+
+    .letter-question::before {
+        position: static;
     }
 }

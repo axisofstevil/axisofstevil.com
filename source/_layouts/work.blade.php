@@ -4,6 +4,11 @@
     $filed = \Carbon\CarbonImmutable::parse($page->date)->format('F j, Y');
     $short = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j, Y');
 
+    // The page takes the body's shape (App\WorkLayout): plate, movie, steve, entry, letter or article.
+    $parts = \App\WorkLayout::split($__env->yieldContent('content'), $page->division, \App\WorkLayout::knownSizes());
+    $label = collect([$page->series, $filed])->filter()->implode(' · ');
+    $sameQuestion = fn (string $a, string $b) => mb_strtolower(preg_replace('/\W+/u', '', strip_tags($a))) === mb_strtolower(preg_replace('/\W+/u', '', $b));
+
     // Credits by role, in the order the roles first appear: Art: Stevil; Writing: Stevil, Graham.
     $byRole = [];
     foreach ($page->roles ?? [] as $credit) {
@@ -27,11 +32,75 @@
     </div>
 
     <div class="spread" data-snap>
-        <article class="plate work" aria-labelledby="work-title" data-snap>
-            <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
-            <div class="work-body">
-                @yield('content')
-            </div>
+        <article class="plate work work--{{ $parts['layout'] }}" aria-labelledby="work-title" data-snap>
+            @switch($parts['layout'])
+                @case('plate')
+                @case('movie')
+                    {{-- The picture (or the player) is the work; the title labels it. --}}
+                    <div class="work-plate work-body">{!! $parts['lead'] !!}</div>
+                    <header class="work-label">
+                        <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
+                        <p class="work-dateline">{{ $label }}</p>
+                    </header>
+                    @if (trim(strip_tags($parts['body'], '<img><figure><video><iframe>')) !== '')
+                    <div class="work-body">{!! $parts['body'] !!}</div>
+                    @endif
+                    @break
+
+                @case('steve')
+                    <header class="work-head">
+                        <p class="work-eyebrow">Featured Steve · {{ $filed }}</p>
+                        <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
+                    </header>
+                    <div class="steve-columns">
+                        <div class="work-body work-body--prose">{!! $parts['body'] !!}</div>
+                        @if ($parts['aside'] !== '')
+                        <aside class="film-strip work-body" aria-label="Film strip">{!! $parts['aside'] !!}</aside>
+                        @endif
+                    </div>
+                    @break
+
+                @case('entry')
+                    {{-- A dictionary entry: the word, how it's said, what it means; its illustration beside. --}}
+                    <div class="entry">
+                        <div class="entry-text">
+                            <p class="work-eyebrow">Words · {{ $filed }}</p>
+                            <h1 id="work-title" class="entry-word">{{ $page->title }}</h1>
+                            <div class="work-body entry-body">{!! $parts['body'] !!}</div>
+                        </div>
+                        @if ($parts['aside'] !== '')
+                        <div class="entry-figure work-body">{!! $parts['aside'] !!}</div>
+                        @endif
+                    </div>
+                    @break
+
+                @case('letter')
+                    {{-- A reader writes in; Stevil replies. --}}
+                    <header class="letter-head">
+                        <p class="work-eyebrow">Ask Stevil · {{ $filed }}</p>
+                        <h1 id="work-title" class="letter-question">{{ $page->title }}</h1>
+                        @if (! $sameQuestion($parts['quote'], $page->title))
+                        <div class="letter-quote">{!! $parts['quote'] !!}</div>
+                        @endif
+                        @if ($parts['asker'] !== '')
+                        <p class="letter-asker">{{ $parts['asker'] }}</p>
+                        @endif
+                    </header>
+                    <p class="work-eyebrow letter-reply-label">Stevil replies</p>
+                    <div class="work-body work-body--prose letter-reply">{!! $parts['body'] !!}</div>
+                    @break
+
+                @default
+                    {{-- An article: its opening picture leads, then the headline and the piece. --}}
+                    @if ($parts['lead'] !== '')
+                    <div class="work-hero work-body">{!! $parts['lead'] !!}</div>
+                    @endif
+                    <header class="work-head">
+                        <p class="work-eyebrow">{{ $page->division_name }} · {{ $filed }}</p>
+                        <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
+                    </header>
+                    <div class="work-body work-body--prose work-body--opening">{!! $parts['body'] !!}</div>
+            @endswitch
             @if ($byRole)
             <dl class="credits">
                 @foreach ($byRole as $role => $names)

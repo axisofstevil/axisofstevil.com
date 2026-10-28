@@ -46,7 +46,7 @@ class ImageAttributes
 
         foreach ($files as $file) {
             $html = (string) file_get_contents($file);
-            $first = strpos($html, 'class="work-body"');
+            $first = strpos($html, 'class="plate work ');
             $firstImage = $first === false ? false : stripos($html, '<img', $first);
 
             $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m) use ($sizes) {
@@ -72,7 +72,7 @@ class ImageAttributes
 
             // A work's first picture is at the top of the page: it loads at once.
             if ($firstImage !== false) {
-                $at = stripos($html, '<img', (int) strpos($html, 'class="work-body"'));
+                $at = stripos($html, '<img', (int) strpos($html, 'class="plate work '));
                 $end = strpos($html, '>', $at);
                 $tag = substr($html, $at, $end - $at + 1);
                 $eager = str_replace(' loading="lazy"', ' fetchpriority="high"', $tag);
