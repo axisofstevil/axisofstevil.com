@@ -1873,19 +1873,20 @@ a {
     flex: 1 1 18rem;
     min-width: 0;
     align-self: center;
-    padding: var(--pad);
-    font-size: 1.0625rem;
-    line-height: 1.55;
+    padding: 12px var(--pad);
+    font-size: 0.9375rem;
+    line-height: 1.5;
 }
 
 /* Too long to sit beside the banner (site.js): on its own row beneath it. */
 .series-intro--stacked .series-text {
     flex-basis: 100%;
     align-self: auto;
+    padding: var(--pad);
 }
 
 .series-text > * {
-    max-width: 62ch;
+    max-width: 70ch;
 }
 
 .series-text > :first-child {

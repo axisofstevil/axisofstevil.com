@@ -278,16 +278,30 @@ const snapToGrid = (() => {
             const text = band.querySelector('.series-text');
 
             band.classList.remove('series-intro--stacked');
-            band.classList.toggle('series-intro--stacked', text.offsetTop > banner.offsetTop || text.offsetHeight > banner.offsetHeight);
+            band.classList.toggle('series-intro--stacked', text.offsetLeft < banner.offsetLeft + banner.offsetWidth || text.offsetHeight > banner.offsetHeight);
         });
         snapToGrid();
     };
 
+    // Whenever a banner arrives or changes size (a load, the window, the other view shown), measure again.
+    let frame = 0;
+    const schedule = () => {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(fit);
+    };
+
     fit();
-    document.fonts?.ready.then(fit);
-    window.addEventListener('resize', fit);
-    bands.forEach((band) => band.querySelector('.series-banner').addEventListener('load', fit));
-    document.querySelectorAll('.view-switch [data-view]').forEach((button) => button.addEventListener('click', fit));
+    document.fonts?.ready.then(schedule);
+
+    if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(schedule);
+        bands.forEach((band) => observer.observe(band.querySelector('.series-banner')));
+    } else {
+        window.addEventListener('resize', schedule);
+        bands.forEach((band) => band.querySelector('.series-banner').addEventListener('load', schedule));
+    }
+
+    document.querySelectorAll('.view-switch [data-view]').forEach((button) => button.addEventListener('click', schedule));
 })();
 
 // The breadcrumb's switchers: one open at a time, closed on Escape or a click elsewhere.
