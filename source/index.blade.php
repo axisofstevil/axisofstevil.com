@@ -29,9 +29,11 @@ description: Random insanity at its finest. The complete works of the Axis of St
     $peak = max($quarters) ?: 1;
     $largest = $divisions->max('count') ?: 1;
 
-    // The exhibit shown before anyone asks for one: a work with a picture, a new one each day.
+    // The audit's pile: three pictured works, a different three each day; the span of years on file.
     $pictured = $works->filter(fn ($w) => $w['image'] ?? null)->values();
-    $exhibit = $pictured->isNotEmpty() ? $pictured[$page->build_time->dayOfYear % $pictured->count()] : null;
+    $pile = $pictured->isEmpty() ? collect() : collect(range(0, min(2, $pictured->count() - 1)))
+        ->map(fn ($n) => $pictured[($page->build_time->dayOfYear * 7 + $n * 53) % $pictured->count()]);
+    $onFile = $works->map(fn ($w) => (int) substr($w['date'], 0, 4));
     $fmt = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j, Y');
 @endphp
 
@@ -83,7 +85,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
                 <span class="unit-count">{{ $issues->count() }} issues</span>
                 <span class="caption">Plate 7</span>
             </a>
-            <a class="plate unit unit-audit" data-snap href="#audit" data-audit style="--i: 5">
+            <a class="plate unit unit-audit" data-snap href="#audit" data-audit-start style="--i: 5">
                 <span class="unit-name">Random Audit</span>
                 <span class="unit-count">Pull any work</span>
                 <span class="caption">Plate 8</span>
@@ -133,22 +135,20 @@ description: Random insanity at its finest. The complete works of the Axis of St
     </section>
 
     <section id="audit" class="plate audit" aria-labelledby="audit-title" data-snap>
-        <h2 id="audit-title" class="section-title">Random Audit</h2>
-        <p class="audit-lede">Any work on record may be pulled for inspection at any time.</p>
-        @if ($exhibit)
-        <figure class="exhibit" data-exhibit aria-live="polite">
-            <a class="exhibit-image" href="{{ $exhibit['address'] }}"><img src="{{ $exhibit['image'] }}" alt="" loading="lazy"></a>
-            <figcaption>
-                <a class="exhibit-title" href="{{ $exhibit['address'] }}">{{ $exhibit['title'] }}</a>
-                <dl class="exhibit-facts">
-                    <div><dt>Division</dt><dd data-division>{{ $exhibit['division_name'] ?? '' }}</dd></div>
-                    <div><dt>Filed</dt><dd data-filed>{{ $fmt($exhibit['date']) }}</dd></div>
-                </dl>
-                <span class="stamp" aria-hidden="true">Audited</span>
-            </figcaption>
-        </figure>
+        <div class="audit-brief">
+            <h2 id="audit-title" class="section-title">Random Audit</h2>
+            <p class="audit-lede">Any work on record may be pulled for inspection at any time.</p>
+            <p class="audit-terms">Begin an audit and a work is pulled at random from the {{ $works->count() }} on file and opened in full. Pull another whenever you are ready; nothing is pulled twice until every work has been seen. End the audit to return here.</p>
+            <p class="audit-odds">{{ $works->count() }} works on file · {{ $onFile->min() }}–{{ $onFile->max() }} · Odds of any one work: 1 in {{ $works->count() }}</p>
+            <a class="action" href="/works/" data-audit-start>Begin the audit</a>
+        </div>
+        @if ($pile->isNotEmpty())
+        <div class="audit-pile" aria-hidden="true">
+            @foreach ($pile as $work)
+            <span class="audit-card" style="--n: {{ $loop->index }}"><img src="{{ $work['image'] }}" alt="" loading="lazy"></span>
+            @endforeach
+        </div>
         @endif
-        <button type="button" class="action" data-audit>Audit another work</button>
         <p class="caption">Plate 11 · Random Audit</p>
     </section>
 </main>

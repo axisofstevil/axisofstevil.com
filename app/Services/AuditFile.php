@@ -5,8 +5,8 @@ namespace App\Services;
 use TightenCo\Jigsaw\Jigsaw;
 
 /**
- * The register the Random Audit draws from: every work's title, address,
- * division, date and lead image, written as /audit.json.
+ * The register a Random Audit deals its run from (site.js): every work's
+ * title, address, division, date and lead image, written as /audit.json.
  */
 class AuditFile
 {

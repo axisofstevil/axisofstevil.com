@@ -63,103 +63,113 @@ const snapToGrid = (() => {
     return schedule;
 })();
 
-// Random Audit: pull any pictured work from the register (/audit.json) and
-// present it as the exhibit, without leaving the page.
+// Random Audit: a run through every work in a shuffled order, kept in this tab
+// (sessionStorage) so addresses stay plain. Beginning pulls the first work;
+// each work on the run shows its number and the way on (the bar, the foot of
+// the work, or R); End returns to where the run began. Nothing is pulled twice
+// until every work has been seen.
 (() => {
-    const exhibit = document.querySelector('[data-exhibit]');
-    const triggers = document.querySelectorAll('[data-audit]');
+    const key = 'axis.audit';
+    const here = window.location.pathname;
 
-    if (!exhibit || triggers.length === 0) {
-        return;
-    }
+    const read = () => {
+        try {
+            return JSON.parse(sessionStorage.getItem(key));
+        } catch (error) {
+            return null;
+        }
+    };
 
-    const button = document.querySelector('button[data-audit]');
-    const dateFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
-    let register = null;
-
-    const load = async () => {
-        if (register === null) {
-            const response = await fetch('/audit.json');
-
-            if (!response.ok) {
-                throw new Error(`The register answered ${response.status}`);
+    const write = (run) => {
+        try {
+            if (run) {
+                sessionStorage.setItem(key, JSON.stringify(run));
+            } else {
+                sessionStorage.removeItem(key);
             }
-
-            register = (await response.json()).filter((work) => work.i);
+        } catch (error) {
+            // Storage refused: the pull still happens, without the run's memory.
         }
-
-        return register;
     };
 
-    const show = (work) => {
-        const image = exhibit.querySelector('img');
-        const links = exhibit.querySelectorAll('a');
+    const deal = async () => {
+        const response = await fetch('/audit.json');
 
-        image.src = work.i;
-        links.forEach((link) => (link.href = work.a));
-        exhibit.querySelector('.exhibit-title').textContent = work.t;
-        exhibit.querySelector('[data-division]').textContent = work.d ?? '';
-        exhibit.querySelector('[data-filed]').textContent = dateFormat.format(new Date(`${work.y}T00:00:00Z`));
+        if (!response.ok) {
+            throw new Error(`The register answered ${response.status}`);
+        }
 
-        image.addEventListener('load', snapToGrid, { once: true });
-        snapToGrid();
+        const list = (await response.json()).map((work) => work.a).filter((address) => address !== here);
 
-        exhibit.classList.remove('is-new');
-        void exhibit.offsetWidth;
-        exhibit.classList.add('is-new');
+        for (let i = list.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [list[i], list[j]] = [list[j], list[i]];
+        }
+
+        return list;
     };
 
-    const audit = async () => {
-        if (button) {
-            button.setAttribute('aria-busy', 'true');
-        }
+    const pull = async (button, run) => {
+        button?.setAttribute('aria-busy', 'true');
 
         try {
-            const works = await load();
-            const current = exhibit.querySelector('.exhibit-title').getAttribute('href');
-            const candidates = works.filter((work) => work.a !== current);
-            show(candidates[Math.floor(Math.random() * candidates.length)]);
+            // End returns to where the run began: this page, at the section it was begun from.
+            const section = button?.closest('section[id]');
+            run ??= { from: here + window.location.search + (section ? `#${section.id}` : ''), pulled: [], queue: [] };
+            run.queue = run.queue.filter((address) => address !== here);
+
+            if (run.queue.length === 0) {
+                run.queue = await deal();
+            }
+
+            const next = run.queue.shift();
+            run.pulled.push(next);
+            write(run);
+            window.location.assign(next);
         } catch (error) {
+            button?.removeAttribute('aria-busy');
+
             if (button) {
                 button.textContent = 'The register is unavailable. Try again';
             }
-        } finally {
-            if (button) {
-                button.removeAttribute('aria-busy');
-            }
         }
     };
 
-    triggers.forEach((trigger) => {
+    document.querySelectorAll('[data-audit-start]').forEach((trigger) => {
         trigger.addEventListener('click', (event) => {
-            if (trigger.tagName === 'A') {
-                event.preventDefault();
-                document.getElementById('audit').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-
-            audit();
+            event.preventDefault();
+            pull(trigger, null);
         });
     });
-})();
 
-// On a work's page: go to a work pulled at random from the register.
-(() => {
-    const button = document.querySelector('[data-audit-go]');
+    const run = read();
+    const number = run ? run.pulled.lastIndexOf(here) + 1 : 0;
 
-    if (!button) {
+    if (number === 0) {
         return;
     }
 
-    button.addEventListener('click', async () => {
-        button.setAttribute('aria-busy', 'true');
+    // On the run: show where it stands, and keep it going.
+    document.querySelectorAll('[data-audit-no]').forEach((n) => (n.textContent = number));
+    document.querySelectorAll('[data-audit-bar], [data-audit-only]').forEach((el) => (el.hidden = false));
+    document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = true));
+    document.documentElement.classList.add('on-audit');
+    snapToGrid();
 
-        try {
-            const response = await fetch('/audit.json');
-            const works = (await response.json()).filter((work) => work.a !== window.location.pathname);
-            window.location.href = works[Math.floor(Math.random() * works.length)].a;
-        } catch (error) {
-            button.removeAttribute('aria-busy');
-            button.textContent = 'The register is unavailable. Try again';
+    document.querySelectorAll('[data-audit-next]').forEach((button) => {
+        button.addEventListener('click', () => pull(button, read()));
+    });
+
+    document.querySelector('[data-audit-end]')?.addEventListener('click', () => {
+        write(null);
+        window.location.assign(run.from || '/');
+    });
+
+    document.addEventListener('keydown', (event) => {
+        const typing = event.target.closest?.('input, textarea, select, [contenteditable]');
+
+        if (event.key.toLowerCase() === 'r' && !event.metaKey && !event.ctrlKey && !event.altKey && !typing) {
+            pull(document.querySelector('[data-audit-bar] [data-audit-next]'), read());
         }
     });
 })();

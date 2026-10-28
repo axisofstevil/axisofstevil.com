@@ -17,6 +17,15 @@
 <main id="main" class="report">
     @include('_partials.running-head', ['division' => $page->division, 'series' => $page->series_slug])
 
+    {{-- On a Random Audit (site.js): which pull this is, and the way on. --}}
+    <div class="plate audit-bar" data-audit-bar hidden>
+        <p class="audit-status"><b><span class="audit-long">Random </span><span class="audit-word">Audit · </span>No. <span data-audit-no></span></b> <span class="audit-from">Pulled from {{ $page->division_name }}, {{ substr($page->date, 0, 4) }}</span></p>
+        <div class="audit-controls">
+            <button type="button" class="audit-next" data-audit-next>Pull another <span aria-hidden="true">→</span></button>
+            <button type="button" class="audit-end" data-audit-end>End</button>
+        </div>
+    </div>
+
     <div class="spread" data-snap>
         <article class="plate work" aria-labelledby="work-title" data-snap>
             <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
@@ -30,6 +39,10 @@
                 @endforeach
             </dl>
             @endif
+            <div class="audit-foot" data-audit-only hidden>
+                <p>Random Audit · No. <span data-audit-no></span> inspected.</p>
+                <button type="button" class="action" data-audit-next>Pull another work</button>
+            </div>
             <p class="caption">Plate {{ $page->place }} · {{ $page->division_name }}</p>
         </article>
 
@@ -64,7 +77,7 @@
                 </nav>
                 @endif
 
-                <button type="button" class="action audit-go" data-audit-go>Audit another work</button>
+                <button type="button" class="action audit-go" data-audit-start data-audit-off>A random work</button>
             </div>
             <p class="caption">Notes to Plate {{ $page->place }}</p>
         </aside>

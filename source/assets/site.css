@@ -603,86 +603,158 @@ a {
     max-width: 60ch;
 }
 
-/* The exhibit: the picture on seven columns, its facts on five. */
-.exhibit {
-    margin: 0 0 var(--pad);
+/* The audit's brief on seven columns, a pile of three works on the rest. */
+.plate.audit {
     display: grid;
     grid-template-columns: calc(var(--col) * 7 - var(--pad) * 2) minmax(0, 1fr);
     column-gap: calc(var(--pad) * 2);
-    align-items: start;
+    align-items: center;
 }
 
-.exhibit-image {
-    display: block;
-    background: var(--stock);
-    box-shadow: inset 0 0 0 1px var(--ink);
+.audit .caption {
+    grid-column: 1 / -1;
+}
+
+.audit-terms {
+    margin: 0 0 var(--pad);
+    max-width: 60ch;
+    line-height: 1.55;
+}
+
+.audit-odds {
+    margin: 0 0 var(--pad);
+    padding: 10px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.audit-pile {
+    position: relative;
     aspect-ratio: 4 / 3;
+    margin: var(--pad) var(--half);
+}
+
+.audit-card {
+    position: absolute;
+    inset: 0;
+    background: var(--stock-light);
+    box-shadow:
+        inset 0 0 0 1px var(--ink),
+        0 10px 24px rgba(17, 17, 17, 0.14);
+    transform: translate(calc((var(--n) - 1) * 18px), calc((1 - var(--n)) * 10px)) rotate(calc((var(--n) - 1) * 5deg));
     overflow: hidden;
 }
 
-.exhibit-image img {
+.audit-card img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
 }
 
-.exhibit figcaption {
-    position: relative;
-}
-
-.exhibit-title {
-    display: block;
-    font-family: var(--display);
-    font-size: clamp(1.75rem, calc(var(--col) * 0.33), 2.5rem);
-    font-weight: 700;
-    line-height: 1.02;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-.exhibit-title:hover {
-    color: var(--red-ink);
-}
-
-.exhibit-facts {
-    margin: var(--pad) 0 0;
-    border-top: 2px solid var(--ink);
-}
-
-.exhibit-facts div {
+/*
+ * On a Random Audit: a slate bar directly beneath the running head, inset a
+ * half-module each side like a division's bar, held at the top as the work
+ * scrolls: the pull's number, where it came from, and the way on.
+ */
+.plate.audit-bar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    min-height: var(--half);
+    margin: calc(var(--half) * -1) var(--half) 0;
+    padding: 0 0 0 var(--pad);
     display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--major);
+    align-items: center;
+    gap: var(--pad);
+    background: var(--slate);
+    color: var(--stock);
 }
 
-.exhibit-facts dt {
+.plate.audit-bar[hidden],
+.audit-foot[hidden] {
+    display: none;
+}
+
+.audit-status {
+    margin: 0;
+    min-width: 0;
     font-family: var(--display);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.audit-status b {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.audit-from {
+    margin-left: 10px;
     font-size: 0.8125rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted);
+    opacity: 0.75;
 }
 
-.exhibit-facts dd {
-    margin: 0;
+.audit-controls {
+    margin-left: auto;
+    align-self: stretch;
+    display: flex;
+}
+
+.audit-controls button {
+    appearance: none;
+    border: 0;
+    padding: 0 var(--pad);
+    background: transparent;
+    color: inherit;
     font-family: var(--display);
     font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.35);
 }
 
-.stamp {
-    display: inline-block;
-    margin-top: var(--pad);
-    padding: 8px 16px;
-    border: 3px solid var(--red-ink);
-    color: var(--red-ink);
+.audit-controls .audit-next {
+    background: var(--red);
+}
+
+.audit-controls button:hover,
+.audit-controls button:focus-visible {
+    background: var(--ink);
+}
+
+.audit-controls button[aria-busy='true'] {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* The foot of a work on the run: the natural place to finish is the place to go on. */
+.audit-foot {
+    margin: var(--pad) 0;
+    padding-top: var(--pad);
+    border-top: 2px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pad);
+}
+
+.audit-foot p {
+    margin: 0;
     font-family: var(--display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    transform: rotate(-4deg);
 }
 
 .action {
@@ -1571,26 +1643,11 @@ a {
     .js .fold .unit {
         animation-delay: calc(0.16s + var(--i, 0) * 0.05s);
     }
-
-    .exhibit.is-new {
-        animation: lock 0.7s var(--ease) both;
-    }
-
-    .exhibit.is-new .stamp {
-        animation: stamp 0.5s 0.35s var(--ease) both;
-    }
 }
 
 @keyframes lock {
     from {
         transform: translateY(var(--half));
-        opacity: 0;
-    }
-}
-
-@keyframes stamp {
-    from {
-        transform: rotate(-4deg) scale(1.6);
         opacity: 0;
     }
 }
@@ -1788,9 +1845,47 @@ a {
         margin-top: 16px;
     }
 
-    .exhibit {
+    .plate.audit {
         grid-template-columns: minmax(0, 1fr);
-        row-gap: var(--pad);
+    }
+
+    .audit-pile {
+        max-width: 420px;
+        width: calc(100% - var(--half) * 2);
+    }
+
+    .audit-from {
+        display: none;
+    }
+}
+
+/* Phones: the bar takes the sheet's full width and keeps the count and both controls. */
+@media (max-width: 640px) {
+    .plate.audit-bar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .audit-status {
+        font-size: 0.875rem;
+    }
+
+    .audit-status b {
+        letter-spacing: 0.02em;
+    }
+
+    .audit-long {
+        display: none;
+    }
+
+    .audit-controls button {
+        padding: 0 calc(var(--pad) / 2);
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+    }
+
+    .audit-controls .audit-next span {
+        display: none;
     }
 
     /* Phones: the lockup gives way to the symbol's room; the trail steps aside for the switcher. */
@@ -1903,5 +1998,12 @@ a {
         justify-content: flex-start;
         flex-basis: 100%;
         order: 2;
+    }
+}
+
+/* The narrowest phones: the bar's count alone; its slate and its controls still say what it is. */
+@media (max-width: 400px) {
+    .audit-word {
+        display: none;
     }
 }
