@@ -3,6 +3,14 @@
 @php
     // The page's body, laid out as an article (App\WorkLayout): its opening picture leads.
     $parts = \App\WorkLayout::split($__env->yieldContent('content'), 'organisation', \App\WorkLayout::knownSizes());
+
+    // A page's lead image leads it, in the picture's container, as a work's opening picture does; an opening
+    // picture that isn't the lead stays in the body.
+    if ($page->image && ! str_contains($parts['lead'], $page->image)) {
+        $parts['body'] = $parts['lead'].$parts['body'];
+        $parts['lead'] = '<p><img src="'.e($page->image).'" alt="'.e($page->title).'"></p>';
+    }
+
     $body = trim(strip_tags($parts['body'], '<img><figure><video><iframe>')) !== '';
 @endphp
 
@@ -26,9 +34,9 @@
             @endif
 
             @if ($page->timeline && count($page->timeline))
-            {{-- The chronology, earliest first, as the organisation records it. --}}
-            <ol class="chronology">
-                @foreach ($page->timeline as $event)
+            {{-- The chronology, newest first, as the yearbook runs. --}}
+            <ol class="chronology" reversed>
+                @foreach (collect($page->timeline)->reverse() as $event)
                 <li>
                     <span class="chronology-year">{{ $event['label'] }}</span>
                     <div class="chronology-event">{!! \Illuminate\Support\Str::inlineMarkdown($event['description']) !!}</div>
