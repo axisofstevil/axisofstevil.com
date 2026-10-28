@@ -158,6 +158,17 @@ class RemoteData
         $bySlug = array_column($entries, null, 'slug');
         $byDivision = [];
 
+        // Each Flash movie's own still: the lead image of a work whose body is that one movie and a few words.
+        $stills = [];
+
+        foreach ($entries as $e) {
+            $body = (string) ($e['body'] ?? '');
+
+            if (($e['image'] ?? null) !== null && preg_match_all('/!#flash\(([^)\s]+)\)/', $body, $movies) === 1 && ! str_contains($body, (string) $e['image']) && str_word_count(strip_tags($body)) <= 60) {
+                $stills[$movies[1][0]] ??= $e['image'];
+            }
+        }
+
         foreach (array_reverse($works) as $work) {
             $byDivision[$work['division']][] = $work;
         }
@@ -181,7 +192,7 @@ class RemoteData
                     'of' => count($list),
                     'older' => $pick($list[$i - 1] ?? null),
                     'newer' => $pick($list[$i + 1] ?? null),
-                    'content' => WorkBody::clean((string) ($e['body'] ?? ''), $e['image'] ?? null, $e['title']),
+                    'content' => WorkBody::clean((string) ($e['body'] ?? ''), $e['image'] ?? null, $e['title'], $stills),
                 ];
             }
         }
