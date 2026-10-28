@@ -19,7 +19,7 @@ use TightenCo\Jigsaw\Jigsaw;
 class RemoteData
 {
     /**
-     * The organisation's pages the site publishes, in the order its index lists them.
+     * The organisation's pages the site publishes (by path), in the order its index lists them.
      */
     private const ORGANISATION = ['mission', 'history', 'shirts', 'advertising', 'authenticity', 'contact'];
 
@@ -83,19 +83,22 @@ class RemoteData
         foreach ($this->json($channelUrl.'/pages')['data'] ?? [] as $p) {
             $pages[$p['slug']] = ['title' => $p['title'], 'summary' => $p['summary'] ?? null, 'path' => $p['path']];
 
-            // The organisation's own pages, each at its path; History carries the chronology.
-            if (in_array($p['slug'], self::ORGANISATION, true)) {
+            // The organisation's own pages, each at its path (a page is known by its path, not its slug);
+            // History carries the chronology.
+            $path = trim((string) $p['path'], '/');
+
+            if (in_array($path, self::ORGANISATION, true)) {
                 $organisation[] = [
-                    'filename' => $p['slug'],
-                    'address' => '/'.trim((string) $p['path'], '/').'/',
+                    'filename' => $path,
+                    'address' => '/'.$path.'/',
                     'title' => $p['title'],
-                    'slug' => $p['slug'],
-                    'label' => self::ORGANISATION_LABELS[$p['slug']],
+                    'slug' => $path,
+                    'label' => self::ORGANISATION_LABELS[$path],
                     'description' => $p['summary'] ?? null,
                     'summary' => $p['summary'] ?? null,
                     'image' => $p['image'] ?? null,
                     'original_url' => $p['original_url'] ?? null,
-                    'timeline' => $p['slug'] === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'description' => $t['description']], $timeline) : [],
+                    'timeline' => $path === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'description' => $t['description']], $timeline) : [],
                     'content' => WorkBody::clean((string) ($p['body'] ?? ''), $p['image'] ?? null, $p['title']),
                 ];
             }
