@@ -130,6 +130,8 @@ class RemoteData
                     ...$work,
                     'filename' => $work['slug'],
                     'description' => $e['summary'] ?? $e['teaser'] ?? null,
+                    // Where the work first ran, on the site before this one.
+                    'original_url' => $e['original_url'] ?? null,
                     'keywords' => array_values(array_filter(array_map('trim', explode(',', (string) ($e['meta_keywords'] ?? ''))))),
                     'roles' => array_map(fn ($c) => ['name' => $c['name'], 'roles' => $c['roles'] ?? []], $e['credits'] ?? []),
                     'place' => $i + 1,

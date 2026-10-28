@@ -48,6 +48,10 @@
                     <div><dt>Place</dt><dd>{{ $page->place }} of {{ $page->of }}</dd></div>
                 </dl>
 
+                @if ($page->original_url)
+                <a class="first-ran" href="{{ $page->original_url }}" target="_blank" rel="noopener">As it first ran, {{ substr($page->date, 0, 4) }}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+                @endif
+
                 @if ($page->older || $page->newer)
                 <h3 class="notes-label">Also filed in {{ $page->division_name }}</h3>
                 <nav class="neighbours" aria-label="Also filed in {{ $page->division_name }}">
