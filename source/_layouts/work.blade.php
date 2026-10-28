@@ -107,7 +107,7 @@
                     <header class="work-head">
                         <h1 id="work-title" class="work-title">{{ $page->title }}</h1>
                     </header>
-                    <div class="work-body work-body--prose work-body--opening">{!! $parts['body'] !!}</div>
+                    <div class="work-body work-body--prose @if ($parts['dropCap']) work-body--opening @endif">{!! $parts['body'] !!}</div>
             @endswitch
             @if ($byRole)
             <dl class="credits">

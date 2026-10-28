@@ -36,11 +36,11 @@ class WorkLayout
 
     /**
      * @param  array<string, array{0: int, 1: int}>  $sizes  known picture sizes, by address
-     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string, slides: list<array{html: string, caption: string}>}
+     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string, slides: list<array{html: string, caption: string}>, dropCap: bool}
      */
     public static function split(string $html, ?string $division, array $sizes = []): array
     {
-        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => []];
+        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => [], 'dropCap' => false];
 
         if (trim($html) === '') {
             return $parts;
@@ -141,12 +141,19 @@ class WorkLayout
             return [...$parts, 'layout' => 'steve', 'body' => $html($kept), 'aside' => $html($strip)];
         }
 
-        // An article: a picture that opens it leads the page.
-        if (($kinds[0] ?? null) === 'media' && ! $player($blocks[0])) {
-            return [...$parts, 'lead' => $html([$blocks[0]]), 'body' => $html(array_slice($blocks, 1))];
+        // An article: a picture that opens it leads the page. A drop cap only when it opens on a
+        // paragraph of a few lines that starts with a letter (not a one-line note, a quote or a date).
+        $leads = ($kinds[0] ?? null) === 'media' && ! $player($blocks[0]);
+        $opening = $blocks[$leads ? 1 : 0] ?? null;
+        $dropCap = $opening instanceof DOMElement && $opening->tagName === 'p'
+            && mb_strlen(trim((string) $opening->textContent)) >= 200
+            && preg_match('/^\p{L}/u', trim((string) $opening->textContent)) === 1;
+
+        if ($leads) {
+            return [...$parts, 'lead' => $html([$blocks[0]]), 'body' => $html(array_slice($blocks, 1)), 'dropCap' => $dropCap];
         }
 
-        return $parts;
+        return [...$parts, 'dropCap' => $dropCap];
     }
 
     /**
