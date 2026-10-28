@@ -21,9 +21,9 @@ class RemoteData
     /**
      * The organisation's pages the site publishes, in the order its index lists them.
      */
-    private const ORGANISATION = ['mission', 'history', 'shirts', 'authenticity', 'contact'];
+    private const ORGANISATION = ['mission', 'history', 'shirts', 'advertising', 'authenticity', 'contact'];
 
-    private const ORGANISATION_LABELS = ['mission' => 'Mission', 'history' => 'History', 'shirts' => 'Shirts', 'authenticity' => 'Authenticity', 'contact' => 'Contact'];
+    private const ORGANISATION_LABELS = ['mission' => 'Mission', 'history' => 'History', 'shirts' => 'Shirts', 'advertising' => 'Advertising', 'authenticity' => 'Authenticity', 'contact' => 'Contact'];
 
     private Client $api;
 
