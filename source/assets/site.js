@@ -66,8 +66,8 @@ const snapToGrid = (() => {
 // Random Audit: a run through every work in a shuffled order, kept in this tab
 // (sessionStorage) so addresses stay plain. Beginning pulls the first work;
 // each work on the run shows its number and the way on (the bar, the foot of
-// the work, or R); End returns to where the run began. Nothing is pulled twice
-// until every work has been seen.
+// the work, or R); End stops the run and leaves the reader on the work.
+// Nothing is pulled twice until every work has been seen.
 (() => {
     const key = 'axis.audit';
     const here = window.location.pathname;
@@ -113,9 +113,7 @@ const snapToGrid = (() => {
         button?.setAttribute('aria-busy', 'true');
 
         try {
-            // End returns to where the run began: this page, at the section it was begun from.
-            const section = button?.closest('section[id]');
-            run ??= { from: here + window.location.search + (section ? `#${section.id}` : ''), pulled: [], queue: [] };
+            run ??= { pulled: [], queue: [] };
             run.queue = run.queue.filter((address) => address !== here);
 
             if (run.queue.length === 0) {
@@ -150,11 +148,15 @@ const snapToGrid = (() => {
     }
 
     // On the run: show where it stands, and keep it going.
+    const show = (on) => {
+        document.querySelectorAll('[data-audit-bar], [data-audit-only]').forEach((el) => (el.hidden = !on));
+        document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = on));
+        document.documentElement.classList.toggle('on-audit', on);
+        snapToGrid();
+    };
+
     document.querySelectorAll('[data-audit-no]').forEach((n) => (n.textContent = number));
-    document.querySelectorAll('[data-audit-bar], [data-audit-only]').forEach((el) => (el.hidden = false));
-    document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = true));
-    document.documentElement.classList.add('on-audit');
-    snapToGrid();
+    show(true);
 
     document.querySelectorAll('[data-audit-next]').forEach((button) => {
         button.addEventListener('click', () => pull(button, read()));
@@ -162,10 +164,14 @@ const snapToGrid = (() => {
 
     document.querySelector('[data-audit-end]')?.addEventListener('click', () => {
         write(null);
-        window.location.assign(run.from || '/');
+        show(false);
     });
 
     document.addEventListener('keydown', (event) => {
+        if (!document.documentElement.classList.contains('on-audit')) {
+            return;
+        }
+
         const typing = event.target.closest?.('input, textarea, select, [contenteditable]');
 
         if (event.key.toLowerCase() === 'r' && !event.metaKey && !event.ctrlKey && !event.altKey && !typing) {
