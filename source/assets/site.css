@@ -721,6 +721,7 @@ a {
     align-items: center;
     gap: var(--pad);
     min-width: 0;
+    align-self: stretch;
 }
 
 /* The running head shows the wordmark lockup; on phones beside a division's name, the symbol alone. */
@@ -728,17 +729,46 @@ a {
     display: none;
 }
 
-/* The division switcher: the page's name, which opens the list of divisions. */
-.switcher {
+/*
+ * The breadcrumb: the lockup, a keyline, then the division as two controls,
+ * its name (a link to the division) and a chevron that opens the list of
+ * every division.
+ */
+.crumb {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-left: var(--pad);
+    box-shadow: inset 1px 0 0 var(--major);
+    align-self: stretch;
+}
+
+.running-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.125rem, calc(var(--col) * 0.2), 1.625rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.running-title a {
+    text-decoration: none;
+}
+
+.running-title a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 .switcher summary {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 8px;
-    margin-left: -8px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
     list-style: none;
     cursor: pointer;
 }
@@ -750,16 +780,7 @@ a {
 .switcher summary:hover,
 .switcher[open] summary {
     background: var(--stock);
-}
-
-.running-title {
-    margin: 0;
-    font-family: var(--display);
-    font-size: clamp(1.125rem, calc(var(--col) * 0.2), 1.625rem);
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
-    white-space: nowrap;
+    box-shadow: inset 0 0 0 1px var(--major);
 }
 
 .switcher-chevron {
@@ -775,8 +796,8 @@ a {
 .switcher-menu {
     position: absolute;
     z-index: 20;
-    top: calc(100% + 10px);
-    left: -8px;
+    top: calc(100% + 1px);
+    left: calc(var(--pad) - 16px);
     min-width: calc(var(--col) * 2.5);
     margin: 0;
     padding: 6px 0;
@@ -817,7 +838,7 @@ a {
     color: var(--stock);
 }
 
-.switcher-menu a[aria-current="page"] {
+.switcher-menu a[aria-current] {
     color: var(--red-ink);
 }
 

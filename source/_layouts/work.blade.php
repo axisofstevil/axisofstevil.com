@@ -15,7 +15,11 @@
 
 @section('body')
 <main id="main" class="report">
-    @include('_partials.running-head', ['trail' => ['href' => '/'.$page->division.'/', 'label' => $page->division_name]])
+    @include('_partials.running-head', ['switcher' => [
+        'current' => $page->division_name,
+        'href' => '/'.$page->division.'/',
+        'options' => collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all(),
+    ]])
 
     <div class="spread" data-snap>
         <article class="plate work" aria-labelledby="work-title" data-snap>

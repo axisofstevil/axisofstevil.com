@@ -11,8 +11,8 @@
         return preg_match('/\pL/u', $first) ? $first : '#';
     })->sortKeys();
 
-    // The yearbook: newest year first, each year's works in filing order.
-    $years = $works->groupBy(fn ($w) => substr($w['date'], 0, 4))->sortKeysDesc();
+    // The yearbook: newest first throughout, the years and the works within each year.
+    $years = $works->sortByDesc('place')->groupBy(fn ($w) => substr($w['date'], 0, 4))->sortKeysDesc();
     $busiest = $years->map->count()->max() ?: 1;
     $short = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j');
     $series = collect($page->series);
@@ -25,6 +25,8 @@
             'trail' => ['href' => '/#divisions', 'label' => 'Report of the Divisions', 'short' => 'Divisions'],
             'switcher' => [
                 'current' => $page->name,
+                'href' => '/'.$page->slug.'/',
+                'heading' => true,
                 'options' => collect($page->divisions)->map(fn ($d) => ['label' => $d['name'], 'href' => '/'.$d['slug'].'/', 'count' => $d['count']])->all(),
             ],
         ])
