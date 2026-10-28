@@ -377,6 +377,7 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
 });
 
 // A lead picture shown smaller than its file: Zoom (or a click on it) opens it full size.
+// A set of pictures (a slideshow) steps through the whole set there, by buttons or arrow keys.
 (() => {
     // Not a Flash movie's thumbnail: a click on it plays the movie.
     const pictures = [...document.querySelectorAll('.work-plate img, .work-hero img')].filter((picture) => !picture.closest('figure.flash'));
@@ -386,33 +387,85 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
     }
 
     let view = null;
+    let set = [];
+    let at = 0;
 
-    const open = (picture) => {
-        if (view === null) {
-            view = document.createElement('dialog');
-            view.className = 'zoom-view';
-            view.setAttribute('aria-label', 'Full size');
-            view.innerHTML = '<div class="zoom-stage"><img alt=""></div><button type="button" class="zoom-close">Close</button>';
-            view.querySelector('.zoom-close').addEventListener('click', () => view.close());
-            view.querySelector('.zoom-stage').addEventListener('click', (event) => {
-                if (event.target === event.currentTarget || event.target.tagName === 'IMG') {
-                    view.close();
-                }
-            });
-            document.body.append(view);
-        }
-
-        const image = view.querySelector('img');
+    const show = () => {
+        const picture = set[at];
+        const image = view.querySelector('.zoom-stage img');
         image.src = picture.currentSrc || picture.src;
         image.alt = picture.alt;
         image.width = picture.naturalWidth;
         image.height = picture.naturalHeight;
-        view.showModal();
+
+        const several = set.length > 1;
+        view.querySelector('.zoom-count').hidden = !several;
+        view.querySelector('.zoom-count b').textContent = at + 1;
+        view.querySelector('.zoom-count span').textContent = set.length;
+        view.querySelectorAll('.zoom-step').forEach((button) => {
+            button.hidden = !several;
+            button.disabled = at + Number(button.dataset.step) < 0 || at + Number(button.dataset.step) >= set.length;
+        });
 
         // Larger than the window: start from its middle.
         const stage = view.querySelector('.zoom-stage');
         stage.scrollLeft = (stage.scrollWidth - stage.clientWidth) / 2;
         stage.scrollTop = (stage.scrollHeight - stage.clientHeight) / 2;
+    };
+
+    const step = (by) => {
+        if (at + by >= 0 && at + by < set.length) {
+            at += by;
+            show();
+        }
+    };
+
+    const build = () => {
+        view = document.createElement('dialog');
+        view.className = 'zoom-view';
+        view.setAttribute('aria-label', 'Full size');
+        view.innerHTML = '<div class="zoom-stage"><img alt=""></div>'
+            + '<button type="button" class="zoom-step" data-step="-1" aria-label="Previous picture">←</button>'
+            + '<button type="button" class="zoom-step" data-step="1" aria-label="Next picture">→</button>'
+            + '<p class="zoom-count" aria-live="polite"><b>1</b> of <span>1</span></p>'
+            + '<button type="button" class="zoom-close">Close</button>';
+        view.querySelector('.zoom-close').addEventListener('click', () => view.close());
+        view.querySelectorAll('.zoom-step').forEach((button) => button.addEventListener('click', () => step(Number(button.dataset.step))));
+        view.querySelector('.zoom-stage').addEventListener('click', (event) => {
+            if (event.target === event.currentTarget || event.target.tagName === 'IMG') {
+                view.close();
+            }
+        });
+        // While it's open, the arrow keys step through the set (not the page behind).
+        document.addEventListener('keydown', (event) => {
+            if (view.open && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
+                event.preventDefault();
+                step(event.key === 'ArrowLeft' ? -1 : 1);
+            }
+        });
+        // Back on the page, a slideshow shows the picture last viewed.
+        view.addEventListener('close', () => {
+            const track = set[at]?.closest('.slides');
+            const slide = set[at]?.closest('.slide');
+
+            if (track && slide) {
+                track.scrollTo({ left: [...track.children].indexOf(slide) * track.clientWidth });
+            }
+        });
+        document.body.append(view);
+    };
+
+    const open = (picture) => {
+        if (view === null) {
+            build();
+        }
+
+        set = pictures.filter((other) => other.closest('.work-plate, .work-hero') === picture.closest('.work-plate, .work-hero'));
+        at = set.indexOf(picture);
+        show();
+        view.showModal();
+        view.querySelector('.zoom-close').focus();
+        show();
     };
 
     const offer = (picture) => {

@@ -1237,6 +1237,56 @@ a {
     box-shadow: 0 0 0 1px rgba(247, 244, 238, 0.3);
 }
 
+/* Stepping through a set, full size: bars on the window's edges and a count at its foot. */
+.zoom-step {
+    position: fixed;
+    top: 50%;
+    width: 44px;
+    height: 72px;
+    transform: translateY(-50%);
+    border: 0;
+    background: var(--stock-light);
+    color: var(--ink);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.zoom-step[data-step="-1"] {
+    left: 0;
+}
+
+.zoom-step[data-step="1"] {
+    right: 0;
+}
+
+.zoom-step:hover,
+.zoom-step:focus-visible {
+    background: var(--red);
+    color: var(--stock-light);
+}
+
+.zoom-step:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.zoom-count {
+    position: fixed;
+    left: 50%;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+    margin: 0;
+    padding: 6px 10px;
+    transform: translateX(-50%);
+    background: var(--stock-light);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
 .zoom-close {
     position: fixed;
     top: calc(env(safe-area-inset-top, 0px) + 12px);
