@@ -23,6 +23,11 @@
     $stories = $stories->reject(fn ($b) => $b === $lead)->values();
     $plates = $plates->reject(fn ($b) => $b === $lead)->values();
     $rail = $blocks->whereIn('kind', ['language', 'steve', 'letter', 'notice'])->values();
+    // A week with nothing for the rail sets its other stories there, beside the lead; otherwise they pair up beneath it.
+    if ($rail->isEmpty() && $stories->isNotEmpty()) {
+        $rail = $stories->map(fn ($b) => [...$b, 'kind' => 'story'])->values();
+        $stories = collect();
+    }
     $strips = $blocks->where('kind', 'strip')->values();
     $tune = $blocks->firstWhere('kind', 'tune');
     $archive = $blocks->firstWhere('kind', 'archive');
@@ -76,6 +81,8 @@
                 @endif
                 @endif
 
+                @if ($stories->isNotEmpty())
+                <div class="issue-stories @if ($stories->count() === 1) issue-stories--one @endif">
                 @foreach ($stories as $story)
                 <section class="issue-story">
                     <p class="issue-kicker">{{ $story['kicker'] ?? ($story['refeature'] ? 'Classic Stevil' : ($story['series'] ?? $story['division'])) }}</p>
@@ -91,6 +98,8 @@
                     @endunless
                 </section>
                 @endforeach
+                </div>
+                @endif
             </div>
 
             @if ($rail->isNotEmpty())
@@ -119,6 +128,20 @@
                     @case('letter')
                     <section class="issue-box issue-box--letter">
                         <p class="issue-box-label"><a href="{{ $box['address'] }}">Ask Stevil</a></p>
+                        <div class="issue-copy">{!! $box['html'] !!}</div>
+                        @unless ($box['whole'])
+                        <a class="issue-jump" href="{{ $box['address'] }}">{{ $jump($box) }} <span aria-hidden="true">→</span></a>
+                        @endunless
+                    </section>
+                    @break
+
+                    @case('story')
+                    <section class="issue-box issue-box--story">
+                        <p class="issue-box-label">{{ $box['kicker'] ?? ($box['refeature'] ? 'Classic Stevil' : ($box['series'] ?? $box['division'])) }}</p>
+                        <h3 class="issue-box-title"><a href="{{ $box['address'] }}">{{ $box['title'] }}</a></h3>
+                        @if ($box['image'] && ! $box['shows_picture'])
+                        <a class="issue-box-picture" href="{{ $box['address'] }}"><img src="{{ $box['image'] }}" alt="" loading="lazy"></a>
+                        @endif
                         <div class="issue-copy">{!! $box['html'] !!}</div>
                         @unless ($box['whole'])
                         <a class="issue-jump" href="{{ $box['address'] }}">{{ $jump($box) }} <span aria-hidden="true">→</span></a>
