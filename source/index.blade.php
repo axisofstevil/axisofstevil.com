@@ -141,7 +141,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
         <div class="audit-brief">
             <h2 id="audit-title" class="section-title">Random Audit</h2>
             <p class="audit-lede">Any work on record may be pulled for inspection at any time.</p>
-            <p class="audit-terms">Begin an audit and a work is pulled at random from the {{ $works->count() }} on file and opened in full. Pull another whenever you are ready; nothing is pulled twice until every work has been seen. End the audit to return here.</p>
+            <p class="audit-terms">Begin an audit and a work is pulled at random from the {{ $works->count() }} on file and opened in full. Pull another whenever you are ready; nothing is pulled twice until every work has been seen. End the audit at any time and stay with the work in front of you.</p>
             <p class="audit-odds">{{ $works->count() }} works on file · {{ $onFile->min() }}–{{ $onFile->max() }} · Odds of any one work: 1 in {{ $works->count() }}</p>
             <a class="action" href="/works/" data-audit-start>Begin the audit</a>
         </div>
