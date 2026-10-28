@@ -2661,3 +2661,18 @@ a {
     margin-top: 10px;
     box-shadow: 0 0 0 1px var(--ink);
 }
+
+/* A story's pages: each headed by its number; shown one at a time where scripts run. */
+.story-page > h2:first-child {
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.story-page + .story-page {
+    margin-top: calc(var(--pad) * 2);
+}
+
+.is-paged .story-page + .story-page {
+    margin-top: 0;
+}

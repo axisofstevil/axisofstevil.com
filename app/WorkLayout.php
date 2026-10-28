@@ -23,7 +23,9 @@ use DOMXPath;
  * - letter: a reader's question (the opening quote, signed) and Stevil's
  *   reply (Ask Stevil).
  * - article: everything else, read like a magazine piece; a picture that
- *   opens it leads the page.
+ *   opens it leads the page. A body of pages (sections headed "## Page 2
+ *   {#page-2}", a choose-your-own-adventure story) is a story: each page
+ *   becomes a section, shown one at a time (site.js).
  *
  * Only the arrangement changes: every part of the body is kept, in order
  * within its part.
@@ -37,11 +39,11 @@ class WorkLayout
 
     /**
      * @param  array<string, array{0: int, 1: int}>  $sizes  known picture sizes, by address
-     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string, slides: list<array{html: string, caption: string}>, dropCap: bool}
+     * @return array{layout: string, lead: string, body: string, aside: string, quote: string, asker: string, slides: list<array{html: string, caption: string}>, dropCap: bool, story: bool}
      */
     public static function split(string $html, ?string $division, array $sizes = []): array
     {
-        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => [], 'dropCap' => false];
+        $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => [], 'dropCap' => false, 'story' => false];
 
         if (trim($html) === '') {
             return $parts;
@@ -152,6 +154,24 @@ class WorkLayout
             $kept = array_values(array_filter($blocks, fn (DOMNode $node): bool => ! $node instanceof DOMElement || $node->tagName !== 'p' || trim((string) $node->textContent) !== '' || $node->getElementsByTagName('img')->length > 0));
 
             return [...$parts, 'layout' => 'steve', 'body' => $html($kept), 'aside' => implode("\n", $strip)];
+        }
+
+        // A story of pages: each heading named page-… and what follows it, as a section of that name.
+        $pages = array_keys(array_filter($blocks, fn (DOMNode $node): bool => $node instanceof DOMElement && $node->tagName === 'h2' && str_starts_with($node->getAttribute('id'), 'page-')));
+
+        if (count($pages) > 1) {
+            $sections = [];
+            $before = array_slice($blocks, 0, $pages[0]);
+
+            foreach ($pages as $n => $start) {
+                $end = $pages[$n + 1] ?? count($blocks);
+                $heading = $blocks[$start];
+                $id = $heading instanceof DOMElement ? $heading->getAttribute('id') : '';
+                $heading instanceof DOMElement && $heading->removeAttribute('id');
+                $sections[] = '<section class="story-page" id="'.htmlspecialchars($id).'" data-story-page>'.$html(array_slice($blocks, $start, $end - $start)).'</section>';
+            }
+
+            return [...$parts, 'body' => $html($before).implode("\n", $sections), 'story' => true];
         }
 
         // An article: a picture that opens it leads the page. A drop cap only when it opens on a

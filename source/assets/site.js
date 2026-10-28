@@ -512,3 +512,27 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
         }
     });
 })();
+
+// A story of pages (a choose-your-own-adventure): one page at a time, the one the address names
+// (#page-5), else the first; a choice changes the address, and Back goes back a page.
+document.querySelectorAll('[data-story]').forEach((story) => {
+    const pages = [...story.querySelectorAll('[data-story-page]')];
+
+    if (pages.length < 2) {
+        return;
+    }
+
+    const show = (scroll) => {
+        const named = pages.find((page) => `#${page.id}` === window.location.hash) ?? pages[0];
+        pages.forEach((page) => (page.hidden = page !== named));
+        story.classList.add('is-paged');
+        snapToGrid();
+
+        if (scroll) {
+            story.closest('article')?.scrollIntoView({ block: 'start' });
+        }
+    };
+
+    show(false);
+    window.addEventListener('hashchange', () => show(true));
+});

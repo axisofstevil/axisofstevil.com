@@ -34,7 +34,9 @@ class Redirects
             $external = (bool) preg_match('#^https?://#i', (string) $redirect['to']);
             $to = $external ? (string) $redirect['to'] : $this->address((string) $redirect['to']);
 
-            if (! $external && ! is_file($build.rtrim($to, '/').'/index.html') && ! is_file($build.$to)) {
+            $page = explode('#', $to)[0];
+
+            if (! $external && ! is_file($build.rtrim($page, '/').'/index.html') && ! is_file($build.$page)) {
                 $missing[] = "{$from} → {$to}";
 
                 continue;
@@ -68,15 +70,19 @@ class Redirects
      */
     private function address(string $to): string
     {
-        $to = '/'.ltrim($to, '/');
+        // A place on a page (/p/story#page-5) keeps its place after the slash.
+        [$page, $place] = array_pad(explode('#', '/'.ltrim($to, '/'), 2), 2, null);
+        $page = preg_match('/\.[a-z0-9]{2,4}$/i', $page) || str_ends_with($page, '/') ? $page : $page.'/';
 
-        return preg_match('/\.[a-z0-9]{2,4}$/i', $to) || str_ends_with($to, '/') ? $to : $to.'/';
+        return $page.($place === null ? '' : '#'.$place);
     }
 
     private function stub(string $to, string $base): string
     {
         $url = htmlspecialchars($to, ENT_QUOTES);
-        $canonical = htmlspecialchars(preg_match('#^https?://#i', $to) ? $to : $base.$to, ENT_QUOTES);
+        $canonical = htmlspecialchars(preg_match('#^https?://#i', $to) ? $to : $base.explode('#', $to)[0], ENT_QUOTES);
+        // A forward to a place on a page keeps that place, not the old address's.
+        $hash = str_contains($to, '#') ? '""' : 'location.hash';
 
         return <<<HTML
             <!DOCTYPE html>
@@ -87,7 +93,7 @@ class Redirects
             <link rel="canonical" href="{$canonical}">
             <meta name="robots" content="noindex">
             <meta http-equiv="refresh" content="0; url={$url}">
-            <script>location.replace("{$url}" + location.hash)</script>
+            <script>location.replace("{$url}" + {$hash})</script>
             </head>
             <body><p>This page has moved to <a href="{$url}">{$canonical}</a>.</p></body>
             </html>
