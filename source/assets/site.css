@@ -2048,6 +2048,8 @@ a {
     display: grid;
     grid-template-columns: calc(var(--col) * 2 - var(--pad)) minmax(0, 1fr);
     column-gap: calc(var(--pad) * 2);
+    /* The height added to land on a grid line goes beneath the rows, never into them (the series band). */
+    align-content: start;
 }
 
 .year-title {
