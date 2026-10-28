@@ -1895,10 +1895,6 @@ a {
     padding: var(--pad);
 }
 
-.series-text > * {
-    max-width: 70ch;
-}
-
 .series-text > :first-child {
     margin-top: 0;
 }
