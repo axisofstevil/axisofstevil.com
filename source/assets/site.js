@@ -389,6 +389,7 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
     let view = null;
     let set = [];
     let at = 0;
+    let swiped = 0;
 
     const show = () => {
         const picture = set[at];
@@ -432,10 +433,41 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
         view.querySelector('.zoom-close').addEventListener('click', () => view.close());
         view.querySelectorAll('.zoom-step').forEach((button) => button.addEventListener('click', () => step(Number(button.dataset.step))));
         view.querySelector('.zoom-stage').addEventListener('click', (event) => {
-            if (event.target === event.currentTarget || event.target.tagName === 'IMG') {
+            if ((event.target === event.currentTarget || event.target.tagName === 'IMG') && Date.now() - swiped > 400) {
                 view.close();
             }
         });
+        // A sideways swipe steps too: where the picture fits, or from the edge it was already panned to.
+        const stage = view.querySelector('.zoom-stage');
+        let touch = null;
+
+        stage.addEventListener('touchstart', (event) => {
+            if (event.touches.length === 1) {
+                const room = stage.scrollWidth - stage.clientWidth;
+                touch = { x: event.touches[0].clientX, y: event.touches[0].clientY, atStart: stage.scrollLeft <= 1, atEnd: stage.scrollLeft >= room - 1 };
+            }
+        }, { passive: true });
+
+        stage.addEventListener('touchend', (event) => {
+            if (touch === null || set.length < 2) {
+                return;
+            }
+
+            const dx = event.changedTouches[0].clientX - touch.x;
+            const dy = event.changedTouches[0].clientY - touch.y;
+            const sideways = Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5;
+
+            if (sideways && dx < 0 && touch.atEnd) {
+                swiped = Date.now();
+                step(1);
+            } else if (sideways && dx > 0 && touch.atStart) {
+                swiped = Date.now();
+                step(-1);
+            }
+
+            touch = null;
+        }, { passive: true });
+
         // While it's open, the arrow keys step through the set (not the page behind).
         document.addEventListener('keydown', (event) => {
             if (view.open && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
