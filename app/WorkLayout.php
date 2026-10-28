@@ -2,10 +2,10 @@
 
 namespace App;
 
+use App\Services\ImageAttributes;
 use DOMDocument;
 use DOMElement;
 use DOMNode;
-use App\Services\ImageAttributes;
 use DOMXPath;
 
 /**
