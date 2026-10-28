@@ -375,3 +375,73 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
     track.addEventListener('scroll', () => window.requestAnimationFrame(update), { passive: true });
     update();
 });
+
+// A lead picture shown smaller than its file: Zoom (or a click on it) opens it full size.
+(() => {
+    // Not a Flash movie's thumbnail: a click on it plays the movie.
+    const pictures = [...document.querySelectorAll('.work-plate img, .work-hero img')].filter((picture) => !picture.closest('figure.flash'));
+
+    if (pictures.length === 0) {
+        return;
+    }
+
+    let view = null;
+
+    const open = (picture) => {
+        if (view === null) {
+            view = document.createElement('dialog');
+            view.className = 'zoom-view';
+            view.setAttribute('aria-label', 'Full size');
+            view.innerHTML = '<div class="zoom-stage"><img alt=""></div><button type="button" class="zoom-close">Close</button>';
+            view.querySelector('.zoom-close').addEventListener('click', () => view.close());
+            view.querySelector('.zoom-stage').addEventListener('click', (event) => {
+                if (event.target === event.currentTarget || event.target.tagName === 'IMG') {
+                    view.close();
+                }
+            });
+            document.body.append(view);
+        }
+
+        const image = view.querySelector('img');
+        image.src = picture.currentSrc || picture.src;
+        image.alt = picture.alt;
+        image.width = picture.naturalWidth;
+        image.height = picture.naturalHeight;
+        view.showModal();
+
+        // Larger than the window: start from its middle.
+        const stage = view.querySelector('.zoom-stage');
+        stage.scrollLeft = (stage.scrollWidth - stage.clientWidth) / 2;
+        stage.scrollTop = (stage.scrollHeight - stage.clientHeight) / 2;
+    };
+
+    const offer = (picture) => {
+        // Only when the file is meaningfully bigger than what's shown.
+        if (picture.closest('.zoomable') || picture.naturalWidth < picture.clientWidth * 1.15) {
+            return;
+        }
+
+        const frame = document.createElement('span');
+        frame.className = 'zoomable';
+        picture.replaceWith(frame);
+        frame.append(picture);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'zoom-open';
+        button.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="5" cy="5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7.6 7.6 11 11" stroke="currentColor" stroke-width="1.5"/></svg>Zoom';
+        button.setAttribute('aria-label', 'View this picture full size');
+        frame.append(button);
+
+        button.addEventListener('click', () => open(picture));
+        picture.addEventListener('click', () => open(picture));
+    };
+
+    pictures.forEach((picture) => {
+        if (picture.complete && picture.naturalWidth > 0) {
+            offer(picture);
+        } else {
+            picture.addEventListener('load', () => offer(picture), { once: true });
+        }
+    });
+})();
