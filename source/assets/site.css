@@ -1195,7 +1195,8 @@ a {
 }
 
 /* Small chips in the picture's lower corners: what a slide is, and where you are. */
-.slide figcaption,
+/* Scoped to the plate so the body's figure-caption rule (muted, larger) can't reach it. */
+.work-plate .slide figcaption,
 .slide-count {
     position: absolute;
     bottom: 10px;
@@ -1211,7 +1212,7 @@ a {
     font-variant-numeric: tabular-nums;
 }
 
-.slide figcaption {
+.work-plate .slide figcaption {
     left: 10px;
 }
 
