@@ -611,10 +611,6 @@ a {
     align-items: center;
 }
 
-.audit .caption {
-    grid-column: 1 / -1;
-}
-
 .audit-terms {
     margin: 0 0 var(--pad);
     max-width: 60ch;
