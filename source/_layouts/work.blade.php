@@ -91,8 +91,11 @@
                         @if (! $sameQuestion($parts['quote'], $page->title))
                         <div class="letter-quote">{!! $parts['quote'] !!}</div>
                         @endif
+                        {{-- No name given: said so, in the site's voice. --}}
                         @if ($parts['asker'] !== '')
                         <p class="letter-asker">{{ $parts['asker'] }}</p>
+                        @else
+                        <p class="letter-asker letter-asker--none">[anonymous]</p>
                         @endif
                     </header>
                     <p class="work-eyebrow letter-reply-label">Stevil replies</p>

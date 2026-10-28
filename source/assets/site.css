@@ -1575,6 +1575,11 @@ a {
     content: "\2014 ";
 }
 
+.letter-asker--none {
+    font-weight: 500;
+    color: var(--muted);
+}
+
 .notes {
     background: var(--stock-light);
 }
