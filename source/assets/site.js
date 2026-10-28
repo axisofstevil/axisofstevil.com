@@ -262,6 +262,34 @@ const snapToGrid = (() => {
     });
 })();
 
+// A series' introduction sits beside its banner only while it fits within the
+// banner's height; longer than that, it takes its own row beneath, so the band
+// is never taller than its banner beside the words.
+(() => {
+    const bands = [...document.querySelectorAll('.series-intro')].filter((band) => band.querySelector('.series-banner') && band.querySelector('.series-text'));
+
+    if (bands.length === 0) {
+        return;
+    }
+
+    const fit = () => {
+        bands.forEach((band) => {
+            const banner = band.querySelector('.series-banner');
+            const text = band.querySelector('.series-text');
+
+            band.classList.remove('series-intro--stacked');
+            band.classList.toggle('series-intro--stacked', text.offsetTop > banner.offsetTop || text.offsetHeight > banner.offsetHeight);
+        });
+        snapToGrid();
+    };
+
+    fit();
+    document.fonts?.ready.then(fit);
+    window.addEventListener('resize', fit);
+    bands.forEach((band) => band.querySelector('.series-banner').addEventListener('load', fit));
+    document.querySelectorAll('.view-switch [data-view]').forEach((button) => button.addEventListener('click', fit));
+})();
+
 // The breadcrumb's switchers: one open at a time, closed on Escape or a click elsewhere.
 (() => {
     const switchers = [...document.querySelectorAll('.switcher')];

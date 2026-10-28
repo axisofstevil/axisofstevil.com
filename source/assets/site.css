@@ -1858,6 +1858,7 @@ a {
     grid-column: 1 / -1;
 }
 
+/* Never taller than the 2005 banners were drawn to run: wider ones keep their proportions. */
 .series-banner {
     display: block;
     flex: 0 1 auto;
@@ -1865,6 +1866,7 @@ a {
     width: auto;
     max-width: 100%;
     height: auto;
+    max-height: 9.375rem;
 }
 
 .series-text {
@@ -1874,6 +1876,12 @@ a {
     padding: var(--pad);
     font-size: 1.0625rem;
     line-height: 1.55;
+}
+
+/* Too long to sit beside the banner (site.js): on its own row beneath it. */
+.series-intro--stacked .series-text {
+    flex-basis: 100%;
+    align-self: auto;
 }
 
 .series-text > * {
