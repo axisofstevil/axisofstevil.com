@@ -242,8 +242,8 @@ class RemoteData
                         ...$block,
                         'treatment' => (string) ($placed['treatment'] ?? 'whole'),
                         'picture' => (string) ($placed['picture'] ?? 'whole'),
-                        // This week's summary, its words alone (the piece's own picture goes beside it).
-                        'summary_html' => $summaryHtml,
+                        // This week's summary, its words alone (the piece's own picture goes beside it); none written: the teaser's words.
+                        'summary_html' => $summaryHtml !== '' ? $summaryHtml : self::wordsOnly((string) $block['html']),
                         // Whether the work has more than the page shows: its words beyond the summary's, or pictures beyond the one beside it.
                         'more' => self::hasMore($summaryHtml !== '' ? $summaryHtml : (string) $block['html'], (string) $block['full_html'], $block['image'] !== null),
                         // Pictures in a row: its words without them, and its pictures (with their sizes) to set side by side beneath.

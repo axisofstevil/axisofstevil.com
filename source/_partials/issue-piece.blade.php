@@ -56,7 +56,7 @@
         @if ($picture)
         <a class="@if ($crop) issue-crop @else issue-full-picture @endif" href="{{ $b['address'] }}">{!! $picture !!}</a>
         @endif
-        <div class="issue-copy @if ($lead) issue-copy--columns @endif">{!! $b['summary_html'] !== '' ? $b['summary_html'] : $b['html'] !!}</div>
+        <div class="issue-copy @if ($lead) issue-copy--columns @endif">{!! $b['summary_html'] !!}</div>
         @if (($b['continued'] ?? null) === 'show' || (($b['continued'] ?? null) !== 'hide' && ($b['more'] ?? true)))
         <a class="issue-jump" href="{{ $b['address'] }}">{{ $jump($b) }} <span aria-hidden="true">→</span></a>
         @endif
