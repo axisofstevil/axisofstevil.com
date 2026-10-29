@@ -3965,3 +3965,11 @@ a.issue-title:hover {
     height: auto;
     box-shadow: 0 0 0 1px var(--ink);
 }
+
+/* A week's name on a phone: smaller, and a word longer than the line breaks rather than running off it. */
+@media (max-width: 600px) {
+    .issue-name {
+        font-size: clamp(1.75rem, 9.5vw, 2.5rem);
+        overflow-wrap: anywhere;
+    }
+}
