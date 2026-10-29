@@ -4128,3 +4128,12 @@ a.issue-title:hover {
         margin: 0 0 12px;
     }
 }
+
+/* No lonely last words, and no lone line left at the top or foot of a column. */
+.issue-piece .issue-copy p,
+.issue-piece .issue-copy li,
+.issue-piece .issue-copy blockquote {
+    text-wrap: pretty;
+    orphans: 3;
+    widows: 3;
+}
