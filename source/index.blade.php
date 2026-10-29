@@ -83,7 +83,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
                 <span class="caption">Plate {{ $i + 3 }}</span>
             </a>
             @endforeach
-            <a class="plate unit" data-snap href="#results" style="--i: 4">
+            <a class="plate unit" data-snap href="/issues/" style="--i: 4">
                 <span class="unit-name">Quarterly Results</span>
                 <span class="unit-count">{{ $issues->count() }} issues</span>
                 <span class="caption">Plate 7</span>
