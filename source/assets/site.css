@@ -826,7 +826,16 @@ a {
     position: relative;
     display: flex;
     align-self: stretch;
+    /* The row's gap is given back, so the crumb's keyline lands on the button's edge: the cell is the button. */
+    margin-right: calc(-1 * var(--pad));
     box-shadow: inset 1px 0 0 var(--major);
+}
+
+/* Nothing after it (an organisation page): the cell closes with its own keyline. */
+.areas:last-child {
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset -1px 0 0 var(--major);
 }
 
 .switcher.areas summary {
@@ -836,9 +845,12 @@ a {
     align-self: stretch;
 }
 
+/* Lit, the fill keeps the head's own edges: its keyline at the left, the plate's rule along the top. */
 .switcher.areas summary:hover,
 .switcher.areas[open] summary {
-    box-shadow: inset 1px 0 0 var(--major);
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset 0 1px 0 var(--ink);
 }
 
 .switcher-grid {
@@ -2537,6 +2549,10 @@ figure.flash ruffle-player {
 
     .running-left {
         gap: calc(var(--pad) / 2);
+    }
+
+    .areas {
+        margin-right: calc(-1 * var(--pad) / 2);
     }
 
     .running-lockup img {
