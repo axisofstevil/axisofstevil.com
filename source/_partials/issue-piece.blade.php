@@ -4,7 +4,6 @@
         'letter' => 'Ask Stevil',
         'language' => 'Language',
         'steve' => 'Featured Steve',
-        'notice' => 'From the offices',
         default => $b['refeature'] ? 'Classic Stevil' : ($b['series'] ?? $b['division']),
     };
 
