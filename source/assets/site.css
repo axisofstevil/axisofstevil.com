@@ -4112,6 +4112,27 @@ a.issue-title:hover {
     margin: 0;
 }
 
+/* A Featured Steve shown whole: its film strip (the tall, narrow pictures that trail the words) stands to the right of the words, as on its own page. */
+.issue-copy--steve .issue-film-strip {
+    float: right;
+    display: grid;
+    gap: 8px;
+    max-width: 40%;
+    margin: 4px 0 12px var(--pad);
+}
+
+.issue-copy--steve .issue-film-strip img {
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+}
+
+.issue-copy--steve::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .issue-wrap .issue-jump,
 .issue-wrap .issue-caption {
     clear: both;

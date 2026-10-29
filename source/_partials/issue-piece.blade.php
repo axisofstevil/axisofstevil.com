@@ -75,6 +75,9 @@
             <img src="{{ $picture['src'] }}" alt="" loading="lazy" style="flex: {{ round($picture['width'] / max(1, $picture['height']), 4) }} 1 0; aspect-ratio: {{ $picture['width'] }} / {{ $picture['height'] }}">
             @endforeach
         </div>
+        @elseif ($b['kind'] === 'steve' && ($steve = \App\WorkLayout::split($whole, 'featured-steves', \App\WorkLayout::knownSizes()))['aside'] !== '')
+        {{-- A Featured Steve shown whole: its film strip beside the words, as on its own page (owner, 2026-10-29). --}}
+        <div class="issue-copy issue-copy--steve"><div class="issue-film-strip">{!! $steve['aside'] !!}</div>{!! $steve['body'] !!}</div>
         @else
         <div class="issue-copy">{!! $whole !!}</div>
         @endif
