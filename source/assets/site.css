@@ -4081,3 +4081,50 @@ a.issue-title:hover {
 .issue-piece--plate .issue-copy p:not(:has(img)) {
     font-size: 0.9375rem;
 }
+
+/* Words wrapping a picture set to one side (its own size, at most half the column); on a phone, a line of its own. */
+.issue-piece.issue-wrap {
+    display: block;
+}
+
+.issue-wrap--left .issue-full-picture,
+.issue-wrap--left .issue-copy img,
+.issue-wrap--left .issue-copy figure.flash {
+    float: left;
+    max-width: 50%;
+    margin: 4px var(--pad) 12px 0;
+}
+
+.issue-wrap--right .issue-full-picture,
+.issue-wrap--right .issue-copy img,
+.issue-wrap--right .issue-copy figure.flash {
+    float: right;
+    max-width: 50%;
+    margin: 4px 0 12px var(--pad);
+}
+
+.issue-wrap .issue-full-picture img {
+    max-width: 100%;
+}
+
+.issue-wrap .issue-jump,
+.issue-wrap .issue-caption {
+    clear: both;
+}
+
+.issue-wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .issue-wrap--left .issue-full-picture,
+    .issue-wrap--left .issue-copy img,
+    .issue-wrap--right .issue-full-picture,
+    .issue-wrap--right .issue-copy img {
+        float: none;
+        max-width: 100%;
+        margin: 0 0 12px;
+    }
+}

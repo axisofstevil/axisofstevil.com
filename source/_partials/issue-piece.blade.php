@@ -19,7 +19,7 @@
     $whole = in_array($b['kind'], ['story', 'steve'], true) ? $b['full_html'] : ($b['html'] !== '' ? $b['html'] : $b['full_html']);
     $picture = $b['image'] ? '<img src="'.e($b['image']).'" alt="'.e($b['title']).'" loading="'.($lead ? 'eager' : 'lazy').'">' : null;
 @endphp
-<article class="issue-piece issue-piece--{{ $b['treatment'] }} issue-piece--{{ $b['kind'] }} @if ($lead) issue-piece--lead @endif">
+<article class="issue-piece issue-piece--{{ $b['treatment'] }} issue-piece--{{ $b['kind'] }} @if ($lead) issue-piece--lead @endif @if (in_array($b['picture'], ['left', 'right'], true)) issue-wrap issue-wrap--{{ $b['picture'] }} @endif">
     @if (($b['part'] ?? null) !== null)
         {{-- One part of a piece split across slots: the first carries its kicker and headline. --}}
         @if ($b['part'] === 0)
