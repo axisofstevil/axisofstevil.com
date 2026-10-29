@@ -25,16 +25,16 @@
     @include('_partials.running-head', ['division' => 'issues', 'here' => 'issue'])
 
     <article class="plate issue" aria-labelledby="issue-title" data-snap>
-        {{-- The masthead: volume and number, the 2005 dateline, the week. --}}
+        {{-- The masthead: the week and its run over the name; volume and number, and the count of new works, under it. --}}
         <header class="issue-masthead">
             <p class="issue-folio">
-                <span>Vol. {{ $volume }} · No. {{ $page->number }}</span>
+                <span>The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
                 <span class="issue-satellite"><b>LIVE!</b> from the Stevil Satellite</span>
                 <span>{{ $run($page->starts_on, $page->ends_on) }}</span>
             </p>
             <h1 id="issue-title" class="issue-name">{{ $page->name }}</h1>
             <p class="issue-folio issue-folio--under">
-                <span>The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
+                <span>Vol. {{ $volume }} · No. {{ $page->number }}</span>
                 <span>{{ $page->works }} new {{ $page->works === 1 ? 'work' : 'works' }}</span>
             </p>
         </header>
