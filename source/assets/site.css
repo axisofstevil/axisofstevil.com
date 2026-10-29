@@ -2879,8 +2879,19 @@ figure.flash.is-enlarged ruffle-player {
     padding-top: calc(var(--pad) * 1.5);
 }
 
+/* The masthead is a grid: the week, the ticker and the run share the top row (the over-folio's spans
+   are its items), the name and the under-folio each take a row. */
 .issue-masthead {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+        "week ticker run"
+        "name name name"
+        "under under under";
+    align-items: baseline;
+    column-gap: 24px;
     margin-bottom: calc(var(--pad) * 1.5);
+    border-top: 1px solid var(--ink);
     text-align: center;
 }
 
@@ -2892,7 +2903,6 @@ figure.flash.is-enlarged ruffle-player {
     gap: 4px 24px;
     margin: 0;
     padding: 8px 0;
-    border-top: 1px solid var(--ink);
     font-family: var(--display);
     font-size: 0.8125rem;
     letter-spacing: 0.14em;
@@ -2900,15 +2910,43 @@ figure.flash.is-enlarged ruffle-player {
     color: var(--muted);
 }
 
+.issue-folio--over {
+    display: contents;
+}
+
+.issue-week,
+.issue-run {
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.issue-week {
+    grid-area: week;
+}
+
+.issue-week-short {
+    display: none;
+}
+
+.issue-run {
+    grid-area: run;
+}
+
 /* The week's headlines from the world outside: the lines stacked in one cell, so the slot is as tall
    as its longest line and never jumps; the one in view fades in over the one that was. */
 .issue-ticker {
-    flex: 1 1 20rem;
+    grid-area: ticker;
     display: flex;
     justify-content: center;
     align-items: baseline;
     gap: 0 0.75em;
-    text-align: center;
+    margin: 0;
+    padding: 8px 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
 .issue-ticker b {
@@ -2945,12 +2983,13 @@ figure.flash.is-enlarged ruffle-player {
 }
 
 .issue-folio--under {
-    border-top: 0;
+    grid-area: under;
     border-bottom: 1px solid var(--ink);
     box-shadow: 0 -4px 0 -1px var(--stock), 0 -5px 0 -1px var(--ink);
 }
 
 .issue-name {
+    grid-area: name;
     margin: 0;
     padding: calc(var(--pad) * 0.75) 0 calc(var(--pad) * 0.5);
     border-top: 3px solid var(--ink);
@@ -3580,11 +3619,59 @@ a.issue-pager-link:hover .issue-pager-title {
     }
 }
 
-@media (max-width: 600px) {
-    .issue-folio {
-        justify-content: center;
+/* Narrower than a wide desk the masthead is compact: the week as one short centred line in place of
+   the two, the name, the under-folio as one line, and the headlines under it all, the kicker over the
+   line; a short line sits mid-slot. The name's size follows the window, not the column (there are four
+   on a phone), so it never jumps at the column break. */
+@media (max-width: 1200px) {
+    .issue-masthead {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "week"
+            "name"
+            "under"
+            "ticker";
     }
 
+    .issue-week,
+    .issue-run {
+        display: none;
+    }
+
+    .issue-week-short {
+        display: block;
+        grid-area: week;
+        padding: 8px 0;
+        text-wrap: balance;
+    }
+
+    .issue-name {
+        font-size: clamp(2.25rem, 6vw, 4.5rem);
+    }
+
+    .issue-folio--under {
+        justify-content: center;
+        gap: 0;
+    }
+
+    .issue-folio--under > span + span::before {
+        content: " • ";
+        white-space: pre;
+    }
+
+    .issue-ticker {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px 0;
+        padding: 12px 0 0;
+    }
+
+    .issue-ticker-lines {
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
     .issue-story-picture {
         float: none;
         width: auto;

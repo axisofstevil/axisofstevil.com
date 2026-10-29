@@ -25,19 +25,22 @@
     @include('_partials.running-head', ['division' => 'issues', 'here' => 'issue'])
 
     <article class="plate issue" aria-labelledby="issue-title" data-snap>
-        {{-- The masthead: the week and its run over the name; volume and number, and the count of new works, under it. --}}
+        {{-- The masthead: the week and its run over the name, the world's headlines between them; volume and number,
+             and the count of new works, under it. Narrower than a wide desk, the week is one short line, the under-folio one line, and the headlines go under it all. --}}
         <header class="issue-masthead">
-            <p class="issue-folio">
-                <span>The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
-                @if ($headlines = $page->headlines[$page->starts_on] ?? [])
-                    {{-- The week's headlines from the world outside, one at a time (site.js), the first at rest. --}}
-                    <span class="issue-ticker"><b>Meanwhile</b> <span class="issue-ticker-lines" data-ticker>@foreach ($headlines as $i => $line)<span @if ($i === 0)class="is-on"@endif>{{ $line['headline'] }}</span>@endforeach</span></span>
-                @endif
-                <span>{{ $run($page->starts_on, $page->ends_on) }}</span>
+            <p class="issue-folio issue-folio--over">
+                <span class="issue-week">The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
+                <span class="issue-run">{{ $run($page->starts_on, $page->ends_on) }}</span>
+                {{-- Narrower: the two as one short line. --}}
+                <span class="issue-week-short">Week of {{ $day($page->starts_on)->format('D') }}, {{ $run($page->starts_on, $page->ends_on) }}</span>
             </p>
+            @if ($headlines = $page->headlines[$page->starts_on] ?? [])
+                {{-- The week's headlines from the world outside, one at a time (site.js), the first at rest. --}}
+                <p class="issue-ticker"><b>Meanwhile</b> <span class="issue-ticker-lines" data-ticker>@foreach ($headlines as $i => $line)<span @if ($i === 0)class="is-on"@endif>{{ $line['headline'] }}</span>@endforeach</span></p>
+            @endif
             <h1 id="issue-title" class="issue-name">{{ $page->name }}</h1>
             <p class="issue-folio issue-folio--under">
-                <span>Vol. {{ $volume }} · No. {{ $page->number }}</span>
+                <span>Vol. {{ $volume }} • No. {{ $page->number }}</span>
                 <span>{{ $page->works }} new {{ $page->works === 1 ? 'work' : 'works' }}</span>
             </p>
         </header>
