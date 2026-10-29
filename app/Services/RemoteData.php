@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\IssueLayout;
+use App\IssueParts;
 use App\WorkBody;
-use App\WorkLayout;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
 use Michelf\MarkdownExtra;
@@ -177,7 +176,7 @@ class RemoteData
         $items = [];
 
         foreach ($oldestFirst as $i => $f) {
-            $blocks = self::shownOnce(array_values(array_filter(array_map(fn (array $item) => $this->block($item, $bySlug), $f['items'] ?? []))));
+            $blocks = array_values(array_filter(array_map(fn (array $item) => $this->block($item, $bySlug), $f['items'] ?? [])));
 
             $items[] = [
                 'filename' => $f['slug'],
@@ -190,8 +189,8 @@ class RemoteData
                 'of' => count($oldestFirst),
                 'description' => 'Issue No. '.($i + 1).' of the Axis of Stevil, the week of '.CarbonImmutable::parse($f['starts_on'])->format('F j, Y').'.',
                 'blocks' => $blocks,
-                // The week composed as a front page: ranked, in rows that end together.
-                'layout' => IssueLayout::compose($blocks, WorkLayout::knownSizes()),
+                // The week as laid out (by hand, or automatically until it is): rows of slots on 12 columns.
+                'rows' => $this->rows($f['layout']['rows'] ?? [], $blocks),
                 'works' => count(array_filter($blocks, fn ($b) => isset($b['address']) && ! $b['refeature'])),
                 'earlier' => $pick($oldestFirst[$i - 1] ?? null),
                 'later' => $pick($oldestFirst[$i + 1] ?? null),
@@ -199,6 +198,65 @@ class RemoteData
         }
 
         return $items;
+    }
+
+    /**
+     * A week's layout filled in: each row's slots (a span of 12 columns, its
+     * pieces one under another), each piece its block with how it shows that
+     * week (treatment, picture) and its summary there, ready for the page.
+     * A piece the layout names that the week doesn't have is left out.
+     *
+     * @param  list<list<array<string, mixed>>>  $layout
+     * @param  list<array<string, mixed>>  $blocks
+     * @return list<list<array{span: int, pieces: list<array<string, mixed>>}>>
+     */
+    private function rows(array $layout, array $blocks): array
+    {
+        $bySlug = [];
+
+        foreach ($blocks as $block) {
+            if (isset($block['slug'])) {
+                $bySlug[$block['slug']] ??= $block;
+            }
+        }
+
+        $rows = [];
+
+        foreach ($layout as $row) {
+            $slots = [];
+
+            foreach ($row as $slot) {
+                $pieces = [];
+
+                foreach ($slot['pieces'] ?? [] as $placed) {
+                    $block = $bySlug[$placed['entry'] ?? ''] ?? null;
+
+                    if ($block === null) {
+                        continue;
+                    }
+
+                    $summary = trim((string) ($placed['summary'] ?? ''));
+                    $pieces[] = [
+                        ...$block,
+                        'treatment' => (string) ($placed['treatment'] ?? 'whole'),
+                        'picture' => (string) ($placed['picture'] ?? 'whole'),
+                        // This week's summary, its words alone (the piece's own picture goes beside it).
+                        'summary_html' => $summary === '' ? '' : self::wordsOnly(trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean($summary, $block['image'], $block['title'], $this->stills))))),
+                        'parts' => ($placed['treatment'] ?? '') === 'parts' ? IssueParts::split((string) $block['html']) : [],
+                    ];
+                }
+
+                if ($pieces !== []) {
+                    $slots[] = ['span' => max(1, min(12, (int) ($slot['span'] ?? 12))), 'pieces' => $pieces];
+                }
+            }
+
+            if ($slots !== []) {
+                $rows[] = $slots;
+            }
+        }
+
+        return $rows;
     }
 
     /**
@@ -234,6 +292,9 @@ class RemoteData
                 $body = (string) ($w['content'] ?? '');
                 $role = $item['role'] ?? 'teaser';
                 $block = [
+                    'slug' => $w['slug'],
+                    // The whole piece, for a front page that runs it whole.
+                    'full_html' => $markdown($body, $w['image'], $w['title']),
                     'section' => $w['division'],
                     'date' => $w['date'],
                     'kicker' => $item['heading'] ?? null,
@@ -263,7 +324,7 @@ class RemoteData
                     default => [...$block, 'kind' => 'notice'],
                 };
 
-                // How much reading it is, for the page's composition (App\IssueLayout).
+                // How much reading it is.
                 return [...$kinded, 'words' => str_word_count(strip_tags((string) $kinded['html']))];
 
             case 'featured_track':
@@ -289,34 +350,6 @@ class RemoteData
         }
 
         return null;
-    }
-
-    /**
-     * A week's pictures and movies, each shown once: a strip or plate whose
-     * every picture and movie an earlier block already shows (the same Carlton
-     * movie as a comic and as Flash) is left out.
-     *
-     * @param  list<array<string, mixed>>  $blocks  in the order the week ran them
-     * @return list<array<string, mixed>>
-     */
-    private static function shownOnce(array $blocks): array
-    {
-        $seen = [];
-        $kept = [];
-
-        foreach ($blocks as $block) {
-            preg_match_all('/(?:src|data-swf)="([^"]+)"/', (string) ($block['html'] ?? ''), $m);
-            $media = array_unique([...$m[1], ...(in_array($block['kind'], ['strip', 'plate'], true) && ! ($block['shows_picture'] ?? false) && ($block['image'] ?? null) ? [$block['image']] : [])]);
-
-            if (in_array($block['kind'], ['strip', 'plate'], true) && $media !== [] && array_diff($media, $seen) === []) {
-                continue;
-            }
-
-            array_push($seen, ...$media);
-            $kept[] = $block;
-        }
-
-        return $kept;
     }
 
     /**

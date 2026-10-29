@@ -14,8 +14,6 @@
     };
     $volume = ['2005' => 'I', '2006' => 'II', '2007' => 'III'][substr($page->starts_on, 0, 4)] ?? '';
 
-    // The week composed as a front page (App\IssueLayout): ranked, in rows that end together.
-    $layout = (array) $page->layout;
     $blocks = collect($page->blocks)->map(fn ($b) => (array) $b);
     $tunes = $blocks->where('kind', 'tune')->values();
     $archive = $blocks->firstWhere('kind', 'archive');
@@ -41,22 +39,15 @@
             </p>
         </header>
 
-        @foreach ($layout['note'] ?? [] as $note)
-        <p class="issue-note"><b>{{ $note['kicker'] ?? 'From the offices' }}</b> <span>{!! strip_tags($note['html'], '<a><em><strong><i><b>') !!}</span></p>
-        @endforeach
-
-        @foreach ($layout['rows'] ?? [] as $row)
-        <div class="issue-row @if ($loop->first) issue-row--lead @endif">
-            @foreach ($row as $cell)
-            @if ($cell['type'] === 'stack')
-            <div class="issue-cell issue-stack" style="--grow: {{ $cell['grow'] }}">
-                @foreach ($cell['cells'] as $inner)
-                @include('_partials.issue-cell', ['cell' => $inner, 'jump' => $jump])
+        {{-- The week as laid out: rows of slots on 12 columns, a slot's pieces one under another. --}}
+        @foreach ($page->rows as $row)
+        <div class="issue-grid">
+            @foreach ($row as $slot)
+            <div class="issue-slot" style="--span: {{ $slot['span'] }}">
+                @foreach ($slot['pieces'] as $piece)
+                @include('_partials.issue-piece', ['b' => (array) $piece, 'jump' => $jump, 'lead' => $loop->parent->parent->first && $loop->parent->first && $loop->first])
                 @endforeach
             </div>
-            @else
-            @include('_partials.issue-cell', ['cell' => $cell, 'jump' => $jump])
-            @endif
             @endforeach
         </div>
         @endforeach
