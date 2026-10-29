@@ -63,4 +63,34 @@ class WorkBody
             $body,
         );
     }
+
+    /**
+     * Each picture shown once: where a piece shows a picture and another size
+     * of it too (the archive's sidecars: name.thumb.jpg, name.large.jpg,
+     * name.1280x960.jpg beside name.jpg), only the picture itself is kept, with
+     * whatever paragraph or link held only the other. Different pictures
+     * (name.alt.jpg) and links to other sizes stay.
+     */
+    public static function oneSize(string $html): string
+    {
+        $sidecar = '/\.(?:thumb|large|\d{2,4}x\d{2,4})(?=\.[a-z0-9]+$)/i';
+
+        if (preg_match_all('/<img\b[^>]*\bsrc="([^"]+)"/i', $html, $m) < 2) {
+            return $html;
+        }
+
+        $shown = array_flip($m[1]);
+        $drop = array_values(array_filter($m[1], fn (string $src) => preg_match($sidecar, $src) === 1 && isset($shown[(string) preg_replace($sidecar, '', $src)])));
+
+        foreach ($drop as $src) {
+            $q = preg_quote($src, '#');
+            // The picture, with a link or paragraph that held nothing else.
+            $html = (string) preg_replace([
+                '#<p>\s*(?:<a\b[^>]*>\s*)?<img\b[^>]*\bsrc="'.$q.'"[^>]*>\s*(?:</a>\s*)?</p>#i',
+                '#(?:<a\b[^>]*>\s*)?<img\b[^>]*\bsrc="'.$q.'"[^>]*>(?:\s*</a>)?#i',
+            ], '', $html, 1);
+        }
+
+        return $html;
+    }
 }

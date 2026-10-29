@@ -43,6 +43,7 @@ class WorkLayout
      */
     public static function split(string $html, ?string $division, array $sizes = []): array
     {
+        $html = WorkBody::oneSize($html);
         $parts = ['layout' => 'article', 'lead' => '', 'body' => $html, 'aside' => '', 'quote' => '', 'asker' => '', 'slides' => [], 'dropCap' => false, 'story' => false];
 
         if (trim($html) === '') {

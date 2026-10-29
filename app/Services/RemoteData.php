@@ -217,7 +217,7 @@ class RemoteData
      */
     private function block(array $item, array $works): ?array
     {
-        $markdown = fn (string $text, ?string $image, string $title) => trim(MarkdownExtra::defaultTransform(WorkBody::clean($text, $image, $title, $this->stills)));
+        $markdown = fn (string $text, ?string $image, string $title) => trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean($text, $image, $title, $this->stills))));
         // Words a reader reads (not picture references, pictures or markup), and the pictures and movies shown.
         $words = fn (string $md) => preg_match_all("/[\pL\pN']+/u", (string) preg_replace(['/^\[[^\]]+\]:.*$/m', '/!\[[^\]]*\](?:\[[^\]]*\]|\([^)]*\))|!#flash\([^)]*\)|<[^>]+>|\([^)]*\)/'], '', $md));
         $pictures = fn (string $md) => preg_match_all('/!\[|!#flash|<img|<embed/i', $md);
