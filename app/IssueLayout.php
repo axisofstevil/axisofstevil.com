@@ -55,6 +55,14 @@ class IssueLayout
     private const float NARROW = 240;
 
     /**
+     * Heights, widths and parts already worked out for this issue (each is
+     * asked for many times while its rows are solved).
+     *
+     * @var array<string, mixed>
+     */
+    private static array $memo = [];
+
+    /**
      * @param  list<array<string, mixed>>  $blocks  the week's blocks, in the order it ran them
      * @param  array<string, array{0: int, 1: int}>  $sizes  each picture's size, by address
      * @return array{note: list<array<string, mixed>>, rows: list<list<array<string, mixed>>>}
@@ -63,6 +71,7 @@ class IssueLayout
     {
         $note = [];
         $pieces = [];
+        self::$memo = [];
 
         foreach ($blocks as $i => $block) {
             if (in_array($block['kind'], ['tune', 'archive'], true)) {
@@ -204,29 +213,44 @@ class IssueLayout
         $space = self::WIDTH - self::GUTTER * (count($row) - 1);
         $best = null;
 
-        for ($h = 160; $h <= 1600; $h += 8) {
-            $widths = array_map(fn ($c) => self::widthAt($c, $h), $row);
-            $fixed = array_sum(array_filter($widths, fn ($w) => $w !== null));
-            $elastic = array_keys(array_filter($widths, fn ($w) => $w === null));
+        // Every height in coarse steps, then finely around the best of them.
+        $heights = range(160, 1600, 24);
+        $tried = [];
 
-            // Stories take what's left between them; each must still fit at that width and height.
-            if ($elastic !== []) {
-                $each = ($space - $fixed) / count($elastic);
-
-                foreach ($elastic as $k) {
-                    $widths[$k] = $each;
-                }
-
-                $fits = $each >= self::NARROW && array_reduce($elastic, fn ($ok, $k) => $ok && self::height($row[$k], $each) <= $h + 4, true);
-                $miss = $fits ? 0 : 1000;
-            } else {
-                $miss = abs($space - $fixed);
+        for ($pass = 0; $pass < 2; $pass++) {
+            if ($pass === 1) {
+                $heights = range(max(160, $best['height'] - 24), min(1600, $best['height'] + 24), 4);
             }
 
-            $score = $miss + self::penalty($row, $widths, $h, $space);
+            foreach ($heights as $h) {
+                if (isset($tried[$h])) {
+                    continue;
+                }
 
-            if ($best === null || $score < $best['score']) {
-                $best = ['score' => $score, 'widths' => $widths, 'height' => $h];
+                $tried[$h] = true;
+                $widths = array_map(fn ($c) => self::widthAt($c, $h), $row);
+                $fixed = array_sum(array_filter($widths, fn ($w) => $w !== null));
+                $elastic = array_keys(array_filter($widths, fn ($w) => $w === null));
+
+                // Stories take what's left between them; each must still fit at that width and height.
+                if ($elastic !== []) {
+                    $each = ($space - $fixed) / count($elastic);
+
+                    foreach ($elastic as $k) {
+                        $widths[$k] = $each;
+                    }
+
+                    $fits = $each >= self::NARROW && array_reduce($elastic, fn ($ok, $k) => $ok && self::height($row[$k], $each) <= $h + 4, true);
+                    $miss = $fits ? 0 : 1000;
+                } else {
+                    $miss = abs($space - $fixed);
+                }
+
+                $score = $miss + self::penalty($row, $widths, $h, $space);
+
+                if ($best === null || $score < $best['score']) {
+                    $best = ['score' => $score, 'widths' => $widths, 'height' => $h];
+                }
             }
         }
 
@@ -290,6 +314,14 @@ class IssueLayout
      */
     private static function textWidth(array $c, float $h): float
     {
+        return self::$memo['width|'.$c['at'].'|'.(int) $h] ??= self::searchWidth($c, $h);
+    }
+
+    /**
+     * @param  array<string, mixed>  $c
+     */
+    private static function searchWidth(array $c, float $h): float
+    {
         [$low, $high] = [120.0, self::WIDTH];
 
         for ($i = 0; $i < 30; $i++) {
@@ -309,6 +341,15 @@ class IssueLayout
     private static function height(array $c, float $w): float
     {
         $w = max(60, $w);
+
+        return isset($c['at']) ? self::$memo['height|'.$c['at'].'|'.($c['lead'] ? 'lead' : '').'|'.(int) round($w)] ??= self::measure($c, $w) : self::measure($c, $w);
+    }
+
+    /**
+     * @param  array<string, mixed>  $c
+     */
+    private static function measure(array $c, float $w): float
+    {
         $headline = fn (float $size) => ceil(mb_strlen((string) $c['block']['title']) * $size * 0.55 / $w) * $size * 1.05;
 
         return match ($c['type']) {
@@ -334,17 +375,32 @@ class IssueLayout
      */
     private static function partsAt(array $parts, float $width): array
     {
+        return self::$memo['parts|'.md5(serialize(array_column($parts, 'html'))).'|'.(int) round($width)] ??= self::setParts($parts, $width);
+    }
+
+    /**
+     * @param  list<array<string, mixed>>  $parts
+     * @return array{height: float, widths: list<float>}
+     */
+    private static function setParts(array $parts, float $width): array
+    {
         $space = $width - 24 * (count($parts) - 1);
         $best = null;
+        $at = fn (float $h) => array_map(fn ($p) => $p['type'] === 'whole'
+            ? min($p['natural'], $h * $p['ratio'])
+            : max(self::NARROW * 0.75, $p['words'] * self::WORD * 0.8 / $h), $parts);
 
-        for ($h = 60; $h <= 1600; $h += 6) {
-            $widths = array_map(fn ($p) => $p['type'] === 'whole'
-                ? min($p['natural'], $h * $p['ratio'])
-                : max(self::NARROW * 0.75, $p['words'] * self::WORD * 0.8 / $h), $parts);
-            $miss = abs(array_sum($widths) - $space);
+        // Coarse steps, then fine around the best.
+        foreach ([range(60, 1600, 30), null] as $heights) {
+            $heights ??= range(max(60, $best['height'] - 30), min(1600, $best['height'] + 30), 3);
 
-            if ($best === null || $miss < $best['miss']) {
-                $best = ['miss' => $miss, 'height' => $h, 'widths' => $widths];
+            foreach ($heights as $h) {
+                $widths = $at((float) $h);
+                $miss = abs(array_sum($widths) - $space);
+
+                if ($best === null || $miss < $best['miss']) {
+                    $best = ['miss' => $miss, 'height' => (float) $h, 'widths' => $widths];
+                }
             }
         }
 
