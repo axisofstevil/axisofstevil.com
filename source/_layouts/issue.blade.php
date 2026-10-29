@@ -45,7 +45,7 @@
             @foreach ($row as $slot)
             <div class="issue-slot" style="--span: {{ $slot['span'] }}">
                 @foreach ($slot['pieces'] as $piece)
-                @include('_partials.issue-piece', ['b' => (array) $piece, 'jump' => $jump, 'lead' => $loop->parent->parent->first && $loop->parent->first && $loop->first])
+                @include('_partials.issue-piece', ['b' => (array) $piece, 'jump' => $jump, 'span' => (int) $slot['span'], 'lead' => $loop->parent->parent->first && $loop->parent->first && $loop->first])
                 @endforeach
             </div>
             @endforeach

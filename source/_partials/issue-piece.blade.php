@@ -17,6 +17,11 @@
     // What runs whole: a story's whole text; anything else, what the week shows of it.
     $whole = in_array($b['kind'], ['story', 'steve'], true) ? $b['full_html'] : ($b['html'] !== '' ? $b['html'] : $b['full_html']);
     $picture = $b['image'] ? '<img src="'.e($b['image']).'" alt="'.e($b['title']).'" loading="'.($lead ? 'eager' : 'lazy').'">' : null;
+    // Newspaper columns for a wide block of words: a summary or a whole text piece in a slot of eight columns or
+    // more, with 150 words or more, its picture not wrapped (owner, 2026-10-29). The lead keeps its capital.
+    // The lead's opening capital: on its words, shown as a summary or whole (owner, 2026-10-29).
+    $capital = $lead && ! in_array($b['kind'], ['strip', 'plate', 'language'], true);
+    $columns = fn (string $html): bool => in_array($b['treatment'], ['summary', 'whole'], true) && ! in_array($b['kind'], ['strip', 'plate', 'language'], true) && ($span ?? 12) >= 8 && ! in_array($b['picture'], ['left', 'right'], true) && preg_match_all("/[\pL\pN']+/u", strip_tags($html)) >= 150;
 @endphp
 <article class="issue-piece issue-piece--{{ $b['treatment'] }} issue-piece--{{ $b['kind'] }} @if ($lead) issue-piece--lead @endif @if (in_array($b['picture'], ['left', 'right'], true)) issue-wrap issue-wrap--{{ $b['picture'] }} @endif">
     @if (($b['part'] ?? null) !== null)
@@ -56,7 +61,7 @@
         @if ($picture)
         <a class="@if ($crop) issue-crop @else issue-full-picture @endif" href="{{ $b['address'] }}">{!! $picture !!}</a>
         @endif
-        <div class="issue-copy @if ($lead) issue-copy--columns @endif">{!! $b['summary_html'] !!}</div>
+        <div class="issue-copy @if ($capital) issue-copy--lead @endif @if ($columns($b['summary_html'])) issue-copy--columns @endif">{!! $b['summary_html'] !!}</div>
         @if (($b['continued'] ?? null) === 'show' || (($b['continued'] ?? null) !== 'hide' && ($b['more'] ?? true)))
         <a class="issue-jump" href="{{ $b['address'] }}">{{ $jump($b) }} <span aria-hidden="true">→</span></a>
         @endif
@@ -77,9 +82,9 @@
         </div>
         @elseif ($b['kind'] === 'steve' && ($steve = \App\WorkLayout::split($whole, 'featured-steves', \App\WorkLayout::knownSizes()))['aside'] !== '')
         {{-- A Featured Steve shown whole: its film strip beside the words, as on its own page (owner, 2026-10-29). --}}
-        <div class="issue-copy issue-copy--steve"><div class="issue-film-strip">{!! $steve['aside'] !!}</div>{!! $steve['body'] !!}</div>
+        <div class="issue-copy issue-copy--steve @if ($capital) issue-copy--lead @endif"><div class="issue-film-strip">{!! $steve['aside'] !!}</div>{!! $steve['body'] !!}</div>
         @else
-        <div class="issue-copy">{!! $whole !!}</div>
+        <div class="issue-copy @if ($capital) issue-copy--lead @endif @if ($columns($whole)) issue-copy--columns @endif">{!! $whole !!}</div>
         @endif
         @if (in_array($b['kind'], ['strip', 'letter'], true))
         <p class="issue-caption"><a href="{{ $b['address'] }}">{{ $b['title'] }}</a></p>

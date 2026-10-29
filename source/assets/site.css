@@ -3030,7 +3030,7 @@ figure.flash.is-enlarged ruffle-player {
     font-style: italic;
 }
 
-/* The lead's words in newspaper columns, opened by a capital. */
+/* A wide block of words in newspaper columns (a summary or whole text piece eight columns wide or more, 150 words or more); the lead's opened by a capital. */
 .issue-copy--columns {
     columns: 2 16rem;
     column-gap: calc(var(--pad) * 2);
@@ -3041,7 +3041,7 @@ figure.flash.is-enlarged ruffle-player {
     break-inside: avoid-column;
 }
 
-.issue-copy--columns > p:first-of-type::first-letter {
+.issue-copy--lead > p:first-of-type::first-letter {
     float: left;
     margin: 0.06em 0.08em 0 0;
     font-family: var(--display);
