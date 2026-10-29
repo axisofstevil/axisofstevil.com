@@ -3652,7 +3652,15 @@ a.issue-title:hover {
     margin: 0;
 }
 
-.issue-whole-picture img,
+/* A picture at its own size, never wider (as the editor shows it); a movie fills its column. */
+.issue-whole-picture img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
 .issue-whole-picture figure.flash .flash-stage,
 .issue-whole-picture figure.flash ruffle-player {
     display: block;
