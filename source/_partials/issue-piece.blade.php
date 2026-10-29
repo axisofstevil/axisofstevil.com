@@ -26,7 +26,7 @@
         <p class="issue-kicker">{{ $kicker }}</p>
         <h2 class="issue-headline"><a href="{{ $b['address'] }}">{{ $headline }}</a></h2>
         @endif
-        <div class="issue-copy issue-whole-picture">{!! $b['part_html'] !!}</div>
+        <div class="issue-copy">{!! $b['part_html'] !!}</div>
     @else
     @switch($b['treatment'])
         @case('picture')
@@ -66,7 +66,7 @@
         @unless (in_array($b['kind'], ['strip', 'letter', 'language'], true))
         <h2 class="issue-headline"><a href="{{ $b['address'] }}">{{ $headline }}</a></h2>
         @endunless
-        <div class="issue-copy issue-whole-picture">{!! $whole !!}</div>
+        <div class="issue-copy">{!! $whole !!}</div>
         @if (in_array($b['kind'], ['strip', 'letter'], true))
         <p class="issue-caption"><a href="{{ $b['address'] }}">{{ $b['title'] }}</a></p>
         @endif
