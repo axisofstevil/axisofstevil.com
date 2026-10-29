@@ -236,12 +236,17 @@ class RemoteData
                     }
 
                     $summary = trim((string) ($placed['summary'] ?? ''));
+                    $summaryHtml = $summary === '' ? '' : self::wordsOnly(trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean($summary, $block['image'], $block['title'], $this->stills)))));
                     $pieces[] = [
                         ...$block,
                         'treatment' => (string) ($placed['treatment'] ?? 'whole'),
                         'picture' => (string) ($placed['picture'] ?? 'whole'),
                         // This week's summary, its words alone (the piece's own picture goes beside it).
-                        'summary_html' => $summary === '' ? '' : self::wordsOnly(trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean($summary, $block['image'], $block['title'], $this->stills))))),
+                        'summary_html' => $summaryHtml,
+                        // Whether the work has more than the page shows: its words beyond the summary's, or pictures beyond the one beside it.
+                        'more' => self::hasMore($summaryHtml !== '' ? $summaryHtml : (string) $block['html'], (string) $block['full_html'], $block['image'] !== null),
+                        // Its "Continued" line as set for the week: always, never, or (null) when it has more.
+                        'continued' => in_array($placed['continued'] ?? null, ['show', 'hide'], true) ? $placed['continued'] : null,
                         'parts' => ($placed['treatment'] ?? '') === 'parts' ? IssueParts::split((string) $block['html']) : [],
                         // One part of the piece in a slot of its own (its pictures, or its words), from Alfred's Markdown for it.
                         'part' => isset($placed['part']) ? (int) $placed['part'] : null,
@@ -353,6 +358,34 @@ class RemoteData
         }
 
         return null;
+    }
+
+    /**
+     * Whether a work has more than a summary shows of it: its own words the
+     * summary leaves out (compared word for word, in any order, so a summary
+     * that is the whole text rearranged counts as all of it; a stray word or
+     * two aside), or pictures beyond the one shown beside it. A summary that
+     * is the whole of it needs no way on.
+     */
+    private static function hasMore(string $summaryHtml, string $wholeHtml, bool $pictureBeside): bool
+    {
+        $bag = function (string $html): array {
+            preg_match_all("/[\pL\pN']+/u", mb_strtolower(html_entity_decode(strip_tags($html))), $m);
+
+            return array_count_values($m[0]);
+        };
+        $whole = $bag($wholeHtml);
+        $summary = $bag($summaryHtml);
+        $total = array_sum($whole);
+        $covered = 0;
+
+        foreach ($whole as $word => $count) {
+            $covered += min($count, $summary[$word] ?? 0);
+        }
+
+        $pictures = (int) preg_match_all('/<img\b|<figure class="flash"/i', $wholeHtml);
+
+        return $covered < $total * 0.95 - 2 || $pictures > ($pictureBeside ? 1 : 0);
     }
 
     /**
