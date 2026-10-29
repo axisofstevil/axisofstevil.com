@@ -4137,3 +4137,25 @@ a.issue-title:hover {
     orphans: 3;
     widows: 3;
 }
+
+/* Pictures in a row: side by side beneath the words, sharing one height, never cropped. On a phone, one under another. */
+.issue-picture-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 12px;
+}
+
+.issue-picture-row img {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+@media (max-width: 600px) {
+    .issue-picture-row {
+        flex-direction: column;
+    }
+}

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\IssueParts;
 use App\WorkBody;
+use App\WorkLayout;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
 use Michelf\MarkdownExtra;
@@ -245,6 +246,8 @@ class RemoteData
                         'summary_html' => $summaryHtml,
                         // Whether the work has more than the page shows: its words beyond the summary's, or pictures beyond the one beside it.
                         'more' => self::hasMore($summaryHtml !== '' ? $summaryHtml : (string) $block['html'], (string) $block['full_html'], $block['image'] !== null),
+                        // Pictures in a row: its words without them, and its pictures (with their sizes) to set side by side beneath.
+                        'row' => ($placed['picture'] ?? '') === 'row' ? self::pictureRow(in_array($block['kind'], ['story', 'steve'], true) ? (string) $block['full_html'] : ((string) $block['html'] !== '' ? (string) $block['html'] : (string) $block['full_html'])) : null,
                         // Its "Continued" line as set for the week: always, never, or (null) when it has more.
                         'continued' => in_array($placed['continued'] ?? null, ['show', 'hide'], true) ? $placed['continued'] : null,
                         'parts' => ($placed['treatment'] ?? '') === 'parts' ? IssueParts::split((string) $block['html']) : [],
@@ -358,6 +361,28 @@ class RemoteData
         }
 
         return null;
+    }
+
+    /**
+     * A piece's words without its pictures, and its pictures with their
+     * sizes, to set side by side beneath the words at one height.
+     *
+     * @return array{words: string, pictures: list<array{src: string, width: int, height: int}>}
+     */
+    private static function pictureRow(string $html): array
+    {
+        preg_match_all('/<img\b[^>]*\bsrc="([^"]+)"[^>]*>/i', $html, $m);
+        $sizes = WorkLayout::knownSizes();
+        $words = (string) preg_replace(['/<img\b[^>]*>/i', '/<a\b[^>]*>\s*<\/a>/i', '/<p>\s*<\/p>/i'], '', $html);
+
+        return [
+            'words' => trim($words),
+            'pictures' => array_map(fn (string $src): array => [
+                'src' => $src,
+                'width' => (int) ($sizes[html_entity_decode($src)][0] ?? 600),
+                'height' => (int) ($sizes[html_entity_decode($src)][1] ?? 450),
+            ], $m[1]),
+        ];
     }
 
     /**

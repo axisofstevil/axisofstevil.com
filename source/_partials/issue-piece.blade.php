@@ -67,7 +67,17 @@
         @unless (in_array($b['kind'], ['strip', 'letter', 'language'], true))
         <h2 class="issue-headline"><a href="{{ $b['address'] }}">{{ $headline }}</a></h2>
         @endunless
+        @if ($b['row'] ?? null)
+        {{-- Pictures in a row: the words, then the pictures side by side beneath them at one height. --}}
+        <div class="issue-copy">{!! $b['row']['words'] !!}</div>
+        <div class="issue-picture-row">
+            @foreach ($b['row']['pictures'] as $picture)
+            <img src="{{ $picture['src'] }}" alt="" loading="lazy" style="flex: {{ round($picture['width'] / max(1, $picture['height']), 4) }} 1 0; aspect-ratio: {{ $picture['width'] }} / {{ $picture['height'] }}">
+            @endforeach
+        </div>
+        @else
         <div class="issue-copy">{!! $whole !!}</div>
+        @endif
         @if (in_array($b['kind'], ['strip', 'letter'], true))
         <p class="issue-caption"><a href="{{ $b['address'] }}">{{ $b['title'] }}</a></p>
         @endif
