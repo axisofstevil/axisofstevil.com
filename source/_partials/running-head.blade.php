@@ -52,10 +52,27 @@
             ];
         }
     }
+
+    // The areas, the highest level of the site, behind one grid button after the lockup: Issues and
+    // Works today, each with its count; the area this page is in is marked. One line each to add more.
+    $areas = [
+        ['name' => 'Issues', 'href' => '/issues/', 'count' => collect($page->issues)->count(), 'here' => ($division ?? null) === 'issues'],
+        ['name' => 'Works', 'href' => '/works/', 'count' => $divisions->sum('count'), 'here' => (bool) $parent],
+    ];
 @endphp
 <header class="plate running-head" data-snap>
     <nav class="running-left" aria-label="Breadcrumb">
         <a class="running-lockup" href="/"><img class="running-wordmark" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img class="running-symbol" src="/assets/logo/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
+        <details class="switcher areas">
+            <summary aria-label="Choose an area">
+                <svg class="switcher-grid" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" fill="currentColor"/></svg>
+            </summary>
+            <ul class="switcher-menu">
+                @foreach ($areas as $area)
+                <li><a href="{{ $area['href'] }}" @if ($area['here']) aria-current="true" @endif>{{ $area['name'] }}<span>{{ $area['count'] }}</span></a></li>
+                @endforeach
+            </ul>
+        </details>
         @foreach ($crumbs as $crumb)
         @php($tag = $crumb['here'] ? 'h1' : 'p')
         <div class="crumb">

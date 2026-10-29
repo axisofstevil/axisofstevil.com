@@ -820,6 +820,25 @@ a {
     align-self: stretch;
 }
 
+/* The areas: one grid button after the lockup, its menu the site's areas. */
+.areas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: var(--pad);
+    box-shadow: inset 1px 0 0 var(--major);
+    align-self: stretch;
+}
+
+.switcher-grid {
+    width: 16px;
+    height: 16px;
+}
+
+.areas .switcher-menu {
+    left: var(--pad);
+}
+
 .running-title {
     margin: 0;
     font-family: var(--display);
@@ -2536,12 +2555,14 @@ figure.flash ruffle-player {
         flex: none;
     }
 
-    /* Both menus hang from the running head, across its width, so neither runs off the screen. */
-    .crumb {
+    /* Every menu hangs from the running head, across its width, so none runs off the screen. */
+    .crumb,
+    .areas {
         position: static;
     }
 
     .switcher-menu,
+    .areas .switcher-menu,
     .crumb + .crumb .switcher-menu {
         left: 0;
         right: 0;
