@@ -3041,7 +3041,9 @@ figure.flash.is-enlarged ruffle-player {
     break-inside: avoid-column;
 }
 
-.issue-copy--lead > p:first-of-type::first-letter {
+/* The capital opens the first paragraph of words: the one after a leading picture, when the words start with one. */
+.issue-copy--lead > p:first-of-type:not(:has(img))::first-letter,
+.issue-copy--lead > p:first-of-type:has(> img:only-child) + p::first-letter {
     float: left;
     margin: 0.06em 0.08em 0 0;
     font-family: var(--display);
