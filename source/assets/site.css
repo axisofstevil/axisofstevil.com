@@ -820,23 +820,34 @@ a {
     align-self: stretch;
 }
 
-/* The areas: one grid button after the lockup, its menu the site's areas. */
+/* The areas: one grid button after the lockup, the whole of its cell (the running head's height,
+   a half-module wide, keylines either side), its menu the site's areas. */
 .areas {
     position: relative;
     display: flex;
-    align-items: center;
-    padding-left: var(--pad);
+    align-self: stretch;
     box-shadow: inset 1px 0 0 var(--major);
+}
+
+.switcher.areas summary {
+    width: auto;
+    height: auto;
+    aspect-ratio: 1;
     align-self: stretch;
 }
 
+.switcher.areas summary:hover,
+.switcher.areas[open] summary {
+    box-shadow: inset 1px 0 0 var(--major);
+}
+
 .switcher-grid {
-    width: 16px;
-    height: 16px;
+    width: calc(var(--half) * 0.42);
+    height: calc(var(--half) * 0.42);
 }
 
 .areas .switcher-menu {
-    left: var(--pad);
+    left: 0;
 }
 
 .running-title {
