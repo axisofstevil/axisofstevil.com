@@ -243,6 +243,9 @@ class RemoteData
                         // This week's summary, its words alone (the piece's own picture goes beside it).
                         'summary_html' => $summary === '' ? '' : self::wordsOnly(trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean($summary, $block['image'], $block['title'], $this->stills))))),
                         'parts' => ($placed['treatment'] ?? '') === 'parts' ? IssueParts::split((string) $block['html']) : [],
+                        // One part of the piece in a slot of its own (its pictures, or its words), from Alfred's Markdown for it.
+                        'part' => isset($placed['part']) ? (int) $placed['part'] : null,
+                        'part_html' => isset($placed['part'], $placed['markdown']) ? trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean((string) $placed['markdown'], null, $block['title'], $this->stills)))) : '',
                     ];
                 }
 

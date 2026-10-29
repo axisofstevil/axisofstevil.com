@@ -20,6 +20,14 @@
     $picture = $b['image'] ? '<img src="'.e($b['image']).'" alt="'.e($b['title']).'" loading="'.($lead ? 'eager' : 'lazy').'">' : null;
 @endphp
 <article class="issue-piece issue-piece--{{ $b['treatment'] }} issue-piece--{{ $b['kind'] }} @if ($lead) issue-piece--lead @endif">
+    @if (($b['part'] ?? null) !== null)
+        {{-- One part of a piece split across slots: the first carries its kicker and headline. --}}
+        @if ($b['part'] === 0)
+        <p class="issue-kicker">{{ $kicker }}</p>
+        <h2 class="issue-headline"><a href="{{ $b['address'] }}">{{ $headline }}</a></h2>
+        @endif
+        <div class="issue-copy issue-whole-picture">{!! $b['part_html'] !!}</div>
+    @else
     @switch($b['treatment'])
         @case('picture')
         <figure class="issue-picture-only">
@@ -63,4 +71,5 @@
         <p class="issue-caption"><a href="{{ $b['address'] }}">{{ $b['title'] }}</a></p>
         @endif
     @endswitch
+    @endif
 </article>
