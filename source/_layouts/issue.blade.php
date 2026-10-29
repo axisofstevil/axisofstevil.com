@@ -29,7 +29,10 @@
         <header class="issue-masthead">
             <p class="issue-folio">
                 <span>The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
-                <span class="issue-satellite"><b>LIVE!</b> from the Stevil Satellite</span>
+                @if ($headlines = $page->headlines[$page->starts_on] ?? [])
+                    {{-- The week's headlines from the world outside, one at a time (site.js), the first at rest. --}}
+                    <span class="issue-ticker"><b>Meanwhile</b> <span class="issue-ticker-lines" data-ticker>@foreach ($headlines as $i => $line)<span @if ($i === 0)class="is-on"@endif>{{ $line['headline'] }}</span>@endforeach</span></span>
+                @endif
                 <span>{{ $run($page->starts_on, $page->ends_on) }}</span>
             </p>
             <h1 id="issue-title" class="issue-name">{{ $page->name }}</h1>

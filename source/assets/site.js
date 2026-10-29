@@ -452,6 +452,38 @@ const snapToGrid = (() => {
     });
 })();
 
+// The masthead's ticker: the week's headlines from the world outside, shown one at a time in a
+// random order, each for a few seconds. It rests while pointed at, and under reduced motion it
+// stays on the first.
+document.querySelectorAll('[data-ticker]').forEach((slot) => {
+    const lines = [...slot.children];
+
+    if (lines.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    for (let i = lines.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [lines[i], lines[j]] = [lines[j], lines[i]];
+    }
+
+    let at = lines.findIndex((line) => line.classList.contains('is-on'));
+    let resting = false;
+
+    slot.parentElement.addEventListener('pointerenter', () => (resting = true));
+    slot.parentElement.addEventListener('pointerleave', () => (resting = false));
+
+    window.setInterval(() => {
+        if (resting) {
+            return;
+        }
+
+        lines[at].classList.remove('is-on');
+        at = (at + 1) % lines.length;
+        lines[at].classList.add('is-on');
+    }, 6000);
+});
+
 // A comic of several pictures: arrows and the count follow the slides, which also scroll by swipe or keys.
 document.querySelectorAll('[data-slideshow]').forEach((show) => {
     const track = show.querySelector('.slides');

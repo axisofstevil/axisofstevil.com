@@ -23,6 +23,9 @@ return [
     // Dates are the publication's own: midnight in New York.
     'timezone' => 'America/New_York',
 
+    // The week's headlines from the world outside, kept by hand in source/_data/headlines.json, keyed by the issue's first day.
+    'headlines' => json_decode(file_get_contents(__DIR__.'/source/_data/headlines.json'), true)['weeks'] ?? [],
+
     // Filled by App\Services\RemoteData.
     'divisions' => [],
     'issues' => [],

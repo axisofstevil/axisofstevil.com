@@ -2900,9 +2900,48 @@ figure.flash.is-enlarged ruffle-player {
     color: var(--muted);
 }
 
-.issue-satellite b {
+/* The week's headlines from the world outside: the lines stacked in one cell, so the slot is as tall
+   as its longest line and never jumps; the one in view fades in over the one that was. */
+.issue-ticker {
+    flex: 1 1 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0 0.75em;
+    text-align: center;
+}
+
+.issue-ticker b {
     color: var(--red-ink);
     letter-spacing: 0.08em;
+}
+
+.issue-ticker-lines {
+    display: grid;
+    font-family: var(--text);
+    font-size: 0.875rem;
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+    text-wrap: balance;
+}
+
+.issue-ticker-lines > span {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.issue-ticker-lines > .is-on {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .issue-ticker-lines > span {
+        transition: none;
+    }
 }
 
 .issue-folio--under {
