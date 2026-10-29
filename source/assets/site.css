@@ -4107,6 +4107,12 @@ a.issue-title:hover {
     max-width: 100%;
 }
 
+/* A lead that wraps its picture sets in one column: words beside a float can't also run in columns (a column box beside a float stays narrow to its foot). */
+.issue-wrap .issue-copy--columns {
+    columns: auto;
+    column-rule: none;
+}
+
 /* Every picture wraps where it sits: a paragraph that holds only pictures takes no room of its own, so each floats beside the paragraph that follows it. */
 .issue-wrap .issue-copy > p:has(> img:first-child):has(> img:last-child) {
     margin: 0;
