@@ -3568,10 +3568,40 @@ figure.flash.is-enlarged ruffle-player {
     font-size: 0.9375rem;
 }
 
-/* Several tunes in a week: each its own sleeve, a rule between. */
-.issue-tune + .issue-tune {
-    padding-top: calc(var(--pad) * 1.5);
-    border-top: 1px solid var(--major);
+/* Several tunes in a week: compact sleeves side by side under one label, each tune's text (when it has
+   any) beneath its own sleeve; on a narrow screen they stack. */
+.issue-tunes.issue-tunes--several {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: var(--pad) calc(var(--pad) * 1.5);
+}
+
+.issue-tunes-label {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.issue-tunes--several .issue-sleeve {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 10px 14px;
+    margin-bottom: 12px;
+}
+
+.issue-tunes--several .issue-sleeve-track {
+    font-size: 1.25rem;
+}
+
+.issue-tunes--several .issue-sleeve-when {
+    margin-top: 4px;
+}
+
+.issue-tunes--several .issue-sleeve-label .play {
+    margin-top: 8px;
+    padding: 6px 10px 6px 8px;
+}
+
+.issue-tunes--several .issue-tune-bio {
+    font-size: 0.875rem;
 }
 
 .issue-tunes {
@@ -3580,8 +3610,9 @@ figure.flash.is-enlarged ruffle-player {
     gap: calc(var(--pad) * 1.5);
 }
 
-/* A week with tunes alone in its foot: the sleeve and its text keep a reading width rather than the page's. */
-.issue-foot--one .issue-tunes {
+/* A week with one tune alone in its foot: the sleeve and its text keep a reading width rather than the page's;
+   several tunes alone take the width, in a row. */
+.issue-foot--one .issue-tunes:not(.issue-tunes--several) {
     max-width: calc(var(--col) * 7);
 }
 

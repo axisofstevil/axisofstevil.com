@@ -82,10 +82,16 @@
         @if ($tunes->isNotEmpty() || $archive)
         <div class="issue-foot @if ($tunes->isEmpty() || ! $archive) issue-foot--one @endif">
             @if ($tunes->isNotEmpty())
-            <div class="issue-tunes">
+            {{-- One tune: its sleeve, its text in a reading column. Several: compact sleeves in a row under one label. --}}
+            <div class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @endif">
+                @if ($tunes->count() > 1)
+                <p class="issue-box-label issue-tunes-label">Tunes of the Week <span>{{ $tunes->count() }}</span></p>
+                @endif
                 @foreach ($tunes as $tune)
                 <section class="issue-tune" aria-label="Tune of the Week">
-                    <p class="issue-box-label">Tune of the Week @if ($tunes->count() > 1)<span>{{ $loop->iteration }} of {{ $tunes->count() }}</span>@endif</p>
+                    @if ($tunes->count() === 1)
+                    <p class="issue-box-label">Tune of the Week</p>
+                    @endif
                     <div class="issue-sleeve">
                         @if ($tune['image'])
                         <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
