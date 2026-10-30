@@ -3833,6 +3833,37 @@ figure.flash.is-enlarged ruffle-player {
     cursor: pointer;
 }
 
+/* The autoplay switch: a small label with its box, lit red when on. */
+.player-auto {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.player-auto:has(:checked) {
+    opacity: 1;
+}
+
+.player-autoplay {
+    margin: 0;
+    accent-color: var(--red);
+}
+
+.tune-when span {
+    margin-left: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 .player-toggle {
     background: var(--stock) !important;
     color: var(--slate) !important;

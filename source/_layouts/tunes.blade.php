@@ -28,7 +28,7 @@
 @endphp
 
 @section('body')
-<main id="main" class="report">
+<main id="main" class="report" @if ($own) data-player-scope="{{ $page->slug }}" @endif>
     <div class="masthead">
         @include('_partials.running-head', $own
             ? ['division' => 'tunes', 'artist' => $page->slug, 'here' => 'artist']

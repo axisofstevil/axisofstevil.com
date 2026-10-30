@@ -740,6 +740,30 @@ let reflectPlayer = () => {};
     const picture = bar.querySelector('.player-picture');
     const scrub = bar.querySelector('.player-scrub');
     const toggle = bar.querySelector('.player-toggle');
+    const autoplay = bar.querySelector('.player-autoplay');
+
+    // Going on to the next tune when one ends: the switch in the bar, remembered.
+    try {
+        autoplay.checked = localStorage.getItem('axis.autoplay') !== 'off';
+    } catch (e) {
+        // Storage may be closed to us: on, as the switch says.
+    }
+
+    autoplay.addEventListener('change', () => {
+        try {
+            localStorage.setItem('axis.autoplay', autoplay.checked ? 'on' : 'off');
+        } catch (e) {
+            // Nothing remembered.
+        }
+    });
+
+    // The tunes previous and next step through: an artist's own on their page, else every tune.
+    const queue = () => {
+        const scope = document.querySelector('[data-player-scope]')?.dataset.playerScope;
+        const within = scope ? playlist.filter((tune) => tune.artist_slug === scope) : [];
+
+        return within.length > 0 ? within : playlist;
+    };
     const clock = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 
     const remember = () => {
@@ -797,8 +821,10 @@ let reflectPlayer = () => {};
             return;
         }
 
-        const at = playlist.findIndex((tune) => tune.id === current.id);
-        const next = playlist[(at + by + playlist.length) % playlist.length];
+        const list = queue();
+        const at = list.findIndex((tune) => tune.id === current.id);
+        // Playing something from outside the page's list: next starts it, previous ends it.
+        const next = at < 0 ? list[by > 0 ? 0 : list.length - 1] : list[(at + by + list.length) % list.length];
         play(next);
     };
 
@@ -862,7 +888,7 @@ let reflectPlayer = () => {};
         reflect();
         remember();
     });
-    audio.addEventListener('ended', () => step(1));
+    audio.addEventListener('ended', () => (autoplay.checked ? step(1) : reflect()));
     window.addEventListener('pagehide', remember);
     setInterval(() => !audio.paused && remember(), 5000);
 

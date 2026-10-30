@@ -12,6 +12,7 @@
         <button type="button" class="player-step" data-step="-1" aria-label="Previous tune">⇤</button>
         <button type="button" class="player-toggle" aria-label="Play"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg></button>
         <button type="button" class="player-step" data-step="1" aria-label="Next tune">⇥</button>
+        <label class="player-auto" title="Go on to the next tune when one ends"><input type="checkbox" class="player-autoplay" checked> <span>Auto</span></label>
     </div>
     <div class="player-time">
         <span class="player-at">0:00</span>

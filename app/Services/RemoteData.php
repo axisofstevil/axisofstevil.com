@@ -782,20 +782,20 @@ class RemoteData
         $tunes = [];
 
         foreach ($artists as $artist) {
-            foreach ($artist['tracks'] ?? [] as $track) {
-                if (($track['audio'] ?? null) === null) {
+            foreach ($this->merged($artist) as $track) {
+                if ($track['audio'] === null) {
                     continue;
                 }
 
                 $tunes[] = [
-                    'id' => $artist['slug'].'/'.$track['slug'],
+                    'id' => $track['id'],
                     'title' => $track['title'],
                     'artist' => $artist['name'],
                     'artist_slug' => $artist['slug'],
-                    'image' => $track['image'] ?? $artist['image'] ?? null,
+                    'image' => $track['image'],
                     'audio' => $track['audio'],
-                    'from' => $track['featured_started_at'],
-                    'until' => $track['featured_ended_at'],
+                    'from' => $track['from'],
+                    'until' => $track['until'],
                 ];
             }
         }
@@ -803,6 +803,46 @@ class RemoteData
         usort($tunes, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
 
         return $tunes;
+    }
+
+    /**
+     * An artist's tracks as tunes, each featured once or more: a track that
+     * ran again (the same file, else the same title) is one tune with every
+     * run it had, oldest first, named after its first.
+     *
+     * @param  array<string, mixed>  $artist
+     * @return list<array<string, mixed>>
+     */
+    private function merged(array $artist): array
+    {
+        $tracks = $artist['tracks'] ?? [];
+        usort($tracks, fn ($a, $b) => [$a['featured_started_at'], $a['slug']] <=> [$b['featured_started_at'], $b['slug']]);
+        $tunes = [];
+
+        foreach ($tracks as $track) {
+            $key = $track['audio'] ?? ('title:'.mb_strtolower(trim((string) $track['title'])));
+            $run = ['from' => $track['featured_started_at'], 'until' => $track['featured_ended_at']];
+
+            if (isset($tunes[$key])) {
+                $tunes[$key]['runs'][] = $run;
+                $tunes[$key]['bios'][] = $track['bio'] ?? null;
+
+                continue;
+            }
+
+            $tunes[$key] = [
+                'id' => $artist['slug'].'/'.$track['slug'],
+                'title' => $track['title'],
+                'image' => $track['image'] ?? $artist['image'] ?? null,
+                'audio' => $track['audio'] ?? null,
+                'from' => $track['featured_started_at'],
+                'until' => $track['featured_ended_at'],
+                'runs' => [$run],
+                'bios' => [$track['bio'] ?? null],
+            ];
+        }
+
+        return array_values($tunes);
     }
 
     /**
@@ -821,17 +861,18 @@ class RemoteData
         foreach ($artists as $artist) {
             $theirs = [];
 
-            foreach ($artist['tracks'] ?? [] as $track) {
+            foreach ($this->merged($artist) as $track) {
                 $theirs[] = [
-                    'id' => $artist['slug'].'/'.$track['slug'],
+                    'id' => $track['id'],
                     'title' => $track['title'],
                     'artist' => $artist['name'],
                     'artist_address' => "/tunes/{$artist['slug']}/",
-                    'image' => $track['image'] ?? $artist['image'] ?? null,
-                    'audio' => $track['audio'] ?? null,
-                    'from' => $track['featured_started_at'],
-                    'until' => $track['featured_ended_at'],
-                    'bio' => $track['bio'] ?? null,
+                    'image' => $track['image'],
+                    'audio' => $track['audio'],
+                    'from' => $track['from'],
+                    'until' => $track['until'],
+                    'runs' => $track['runs'],
+                    'bio' => implode("\n\n", array_filter($track['bios'])) ?: null,
                 ];
             }
 
