@@ -2573,11 +2573,11 @@ figure.flash ruffle-player {
         min-width: 0;
     }
 
-    .crumb:has(+ .crumb) .running-title {
+    .crumb:has(+ .crumb):has(.switcher) .running-title {
         display: none;
     }
 
-    .crumb:has(+ .crumb) {
+    .crumb:has(+ .crumb):has(.switcher) {
         padding-left: calc(var(--pad) / 2);
     }
 

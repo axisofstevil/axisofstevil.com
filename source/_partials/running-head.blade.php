@@ -89,12 +89,13 @@
             ['name' => 'All Tunes', 'href' => '/tunes/', 'count' => $tunes['count']],
             ...array_map(fn ($a) => ['name' => $a['name'], 'href' => $a['address'], 'count' => $a['count']], $tunes['artists']),
         ];
+        // Tunes is a plain link back to the listing; the artist's crumb carries the menu of artists.
         $crumbs[] = [
             'name' => 'Tunes',
             'href' => '/tunes/',
             'here' => ($here ?? null) === 'tunes',
-            'label' => 'Choose an artist',
-            'menu' => $artists,
+            'label' => null,
+            'menu' => [],
         ];
         $current = ($artist ?? null) ? collect($tunes['artists'])->firstWhere('slug', $artist) : null;
 
@@ -135,6 +136,7 @@
         @php($tag = $crumb['here'] ? 'h1' : 'p')
         <div class="crumb">
             <{{ $tag }} class="running-title"><a href="{{ $crumb['href'] }}" @if ($crumb['here']) aria-current="page" @endif>{{ $crumb['name'] }}</a></{{ $tag }}>
+            @if ($crumb['menu'] !== [])
             <details class="switcher">
                 <summary aria-label="{{ $crumb['label'] }}">
                     <svg class="switcher-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg>
@@ -145,6 +147,7 @@
                     @endforeach
                 </ul>
             </details>
+            @endif
         </div>
         @endforeach
     </nav>
