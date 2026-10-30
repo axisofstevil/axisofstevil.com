@@ -3615,15 +3615,39 @@ figure.flash.is-enlarged ruffle-player {
     mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
 }
 
-/* The band's placeholder: a square as tall as a banner may run. */
-.artist-blank--band {
-    width: 9.375rem;
-    height: 9.375rem;
-    flex: none;
+/* The artist, above their tunes: the picture at the left with the words round it, a rule beneath. */
+.artist-about {
+    grid-column: 1 / -1;
+    margin-bottom: calc(var(--pad) * 1.25);
+    padding-bottom: var(--pad);
+    border-bottom: 1px solid var(--major);
 }
 
-.artist-intro .series-text .tunes-website {
-    margin: 0.6em 0 0;
+.artist-about::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.artist-portrait {
+    float: left;
+    width: 11rem;
+    max-width: 40%;
+    height: auto;
+    margin: 4px calc(var(--pad) * 1.25) 8px 0;
+    box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
+}
+
+.artist-words {
+    max-width: 70ch;
+}
+
+.artist-words > :last-child {
+    margin-bottom: 0;
+}
+
+.artist-words .tunes-website {
+    margin-top: 0.75em;
 }
 
 .player-picture--blank {
@@ -3636,7 +3660,7 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 0.35;
 }
 
-/* The artist's website, under their name: the address alone, the scheme left off. */
+/* The artist's website: the address alone, the scheme left off. */
 .issue-sleeve-site {
     margin: 6px 0 0;
     font-family: var(--display);
@@ -3659,8 +3683,7 @@ figure.flash.is-enlarged ruffle-player {
 }
 
 .tunes-website {
-    grid-column: 1 / -1;
-    margin: calc(var(--pad) * -0.5) 0 var(--pad);
+    margin: 0;
     font-family: var(--display);
     font-size: 0.8125rem;
 }

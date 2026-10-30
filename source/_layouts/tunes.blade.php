@@ -47,22 +47,20 @@
             <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
                 @if ($loop->first)
                 @if ($own)
-                {{-- The artist's band: their picture (or the placeholder), their bio and their website. --}}
-                <div class="series-intro artist-intro">
+                {{-- The artist, above their tunes: their bio and website, their picture (when there is one) at the left with the words round it. --}}
+                @if ($page->banner || ($page->introduction ?? null) || ($page->website ?? null))
+                <div class="artist-about">
                     @if ($page->banner)
-                    <img class="series-banner" src="{{ $page->banner }}" alt="{{ $page->name }}">
-                    @else
-                    <span class="series-banner artist-blank artist-blank--band" role="img" aria-label="{{ $page->name }}"></span>
+                    <img class="artist-portrait" src="{{ $page->banner }}" alt="{{ $page->name }}">
                     @endif
-                    @if (($page->introduction ?? null) || ($page->website ?? null))
-                    <div class="series-text">
+                    <div class="issue-copy artist-words">
                         {!! $page->introduction ?? '' !!}
                         @if ($page->website ?? null)
                         <p class="tunes-website"><a href="{{ $page->website }}" rel="noopener">{{ preg_replace('#^https?://(www\.)?#', '', rtrim($page->website, '/')) }}</a></p>
                         @endif
                     </div>
-                    @endif
                 </div>
+                @endif
                 @else
                 @include('_partials.series-intro')
                 @endif
