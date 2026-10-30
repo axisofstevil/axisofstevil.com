@@ -25,6 +25,7 @@
     <body class="@yield('body_class')">
         <a class="skip" href="#main">Skip to the report</a>
         @yield('body')
+        @include('_partials.player')
         <script src="{{ $page->assetJs }}" defer></script>
     </body>
 </html>

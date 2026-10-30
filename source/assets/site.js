@@ -678,3 +678,158 @@ document.querySelectorAll('[data-story]').forEach((story) => {
     show(false);
     window.addEventListener('hashchange', () => show(true));
 });
+
+// The player: the Tunes of the Week, one at a time, in a bar along the foot of the window. A Play
+// button anywhere on a page (data-play="artist/track") starts that tune; the bar steps through the
+// playlist every page carries. It remembers the tune and where it was, and offers it back paused on
+// the next page (a browser won't start sound without a tap).
+(() => {
+    const bar = document.querySelector('[data-player]');
+    const source = document.getElementById('playlist');
+
+    if (!bar || !source) {
+        return;
+    }
+
+    const playlist = JSON.parse(source.textContent);
+    const audio = new Audio();
+    audio.preload = 'metadata';
+    let current = null;
+    const picture = bar.querySelector('.player-picture');
+    const scrub = bar.querySelector('.player-scrub');
+    const toggle = bar.querySelector('.player-toggle');
+    const clock = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+
+    const remember = () => {
+        try {
+            if (current) {
+                localStorage.setItem('axis.tune', JSON.stringify({ id: current.id, at: audio.currentTime }));
+            } else {
+                localStorage.removeItem('axis.tune');
+            }
+        } catch (e) {
+            // Storage may be closed to us: nothing is remembered.
+        }
+    };
+
+    const reflect = () => {
+        const playing = !audio.paused;
+        bar.classList.toggle('is-playing', playing);
+        toggle.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+        document.querySelectorAll('[data-play]').forEach((button) => {
+            const on = current !== null && button.dataset.play === current.id;
+            button.classList.toggle('is-current', on);
+            button.classList.toggle('is-playing', on && playing);
+            button.setAttribute('aria-pressed', on && playing ? 'true' : 'false');
+        });
+    };
+
+    const show = (tune) => {
+        current = tune;
+        audio.src = tune.audio;
+        picture.src = tune.image || '';
+        picture.hidden = !tune.image;
+        bar.querySelector('.player-track').textContent = tune.title;
+        bar.querySelector('.player-artist').textContent = tune.artist;
+        bar.hidden = false;
+        document.documentElement.classList.add('has-player');
+
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({ title: tune.title, artist: tune.artist, album: 'Tune of the Week · The Axis of Stevil', artwork: tune.image ? [{ src: tune.image }] : [] });
+        }
+
+        reflect();
+    };
+
+    const play = (tune) => {
+        if (current?.id !== tune.id) {
+            show(tune);
+        }
+
+        audio.play().catch(() => reflect());
+    };
+
+    const step = (by) => {
+        if (!current) {
+            return;
+        }
+
+        const at = playlist.findIndex((tune) => tune.id === current.id);
+        const next = playlist[(at + by + playlist.length) % playlist.length];
+        play(next);
+    };
+
+    document.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-play]');
+
+        if (!button) {
+            return;
+        }
+
+        const tune = playlist.find((one) => one.id === button.dataset.play);
+
+        if (!tune) {
+            return;
+        }
+
+        if (current?.id === tune.id && !audio.paused) {
+            audio.pause();
+        } else {
+            play(tune);
+        }
+    });
+
+    toggle.addEventListener('click', () => (audio.paused ? audio.play().catch(() => reflect()) : audio.pause()));
+    bar.querySelectorAll('.player-step').forEach((button) => button.addEventListener('click', () => step(Number(button.dataset.step))));
+    bar.querySelector('.player-close').addEventListener('click', () => {
+        audio.pause();
+        audio.removeAttribute('src');
+        current = null;
+        bar.hidden = true;
+        document.documentElement.classList.remove('has-player');
+        remember();
+        reflect();
+    });
+
+    scrub.addEventListener('input', () => {
+        if (audio.duration) {
+            audio.currentTime = (scrub.value / 1000) * audio.duration;
+        }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            scrub.value = Math.round((audio.currentTime / audio.duration) * 1000);
+            bar.querySelector('.player-at').textContent = clock(audio.currentTime);
+        }
+    });
+    audio.addEventListener('loadedmetadata', () => (bar.querySelector('.player-length').textContent = clock(audio.duration)));
+    audio.addEventListener('play', reflect);
+    audio.addEventListener('pause', () => {
+        reflect();
+        remember();
+    });
+    audio.addEventListener('ended', () => step(1));
+    window.addEventListener('pagehide', remember);
+    setInterval(() => !audio.paused && remember(), 5000);
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => audio.play());
+        navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+        navigator.mediaSession.setActionHandler('previoustrack', () => step(-1));
+        navigator.mediaSession.setActionHandler('nexttrack', () => step(1));
+    }
+
+    // The tune from the last page, back where it was, paused until tapped.
+    try {
+        const saved = JSON.parse(localStorage.getItem('axis.tune') || 'null');
+        const tune = saved && playlist.find((one) => one.id === saved.id);
+
+        if (tune) {
+            show(tune);
+            audio.addEventListener('loadedmetadata', () => (audio.currentTime = Math.min(saved.at || 0, audio.duration || 0)), { once: true });
+        }
+    } catch (e) {
+        // Nothing remembered.
+    }
+})();

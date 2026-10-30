@@ -32,6 +32,13 @@ class RemoteData
     private Client $api;
 
     /**
+     * The playlist: each Tune of the Week that has audio, oldest first.
+     *
+     * @var list<array<string, mixed>>
+     */
+    private array $tunes = [];
+
+    /**
      * Each Flash movie's still, by its address (set by pages()), for the issues' teasers too.
      *
      * @var array<string, string>
@@ -62,6 +69,10 @@ class RemoteData
         }
 
         usort($works, fn ($a, $b) => strcmp($b['date'], $a['date']));
+
+        // The Tunes of the Week with audio, oldest first: the playlist every page carries, and what an issue's tune plays.
+        $this->tunes = $this->tunes($channelUrl);
+        $jigsaw->setConfig('tunes', $this->tunes);
 
         // The weekly issues (front pages), each with its blocks in order, newest first.
         $frontPages = $this->json($channelUrl.'/front-pages?include=items')['data'] ?? [];
@@ -385,6 +396,8 @@ class RemoteData
                     'image' => $item['artist']['image'] ?? null,
                     'track' => $item['track']['title'] ?? null,
                     'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
+                    // The playlist entry it plays (the same artist and title), when the tune has audio.
+                    'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,
                 ];
 
             case 'back_issues':
@@ -729,6 +742,50 @@ class RemoteData
             'image' => $w['image'],
             'place' => $w['place'],
         ];
+    }
+
+    /**
+     * The Tunes of the Week with audio, oldest first, each as the player
+     * needs it; none when the channel has no front pages.
+     *
+     * @return list<array<string, mixed>>
+     */
+    private function tunes(string $channelUrl): array
+    {
+        try {
+            $artists = $this->json($channelUrl.'/featured-artists')['data'] ?? [];
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                return [];
+            }
+
+            throw $e;
+        }
+
+        $tunes = [];
+
+        foreach ($artists as $artist) {
+            foreach ($artist['tracks'] ?? [] as $track) {
+                if (($track['audio'] ?? null) === null) {
+                    continue;
+                }
+
+                $tunes[] = [
+                    'id' => $artist['slug'].'/'.$track['slug'],
+                    'title' => $track['title'],
+                    'artist' => $artist['name'],
+                    'artist_slug' => $artist['slug'],
+                    'image' => $track['image'] ?? $artist['image'] ?? null,
+                    'audio' => $track['audio'],
+                    'from' => $track['featured_started_at'],
+                    'until' => $track['featured_ended_at'],
+                ];
+            }
+        }
+
+        usort($tunes, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
+
+        return $tunes;
     }
 
     /**

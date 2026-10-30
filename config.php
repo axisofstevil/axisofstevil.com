@@ -35,6 +35,8 @@ return [
     'redirects' => [],
     // The Gallery (the channel's first gallery): its name, count and photographers, for the running head (set by RemoteData; null without one).
     'gallery' => null,
+    // The Tunes of the Week with audio, oldest first: the site's playlist, carried by every page for the player (set by RemoteData).
+    'tunes' => [],
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [

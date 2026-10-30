@@ -3718,6 +3718,181 @@ figure.flash.is-enlarged ruffle-player {
     grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 2.5), 1fr));
 }
 
+/* A Play button (an issue's Tune of the Week, a tune's tile): the plates' ink on stock, red while its tune plays. */
+.play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 8px 14px 8px 11px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.play svg,
+.player-toggle svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+}
+
+.play .pause-icon,
+.player-toggle .pause-icon,
+.play.is-playing .play-icon,
+.player.is-playing .play-icon {
+    display: none;
+}
+
+.play.is-playing .pause-icon,
+.player.is-playing .pause-icon {
+    display: block;
+}
+
+.play:hover,
+.play.is-playing {
+    background: var(--red);
+}
+
+/* The player: a bar along the foot of the window, slate like the thumb index, the page given room above it. */
+.player {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto minmax(8rem, 2fr) auto;
+    align-items: center;
+    gap: 0 var(--pad);
+    min-height: 64px;
+    padding: 8px var(--pad);
+    background: var(--slate);
+    color: var(--stock);
+    box-shadow: 0 -1px 0 var(--ink);
+}
+
+.has-player body {
+    padding-bottom: 80px;
+}
+
+.player-picture {
+    display: block;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--stock-light);
+}
+
+.player-label p {
+    margin: 0;
+    font-family: var(--display);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.player-track {
+    font-weight: 700;
+}
+
+.player-artist {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.player-controls button,
+.player-close {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.player-toggle {
+    background: var(--stock) !important;
+    color: var(--slate) !important;
+    border-radius: 50%;
+}
+
+.player-toggle:hover {
+    background: var(--red) !important;
+    color: var(--stock) !important;
+}
+
+.player-controls button:hover,
+.player-close:hover {
+    color: var(--red);
+}
+
+.player-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.player-scrub {
+    flex: 1 1 auto;
+    accent-color: var(--red);
+    margin: 0;
+}
+
+@media (max-width: 760px) {
+    .player {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+        grid-template-areas:
+            "picture label controls close"
+            "time time time time";
+        row-gap: 4px;
+    }
+
+    .player-picture {
+        grid-area: picture;
+    }
+
+    .player-label {
+        grid-area: label;
+    }
+
+    .player-controls {
+        grid-area: controls;
+    }
+
+    .player-close {
+        grid-area: close;
+    }
+
+    .player-time {
+        grid-area: time;
+    }
+
+    .has-player body {
+        padding-bottom: 110px;
+    }
+}
+
 /* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;

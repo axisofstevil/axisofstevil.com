@@ -95,6 +95,9 @@
                             <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
                             @endif
                             <p class="issue-sleeve-artist">{{ $tune['artist'] }}</p>
+                            @if ($tune['play'] ?? null)
+                            <button type="button" class="play" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
+                            @endif
                         </div>
                     </div>
                     <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
