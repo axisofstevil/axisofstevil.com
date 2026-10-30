@@ -60,7 +60,7 @@
                         @endif
                         @if ($page->website ?? null)
                         @php($site = (array) (is_array($page->website) ? $page->website : $page->website->toArray()))
-                        <a class="artist-site" href="{{ $site['href'] }}" rel="noopener"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>{{ $site['text'] }}</span>@if ($site['archived'])<small>archived</small>@endif</a>
+                        <a class="artist-site" href="{{ $site['href'] }}" rel="noopener" title="{{ $site['text'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>{{ $site['archived'] ? 'Visit archived website' : 'Visit website' }}</span></a>
                         @endif
                     </div>
                     @if ($words > 0)
