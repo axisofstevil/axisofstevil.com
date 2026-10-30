@@ -3536,11 +3536,6 @@ figure.flash.is-enlarged ruffle-player {
     box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
 }
 
-.issue-sleeve-blank {
-    background:
-        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
-        var(--stock);
-}
 
 .issue-sleeve-label {
     min-width: 0;
@@ -3597,6 +3592,120 @@ figure.flash.is-enlarged ruffle-player {
     height: 14px;
 }
 
+/* An artist with no picture on file, wherever one is expected (a tile, a sleeve, their band, the player):
+   the plates' printed dot, and the symbol, small and muted, where the picture would be. */
+.artist-blank {
+    position: relative;
+    display: block;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+.artist-blank::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 28%;
+    height: 34%;
+    background: var(--muted);
+    opacity: 0.18;
+    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+}
+
+/* The band's placeholder: a square as tall as a banner may run. */
+.artist-blank--band {
+    width: 9.375rem;
+    height: 9.375rem;
+    flex: none;
+}
+
+.artist-intro .series-text .tunes-website {
+    margin: 0.6em 0 0;
+}
+
+.player-picture--blank {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 0 0 1px var(--stock-light);
+}
+
+.player-picture--blank::after {
+    opacity: 0.35;
+}
+
+/* The artist's website, under their name: the address alone, the scheme left off. */
+.issue-sleeve-site {
+    margin: 6px 0 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+}
+
+.issue-sleeve-site a,
+.tunes-website a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--major);
+    text-underline-offset: 3px;
+}
+
+.issue-sleeve-site a:hover,
+.tunes-website a:hover {
+    color: var(--red-ink);
+    text-decoration-color: currentColor;
+}
+
+.tunes-website {
+    grid-column: 1 / -1;
+    margin: calc(var(--pad) * -0.5) 0 var(--pad);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+}
+
+/* The artist's own bio, folded under what was said that week: a line to open, the words beneath. */
+.issue-tune-about {
+    max-width: 62ch;
+    margin-top: calc(var(--pad) * 0.75);
+    border-top: 1px solid var(--major);
+}
+
+.issue-tune-about summary {
+    padding: 10px 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+}
+
+.issue-tune-about summary::-webkit-details-marker {
+    display: none;
+}
+
+.issue-tune-about summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1.25em;
+    color: var(--red-ink);
+}
+
+.issue-tune-about[open] summary::before {
+    content: "–";
+}
+
+.issue-tune-about .issue-tune-bio {
+    margin-top: 0;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    border-top: 0;
+}
+
 /* The story: under the sleeve, a reading column, ruled off from it. */
 .issue-tune-bio {
     max-width: 62ch;
@@ -3638,13 +3747,27 @@ figure.flash.is-enlarged ruffle-player {
         grid-template-columns: 10rem minmax(0, 1fr);
     }
 
-    .issue-foot--one .issue-tunes--story .issue-tune-bio {
+    /* The words (what was said, and the drawer) as one column beside the sleeve, ruled off from it. */
+    .issue-foot--one .issue-tunes--story .issue-tune-words {
+        padding-left: calc(var(--pad) * 2);
+        border-left: 1px solid var(--major);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-words > .issue-tune-bio,
+    .issue-foot--one .issue-tunes--story .issue-tune-about {
         max-width: none;
         margin-top: 0;
         padding-top: 0;
-        padding-left: calc(var(--pad) * 2);
         border-top: 0;
-        border-left: 1px solid var(--major);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-words > .issue-tune-bio + .issue-tune-about {
+        margin-top: 12px;
+        border-top: 1px solid var(--major);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-about .issue-tune-bio {
+        max-width: none;
     }
 }
 
@@ -3885,6 +4008,10 @@ figure.flash.is-enlarged ruffle-player {
     padding-bottom: 80px;
 }
 
+.player-picture[hidden] {
+    display: none;
+}
+
 .player-picture {
     display: block;
     width: 48px;
@@ -4051,11 +4178,6 @@ figure.flash.is-enlarged ruffle-player {
     box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
 }
 
-.tune-blank {
-    background:
-        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
-        var(--stock-light);
-}
 
 .tune-title {
     margin: 0;

@@ -46,7 +46,26 @@
             @foreach ($years as $year => $group)
             <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
                 @if ($loop->first)
+                @if ($own)
+                {{-- The artist's band: their picture (or the placeholder), their bio and their website. --}}
+                <div class="series-intro artist-intro">
+                    @if ($page->banner)
+                    <img class="series-banner" src="{{ $page->banner }}" alt="{{ $page->name }}">
+                    @else
+                    <span class="series-banner artist-blank artist-blank--band" role="img" aria-label="{{ $page->name }}"></span>
+                    @endif
+                    @if (($page->introduction ?? null) || ($page->website ?? null))
+                    <div class="series-text">
+                        {!! $page->introduction ?? '' !!}
+                        @if ($page->website ?? null)
+                        <p class="tunes-website"><a href="{{ $page->website }}" rel="noopener">{{ preg_replace('#^https?://(www\.)?#', '', rtrim($page->website, '/')) }}</a></p>
+                        @endif
+                    </div>
+                    @endif
+                </div>
+                @else
                 @include('_partials.series-intro')
+                @endif
                 @include('_partials.series-note')
                 @endif
                 <div class="year-figure">

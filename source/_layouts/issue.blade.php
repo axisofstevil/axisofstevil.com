@@ -84,7 +84,7 @@
             @if ($tunes->isNotEmpty())
             {{-- The Tune of the Week as a framed panel: one tune is a sleeve (the picture, the label beside it, the story
                  beneath); several are the Tunes pages' tiles in a row, their stories on their artists' pages. --}}
-            <section class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @elseif (trim((string) $tunes->first()['html']) !== '') issue-tunes--story @endif" aria-label="{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }}">
+            <section class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @elseif (trim((string) $tunes->first()['html']) !== '' || trim((string) ($tunes->first()['about'] ?? '')) !== '') issue-tunes--story @endif" aria-label="{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }}">
                 <p class="issue-box-label issue-tunes-label">{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }} @if ($tunes->count() > 1)<span>{{ $tunes->count() }}</span>@endif</p>
                 @if ($tunes->count() === 1)
                 @php($tune = $tunes->first())
@@ -92,7 +92,7 @@
                     @if ($tune['image'])
                     <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
                     @else
-                    <span class="issue-sleeve-picture issue-sleeve-blank"></span>
+                    <span class="issue-sleeve-picture artist-blank" role="img" aria-label="{{ $tune['artist'] }}"></span>
                     @endif
                     <div class="issue-sleeve-label">
                         @if ($tune['track'])
@@ -102,13 +102,31 @@
                         @if ($tune['from'] ?? null)
                         <p class="issue-sleeve-when">Featured {{ $run($tune['from'], $tune['until'] ?? $tune['from']) }}</p>
                         @endif
+                        @if ($tune['url'] ?? null)
+                        <p class="issue-sleeve-site"><a href="{{ $tune['url'] }}" rel="noopener">{{ preg_replace('#^https?://(www\.)?#', '', rtrim($tune['url'], '/')) }}</a></p>
+                        @endif
                         @if ($tune['play'] ?? null)
                         <button type="button" class="play play--large" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
                         @endif
                     </div>
                 </div>
-                @if (trim((string) $tune['html']) !== '')
-                <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
+                @php($said = trim((string) $tune['html']) !== '')
+                @php($about = trim((string) ($tune['about'] ?? '')) !== '')
+                @if ($said || $about)
+                <div class="issue-tune-words">
+                    @if ($said)
+                    <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
+                    @endif
+                    @if ($about && $said)
+                    {{-- The artist's own bio, folded under what was said that week. --}}
+                    <details class="issue-tune-about">
+                        <summary>About {{ $tune['artist'] }}</summary>
+                        <div class="issue-copy issue-tune-bio">{!! $tune['about'] !!}</div>
+                    </details>
+                    @elseif ($about)
+                    <div class="issue-copy issue-tune-bio">{!! $tune['about'] !!}</div>
+                    @endif
+                </div>
                 @endif
                 @else
                 <ul class="gallery-grid issue-tune-tiles">

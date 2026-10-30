@@ -4,6 +4,7 @@
 <script type="application/json" id="playlist">{!! json_encode(array_map(fn ($t) => (array) (is_array($t) ? $t : $t->toArray()), $page->tunes->toArray()), JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP) !!}</script>
 <aside id="player" class="player" data-player data-turbo-permanent hidden aria-label="Now playing">
     <img class="player-picture" alt="" width="48" height="48">
+    <span class="player-picture player-picture--blank artist-blank" hidden></span>
     <div class="player-label">
         <p class="player-track"></p>
         <p class="player-artist"></p>

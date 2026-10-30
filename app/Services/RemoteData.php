@@ -404,7 +404,10 @@ class RemoteData
                     'track' => $item['track']['title'] ?? null,
                     'from' => $item['track']['featured_started_at'] ?? null,
                     'until' => $item['track']['featured_ended_at'] ?? null,
+                    // What was said that week, and the artist's own bio and website.
                     'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
+                    'about' => $markdown((string) ($item['artist']['bio'] ?? ''), null, $item['artist']['name']),
+                    'url' => $item['artist']['url'] ?? null,
                     // The playlist entry it plays (the same artist and title), when the tune has audio; the artist's page.
                     'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,
                     'artist_address' => ($slug = collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'])['artist_slug'] ?? null) === null ? null : "/tunes/{$slug}/",
@@ -879,7 +882,7 @@ class RemoteData
             }
 
             usort($theirs, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
-            $byArtist[] = ['name' => $artist['name'], 'slug' => $artist['slug'], 'image' => $artist['image'] ?? null, 'address' => "/tunes/{$artist['slug']}/", 'count' => count($theirs), 'tunes' => $theirs];
+            $byArtist[] = ['name' => $artist['name'], 'slug' => $artist['slug'], 'image' => $artist['image'] ?? null, 'bio' => $artist['bio'] ?? null, 'url' => $artist['url'] ?? null, 'address' => "/tunes/{$artist['slug']}/", 'count' => count($theirs), 'tunes' => $theirs];
             array_push($all, ...$theirs);
         }
 
@@ -916,11 +919,11 @@ class RemoteData
         ]];
 
         foreach ($byArtist as $artist) {
-            // Their story: the bios their tunes ran with, paragraph by paragraph, each paragraph once, as written.
+            // Their story: their own bio first, then what their tunes ran with, paragraph by paragraph, each once.
             $seen = [];
             $stories = [];
 
-            foreach ($artist['tunes'] as $t) {
+            foreach ([['bio' => $artist['bio']], ...$artist['tunes']] as $t) {
                 foreach (preg_split('/\n\s*\n/', trim((string) ($t['bio'] ?? ''))) ?: [] as $paragraph) {
                     $key = mb_strtolower((string) preg_replace('/\s+/u', ' ', trim($paragraph)));
 
@@ -946,6 +949,7 @@ class RemoteData
                 'figure' => $plural($artist['count'], 'tune', 'tunes').' of the week',
                 'banner' => $artist['image'],
                 'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(implode("\n\n", $stories)),
+                'website' => $artist['url'],
                 'note_label' => null,
                 'note' => [],
                 'note_links' => [],

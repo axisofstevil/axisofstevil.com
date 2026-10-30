@@ -5,7 +5,7 @@
     @if ($tune['image'])
     <img src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy" decoding="async">
     @else
-    <span class="tune-blank"></span>
+    <span class="tune-blank artist-blank" role="img" aria-label="{{ $tune['artist'] }}"></span>
     @endif
     @endif
     <p class="tune-title">“{{ $tune['title'] }}”</p>

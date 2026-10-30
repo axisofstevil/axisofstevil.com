@@ -797,6 +797,7 @@ let reflectPlayer = () => {};
         audio.src = tune.audio;
         picture.src = tune.image || '';
         picture.hidden = !tune.image;
+        bar.querySelector('.player-picture--blank').hidden = Boolean(tune.image);
         bar.querySelector('.player-track').textContent = tune.title;
         bar.querySelector('.player-artist').textContent = tune.artist;
         bar.hidden = false;
