@@ -776,6 +776,8 @@ class RemoteData
                 'caption' => $item['caption'] ?? null,
                 'date' => $item['date'] ?? null,
                 'credits' => array_map(fn (string $name) => ['name' => $name, 'address' => '/gallery/'.$this->slug($name).'/'], $names),
+                // The photographer it files under: the first credited (none: unnamed).
+                'photographer' => $names === [] ? null : ['name' => $names[0], 'slug' => $this->slug($names[0]), 'address' => '/gallery/'.$this->slug($names[0]).'/'],
             ];
         }
 

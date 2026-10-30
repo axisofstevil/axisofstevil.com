@@ -3713,6 +3713,11 @@ figure.flash.is-enlarged ruffle-player {
     text-decoration: underline;
 }
 
+/* A band per year in the Gallery's yearbook: the tiles where a division's works go. */
+.yearbook .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 2.5), 1fr));
+}
+
 /* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;
