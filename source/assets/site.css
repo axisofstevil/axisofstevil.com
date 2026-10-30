@@ -4368,6 +4368,28 @@ a.issue-pager-link:hover .issue-pager-title {
     color: var(--red-ink);
 }
 
+/* An artist's pager: a thin bar under their last year, the names small. */
+.artist-pager {
+    margin-top: 0;
+    padding: 12px var(--pad) 14px;
+    border-top: 0;
+    gap: calc(var(--pad) / 2) var(--pad);
+}
+
+.artist-pager .issue-pager-title {
+    font-size: 1rem;
+}
+
+.artist-pager .issue-pager-link {
+    gap: 2px;
+}
+
+.artist-pager .issue-pager-when,
+.artist-pager .issue-pager-link--none,
+.artist-pager .issue-pager-all {
+    font-size: 0.75rem;
+}
+
 @media (max-width: 1000px) {
     .issue-front {
         grid-template-columns: minmax(0, 1fr);
