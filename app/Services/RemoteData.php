@@ -918,7 +918,16 @@ class RemoteData
             'listed' => $all,
         ]];
 
+        // Artists A to Z (a leading article set aside), each page knowing its neighbours.
+        $alphabetical = $byArtist;
+        $sortKey = fn (array $a): string => mb_strtolower((string) preg_replace('/^(?:(?:a|an|the)\s+)?/iu', '', (string) preg_replace('/^[^\pL\pN]+/u', '', $a['name'])));
+        usort($alphabetical, fn ($a, $b) => strcmp($sortKey($a), $sortKey($b)));
+        $neighbour = fn (?array $a) => $a === null ? null : ['name' => $a['name'], 'address' => $a['address']];
+
         foreach ($byArtist as $artist) {
+            $at = array_search($artist['slug'], array_column($alphabetical, 'slug'), true);
+            $at = $at === false ? 0 : $at;
+
             // Their story: their own bio first, then what their tunes ran with, paragraph by paragraph, each once.
             $seen = [];
             $stories = [];
@@ -950,6 +959,8 @@ class RemoteData
                 'banner' => $artist['image'],
                 'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(implode("\n\n", $stories)),
                 'website' => self::website($artist['url']),
+                'earlier' => $neighbour($alphabetical[$at - 1] ?? null),
+                'later' => $neighbour($alphabetical[$at + 1] ?? null),
                 'note_label' => null,
                 'note' => [],
                 'note_links' => [],

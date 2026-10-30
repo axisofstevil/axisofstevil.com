@@ -97,6 +97,25 @@
             </div>
         </nav>
     </div>
+
+    @if ($own)
+    {{-- The artists before and after, A to Z, and every artist between them. --}}
+    @php($earlier = $page->earlier ? (array) (is_array($page->earlier) ? $page->earlier : $page->earlier->toArray()) : null)
+    @php($later = $page->later ? (array) (is_array($page->later) ? $page->later : $page->later->toArray()) : null)
+    <nav class="plate issue-pager" aria-label="Artists" data-snap>
+        @if ($earlier)
+        <a class="issue-pager-link" href="{{ $earlier['address'] }}" rel="prev"><span class="issue-pager-when"><span aria-hidden="true">←</span> Previous artist</span><span class="issue-pager-title">{{ $earlier['name'] }}</span></a>
+        @else
+        <span class="issue-pager-link issue-pager-link--none">The first artist</span>
+        @endif
+        <a class="issue-pager-all" href="/tunes/">Every artist</a>
+        @if ($later)
+        <a class="issue-pager-link issue-pager-link--later" href="{{ $later['address'] }}" rel="next"><span class="issue-pager-when">Next artist <span aria-hidden="true">→</span></span><span class="issue-pager-title">{{ $later['name'] }}</span></a>
+        @else
+        <span class="issue-pager-link issue-pager-link--later issue-pager-link--none">The last artist</span>
+        @endif
+    </nav>
+    @endif
 </main>
 
 @include('_partials.footer')
