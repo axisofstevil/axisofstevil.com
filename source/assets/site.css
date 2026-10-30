@@ -2567,9 +2567,18 @@ figure.flash ruffle-player {
         display: block;
     }
 
-    /* A series beneath its division: the series' name gives way first, and its menu opens leftward. */
+    /* A series beneath its division: the division keeps only its chevron (its menu still names it), so
+       the page's own name has the room; that name gives way last, and its menu opens leftward. */
     .crumb {
         min-width: 0;
+    }
+
+    .crumb:has(+ .crumb) .running-title {
+        display: none;
+    }
+
+    .crumb:has(+ .crumb) {
+        padding-left: calc(var(--pad) / 2);
     }
 
     .crumb + .crumb .running-title {
