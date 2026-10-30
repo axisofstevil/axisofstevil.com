@@ -82,41 +82,42 @@
         @if ($tunes->isNotEmpty() || $archive)
         <div class="issue-foot @if ($tunes->isEmpty() || ! $archive) issue-foot--one @endif">
             @if ($tunes->isNotEmpty())
-            {{-- One tune: its sleeve, its text in a reading column. Several: compact sleeves in a row under one label. --}}
-            <div class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @endif">
-                @if ($tunes->count() > 1)
-                <p class="issue-box-label issue-tunes-label">Tunes of the Week <span>{{ $tunes->count() }}</span></p>
-                @endif
-                @foreach ($tunes as $tune)
-                <section class="issue-tune" aria-label="Tune of the Week">
-                    @if ($tunes->count() === 1)
-                    <p class="issue-box-label">Tune of the Week</p>
+            {{-- The Tune of the Week as a framed panel: one tune is a sleeve (the picture, the label beside it, the story
+                 beneath); several are the Tunes pages' tiles in a row, their stories on their artists' pages. --}}
+            <section class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @endif" aria-label="{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }}">
+                <p class="issue-box-label issue-tunes-label">{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }} @if ($tunes->count() > 1)<span>{{ $tunes->count() }}</span>@endif</p>
+                @if ($tunes->count() === 1)
+                @php($tune = $tunes->first())
+                <div class="issue-sleeve">
+                    @if ($tune['image'])
+                    <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
+                    @else
+                    <span class="issue-sleeve-picture issue-sleeve-blank"></span>
                     @endif
-                    <div class="issue-sleeve">
-                        @if ($tune['image'])
-                        <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
-                        @else
-                        <span class="issue-sleeve-picture issue-sleeve-blank"></span>
+                    <div class="issue-sleeve-label">
+                        @if ($tune['track'])
+                        <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
                         @endif
-                        <div class="issue-sleeve-label">
-                            @if ($tune['track'])
-                            <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
-                            @endif
-                            <p class="issue-sleeve-artist">@if ($tune['artist_address'] ?? null)<a href="{{ $tune['artist_address'] }}">{{ $tune['artist'] }}</a>@else{{ $tune['artist'] }}@endif</p>
-                            @if ($tune['from'] ?? null)
-                            <p class="issue-sleeve-when">Featured {{ $run($tune['from'], $tune['until'] ?? $tune['from']) }}</p>
-                            @endif
-                            @if ($tune['play'] ?? null)
-                            <button type="button" class="play" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
-                            @endif
-                        </div>
+                        <p class="issue-sleeve-artist">@if ($tune['artist_address'] ?? null)<a href="{{ $tune['artist_address'] }}">{{ $tune['artist'] }}</a>@else{{ $tune['artist'] }}@endif</p>
+                        @if ($tune['from'] ?? null)
+                        <p class="issue-sleeve-when">Featured {{ $run($tune['from'], $tune['until'] ?? $tune['from']) }}</p>
+                        @endif
+                        @if ($tune['play'] ?? null)
+                        <button type="button" class="play play--large" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
+                        @endif
                     </div>
-                    @if (trim((string) $tune['html']) !== '')
-                    <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
-                    @endif
-                </section>
-                @endforeach
-            </div>
+                </div>
+                @if (trim((string) $tune['html']) !== '')
+                <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
+                @endif
+                @else
+                <ul class="gallery-grid issue-tune-tiles">
+                    @foreach ($tunes as $tune)
+                    @include('_partials.tune-tile', ['tune' => ['id' => $tune['play'] ?? '', 'title' => $tune['track'], 'artist' => $tune['artist'], 'artist_address' => $tune['artist_address'] ?? null, 'image' => $tune['image'], 'audio' => $tune['play'] ?? null, 'runs' => [['from' => $tune['from'], 'until' => $tune['until']]]], 'run' => $run, 'withArtist' => true])
+                    @endforeach
+                </ul>
+                @endif
+            </section>
             @endif
 
             @if ($archive)

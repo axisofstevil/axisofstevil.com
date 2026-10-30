@@ -3504,28 +3504,42 @@ figure.flash.is-enlarged ruffle-player {
     grid-template-columns: minmax(0, 1fr);
 }
 
-.issue-sleeve {
-    display: grid;
-    grid-template-columns: 9rem minmax(0, 1fr);
-    align-items: start;
-    gap: calc(var(--pad) * 0.75) var(--pad);
-    margin-bottom: var(--pad);
+/* The Tune of the Week: a panel on lighter stock, framed, holding one tune as a record sleeve (the picture
+   a square with the slate's shadow, the label beside it from the top, the story beneath in a reading column)
+   or several as the Tunes pages' tiles in a row, their stories on their artists' pages. */
+.issue-tunes {
+    padding: calc(var(--pad) * 0.75) var(--pad) var(--pad);
+    background:
+        repeating-linear-gradient(135deg, rgba(17, 17, 17, 0.045) 0 1px, transparent 1px 7px),
+        var(--stock-light);
+    box-shadow: inset 0 0 0 1px var(--ink);
 }
 
-/* The artist's picture as a record sleeve: a square whatever the file's shape, the slate's shadow behind it. */
+.issue-tunes-label {
+    margin-bottom: 14px;
+}
+
+.issue-sleeve {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--pad);
+}
+
 .issue-sleeve-picture {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    box-shadow: 0 0 0 1px var(--ink), 6px 6px 0 var(--slate);
+    background: var(--stock);
+    box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
 }
 
 .issue-sleeve-blank {
     background:
         radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
-        var(--stock-light);
+        var(--stock);
 }
 
 .issue-sleeve-label {
@@ -3533,20 +3547,8 @@ figure.flash.is-enlarged ruffle-player {
     padding-top: 2px;
 }
 
-.issue-sleeve-when {
-    margin: 8px 0 0;
-    font-family: var(--display);
-    font-size: 0.8125rem;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-}
-
-.issue-sleeve-label .play {
-    margin-top: 14px;
-}
-
 .issue-sleeve-track {
-    margin: 0 0 6px;
+    margin: 0 0 8px;
     font-family: var(--display);
     font-size: clamp(1.5rem, calc(var(--col) * 0.26), 2.25rem);
     font-weight: 700;
@@ -3563,55 +3565,59 @@ figure.flash.is-enlarged ruffle-player {
     color: var(--muted);
 }
 
-.issue-tune-bio {
-    max-width: 62ch;
-    font-size: 0.9375rem;
+.issue-sleeve-artist a {
+    color: var(--ink);
+    text-decoration: none;
 }
 
-/* Several tunes in a week: compact sleeves side by side under one label, each tune's text (when it has
-   any) beneath its own sleeve; on a narrow screen they stack. */
-.issue-tunes.issue-tunes--several {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: var(--pad) calc(var(--pad) * 1.5);
+.issue-sleeve-artist a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
 }
 
-.issue-tunes-label {
-    grid-column: 1 / -1;
-    margin-bottom: 0;
+.issue-sleeve-when {
+    margin: 8px 0 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
 }
 
-.issue-tunes--several .issue-sleeve {
-    grid-template-columns: 5.5rem minmax(0, 1fr);
-    gap: 10px 14px;
-    margin-bottom: 12px;
+.issue-sleeve-label .play {
+    margin-top: 16px;
 }
 
-.issue-tunes--several .issue-sleeve-track {
-    font-size: 1.25rem;
-}
-
-.issue-tunes--several .issue-sleeve-when {
-    margin-top: 4px;
-}
-
-.issue-tunes--several .issue-sleeve-label .play {
-    margin-top: 8px;
-    padding: 6px 10px 6px 8px;
-}
-
-.issue-tunes--several .issue-tune-bio {
+.play--large {
+    padding: 11px 18px 11px 14px;
     font-size: 0.875rem;
 }
 
-.issue-tunes {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--pad) * 1.5);
+.play--large svg {
+    width: 14px;
+    height: 14px;
 }
 
-/* A week with one tune alone in its foot: the sleeve and its text keep a reading width rather than the page's;
-   several tunes alone take the width, in a row. */
+/* The story: under the sleeve, a reading column, ruled off from it. */
+.issue-tune-bio {
+    max-width: 62ch;
+    margin-top: var(--pad);
+    padding-top: calc(var(--pad) * 0.75);
+    border-top: 1px solid var(--major);
+    font-size: 0.9375rem;
+}
+
+/* Several: the tiles, each a column; on a narrow screen they stack. */
+.issue-tune-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--pad) calc(var(--pad) * 1.25);
+}
+
+.issue-tune-tiles .tune-tile img,
+.issue-tune-tiles .tune-tile .tune-blank {
+    background: var(--stock);
+}
+
+/* A week with one tune alone in its foot: the panel keeps a reading width rather than the page's. */
 .issue-foot--one .issue-tunes:not(.issue-tunes--several) {
     max-width: calc(var(--col) * 7);
 }
@@ -4236,7 +4242,16 @@ a.issue-pager-link:hover .issue-pager-title {
     }
 
     .issue-sleeve {
-        grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+        grid-template-columns: 6.5rem minmax(0, 1fr);
+        gap: calc(var(--pad) * 0.75);
+    }
+
+    .issue-sleeve-track {
+        font-size: 1.375rem;
+    }
+
+    .issue-sleeve-picture {
+        box-shadow: 0 0 0 1px var(--ink), 5px 5px 0 var(--slate);
     }
 
     .issue-pager {
