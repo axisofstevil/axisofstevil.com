@@ -50,6 +50,8 @@
                 {{-- The artist, above their tunes: their picture (or the placeholder) at the left with their website under it,
                      their bio beside, in two newspaper columns when it runs long. --}}
                 @php($words = str_word_count(strip_tags((string) ($page->introduction ?? ''))))
+                {{-- Two columns when the bio runs long, or has more than one block (a paragraph and the line-up): the blocks share the columns. --}}
+                @php($blocks = preg_match_all('/<(p|ul|ol|blockquote|h[1-6])\b/i', (string) ($page->introduction ?? '')))
                 @if ($page->banner || $words > 0 || ($page->website ?? null))
                 <div class="artist-about">
                     <div class="artist-side">
@@ -64,7 +66,7 @@
                         @endif
                     </div>
                     @if ($words > 0)
-                    <div class="issue-copy artist-words @if ($words >= 120) artist-words--columns @endif">{!! $page->introduction !!}</div>
+                    <div class="issue-copy artist-words @if ($words >= 120 || $blocks >= 2) artist-words--columns @endif">{!! $page->introduction !!}</div>
                     @endif
                 </div>
                 @endif
