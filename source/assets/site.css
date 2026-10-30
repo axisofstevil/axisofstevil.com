@@ -3929,8 +3929,8 @@ figure.flash.is-enlarged ruffle-player {
     }
 }
 
-/* A tune as a tile: the artist's picture whole in a square (a band's photo or a wide logo alike), the title,
-   the artist and the week it ran, and Play. */
+/* A tune as a tile: the artist's picture whole in a square (a band's photo or a wide logo alike; nothing opens
+   from it), the title, the artist and the week it ran, and Play. */
 .tune-tile {
     display: flex;
     flex-direction: column;
@@ -3946,6 +3946,7 @@ figure.flash.is-enlarged ruffle-player {
     object-fit: contain;
     padding: 6px;
     box-sizing: border-box;
+    cursor: default;
     background: var(--stock-light);
     box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
 }

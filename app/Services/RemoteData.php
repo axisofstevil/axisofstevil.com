@@ -806,43 +806,39 @@ class RemoteData
     }
 
     /**
-     * An artist's tracks as tunes, each featured once or more: a track that
-     * ran again (the same file, else the same title) is one tune with every
-     * run it had, oldest first, named after its first.
+     * An artist's tracks as tunes, as the API gives them: each with every
+     * run it had (oldest first) and the text each run carried.
      *
      * @param  array<string, mixed>  $artist
      * @return list<array<string, mixed>>
      */
     private function merged(array $artist): array
     {
-        $tracks = $artist['tracks'] ?? [];
-        usort($tracks, fn ($a, $b) => [$a['featured_started_at'], $a['slug']] <=> [$b['featured_started_at'], $b['slug']]);
         $tunes = [];
 
-        foreach ($tracks as $track) {
-            $key = $track['audio'] ?? ('title:'.mb_strtolower(trim((string) $track['title'])));
-            $run = ['from' => $track['featured_started_at'], 'until' => $track['featured_ended_at']];
+        foreach ($artist['tracks'] ?? [] as $track) {
+            $runs = array_values(array_map(fn ($run) => ['from' => $run['featured_started_at'], 'until' => $run['featured_ended_at'] ?? null], $track['runs'] ?? []));
+            usort($runs, fn ($a, $b) => $a['from'] <=> $b['from']);
 
-            if (isset($tunes[$key])) {
-                $tunes[$key]['runs'][] = $run;
-                $tunes[$key]['bios'][] = $track['bio'] ?? null;
-
+            if ($runs === []) {
                 continue;
             }
 
-            $tunes[$key] = [
+            $tunes[] = [
                 'id' => $artist['slug'].'/'.$track['slug'],
                 'title' => $track['title'],
                 'image' => $track['image'] ?? $artist['image'] ?? null,
                 'audio' => $track['audio'] ?? null,
-                'from' => $track['featured_started_at'],
-                'until' => $track['featured_ended_at'],
-                'runs' => [$run],
-                'bios' => [$track['bio'] ?? null],
+                'from' => $runs[0]['from'],
+                'until' => $runs[0]['until'],
+                'runs' => $runs,
+                'bios' => array_map(fn ($run) => $run['bio'] ?? null, $track['runs'] ?? []),
             ];
         }
 
-        return array_values($tunes);
+        usort($tunes, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
+
+        return $tunes;
     }
 
     /**

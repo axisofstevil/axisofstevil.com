@@ -673,7 +673,8 @@ const zoom = (() => {
     });
 
     const start = () => {
-        pictures = [...document.querySelectorAll('.work-plate img, .work-hero img, .gallery-grid img')].filter((picture) => !picture.closest('figure.flash'));
+        // Not a Flash movie's thumbnail (a click plays the movie), nor a tune's artist picture (nothing to see larger).
+        pictures = [...document.querySelectorAll('.work-plate img, .work-hero img, .gallery-grid img')].filter((picture) => !picture.closest('figure.flash, .tune-tile'));
 
         pictures.forEach((picture) => {
             if (picture.complete && picture.naturalWidth > 0) {
@@ -742,11 +743,11 @@ let reflectPlayer = () => {};
     const toggle = bar.querySelector('.player-toggle');
     const autoplay = bar.querySelector('.player-autoplay');
 
-    // Going on to the next tune when one ends: the switch in the bar, remembered.
+    // Going on to the next tune when one ends: the switch in the bar, off until turned on, remembered.
     try {
-        autoplay.checked = localStorage.getItem('axis.autoplay') !== 'off';
+        autoplay.checked = localStorage.getItem('axis.autoplay') === 'on';
     } catch (e) {
-        // Storage may be closed to us: on, as the switch says.
+        // Storage may be closed to us: off, as the switch says.
     }
 
     autoplay.addEventListener('change', () => {
