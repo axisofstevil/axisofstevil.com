@@ -56,7 +56,8 @@
                     <div class="issue-copy artist-words">
                         {!! $page->introduction ?? '' !!}
                         @if ($page->website ?? null)
-                        <p class="tunes-website"><a href="{{ $page->website }}" rel="noopener">{{ preg_replace('#^https?://(www\.)?#', '', rtrim($page->website, '/')) }}</a></p>
+                        @php($site = (array) (is_array($page->website) ? $page->website : $page->website->toArray()))
+                        <p class="tunes-website"><a href="{{ $site['href'] }}" rel="noopener">{{ $site['text'] }}</a>@if ($site['archived']) <span>archived</span>@endif</p>
                         @endif
                     </div>
                 </div>

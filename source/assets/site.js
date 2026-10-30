@@ -782,6 +782,8 @@ let reflectPlayer = () => {};
     const reflect = () => {
         const playing = !audio.paused;
         reflectPlayer = reflect;
+        // Alone in the list in play (an artist's one tune on their page): nowhere to step.
+        bar.querySelectorAll('.player-step').forEach((button) => (button.disabled = queue().length < 2));
         bar.classList.toggle('is-playing', playing);
         toggle.setAttribute('aria-label', playing ? 'Pause' : 'Play');
         document.querySelectorAll('[data-play]').forEach((button) => {

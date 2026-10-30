@@ -3660,7 +3660,16 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 0.35;
 }
 
-/* The artist's website: the address alone, the scheme left off. */
+/* The artist's website: the address alone, the scheme left off; a copy on the Wayback Machine says so. */
+.issue-sleeve-site span,
+.tunes-website span {
+    margin-left: 8px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .issue-sleeve-site {
     margin: 6px 0 0;
     font-family: var(--display);
@@ -4128,6 +4137,15 @@ figure.flash.is-enlarged ruffle-player {
 .player-controls button:hover,
 .player-close:hover {
     color: var(--red);
+}
+
+.player-step:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.player-step:disabled:hover {
+    color: inherit;
 }
 
 .player-time {

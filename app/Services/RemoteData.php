@@ -407,7 +407,7 @@ class RemoteData
                     // What was said that week, and the artist's own bio and website.
                     'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
                     'about' => $markdown((string) ($item['artist']['bio'] ?? ''), null, $item['artist']['name']),
-                    'url' => $item['artist']['url'] ?? null,
+                    'website' => self::website($item['artist']['url'] ?? null),
                     // The playlist entry it plays (the same artist and title), when the tune has audio; the artist's page.
                     'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,
                     'artist_address' => ($slug = collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'])['artist_slug'] ?? null) === null ? null : "/tunes/{$slug}/",
@@ -949,7 +949,7 @@ class RemoteData
                 'figure' => $plural($artist['count'], 'tune', 'tunes').' of the week',
                 'banner' => $artist['image'],
                 'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(implode("\n\n", $stories)),
-                'website' => $artist['url'],
+                'website' => self::website($artist['url']),
                 'note_label' => null,
                 'note' => [],
                 'note_links' => [],
@@ -1081,6 +1081,24 @@ class RemoteData
         }
 
         return $items;
+    }
+
+    /**
+     * A website as a link: the address alone (scheme and www left off), and
+     * for a copy on the Wayback Machine the original address, marked archived.
+     *
+     * @return array{href: string, text: string, archived: bool}|null
+     */
+    public static function website(?string $url): ?array
+    {
+        if ($url === null || trim($url) === '') {
+            return null;
+        }
+
+        $archived = preg_match('#^https?://web\.archive\.org/web/\d+[a-z_]*/(.+)$#i', $url, $m) === 1;
+        $shown = $archived ? $m[1] : $url;
+
+        return ['href' => $url, 'text' => (string) preg_replace('#^https?://(www\.)?#i', '', rtrim($shown, '/')), 'archived' => $archived];
     }
 
     /**

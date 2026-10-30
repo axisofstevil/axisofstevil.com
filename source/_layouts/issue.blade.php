@@ -102,8 +102,9 @@
                         @if ($tune['from'] ?? null)
                         <p class="issue-sleeve-when">Featured {{ $run($tune['from'], $tune['until'] ?? $tune['from']) }}</p>
                         @endif
-                        @if ($tune['url'] ?? null)
-                        <p class="issue-sleeve-site"><a href="{{ $tune['url'] }}" rel="noopener">{{ preg_replace('#^https?://(www\.)?#', '', rtrim($tune['url'], '/')) }}</a></p>
+                        @if ($tune['website'] ?? null)
+                        @php($site = (array) (is_array($tune['website']) ? $tune['website'] : $tune['website']->toArray()))
+                        <p class="issue-sleeve-site"><a href="{{ $site['href'] }}" rel="noopener">{{ $site['text'] }}</a>@if ($site['archived']) <span>archived</span>@endif</p>
                         @endif
                         @if ($tune['play'] ?? null)
                         <button type="button" class="play play--large" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
