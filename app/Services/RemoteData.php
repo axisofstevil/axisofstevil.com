@@ -402,6 +402,8 @@ class RemoteData
                     'artist' => $item['artist']['name'],
                     'image' => $item['artist']['image'] ?? null,
                     'track' => $item['track']['title'] ?? null,
+                    'from' => $item['track']['featured_started_at'] ?? null,
+                    'until' => $item['track']['featured_ended_at'] ?? null,
                     'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
                     // The playlist entry it plays (the same artist and title), when the tune has audio; the artist's page.
                     'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,

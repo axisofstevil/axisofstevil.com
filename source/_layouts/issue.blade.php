@@ -89,18 +89,25 @@
                     <div class="issue-sleeve">
                         @if ($tune['image'])
                         <img class="issue-sleeve-picture" src="{{ $tune['image'] }}" alt="{{ $tune['artist'] }}" loading="lazy">
+                        @else
+                        <span class="issue-sleeve-picture issue-sleeve-blank"></span>
                         @endif
                         <div class="issue-sleeve-label">
                             @if ($tune['track'])
                             <p class="issue-sleeve-track">“{{ $tune['track'] }}”</p>
                             @endif
                             <p class="issue-sleeve-artist">@if ($tune['artist_address'] ?? null)<a href="{{ $tune['artist_address'] }}">{{ $tune['artist'] }}</a>@else{{ $tune['artist'] }}@endif</p>
+                            @if ($tune['from'] ?? null)
+                            <p class="issue-sleeve-when">Featured {{ $run($tune['from'], $tune['until'] ?? $tune['from']) }}</p>
+                            @endif
                             @if ($tune['play'] ?? null)
                             <button type="button" class="play" data-play="{{ $tune['play'] }}" aria-label="Play “{{ $tune['track'] }}” by {{ $tune['artist'] }}"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="play-icon" d="M3 2l7 4-7 4z"/><path class="pause-icon" d="M3 2h2.5v8H3zM6.5 2H9v8H6.5z"/></svg><span>Play</span></button>
                             @endif
                         </div>
                     </div>
+                    @if (trim((string) $tune['html']) !== '')
                     <div class="issue-copy issue-tune-bio">{!! $tune['html'] !!}</div>
+                    @endif
                 </section>
                 @endforeach
             </div>
