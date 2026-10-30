@@ -3760,7 +3760,12 @@ figure.flash.is-enlarged ruffle-player {
     background: var(--red);
 }
 
-/* The player: a bar along the foot of the window, slate like the thumb index, the page given room above it. */
+/* The player: a bar along the foot of the window, slate like the thumb index, the page given room above it;
+   out of sight until a tune is chosen. */
+.player[hidden] {
+    display: none;
+}
+
 .player {
     position: fixed;
     inset: auto 0 0 0;

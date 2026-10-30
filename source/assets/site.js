@@ -822,7 +822,17 @@ let reflectPlayer = () => {};
         }
     });
 
-    toggle.addEventListener('click', () => (audio.paused ? audio.play().catch(() => reflect()) : audio.pause()));
+    // The bar's own button with nothing loaded yet: the page's tune, else the first of the playlist.
+    toggle.addEventListener('click', () => {
+        if (!current) {
+            const onPage = document.querySelector('[data-play]');
+            play(playlist.find((one) => one.id === onPage?.dataset.play) ?? playlist[0]);
+
+            return;
+        }
+
+        audio.paused ? audio.play().catch(() => reflect()) : audio.pause();
+    });
     bar.querySelectorAll('.player-step').forEach((button) => button.addEventListener('click', () => step(Number(button.dataset.step))));
     bar.querySelector('.player-close').addEventListener('click', () => {
         audio.pause();
