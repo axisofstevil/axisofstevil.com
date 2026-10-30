@@ -3617,9 +3617,35 @@ figure.flash.is-enlarged ruffle-player {
     background: var(--stock);
 }
 
-/* A week with one tune alone in its foot: the panel keeps a reading width rather than the page's. */
-.issue-foot--one .issue-tunes:not(.issue-tunes--several) {
+/* A week with one tune alone in its foot: with a story, the panel takes the width and the story sits beside
+   the sleeve rather than under it; without one, the sleeve's panel keeps a reading width. */
+.issue-foot--one .issue-tunes:not(.issue-tunes--several):not(.issue-tunes--story) {
     max-width: calc(var(--col) * 7);
+}
+
+@media (min-width: 1001px) {
+    .issue-foot--one .issue-tunes--story {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        column-gap: calc(var(--pad) * 2);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tunes-label {
+        grid-column: 1 / -1;
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-sleeve {
+        grid-template-columns: 10rem minmax(0, 1fr);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-bio {
+        max-width: none;
+        margin-top: 0;
+        padding-top: 0;
+        padding-left: calc(var(--pad) * 2);
+        border-top: 0;
+        border-left: 1px solid var(--major);
+    }
 }
 
 .issue-box-label span {

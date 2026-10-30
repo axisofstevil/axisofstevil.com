@@ -84,7 +84,7 @@
             @if ($tunes->isNotEmpty())
             {{-- The Tune of the Week as a framed panel: one tune is a sleeve (the picture, the label beside it, the story
                  beneath); several are the Tunes pages' tiles in a row, their stories on their artists' pages. --}}
-            <section class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @endif" aria-label="{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }}">
+            <section class="issue-tunes @if ($tunes->count() > 1) issue-tunes--several @elseif (trim((string) $tunes->first()['html']) !== '') issue-tunes--story @endif" aria-label="{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }}">
                 <p class="issue-box-label issue-tunes-label">{{ $tunes->count() > 1 ? 'Tunes of the Week' : 'Tune of the Week' }} @if ($tunes->count() > 1)<span>{{ $tunes->count() }}</span>@endif</p>
                 @if ($tunes->count() === 1)
                 @php($tune = $tunes->first())
