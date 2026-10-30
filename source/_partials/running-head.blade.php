@@ -61,12 +61,13 @@
             ['name' => 'All Photographs', 'href' => '/gallery/', 'count' => $gallery['count']],
             ...array_map(fn ($p) => ['name' => $p['name'], 'href' => $p['address'], 'count' => $p['count']], $gallery['photographers']),
         ];
+        // Gallery is a plain link back to the sheet; the photographer's crumb carries the menu of photographers.
         $crumbs[] = [
             'name' => 'Gallery',
             'href' => '/gallery/',
             'here' => ($here ?? null) === 'gallery',
-            'label' => 'Choose a photographer',
-            'menu' => $photographers,
+            'label' => null,
+            'menu' => [],
         ];
         $current = ($photographer ?? null) ? collect($gallery['photographers'])->firstWhere('slug', $photographer) : null;
 

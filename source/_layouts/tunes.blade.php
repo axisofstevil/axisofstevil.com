@@ -47,19 +47,25 @@
             <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
                 @if ($loop->first)
                 @if ($own)
-                {{-- The artist, above their tunes: their bio and website, their picture (when there is one) at the left with the words round it. --}}
-                @if ($page->banner || ($page->introduction ?? null) || ($page->website ?? null))
+                {{-- The artist, above their tunes: their picture (or the placeholder) at the left with their website under it,
+                     their bio beside, in two newspaper columns when it runs long. --}}
+                @php($words = str_word_count(strip_tags((string) ($page->introduction ?? ''))))
+                @if ($page->banner || $words > 0 || ($page->website ?? null))
                 <div class="artist-about">
-                    @if ($page->banner)
-                    <img class="artist-portrait" src="{{ $page->banner }}" alt="{{ $page->name }}">
-                    @endif
-                    <div class="issue-copy artist-words">
-                        {!! $page->introduction ?? '' !!}
+                    <div class="artist-side">
+                        @if ($page->banner)
+                        <img class="artist-portrait" src="{{ $page->banner }}" alt="{{ $page->name }}">
+                        @else
+                        <span class="artist-portrait artist-blank" role="img" aria-label="{{ $page->name }}"></span>
+                        @endif
                         @if ($page->website ?? null)
                         @php($site = (array) (is_array($page->website) ? $page->website : $page->website->toArray()))
-                        <p class="tunes-website"><a href="{{ $site['href'] }}" rel="noopener">{{ $site['text'] }}</a>@if ($site['archived']) <span>archived</span>@endif</p>
+                        <a class="artist-site" href="{{ $site['href'] }}" rel="noopener"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>{{ $site['text'] }}</span>@if ($site['archived'])<small>archived</small>@endif</a>
                         @endif
                     </div>
+                    @if ($words > 0)
+                    <div class="issue-copy artist-words @if ($words >= 120) artist-words--columns @endif">{!! $page->introduction !!}</div>
+                    @endif
                 </div>
                 @endif
                 @else

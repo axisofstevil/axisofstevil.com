@@ -924,7 +924,7 @@ class RemoteData
             $stories = [];
 
             foreach ([['bio' => $artist['bio']], ...$artist['tunes']] as $t) {
-                foreach (preg_split('/\n\s*\n/', trim((string) ($t['bio'] ?? ''))) ?: [] as $paragraph) {
+                foreach (preg_split('/\n\s*\n/', trim(str_replace(["\r\n", "\r"], "\n", (string) ($t['bio'] ?? '')))) ?: [] as $paragraph) {
                     $key = mb_strtolower((string) preg_replace('/\s+/u', ' ', trim($paragraph)));
 
                     if ($key === '' || isset($seen[$key])) {

@@ -3615,39 +3615,108 @@ figure.flash.is-enlarged ruffle-player {
     mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
 }
 
-/* The artist, above their tunes: the picture at the left with the words round it, a rule beneath. */
+/* The artist, above their tunes: the picture (and their website under it) in a column at the left, the bio
+   beside it, in two newspaper columns when it runs long; a rule beneath. */
 .artist-about {
     grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(11rem, max-content) minmax(0, 1fr);
+    align-items: start;
+    column-gap: calc(var(--pad) * 1.5);
     margin-bottom: calc(var(--pad) * 1.25);
     padding-bottom: var(--pad);
     border-bottom: 1px solid var(--major);
 }
 
-.artist-about::after {
-    content: "";
-    display: block;
-    clear: both;
+.artist-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
 }
 
 .artist-portrait {
-    float: left;
+    display: block;
     width: 11rem;
-    max-width: 40%;
     height: auto;
-    margin: 4px calc(var(--pad) * 1.25) 8px 0;
+    aspect-ratio: 1 / 1;
+    /* Whole, whatever its shape: a band's photo or a wide logo alike. */
+    object-fit: contain;
+    background: var(--stock-light);
     box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
 }
 
-.artist-words {
-    max-width: 70ch;
+/* The website: an outlined button in the plates' ink, the address alone, an arrow out; archived, it says so. */
+.artist-site {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 22rem;
+    padding: 8px 12px;
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background: var(--stock-light);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.artist-site svg {
+    width: 12px;
+    height: 12px;
+    flex: none;
+}
+
+.artist-site span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.artist-site small {
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.artist-site:hover {
+    background: var(--ink);
+    color: var(--stock-light);
+}
+
+.artist-site:hover small {
+    color: var(--stock);
 }
 
 .artist-words > :last-child {
     margin-bottom: 0;
 }
 
-.artist-words .tunes-website {
-    margin-top: 0.75em;
+/* A long bio: two newspaper columns, as a front page sets a wide block of words. */
+.artist-words--columns {
+    columns: 2;
+    column-gap: calc(var(--pad) * 1.5);
+    column-rule: 1px solid var(--major);
+}
+
+.artist-words--columns > * {
+    break-inside: avoid;
+}
+
+@media (max-width: 760px) {
+    .artist-about {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .artist-words--columns {
+        columns: 1;
+        column-rule: 0;
+    }
 }
 
 .player-picture--blank {
