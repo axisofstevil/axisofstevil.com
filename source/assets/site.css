@@ -3602,6 +3602,63 @@ figure.flash.is-enlarged ruffle-player {
     font-variant-numeric: tabular-nums;
 }
 
+/* The works the page left out: a list under the spread, the archive list's rows with the division too. */
+.issue-also {
+    margin-top: calc(var(--pad) * 2);
+    padding-top: var(--pad);
+    border-top: 3px solid var(--ink);
+}
+
+.issue-also-list a {
+    grid-template-columns: 3rem minmax(0, 1fr) auto auto;
+}
+
+.issue-also-division {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-also-rerun {
+    margin-left: 0.5em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+/* A phone: the title over its division and date, beside the thumbnail. */
+@media (max-width: 600px) {
+    .issue-also-list a {
+        grid-template-columns: 3rem minmax(0, 1fr) auto;
+        grid-template-areas:
+            "thumb title title"
+            "thumb division date";
+        row-gap: 2px;
+    }
+
+    .issue-also-list .issue-archive-thumb {
+        grid-area: thumb;
+    }
+
+    .issue-also-list .issue-archive-title {
+        grid-area: title;
+        overflow-wrap: anywhere;
+    }
+
+    .issue-also-division {
+        grid-area: division;
+    }
+
+    .issue-also-list .issue-archive-date {
+        grid-area: date;
+        justify-self: end;
+    }
+}
+
 /* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;

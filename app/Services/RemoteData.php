@@ -191,7 +191,9 @@ class RemoteData
                 'description' => 'Issue No. '.($i + 1).' of the Axis of Stevil, the week of '.CarbonImmutable::parse($f['starts_on'])->format('F j, Y').'.',
                 'blocks' => $blocks,
                 // The week as laid out (by hand, or automatically until it is): rows of slots on 12 columns.
-                'rows' => $this->rows($f['layout']['rows'] ?? [], $blocks),
+                'rows' => $rows = $this->rows($f['layout']['rows'] ?? [], $blocks),
+                // The works of the week the page left out, re-runs included, oldest first: listed under it.
+                'also' => $this->leftOut($blocks, $rows),
                 'works' => count(array_filter($blocks, fn ($b) => isset($b['address']) && ! $b['refeature'])),
                 'earlier' => $pick($oldestFirst[$i - 1] ?? null),
                 'later' => $pick($oldestFirst[$i + 1] ?? null),
@@ -211,6 +213,38 @@ class RemoteData
      * @param  list<array<string, mixed>>  $blocks
      * @return list<list<array{span: int, pieces: list<array<string, mixed>>}>>
      */
+    /**
+     * The week's works no row placed (re-runs included), oldest first.
+     *
+     * @param  list<array<string, mixed>>  $blocks
+     * @param  list<list<array<string, mixed>>>  $rows
+     * @return list<array<string, mixed>>
+     */
+    private function leftOut(array $blocks, array $rows): array
+    {
+        $placed = [];
+
+        foreach ($rows as $row) {
+            foreach ($row as $slot) {
+                foreach ($slot['pieces'] as $piece) {
+                    $placed[$piece['slug']] = true;
+                }
+            }
+        }
+
+        $left = [];
+
+        foreach ($blocks as $block) {
+            if (isset($block['address'], $block['slug']) && ! isset($placed[$block['slug']]) && ! isset($left[$block['slug']])) {
+                $left[$block['slug']] = ['title' => $block['title'], 'address' => $block['address'], 'date' => $block['date'], 'image' => $block['image'], 'division' => $block['division'], 'refeature' => $block['refeature']];
+            }
+        }
+
+        usort($left, fn (array $a, array $b) => strcmp($a['date'], $b['date']));
+
+        return array_values($left);
+    }
+
     private function rows(array $layout, array $blocks): array
     {
         $bySlug = [];

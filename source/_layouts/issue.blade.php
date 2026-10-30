@@ -60,6 +60,25 @@
         </div>
         @endforeach
 
+        {{-- The week's works the page left out, re-runs included: a list under the spread. --}}
+        @if ($page->also)
+        <section class="issue-also" aria-labelledby="issue-also-label">
+            <p id="issue-also-label" class="issue-box-label">Also this week</p>
+            <ol class="issue-archive-list issue-also-list">
+                @foreach ($page->also as $entry)
+                <li>
+                    <a href="{{ $entry['address'] }}">
+                        <span class="issue-archive-thumb">@if ($entry['image'])<img src="{{ $entry['image'] }}" alt="" loading="lazy">@endif</span>
+                        <span class="issue-archive-title">{{ $entry['title'] }}@if ($entry['refeature']) <span class="issue-also-rerun">Re-run</span>@endif</span>
+                        <span class="issue-also-division">{{ $entry['division'] }}</span>
+                        <span class="issue-archive-date">{{ $day($entry['date'])->format('m.d.y') }}</span>
+                    </a>
+                </li>
+                @endforeach
+            </ol>
+        </section>
+        @endif
+
         @if ($tunes->isNotEmpty() || $archive)
         <div class="issue-foot @if ($tunes->isEmpty() || ! $archive) issue-foot--one @endif">
             @if ($tunes->isNotEmpty())
