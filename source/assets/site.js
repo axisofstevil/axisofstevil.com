@@ -3,7 +3,11 @@
 // apart, and every [data-snap] block is rounded up to whole half-modules so
 // its edges land on grid lines. [data-fill] also grows to fill the first
 // viewport down to a grid line, where the cover and letter sit side by side.
-const snapToGrid = (() => {
+// Everything a page needs is set up in start() (at the end of this file), which can run again for
+// another page; what belongs to the window or the document is bound once, outside it.
+let snapToGrid = () => {};
+
+const sheetFor = () => {
     const root = document.documentElement;
     const sheet = document.querySelector('.report');
 
@@ -52,7 +56,6 @@ const snapToGrid = (() => {
 
     snap();
     document.fonts?.ready.then(schedule);
-    window.addEventListener('resize', schedule);
 
     // Pictures and players that arrive later change heights: snap again as each lands.
     document.querySelectorAll('[data-snap] img, [data-snap] iframe, [data-snap] video').forEach((media) => {
@@ -61,10 +64,12 @@ const snapToGrid = (() => {
     });
 
     return schedule;
-})();
+};
+
+window.addEventListener('resize', () => snapToGrid());
 
 // The audit's pile: a click deals the top card off and under, and the rest step up.
-(() => {
+const startPile = () => {
     const pile = document.querySelector('[data-pile]');
     let cards = pile ? [...pile.querySelectorAll('.audit-card')] : [];
 
@@ -113,16 +118,16 @@ const snapToGrid = (() => {
             { once: true },
         );
     });
-})();
+};
 
 // Random Audit: a run through every work in a shuffled order, kept in this tab
 // (sessionStorage) so addresses stay plain. Beginning pulls the first work;
 // each work on the run shows its number and the way on (the bar, held at the
 // top, or R); End stops the run and leaves the reader on the work.
 // Nothing is pulled twice until every work has been seen.
-(() => {
+const audit = (() => {
     const key = 'axis.audit';
-    const here = window.location.pathname;
+    const here = () => window.location.pathname;
 
     const read = () => {
         try {
@@ -151,7 +156,7 @@ const snapToGrid = (() => {
             throw new Error(`The register answered ${response.status}`);
         }
 
-        const list = (await response.json()).map((work) => work.a).filter((address) => address !== here);
+        const list = (await response.json()).map((work) => work.a).filter((address) => address !== here());
 
         for (let i = list.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -166,7 +171,7 @@ const snapToGrid = (() => {
 
         try {
             run ??= { pulled: [], queue: [] };
-            run.queue = run.queue.filter((address) => address !== here);
+            run.queue = run.queue.filter((address) => address !== here());
 
             if (run.queue.length === 0) {
                 run.queue = await deal();
@@ -185,39 +190,44 @@ const snapToGrid = (() => {
         }
     };
 
-    document.querySelectorAll('[data-audit-start]').forEach((trigger) => {
-        trigger.addEventListener('click', (event) => {
-            event.preventDefault();
-            pull(trigger, null);
+    // The page's part: Begin, and on the run, where it stands and the way on.
+    const start = () => {
+        document.querySelectorAll('[data-audit-start]').forEach((trigger) => {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+                pull(trigger, null);
+            });
         });
-    });
 
-    const run = read();
-    const number = run ? run.pulled.lastIndexOf(here) + 1 : 0;
+        const run = read();
+        const number = run ? run.pulled.lastIndexOf(here()) + 1 : 0;
 
-    if (number === 0) {
-        return;
-    }
+        // On the run: show where it stands, and keep it going.
+        const show = (on) => {
+            document.querySelectorAll('[data-audit-bar]').forEach((el) => (el.hidden = !on));
+            document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = on));
+            document.documentElement.classList.toggle('on-audit', on);
+            snapToGrid();
+        };
 
-    // On the run: show where it stands, and keep it going.
-    const show = (on) => {
-        document.querySelectorAll('[data-audit-bar]').forEach((el) => (el.hidden = !on));
-        document.querySelectorAll('[data-audit-off]').forEach((el) => (el.hidden = on));
-        document.documentElement.classList.toggle('on-audit', on);
-        snapToGrid();
+        if (number === 0) {
+            document.documentElement.classList.remove('on-audit');
+
+            return;
+        }
+
+        document.querySelectorAll('[data-audit-no]').forEach((n) => (n.textContent = number));
+        show(true);
+
+        document.querySelectorAll('[data-audit-next]').forEach((button) => {
+            button.addEventListener('click', () => pull(button, read()));
+        });
+
+        document.querySelector('[data-audit-end]')?.addEventListener('click', () => {
+            write(null);
+            show(false);
+        });
     };
-
-    document.querySelectorAll('[data-audit-no]').forEach((n) => (n.textContent = number));
-    show(true);
-
-    document.querySelectorAll('[data-audit-next]').forEach((button) => {
-        button.addEventListener('click', () => pull(button, read()));
-    });
-
-    document.querySelector('[data-audit-end]')?.addEventListener('click', () => {
-        write(null);
-        show(false);
-    });
 
     document.addEventListener('keydown', (event) => {
         if (!document.documentElement.classList.contains('on-audit')) {
@@ -230,10 +240,12 @@ const snapToGrid = (() => {
             pull(document.querySelector('[data-audit-bar] [data-audit-next]'), read());
         }
     });
+
+    return { start };
 })();
 
 // Division pages: the index or the yearbook, remembered for every division.
-(() => {
+const startViews = () => {
     const buttons = document.querySelectorAll('.view-switch [data-view]');
 
     if (buttons.length === 0) {
@@ -260,14 +272,17 @@ const snapToGrid = (() => {
             }
         });
     });
-})();
+};
 
 // A series' introduction sits beside its banner, within the banner's height:
 // the band is never taller than its banner. Words that run taller step down
 // one size (to 14px, never smaller: it must still read as meant) and tighten
 // their margins; when they still don't fit, they take their own row beneath
 // the banner, at full size.
-(() => {
+let bandObserver = null;
+
+const startBands = () => {
+    bandObserver?.disconnect();
     const bands = [...document.querySelectorAll('.series-intro')].filter((band) => band.querySelector('.series-banner') && band.querySelector('.series-text'));
 
     if (bands.length === 0) {
@@ -310,18 +325,17 @@ const snapToGrid = (() => {
     document.fonts?.ready.then(schedule);
 
     if ('ResizeObserver' in window) {
-        const observer = new ResizeObserver(schedule);
-        bands.forEach((band) => observer.observe(band.querySelector('.series-banner')));
+        bandObserver = new ResizeObserver(schedule);
+        bands.forEach((band) => bandObserver.observe(band.querySelector('.series-banner')));
     } else {
-        window.addEventListener('resize', schedule);
         bands.forEach((band) => band.querySelector('.series-banner').addEventListener('load', schedule));
     }
 
     document.querySelectorAll('.view-switch [data-view]').forEach((button) => button.addEventListener('click', schedule));
-})();
+};
 
 // The breadcrumb's switchers: one open at a time, closed on Escape or a click elsewhere.
-(() => {
+const startSwitchers = () => {
     const switchers = [...document.querySelectorAll('.switcher')];
 
     switchers.forEach((switcher) => {
@@ -339,25 +353,28 @@ const snapToGrid = (() => {
         });
     });
 
-    document.addEventListener('click', (event) => {
-        switchers.forEach((switcher) => {
-            if (switcher.open && !switcher.contains(event.target)) {
-                switcher.open = false;
-            }
-        });
+};
+
+document.addEventListener('click', (event) => {
+    document.querySelectorAll('.switcher').forEach((switcher) => {
+        if (switcher.open && !switcher.contains(event.target)) {
+            switcher.open = false;
+        }
     });
-})();
+});
 
 // Flash movies: the thumbnail's button swaps in Ruffle, loaded only when asked.
-(() => {
+const ruffleBase = 'https://unpkg.com/@ruffle-rs/ruffle@0.7.1/';
+let ruffle = null;
+
+const startFlash = () => {
     const figures = document.querySelectorAll('figure.flash[data-swf]');
 
     if (figures.length === 0) {
         return;
     }
 
-    const base = 'https://unpkg.com/@ruffle-rs/ruffle@0.7.1/';
-    let ruffle = null;
+    const base = ruffleBase;
 
     const load = () =>
         (ruffle ??= new Promise((resolve, reject) => {
@@ -450,12 +467,18 @@ const snapToGrid = (() => {
             }
         });
     });
-})();
+};
 
 // The masthead's ticker: the week's headlines from the world outside, shown one at a time in a
 // random order, each for a few seconds. It rests while pointed at, and under reduced motion it
 // stays on the first.
-document.querySelectorAll('[data-ticker]').forEach((slot) => {
+let tickers = [];
+
+const startTicker = () => {
+    tickers.forEach((timer) => window.clearInterval(timer));
+    tickers = [];
+
+    document.querySelectorAll('[data-ticker]').forEach((slot) => {
     const lines = [...slot.children];
 
     if (lines.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -473,7 +496,7 @@ document.querySelectorAll('[data-ticker]').forEach((slot) => {
     slot.parentElement.addEventListener('pointerenter', () => (resting = true));
     slot.parentElement.addEventListener('pointerleave', () => (resting = false));
 
-    window.setInterval(() => {
+    tickers.push(window.setInterval(() => {
         if (resting) {
             return;
         }
@@ -481,11 +504,12 @@ document.querySelectorAll('[data-ticker]').forEach((slot) => {
         lines[at].classList.remove('is-on');
         at = (at + 1) % lines.length;
         lines[at].classList.add('is-on');
-    }, 6000);
-});
+    }, 6000));
+    });
+};
 
 // A comic of several pictures: arrows and the count follow the slides, which also scroll by swipe or keys.
-document.querySelectorAll('[data-slideshow]').forEach((show) => {
+const startSlideshows = () => document.querySelectorAll('[data-slideshow]').forEach((show) => {
     const track = show.querySelector('.slides');
     const slides = [...track.children];
     const at = show.querySelector('[data-slide-at]');
@@ -514,13 +538,9 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
 // A lead picture shown smaller than its file: Zoom (or a click on it) opens the set it belongs
 // to over the page, each picture as large as the window allows, swiped (or stepped by buttons
 // and arrow keys) like the slideshow on the page; pinch to look closer on a phone.
-(() => {
+const zoom = (() => {
     // Not a Flash movie's thumbnail: a click on it plays the movie.
-    const pictures = [...document.querySelectorAll('.work-plate img, .work-hero img, .gallery-grid img')].filter((picture) => !picture.closest('figure.flash'));
-
-    if (pictures.length === 0) {
-        return;
-    }
+    let pictures = [];
 
     let view = null;
     let set = [];
@@ -569,14 +589,6 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
             }
         });
 
-        // While it's open, the arrow keys step through the set (not the page behind).
-        document.addEventListener('keydown', (event) => {
-            if (view.open && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
-                event.preventDefault();
-                go(current() + (event.key === 'ArrowLeft' ? -1 : 1));
-            }
-        });
-
         // Back on the page, a slideshow shows the picture last viewed.
         view.addEventListener('close', () => {
             const picture = set[shown];
@@ -592,7 +604,8 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
     };
 
     const open = (picture) => {
-        if (view === null) {
+        // Built once, and again when a page swap has taken it away.
+        if (view === null || !view.isConnected) {
             build();
         }
 
@@ -646,18 +659,39 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
         picture.addEventListener('click', () => open(picture));
     };
 
-    pictures.forEach((picture) => {
-        if (picture.complete && picture.naturalWidth > 0) {
-            offer(picture);
-        } else {
-            picture.addEventListener('load', () => offer(picture), { once: true });
+    // While it's open, the arrow keys step through the set (not the page behind).
+    document.addEventListener('keydown', (event) => {
+        if (view?.open && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
+            event.preventDefault();
+            go(current() + (event.key === 'ArrowLeft' ? -1 : 1));
         }
     });
+
+    const start = () => {
+        pictures = [...document.querySelectorAll('.work-plate img, .work-hero img, .gallery-grid img')].filter((picture) => !picture.closest('figure.flash'));
+
+        pictures.forEach((picture) => {
+            if (picture.complete && picture.naturalWidth > 0) {
+                offer(picture);
+            } else {
+                picture.addEventListener('load', () => offer(picture), { once: true });
+            }
+        });
+    };
+
+    return { start };
 })();
 
 // A story of pages (a choose-your-own-adventure): one page at a time, the one the address names
 // (#page-5), else the first; a choice changes the address, and Back goes back a page.
-document.querySelectorAll('[data-story]').forEach((story) => {
+let storyShow = null;
+
+window.addEventListener('hashchange', () => storyShow?.(true));
+
+const startStory = () => {
+    storyShow = null;
+
+    document.querySelectorAll('[data-story]').forEach((story) => {
     const pages = [...story.querySelectorAll('[data-story-page]')];
 
     if (pages.length < 2) {
@@ -676,13 +710,16 @@ document.querySelectorAll('[data-story]').forEach((story) => {
     };
 
     show(false);
-    window.addEventListener('hashchange', () => show(true));
-});
+    storyShow = show;
+    });
+};
 
 // The player: the Tunes of the Week, one at a time, in a bar along the foot of the window. A Play
 // button anywhere on a page (data-play="artist/track") starts that tune; the bar steps through the
 // playlist every page carries. It remembers the tune and where it was, and offers it back paused on
 // the next page (a browser won't start sound without a tap).
+let reflectPlayer = () => {};
+
 (() => {
     const bar = document.querySelector('[data-player]');
     const source = document.getElementById('playlist');
@@ -714,6 +751,7 @@ document.querySelectorAll('[data-story]').forEach((story) => {
 
     const reflect = () => {
         const playing = !audio.paused;
+        reflectPlayer = reflect;
         bar.classList.toggle('is-playing', playing);
         toggle.setAttribute('aria-label', playing ? 'Pause' : 'Play');
         document.querySelectorAll('[data-play]').forEach((button) => {
@@ -833,3 +871,21 @@ document.querySelectorAll('[data-story]').forEach((story) => {
         // Nothing remembered.
     }
 })();
+
+// A page's setup, in the order the file gives it; it can run again for another page.
+const start = () => {
+    snapToGrid = sheetFor();
+    startPile();
+    audit.start();
+    startViews();
+    startBands();
+    startSwitchers();
+    startFlash();
+    startTicker();
+    startSlideshows();
+    zoom.start();
+    startStory();
+    reflectPlayer();
+};
+
+start();
