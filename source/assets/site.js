@@ -180,7 +180,12 @@ const audit = (() => {
             const next = run.queue.shift();
             run.pulled.push(next);
             write(run);
-            window.location.assign(next);
+
+            if (window.Turbo) {
+                window.Turbo.visit(next);
+            } else {
+                window.location.assign(next);
+            }
         } catch (error) {
             button?.removeAttribute('aria-busy');
 
@@ -888,4 +893,9 @@ const start = () => {
     reflectPlayer();
 };
 
-start();
+// With Turbo, each visit swaps the body and the setup runs again (turbo:load fires for the first page too).
+if (window.Turbo) {
+    document.addEventListener('turbo:load', start);
+} else {
+    start();
+}

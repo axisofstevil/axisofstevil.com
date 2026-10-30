@@ -20,12 +20,16 @@
         <link rel="stylesheet" href="{{ $page->assetCss }}">
         <script>document.documentElement.classList.add('js');try{var v=localStorage.getItem('axis.divisionView');if(v==='yearbook')document.documentElement.dataset.divisionView=v}catch(e){}</script>
         <meta name="theme-color" content="#c73120">
+        {{-- Turbo: a link fetches the next page and swaps the body in place of a full load, so the player
+             (kept across the swap) plays on; the page's setup runs again after each visit (site.js). Both
+             scripts sit in the head, which Turbo keeps, so neither runs twice. --}}
+        <script src="/assets/turbo.8.0.13.js" defer></script>
+        <script src="{{ $page->assetJs }}" defer></script>
         <link rel="icon" href="/assets/logo/axis-symbol.svg" type="image/svg+xml">
     </head>
     <body class="@yield('body_class')">
         <a class="skip" href="#main">Skip to the report</a>
         @yield('body')
         @include('_partials.player')
-        <script src="{{ $page->assetJs }}" defer></script>
     </body>
 </html>

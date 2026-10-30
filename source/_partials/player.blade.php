@@ -2,7 +2,7 @@
      chosen (site.js). Every page carries the playlist, so previous and next work anywhere. --}}
 @if ($page->tunes && count($page->tunes->toArray()) > 0)
 <script type="application/json" id="playlist">{!! json_encode(array_map(fn ($t) => (array) (is_array($t) ? $t : $t->toArray()), $page->tunes->toArray()), JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP) !!}</script>
-<aside class="player" data-player hidden aria-label="Now playing">
+<aside id="player" class="player" data-player data-turbo-permanent hidden aria-label="Now playing">
     <img class="player-picture" alt="" width="48" height="48">
     <div class="player-label">
         <p class="player-track"></p>
