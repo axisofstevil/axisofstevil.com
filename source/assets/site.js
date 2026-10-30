@@ -516,7 +516,7 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
 // and arrow keys) like the slideshow on the page; pinch to look closer on a phone.
 (() => {
     // Not a Flash movie's thumbnail: a click on it plays the movie.
-    const pictures = [...document.querySelectorAll('.work-plate img, .work-hero img')].filter((picture) => !picture.closest('figure.flash'));
+    const pictures = [...document.querySelectorAll('.work-plate img, .work-hero img, .gallery-grid img')].filter((picture) => !picture.closest('figure.flash'));
 
     if (pictures.length === 0) {
         return;
@@ -596,7 +596,7 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
             build();
         }
 
-        set = pictures.filter((other) => other.closest('.work-plate, .work-hero') === picture.closest('.work-plate, .work-hero'));
+        set = pictures.filter((other) => other.closest('.work-plate, .work-hero, .gallery-grid') === picture.closest('.work-plate, .work-hero, .gallery-grid'));
         track().replaceChildren(...set.map((one) => {
             const slide = document.createElement('div');
             slide.className = 'zoom-slide';
@@ -618,6 +618,13 @@ document.querySelectorAll('[data-slideshow]').forEach((show) => {
     };
 
     const offer = (picture) => {
+        // A photograph on the Gallery's sheet: the tile itself opens it, with no button over each.
+        if (picture.closest('.gallery-grid')) {
+            picture.addEventListener('click', () => open(picture));
+
+            return;
+        }
+
         // Only when the file is meaningfully bigger than what's shown.
         if (picture.closest('.zoomable') || picture.naturalWidth < picture.clientWidth * 1.15) {
             return;

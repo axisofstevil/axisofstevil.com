@@ -3659,6 +3659,60 @@ figure.flash.is-enlarged ruffle-player {
     }
 }
 
+/* The Gallery: a contact sheet of square tiles in the gallery's order, each photograph's date and
+   photographer under it; a tile opens the photograph full size (the zoom). */
+.gallery-grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 2.5), 1fr));
+    gap: var(--pad);
+}
+
+.gallery-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gallery-tile img {
+    display: block;
+    width: 100%;
+    /* Square, whatever size the file says it is (its width and height are given for the zoom). */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--stock-light);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+    cursor: zoom-in;
+}
+
+.gallery-tile-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.gallery-tile-line a {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.gallery-tile-line a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
 /* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;
@@ -3806,6 +3860,23 @@ a.issue-pager-link:hover .issue-pager-title {
     /* A phone: one line, and a long one ends in an ellipsis. */
     .issue-ticker-lines > span {
         -webkit-line-clamp: 1;
+    }
+
+    /* A long figure (the Gallery's) wraps rather than running off the bar. */
+    .division-figure {
+        white-space: normal;
+        padding: 8px var(--pad) 8px 0;
+        text-wrap: balance;
+    }
+
+    /* Two tiles across: the photographer's name over the date, whole. */
+    .gallery-tile-line {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .gallery-tile-line a {
+        white-space: normal;
     }
 
     .issue-story-picture {

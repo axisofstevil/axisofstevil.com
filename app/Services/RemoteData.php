@@ -7,6 +7,7 @@ use App\WorkBody;
 use App\WorkLayout;
 use Carbon\CarbonImmutable;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Michelf\MarkdownExtra;
 use RuntimeException;
 use TightenCo\Jigsaw\Jigsaw;
@@ -91,6 +92,11 @@ class RemoteData
         $introductions = array_column($this->all($channelUrl.'/series'), null, 'slug');
 
         $collections->set('divisions.items', $this->divisionPages($divisions, $workPages, count($works), $introductions));
+
+        // The Gallery: the channel's first gallery, its photographs and each credited photographer's listing.
+        $gallery = $this->gallery($channelUrl);
+        $collections->set('gallery_pages.items', $gallery === null ? [] : $this->galleryPages($gallery));
+        $jigsaw->setConfig('gallery', $gallery === null ? null : ['name' => $gallery['name'], 'count' => count($gallery['photos']), 'photographers' => $gallery['photographers']]);
         $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
@@ -723,6 +729,136 @@ class RemoteData
             'image' => $w['image'],
             'place' => $w['place'],
         ];
+    }
+
+    /**
+     * The channel's first gallery with its photographs in the gallery's order
+     * and its photographers (everyone credited, most photographs first), or
+     * null when the channel has no gallery.
+     *
+     * @return array<string, mixed>|null
+     */
+    private function gallery(string $channelUrl): ?array
+    {
+        try {
+            $galleries = $this->json($channelUrl.'/galleries')['data'] ?? [];
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                return null;
+            }
+
+            throw $e;
+        }
+
+        $first = $galleries[0] ?? null;
+
+        if ($first === null) {
+            return null;
+        }
+
+        $data = $this->json($channelUrl.'/galleries/'.$first['slug'])['data'] ?? [];
+        $photographers = [];
+        $photos = [];
+
+        foreach ($data['items'] ?? [] as $item) {
+            $names = array_column($item['credits'] ?? [], 'name');
+
+            foreach ($names as $name) {
+                $slug = $this->slug($name);
+                $photographers[$slug] ??= ['name' => $name, 'slug' => $slug, 'count' => 0, 'address' => "/gallery/{$slug}/"];
+                $photographers[$slug]['count']++;
+            }
+
+            $photos[] = [
+                'image' => $item['image'],
+                'width' => $item['width'] ?? null,
+                'height' => $item['height'] ?? null,
+                'caption' => $item['caption'] ?? null,
+                'date' => $item['date'] ?? null,
+                'credits' => array_map(fn (string $name) => ['name' => $name, 'address' => '/gallery/'.$this->slug($name).'/'], $names),
+            ];
+        }
+
+        usort($photographers, fn ($a, $b) => [$b['count'], $a['name']] <=> [$a['count'], $b['name']]);
+
+        return [
+            'slug' => $data['slug'] ?? $first['slug'],
+            'name' => $data['name'] ?? $first['name'],
+            'banner' => $data['banner'] ?? null,
+            'introduction' => ($text = $data['description'] ?? null) === null ? null : MarkdownExtra::defaultTransform($text),
+            'photos' => $photos,
+            'photographers' => array_values($photographers),
+        ];
+    }
+
+    /**
+     * The Gallery's page, then each photographer's narrowed listing under the same banner.
+     *
+     * @param  array<string, mixed>  $gallery
+     * @return list<array<string, mixed>>
+     */
+    private function galleryPages(array $gallery): array
+    {
+        $photos = $gallery['photos'];
+        $dates = array_values(array_filter(array_map(fn ($p) => substr((string) $p['date'], 0, 4) ?: null, $photos)));
+        sort($dates);
+        $span = $dates === [] ? null : ($dates[0] === end($dates) ? $dates[0] : $dates[0].'–'.end($dates));
+        $people = count($gallery['photographers']);
+        $plural = fn (int $n, string $one, string $many) => $n === 1 ? $one : $many;
+
+        $items = [[
+            'filename' => 'gallery',
+            'address' => '/gallery/',
+            'title' => 'Gallery — The Axis of Stevil',
+            'name' => $gallery['name'],
+            'slug' => 'gallery',
+            'parent' => null,
+            'description' => "The Axis of Stevil's gallery: ".count($photos).' photographs by '.$people.' '.$plural($people, 'photographer', 'photographers').($span ? ", {$span}" : '').'.',
+            'image' => $gallery['banner'],
+            'count' => count($photos),
+            'figure' => $plural(count($photos), 'photograph', 'photographs').' · '.$people.' '.$plural($people, 'photographer', 'photographers').($span ? " · {$span}" : ''),
+            'banner' => $gallery['banner'],
+            'introduction' => $gallery['introduction'],
+            'note_label' => 'Photographers',
+            'note' => array_column($gallery['photographers'], 'count', 'name'),
+            'note_links' => array_column($gallery['photographers'], 'address', 'name'),
+            'photos' => $photos,
+        ]];
+
+        foreach ($gallery['photographers'] as $photographer) {
+            $theirs = array_values(array_filter($photos, fn ($p) => in_array($photographer['name'], array_column($p['credits'], 'name'), true)));
+
+            $items[] = [
+                'filename' => 'gallery--'.$photographer['slug'],
+                'address' => $photographer['address'],
+                'title' => $photographer['name'].' — Gallery — The Axis of Stevil',
+                'name' => $photographer['name'],
+                'slug' => $photographer['slug'],
+                'parent' => 'gallery',
+                'description' => count($theirs).' '.$plural(count($theirs), 'photograph', 'photographs')." by {$photographer['name']} in the Axis of Stevil's gallery.",
+                'image' => $gallery['banner'],
+                'count' => count($theirs),
+                'figure' => $plural(count($theirs), 'photograph', 'photographs').' · '.(count($photos) > 0 ? (int) round(count($theirs) / count($photos) * 100) : 0).'% of the gallery',
+                'banner' => $gallery['banner'],
+                'introduction' => $gallery['introduction'],
+                'note_label' => null,
+                'note' => [],
+                'note_links' => [],
+                'photos' => $theirs,
+            ];
+        }
+
+        return $items;
+    }
+
+    /**
+     * A name as an address: lower case, letters and digits, hyphens between.
+     */
+    private function slug(string $name): string
+    {
+        $ascii = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $name) ?: $name;
+
+        return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower($ascii)), '-');
     }
 
     /**

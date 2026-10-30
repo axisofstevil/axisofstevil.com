@@ -33,6 +33,8 @@ return [
     'pages' => [],
     'organisation' => [],
     'redirects' => [],
+    // The Gallery (the channel's first gallery): its name, count and photographers, for the running head (set by RemoteData; null without one).
+    'gallery' => null,
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [
@@ -57,6 +59,11 @@ return [
             'extends' => '_layouts.issue',
             'path' => fn ($page) => trim($page->address, '/'),
             'sort' => 'number',
+        ],
+        // The Gallery at /gallery/ and each photographer's listing at /gallery/{photographer}/ (items set by RemoteData).
+        'gallery_pages' => [
+            'extends' => '_layouts.gallery',
+            'path' => fn ($page) => trim($page->address, '/'),
         ],
     ],
 

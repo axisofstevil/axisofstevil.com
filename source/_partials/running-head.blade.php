@@ -53,11 +53,40 @@
         }
     }
 
-    // The areas, the highest level of the site, behind one grid button after the lockup: Issues and
-    // Works today, each with its count; the area this page is in is marked. One line each to add more.
+    // The Gallery: Gallery, its menu the photographers; on a photographer's listing, their name beneath.
+    $gallery = $page->gallery ? json_decode(json_encode($page->gallery), true) : null;
+
+    if (($division ?? null) === 'gallery' && $gallery) {
+        $photographers = [
+            ['name' => 'All Photographs', 'href' => '/gallery/', 'count' => $gallery['count']],
+            ...array_map(fn ($p) => ['name' => $p['name'], 'href' => $p['address'], 'count' => $p['count']], $gallery['photographers']),
+        ];
+        $crumbs[] = [
+            'name' => 'Gallery',
+            'href' => '/gallery/',
+            'here' => ($here ?? null) === 'gallery',
+            'label' => 'Choose a photographer',
+            'menu' => $photographers,
+        ];
+        $current = ($photographer ?? null) ? collect($gallery['photographers'])->firstWhere('slug', $photographer) : null;
+
+        if ($current) {
+            $crumbs[] = [
+                'name' => $current['name'],
+                'href' => $current['address'],
+                'here' => ($here ?? null) === 'photographer',
+                'label' => 'Choose another photographer',
+                'menu' => $photographers,
+            ];
+        }
+    }
+
+    // The areas, the highest level of the site, behind one grid button after the lockup: Issues,
+    // Works and the Gallery, each with its count; the area this page is in is marked. One line each to add more.
     $areas = [
         ['name' => 'Issues', 'href' => '/issues/', 'count' => collect($page->issues)->count(), 'here' => ($division ?? null) === 'issues'],
         ['name' => 'Works', 'href' => '/works/', 'count' => $divisions->sum('count'), 'here' => (bool) $parent],
+        ...($gallery ? [['name' => 'Gallery', 'href' => '/gallery/', 'count' => $gallery['count'], 'here' => ($division ?? null) === 'gallery']] : []),
     ];
 @endphp
 <header class="plate running-head" data-snap>
