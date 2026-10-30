@@ -3898,6 +3898,70 @@ figure.flash.is-enlarged ruffle-player {
     }
 }
 
+/* A tune as a tile: the artist's picture whole in a square (a band's photo or a wide logo alike), the title,
+   the artist and the week it ran, and Play. */
+.tune-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tune-tile img,
+.tune-tile .tune-blank {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 6px;
+    box-sizing: border-box;
+    background: var(--stock-light);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+}
+
+.tune-blank {
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+.tune-title {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.tune-artist {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tune-artist a {
+    text-decoration: none;
+}
+
+.tune-artist a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.tune-when {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.tune-tile .play {
+    margin-top: 4px;
+    align-self: flex-start;
+}
+
 /* Earlier and later issues, and every issue between them. */
 .issue-pager {
     display: grid;

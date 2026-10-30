@@ -37,6 +37,8 @@ return [
     'gallery' => null,
     // The Tunes of the Week with audio, oldest first: the site's playlist, carried by every page for the player (set by RemoteData).
     'tunes' => [],
+    // The Tunes section: its count and artists, for the running head (set by RemoteData; null without tunes).
+    'tunes_section' => null,
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [
@@ -65,6 +67,11 @@ return [
         // The Gallery at /gallery/ and each photographer's listing at /gallery/{photographer}/ (items set by RemoteData).
         'gallery_pages' => [
             'extends' => '_layouts.gallery',
+            'path' => fn ($page) => trim($page->address, '/'),
+        ],
+        // The Tunes at /tunes/ and each artist's page at /tunes/{artist}/ (items set by RemoteData).
+        'tune_pages' => [
+            'extends' => '_layouts.tunes',
             'path' => fn ($page) => trim($page->address, '/'),
         ],
     ],

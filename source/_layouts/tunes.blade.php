@@ -1,0 +1,77 @@
+@extends('_layouts.master')
+
+@php
+    $tunes = collect($page->listed)->map(fn ($t) => (array) (is_array($t) ? $t : $t->toArray()));
+    $note = collect($page->note);
+    $own = (bool) $page->parent;
+    $day = fn ($date) => \Carbon\CarbonImmutable::parse($date);
+    // The week a tune ran, as the archive printed it: May 14–18, 2007; Dec 26, 2005 – Jan 6, 2006; or from a day on.
+    $run = function ($from, $to) use ($day) {
+        if ($to === null) {
+            return 'From '.$day($from)->format('M j, Y');
+        }
+
+        [$a, $b] = [$day($from), $day($to)];
+
+        return match (true) {
+            $a->year !== $b->year => $a->format('M j, Y').' – '.$b->format('M j, Y'),
+            $a->month !== $b->month => $a->format('M j').' – '.$b->format('M j, Y'),
+            $a->day === $b->day => $a->format('M j, Y'),
+            default => $a->format('M j').'–'.$b->format('j, Y'),
+        };
+    };
+
+    // The yearbook: newest first throughout, the years and the tunes within each.
+    $years = $tunes->sortByDesc('from')->groupBy(fn ($t) => substr((string) $t['from'], 0, 4))->sortKeysDesc();
+    $busiest = $years->map->count()->max() ?: 1;
+    $label = $own ? $page->name : 'Tunes';
+@endphp
+
+@section('body')
+<main id="main" class="report">
+    <div class="masthead">
+        @include('_partials.running-head', $own
+            ? ['division' => 'tunes', 'artist' => $page->slug, 'here' => 'artist']
+            : ['division' => 'tunes', 'here' => 'tunes'])
+
+        <div class="plate division-bar" data-snap>
+            <p class="division-figure"><b>{{ $page->count }}</b> <span>{{ $page->figure }}</span></p>
+        </div>
+    </div>
+
+    {{-- The yearbook: a band per year, newest first; on the first, the artists (the Tunes) or the artist's picture
+         and story (their page); each tune a tile, the years down the slate sidebar. --}}
+    <div class="index-sheet yearbook-sheet">
+        <div class="yearbook-bands">
+            @foreach ($years as $year => $group)
+            <section class="plate yearbook" aria-labelledby="year-{{ $year }}" data-snap>
+                @if ($loop->first)
+                @include('_partials.series-intro')
+                @include('_partials.series-note')
+                @endif
+                <div class="year-figure">
+                    <h2 id="year-{{ $year }}" class="year-title">{{ $year }}</h2>
+                    <p class="year-count">{{ $group->count() }} {{ $group->count() === 1 ? 'tune' : 'tunes' }}</p>
+                    <span class="year-bar" style="--w: {{ round($group->count() / $busiest * 100) }}%"></span>
+                </div>
+                <ul class="gallery-grid">
+                    @foreach ($group as $tune)
+                    @include('_partials.tune-tile', ['tune' => $tune, 'run' => $run, 'withArtist' => ! $own])
+                    @endforeach
+                </ul>
+                <p class="caption">Yearbook {{ $year }} · {{ $label }}</p>
+            </section>
+            @endforeach
+        </div>
+        <nav class="plate thumb-index" aria-label="Years" data-snap>
+            <div class="thumb-list">
+                @foreach ($years->keys() as $year)
+                <a href="#year-{{ $year }}">{{ $year }}</a>
+                @endforeach
+            </div>
+        </nav>
+    </div>
+</main>
+
+@include('_partials.footer')
+@endsection

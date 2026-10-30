@@ -70,8 +70,10 @@ class RemoteData
 
         usort($works, fn ($a, $b) => strcmp($b['date'], $a['date']));
 
-        // The Tunes of the Week with audio, oldest first: the playlist every page carries, and what an issue's tune plays.
-        $this->tunes = $this->tunes($channelUrl);
+        // The Tunes of the Week: the artists with their tracks; the playlist every page carries (the tunes with
+        // audio, oldest first), what an issue's tune plays, and the Tunes section's pages.
+        $artists = $this->featuredArtists($channelUrl);
+        $this->tunes = $this->tunes($artists);
         $jigsaw->setConfig('tunes', $this->tunes);
 
         // The weekly issues (front pages), each with its blocks in order, newest first.
@@ -108,6 +110,11 @@ class RemoteData
         $gallery = $this->gallery($channelUrl);
         $collections->set('gallery_pages.items', $gallery === null ? [] : $this->galleryPages($gallery));
         $jigsaw->setConfig('gallery', $gallery === null ? null : ['name' => $gallery['name'], 'count' => count($gallery['photos']), 'photographers' => $gallery['photographers']]);
+
+        // The Tunes: a yearbook of every tune, and each artist's page.
+        $tunePages = $this->tunePages($artists);
+        $collections->set('tune_pages.items', $tunePages);
+        $jigsaw->setConfig('tunes_section', $tunePages === [] ? null : ['count' => $tunePages[0]['count'], 'artists' => $tunePages[0]['artists']]);
         $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
@@ -396,8 +403,9 @@ class RemoteData
                     'image' => $item['artist']['image'] ?? null,
                     'track' => $item['track']['title'] ?? null,
                     'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
-                    // The playlist entry it plays (the same artist and title), when the tune has audio.
+                    // The playlist entry it plays (the same artist and title), when the tune has audio; the artist's page.
                     'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,
+                    'artist_address' => ($slug = collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'])['artist_slug'] ?? null) === null ? null : "/tunes/{$slug}/",
                 ];
 
             case 'back_issues':
@@ -745,15 +753,15 @@ class RemoteData
     }
 
     /**
-     * The Tunes of the Week with audio, oldest first, each as the player
-     * needs it; none when the channel has no front pages.
+     * The featured artists with their tracks, as the API lists them; none
+     * when the channel has no front pages.
      *
      * @return list<array<string, mixed>>
      */
-    private function tunes(string $channelUrl): array
+    private function featuredArtists(string $channelUrl): array
     {
         try {
-            $artists = $this->json($channelUrl.'/featured-artists')['data'] ?? [];
+            return $this->json($channelUrl.'/featured-artists')['data'] ?? [];
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 return [];
@@ -761,7 +769,16 @@ class RemoteData
 
             throw $e;
         }
+    }
 
+    /**
+     * The Tunes of the Week with audio, oldest first, each as the player needs it.
+     *
+     * @param  list<array<string, mixed>>  $artists
+     * @return list<array<string, mixed>>
+     */
+    private function tunes(array $artists): array
+    {
         $tunes = [];
 
         foreach ($artists as $artist) {
@@ -786,6 +803,119 @@ class RemoteData
         usort($tunes, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
 
         return $tunes;
+    }
+
+    /**
+     * The Tunes section: every tune as a yearbook, then each artist's page
+     * with their picture, their story (the bios their tunes ran with, each
+     * once) and their tunes. An artist with no tune is left out.
+     *
+     * @param  list<array<string, mixed>>  $artists
+     * @return list<array<string, mixed>>
+     */
+    private function tunePages(array $artists): array
+    {
+        $all = [];
+        $byArtist = [];
+
+        foreach ($artists as $artist) {
+            $theirs = [];
+
+            foreach ($artist['tracks'] ?? [] as $track) {
+                $theirs[] = [
+                    'id' => $artist['slug'].'/'.$track['slug'],
+                    'title' => $track['title'],
+                    'artist' => $artist['name'],
+                    'artist_address' => "/tunes/{$artist['slug']}/",
+                    'image' => $track['image'] ?? $artist['image'] ?? null,
+                    'audio' => $track['audio'] ?? null,
+                    'from' => $track['featured_started_at'],
+                    'until' => $track['featured_ended_at'],
+                    'bio' => $track['bio'] ?? null,
+                ];
+            }
+
+            if ($theirs === []) {
+                continue;
+            }
+
+            usort($theirs, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
+            $byArtist[] = ['name' => $artist['name'], 'slug' => $artist['slug'], 'image' => $artist['image'] ?? null, 'address' => "/tunes/{$artist['slug']}/", 'count' => count($theirs), 'tunes' => $theirs];
+            array_push($all, ...$theirs);
+        }
+
+        if ($all === []) {
+            return [];
+        }
+
+        usort($all, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
+        usort($byArtist, fn ($a, $b) => [$b['count'], $a['name']] <=> [$a['count'], $b['name']]);
+        $years = array_values(array_unique(array_map(fn ($t) => substr((string) $t['from'], 0, 4), $all)));
+        sort($years);
+        $span = $years === [] ? null : ($years[0] === end($years) ? $years[0] : $years[0].'–'.end($years));
+        $plural = fn (int $n, string $one, string $many) => $n === 1 ? $one : $many;
+        $artistsListed = array_map(fn ($a) => ['name' => $a['name'], 'slug' => $a['slug'], 'address' => $a['address'], 'count' => $a['count']], $byArtist);
+
+        $items = [[
+            'filename' => 'tunes',
+            'address' => '/tunes/',
+            'title' => 'Tunes — The Axis of Stevil',
+            'name' => 'Tunes',
+            'slug' => 'tunes',
+            'parent' => null,
+            'description' => 'Every Tune of the Week the Axis of Stevil featured: '.count($all).' tunes by '.count($byArtist).' '.$plural(count($byArtist), 'artist', 'artists').($span ? ", {$span}" : '').'.',
+            'image' => null,
+            'count' => count($all),
+            'figure' => $plural(count($all), 'tune', 'tunes').' · '.count($byArtist).' '.$plural(count($byArtist), 'artist', 'artists').($span ? " · {$span}" : ''),
+            'banner' => null,
+            'introduction' => null,
+            'note_label' => 'Artists',
+            'note' => array_column($artistsListed, 'count', 'name'),
+            'note_links' => array_column($artistsListed, 'address', 'name'),
+            'artists' => $artistsListed,
+            'listed' => $all,
+        ]];
+
+        foreach ($byArtist as $artist) {
+            // Their story: the bios their tunes ran with, paragraph by paragraph, each paragraph once, as written.
+            $seen = [];
+            $stories = [];
+
+            foreach ($artist['tunes'] as $t) {
+                foreach (preg_split('/\n\s*\n/', trim((string) ($t['bio'] ?? ''))) ?: [] as $paragraph) {
+                    $key = mb_strtolower((string) preg_replace('/\s+/u', ' ', trim($paragraph)));
+
+                    if ($key === '' || isset($seen[$key])) {
+                        continue;
+                    }
+
+                    $seen[$key] = true;
+                    $stories[] = trim($paragraph);
+                }
+            }
+
+            $items[] = [
+                'filename' => 'tunes--'.$artist['slug'],
+                'address' => $artist['address'],
+                'title' => $artist['name'].' — Tunes — The Axis of Stevil',
+                'name' => $artist['name'],
+                'slug' => $artist['slug'],
+                'parent' => 'tunes',
+                'description' => $artist['name'].', featured by the Axis of Stevil: '.$artist['count'].' '.$plural($artist['count'], 'tune', 'tunes').' of the week.',
+                'image' => $artist['image'],
+                'count' => $artist['count'],
+                'figure' => $plural($artist['count'], 'tune', 'tunes').' of the week',
+                'banner' => $artist['image'],
+                'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(implode("\n\n", $stories)),
+                'note_label' => null,
+                'note' => [],
+                'note_links' => [],
+                'artists' => $artistsListed,
+                'listed' => $artist['tunes'],
+            ];
+        }
+
+        return $items;
     }
 
     /**

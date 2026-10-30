@@ -81,12 +81,41 @@
         }
     }
 
+    // The Tunes: Tunes, its menu the artists; on an artist's page, their name beneath.
+    $tunes = $page->tunes_section ? json_decode(json_encode($page->tunes_section), true) : null;
+
+    if (($division ?? null) === 'tunes' && $tunes) {
+        $artists = [
+            ['name' => 'All Tunes', 'href' => '/tunes/', 'count' => $tunes['count']],
+            ...array_map(fn ($a) => ['name' => $a['name'], 'href' => $a['address'], 'count' => $a['count']], $tunes['artists']),
+        ];
+        $crumbs[] = [
+            'name' => 'Tunes',
+            'href' => '/tunes/',
+            'here' => ($here ?? null) === 'tunes',
+            'label' => 'Choose an artist',
+            'menu' => $artists,
+        ];
+        $current = ($artist ?? null) ? collect($tunes['artists'])->firstWhere('slug', $artist) : null;
+
+        if ($current) {
+            $crumbs[] = [
+                'name' => $current['name'],
+                'href' => $current['address'],
+                'here' => ($here ?? null) === 'artist',
+                'label' => 'Choose another artist',
+                'menu' => $artists,
+            ];
+        }
+    }
+
     // The areas, the highest level of the site, behind one grid button after the lockup: Issues,
-    // Works and the Gallery, each with its count; the area this page is in is marked. One line each to add more.
+    // Works, the Gallery and the Tunes, each with its count; the area this page is in is marked. One line each to add more.
     $areas = [
         ['name' => 'Issues', 'href' => '/issues/', 'count' => collect($page->issues)->count(), 'here' => ($division ?? null) === 'issues'],
         ['name' => 'Works', 'href' => '/works/', 'count' => $divisions->sum('count'), 'here' => (bool) $parent],
         ...($gallery ? [['name' => 'Gallery', 'href' => '/gallery/', 'count' => $gallery['count'], 'here' => ($division ?? null) === 'gallery']] : []),
+        ...($tunes ? [['name' => 'Tunes', 'href' => '/tunes/', 'count' => $tunes['count'], 'here' => ($division ?? null) === 'tunes']] : []),
     ];
 @endphp
 <header class="plate running-head" data-snap>
