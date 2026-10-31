@@ -20,8 +20,9 @@ class StructuredData
     /**
      * @return array<string, mixed> empty when the page has none
      */
-    public static function for(PageVariable $page): array
+    public static function for(PageVariable $page, ?string $description = null): array
     {
+        $description ??= $page->description;
         $base = rtrim((string) $page->baseUrl, '/');
         $url = $base.$page->link();
         $path = $page->getPath();
@@ -78,7 +79,7 @@ class StructuredData
                     'mainEntityOfPage' => $url,
                     'url' => $url,
                     'headline' => $page->title,
-                    'description' => $page->description,
+                    'description' => $description,
                     'image' => $page->image,
                     'datePublished' => $page->date,
                     'dateModified' => $page->updated ?? $page->date,
@@ -112,7 +113,7 @@ class StructuredData
                     'name' => $page->name,
                     'issueNumber' => $page->number,
                     'datePublished' => $page->starts_on,
-                    'description' => $page->description,
+                    'description' => $description,
                     'isPartOf' => ['@type' => 'Periodical', 'name' => self::NAME, 'url' => $base.'/issues/', 'publisher' => $publisher],
                     'hasPart' => array_map(fn ($w) => ['@type' => 'Article', 'headline' => $w['title'], 'url' => $base.$w['address']], $works) ?: null,
                     'inLanguage' => 'en',
@@ -128,7 +129,7 @@ class StructuredData
                     '@type' => 'CollectionPage',
                     'url' => $url,
                     'name' => $page->name,
-                    'description' => $page->description,
+                    'description' => $description,
                     'about' => $parent === null ? null : ['@type' => 'CreativeWorkSeries', 'name' => $page->name, 'url' => $url],
                     'isPartOf' => $site,
                     'inLanguage' => 'en',
@@ -157,7 +158,7 @@ class StructuredData
                     '@type' => 'ImageGallery',
                     'url' => $url,
                     'name' => $page->parent ? $page->name.' — '.self::NAME.' Gallery' : $page->name,
-                    'description' => $page->description,
+                    'description' => $description,
                     'image' => $page->banner,
                     'about' => $page->parent ? ['@type' => 'Person', 'name' => $page->name] : null,
                     'hasPart' => $photos ?: null,
@@ -189,7 +190,7 @@ class StructuredData
                         'url' => $url,
                         'name' => $page->name,
                         'image' => $page->image,
-                        'description' => $page->introduction ? self::words((string) $page->introduction) : $page->description,
+                        'description' => $page->introduction ? self::words((string) $page->introduction) : $description,
                         'sameAs' => $theirs['href'] ?? null,
                         'track' => $tracks ?: null,
                     ];
@@ -198,7 +199,7 @@ class StructuredData
                         '@type' => 'MusicPlaylist',
                         'url' => $url,
                         'name' => self::NAME.': the Tunes of the Week',
-                        'description' => $page->description,
+                        'description' => $description,
                         'numTracks' => count($tracks),
                         'track' => $tracks ?: null,
                         'isPartOf' => $site,
@@ -221,7 +222,7 @@ class StructuredData
                     },
                     'url' => $url,
                     'name' => $page->title,
-                    'description' => $page->description,
+                    'description' => $description,
                     'image' => $page->image,
                     'dateModified' => $page->updated,
                     'isPartOf' => $site,
@@ -236,7 +237,7 @@ class StructuredData
                     '@type' => 'CollectionPage',
                     'url' => $url,
                     'name' => 'Issues',
-                    'description' => $page->description,
+                    'description' => $description,
                     'isPartOf' => $site,
                     'inLanguage' => 'en',
                 ];

@@ -42,6 +42,26 @@ return [
     // The owner's words that open /llms.txt: the channel's page at llms.txt, as written (set by RemoteData; null without one).
     'llms' => null,
 
+    // A page's title and description for search listings, link previews and the browser tab, where the owner wants
+    // other words than the page's own (the 2005 site's, which rank): by the page's address, either key optional.
+    // The page itself (its heading, its breadcrumb) keeps its name.
+    'meta' => [
+        '/publications/' => [
+            'title' => 'Words and Pictures — The Axis of Stevil',
+            'description' => 'Read the most amazing stories the universe has to offer, brought to you every Monday, Wednesday, and Friday by The Axis of Stevil.',
+        ],
+        '/language/' => [
+            'title' => 'Vocabulary — The Axis of Stevil',
+            'description' => 'Learn these new words. The Axis of Stevil aims to educate its followers and aid in development of a good vocabulary.',
+        ],
+        '/featured-steves/' => [
+            'description' => 'The Axis of Stevil takes pleasure in shining the spotlight on Steves who shows excellence in their field.',
+        ],
+        '/ask-stevil/' => [
+            'description' => "Ask us a question; we've got an answer. The Axis of Stevil is here to help with any of life's unsolved mysteries.",
+        ],
+    ],
+
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [
         'works' => [

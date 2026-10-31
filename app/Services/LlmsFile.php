@@ -96,6 +96,7 @@ class LlmsFile
         $lines[] = '## Optional';
         $lines[] = '';
         $lines[] = $link('Sitemap', '/sitemap.xml', 'every page of the site, works and issues included, with the date each last changed');
+        $lines[] = $link('Feed', '/feed.xml', 'the newest works, as RSS');
 
         // When this was written: the site is rebuilt from its source of record, so the file is as current as the build.
         $built = $jigsaw->getConfig('build_time');

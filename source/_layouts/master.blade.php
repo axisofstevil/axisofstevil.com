@@ -10,11 +10,15 @@
             $url = $page->baseUrl.$page->link();
             $card = $page->social_image ?? $page->image ?? $page->baseUrl.'/assets/social/card.png';
             $article = in_array($collection, ['works', 'issue_pages'], true);
-            $structured = \App\StructuredData::for($page);
+            // The owner's own words for this address (config 'meta'), over the page's.
+            $override = json_decode(json_encode($page->meta), true)[$page->link()] ?? [];
+            $title = $override['title'] ?? ($collection === 'works' ? ($page->page_title ?? $page->title).' — The Axis of Stevil' : $page->title);
+            $description = $override['description'] ?? $page->description;
+            $structured = \App\StructuredData::for($page, $description);
         @endphp
-        <title>{{ $collection === 'works' ? ($page->page_title ?? $page->title).' — The Axis of Stevil' : $page->title }}</title>
-        @if ($page->description)
-        <meta name="description" content="{{ $page->description }}">
+        <title>{{ $title }}</title>
+        @if ($description)
+        <meta name="description" content="{{ $description }}">
         @endif
         @if ($page->noindex)
         <meta name="robots" content="noindex">
@@ -24,10 +28,10 @@
         <meta property="og:site_name" content="The Axis of Stevil">
         <meta property="og:locale" content="en_US">
         <meta property="og:type" content="{{ $article ? 'article' : 'website' }}">
-        <meta property="og:title" content="{{ $page->page_title ?? $page->title }}">
+        <meta property="og:title" content="{{ $title }}">
         <meta property="og:url" content="{{ $url }}">
-        @if ($page->description)
-        <meta property="og:description" content="{{ $page->description }}">
+        @if ($description)
+        <meta property="og:description" content="{{ $description }}">
         @endif
         <meta property="og:image" content="{{ $card }}">
         <meta property="og:image:alt" content="{{ $page->image || $page->social_image ? $page->title : 'The Axis of Stevil' }}">
@@ -46,10 +50,11 @@
         <meta property="article:published_time" content="{{ $page->starts_on }}">
         @endif
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $page->page_title ?? $page->title }}">
-        @if ($page->description)
-        <meta name="twitter:description" content="{{ $page->description }}">
+        <meta name="twitter:title" content="{{ $title }}">
+        @if ($description)
+        <meta name="twitter:description" content="{{ $description }}">
         @endif
+        <link rel="alternate" type="application/rss+xml" title="The Axis of Stevil" href="{{ $page->baseUrl }}/feed.xml">
         <meta name="twitter:image" content="{{ $card }}">
         <link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
