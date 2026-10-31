@@ -3291,15 +3291,17 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 0.8;
 }
 
-/* On the cover: top left, opposite the chart, faint in the cover's own stock. */
+/* On the cover: centred in the top grid row, from the plate's own padding across the cover, faint in its stock. */
 .cover-saying {
     position: absolute;
-    top: var(--half);
+    top: 0;
     left: var(--pad);
-    width: calc(var(--half) * 5);
+    right: var(--pad);
+    height: var(--half);
+    display: flex;
+    align-items: center;
     color: var(--stock);
     opacity: 0.75;
-    text-wrap: balance;
 }
 
 /* In the running head: the right-hand side, after the breadcrumb, before a trail or the view switch. */
