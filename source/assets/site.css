@@ -2354,26 +2354,10 @@ figure.flash ruffle-player {
     text-decoration: underline;
 }
 
-/* The one motion: plates slide along the grid into place and lock, once. */
-@media (prefers-reduced-motion: no-preference) {
-    .js .fold .plate {
-        animation: lock 0.9s var(--ease) both;
-    }
-
-    .js .fold .letter {
-        animation-delay: 0.08s;
-    }
-
-    .js .fold .unit {
-        animation-delay: calc(0.16s + var(--i, 0) * 0.05s);
-    }
-}
-
-@keyframes lock {
-    from {
-        transform: translateY(var(--half));
-        opacity: 0;
-    }
+/* No entrance motion: the plates are in place from the first paint. And the browser's scroll anchoring is off:
+   a page restored after a reload holds its position while the fonts settle, rather than following the text. */
+html {
+    overflow-anchor: none;
 }
 
 /* Narrower: the cover over the letter, divisions three to a row. Still twelve columns. */

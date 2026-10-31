@@ -936,9 +936,22 @@ const start = () => {
     reflectPlayer();
 };
 
-// With Turbo, each visit swaps the body and the setup runs again (turbo:load fires for the first page too).
+// The first page's setup runs now, as soon as the script does (deferred: the document is parsed), so the
+// grid is snapped before the browser restores a scroll position; Turbo would wait for every picture and
+// font. With Turbo, each later visit swaps the body and the setup runs again (its first turbo:load, for
+// this page, is passed over).
+start();
+
 if (window.Turbo) {
-    document.addEventListener('turbo:load', start);
-} else {
-    start();
+    let first = true;
+
+    document.addEventListener('turbo:load', () => {
+        if (first) {
+            first = false;
+
+            return;
+        }
+
+        start();
+    });
 }
