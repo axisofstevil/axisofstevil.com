@@ -801,7 +801,10 @@ let reflectPlayer = () => {};
         picture.hidden = !tune.image;
         bar.querySelector('.player-picture--blank').hidden = Boolean(tune.image);
         bar.querySelector('.player-track').textContent = tune.title;
-        bar.querySelector('.player-artist').textContent = tune.artist;
+        // The artist's name goes to their page.
+        const artist = bar.querySelector('.player-artist a');
+        artist.textContent = tune.artist;
+        artist.href = `/tunes/${tune.artist_slug}/`;
         bar.hidden = false;
         document.documentElement.classList.add('has-player');
 

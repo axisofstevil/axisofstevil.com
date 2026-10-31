@@ -4128,6 +4128,17 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 0.8;
 }
 
+.player-artist a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.player-artist a:hover {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .player-controls {
     display: flex;
     align-items: center;

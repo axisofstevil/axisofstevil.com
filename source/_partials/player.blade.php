@@ -7,7 +7,7 @@
     <span class="player-picture player-picture--blank artist-blank" hidden></span>
     <div class="player-label">
         <p class="player-track"></p>
-        <p class="player-artist"></p>
+        <p class="player-artist"><a href="/tunes/"></a></p>
     </div>
     <div class="player-controls">
         <button type="button" class="player-step" data-step="-1" aria-label="Previous tune">⇤</button>
