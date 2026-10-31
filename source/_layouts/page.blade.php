@@ -45,12 +45,12 @@
             </ol>
             @endif
 
-            <p class="caption">{{ $page->label }} · The Organisation</p>
+            <p class="caption">{{ $page->label }} · The Organization</p>
         </article>
 
-        <aside class="plate notes" aria-label="The Organisation" data-snap>
+        <aside class="plate notes" aria-label="The Organization" data-snap>
             <div class="notes-inner">
-                <h2 class="notes-title">The Organisation</h2>
+                <h2 class="notes-title">The Organization</h2>
                 <ul class="organisation-index">
                     @foreach ($page->organisation as $item)
                     <li><a href="{{ $item['address'] }}" @if ($item['address'] === $page->address) aria-current="page" @endif>{{ $item['label'] }}</a></li>
@@ -61,7 +61,7 @@
                 <a class="first-ran" href="{{ $page->original_url }}" target="_blank" rel="noopener">As it first ran<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
                 @endif
             </div>
-            <p class="caption">Notes · The Organisation</p>
+            <p class="caption">Notes · The Organization</p>
         </aside>
     </div>
 </main>
