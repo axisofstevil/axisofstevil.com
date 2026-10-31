@@ -32,7 +32,8 @@ class LlmsFile
         $span = $dates === [] ? null : $month($dates[0]).' to '.$month(end($dates));
         $plural = fn (int $n, string $one, string $many) => $n === 1 ? $one : $many;
 
-        $own = trim(str_replace(["\r\n", "\r"], "\n", (string) $jigsaw->getConfig('llms')));
+        // The owner's words as written, tidied: no trailing spaces, list items at the margin, one blank line between blocks.
+        $own = trim((string) preg_replace(['/[ \t]+$/m', '/^[ \t]+(?=[-*] )/m', '/\n{3,}/'], ['', '', "\n\n"], str_replace(["\r\n", "\r"], "\n", (string) $jigsaw->getConfig('llms'))));
 
         $lines = $own !== '' ? [$own, ''] : [
             '# '.$jigsaw->getConfig('title'),

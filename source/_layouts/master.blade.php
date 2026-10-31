@@ -12,7 +12,7 @@
             $article = in_array($collection, ['works', 'issue_pages'], true);
             $structured = \App\StructuredData::for($page);
         @endphp
-        <title>{{ $collection === 'works' ? $page->title.' — The Axis of Stevil' : $page->title }}</title>
+        <title>{{ $collection === 'works' ? ($page->page_title ?? $page->title).' — The Axis of Stevil' : $page->title }}</title>
         @if ($page->description)
         <meta name="description" content="{{ $page->description }}">
         @endif
@@ -24,7 +24,7 @@
         <meta property="og:site_name" content="The Axis of Stevil">
         <meta property="og:locale" content="en_US">
         <meta property="og:type" content="{{ $article ? 'article' : 'website' }}">
-        <meta property="og:title" content="{{ $page->title }}">
+        <meta property="og:title" content="{{ $page->page_title ?? $page->title }}">
         <meta property="og:url" content="{{ $url }}">
         @if ($page->description)
         <meta property="og:description" content="{{ $page->description }}">
@@ -46,7 +46,7 @@
         <meta property="article:published_time" content="{{ $page->starts_on }}">
         @endif
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $page->title }}">
+        <meta name="twitter:title" content="{{ $page->page_title ?? $page->title }}">
         @if ($page->description)
         <meta name="twitter:description" content="{{ $page->description }}">
         @endif

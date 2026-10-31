@@ -244,8 +244,16 @@ a {
     position: absolute;
     left: var(--pad);
     bottom: calc(var(--pad) - 0.25rem);
+    margin: 0;
     display: block;
     height: calc(var(--half) * 0.9);
+    width: auto;
+    line-height: 0;
+}
+
+.cover-lockup img {
+    display: block;
+    height: 100%;
     width: auto;
 }
 

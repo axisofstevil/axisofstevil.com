@@ -538,13 +538,51 @@ class RemoteData
     }
 
     /**
-     * Text as a description, or none when it says too little (a heading alone).
+     * A work's title for the browser tab and the search listing: its own, with
+     * its date when another work shares the title, and a number when the
+     * other ran the same day.
+     *
+     * @param  array<string, mixed>  $work
+     * @param  array<string, int>  $titles  how many works share each title
+     * @param  array<string, int>  $days  how many share each title and day
+     * @param  array<string, int>  $seen  how many of each title and day so far
+     */
+    private function pageTitle(array $work, array $titles, array $days, array &$seen): string
+    {
+        $title = mb_strtolower((string) $work['title']);
+
+        if (($titles[$title] ?? 1) < 2) {
+            return (string) $work['title'];
+        }
+
+        $day = $title.'|'.$work['date'];
+        $seen[$day] = ($seen[$day] ?? 0) + 1;
+        $when = CarbonImmutable::parse($work['date'])->format('F j, Y');
+
+        return $work['title'].' ('.$when.(($days[$day] ?? 1) > 1 ? ', No. '.$seen[$day] : '').')';
+    }
+
+    /**
+     * Text as a description, within the length a search listing shows (cut at a
+     * sentence, else a word), or none when it says too little (a heading alone).
      */
     private function said(string $text): ?string
     {
         $plain = $this->plain($text);
 
-        return str_word_count($plain) >= 4 ? $plain : null;
+        if (str_word_count($plain) < 4) {
+            return null;
+        }
+
+        if (mb_strlen($plain) <= 160) {
+            return $plain;
+        }
+
+        if (preg_match('/^(.{60,157}?[.!?])(?:\s|$)/u', $plain, $m) === 1) {
+            return $m[1];
+        }
+
+        return rtrim((string) preg_replace('/\s+\S*$/u', '', mb_substr($plain, 0, 157))).'…';
     }
 
     /**
@@ -638,6 +676,9 @@ class RemoteData
         }
 
         $pages = [];
+        $titles = array_count_values(array_map(fn ($w) => mb_strtolower((string) $w['title']), $works));
+        $days = array_count_values(array_map(fn ($w) => mb_strtolower((string) $w['title']).'|'.$w['date'], $works));
+        $seen = [];
 
         foreach ($byDivision as $division => $list) {
             foreach ($list as $i => $work) {
@@ -647,6 +688,8 @@ class RemoteData
                 $pages[] = [
                     ...$work,
                     'filename' => $work['slug'],
+                    // Its title for the browser tab and search listing: with its date when another work shares the title, numbered when the same day's.
+                    'page_title' => $this->pageTitle($work, $titles, $days, $seen),
                     // Its summary, else the teaser written for a front page, else its opening words, else its facts: the page's description.
                     'description' => $this->said(self::wordsOf((string) ($e['summary'] ?? ''))) ?? $this->said(self::wordsOf((string) ($e['teaser'] ?? ''))) ?? $this->said($this->opening(self::wordsOf((string) ($e['body'] ?? '')))) ?? $this->facts($work, $e),
                     // Where the work first ran, on the site before this one.
