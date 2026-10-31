@@ -1,0 +1,80 @@
+# Builds the site from main and puts it in the S3 bucket CloudFront serves.
+#
+# Needs, in the repository's Actions settings:
+#   variables  CHANNEL_URL                 the channel the site is built from (see .env.example)
+#              S3_BUCKET                   the bucket the site is served from
+#              S3_REGION                   its region
+#              CLOUDFRONT_DISTRIBUTION_ID  the distribution in front of it
+#   secrets    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY   a user allowed to write the bucket and invalidate the distribution
+#
+# The build's forwarding stubs become S3 website redirects (a real 301, as the old site's were) after the sync.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build only; touch neither the bucket nor CloudFront
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, iconv
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Build the site
+        env:
+          CHANNEL_URL: ${{ vars.CHANNEL_URL }}
+        run: vendor/bin/jigsaw build production
+
+      - name: Record the build
+        run: date -u +%Y-%m-%dT%H:%M:%SZ > build_production/build.txt
+
+      - name: Configure AWS
+        if: ${{ !inputs.dry_run }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.S3_REGION }}
+
+      - name: Sync with S3
+        if: ${{ !inputs.dry_run }}
+        run: aws s3 sync build_production/ "s3://${{ vars.S3_BUCKET }}/" --delete --only-show-errors --exclude "_releases/*"
+
+      - name: Set the forwards as website redirects
+        if: ${{ !inputs.dry_run }}
+        # Each rule in _redirects (from to 301) becomes an empty object at the old address that S3 answers with a 301,
+        # replacing the stub page the build wrote there. An old address with its own slash is its index.html.
+        run: |
+          while read -r from to code; do
+            [ -n "$from" ] || continue
+            key="${from#/}"
+            case "$from" in */) key="${key}index.html" ;; esac
+            case "$from" in *.*) ;; */) ;; *) key="${key}/index.html" ;; esac
+            aws s3api put-object --bucket "${{ vars.S3_BUCKET }}" --key "$key" --website-redirect-location "$to" --content-type text/html --body /dev/null > /dev/null
+          done < build_production/_redirects
+          echo "forwards: $(wc -l < build_production/_redirects)"
+
+      - name: Invalidate CloudFront
+        if: ${{ !inputs.dry_run }}
+        run: aws cloudfront create-invalidation --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" --paths "/*" > /dev/null

@@ -1,0 +1,5382 @@
+@font-face {
+    font-family: "Jost";
+    src: url("/assets/fonts/jost.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("/assets/fonts/source-serif-4.woff2") format("woff2");
+    font-weight: 200 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("/assets/fonts/source-serif-4-italic.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/*
+ * The Axis Graphic Standards: one red, slate, stock and ink.
+ *
+ * Everything sits on one sheet of columns. The fine grid is drawn from that
+ * sheet in half-column squares, one weight, so every plate edge (whole
+ * columns across, whole half-modules down) lands on a line. site.js measures
+ * the sheet and sets the exact whole-pixel values; these are the fallbacks.
+ */
+:root {
+    /*
+     * The logo's red (#ff1a00) stays in the mark. Large fields take a calmer
+     * red of the same hue; red-ink is deep enough for small text on the stock.
+     */
+    --red: #c73120;
+    --red-ink: #c01300;
+    --slate: #3f4a54;
+    --stock: #e6e3dc;
+    /* The stock, lifted: the same warm paper, for the one surface that needs emphasis. */
+    --stock-light: #f7f4ee;
+    --ink: #111;
+    --muted: #5a636b;
+    --line: rgba(17, 17, 17, 0.13);
+    --major: rgba(17, 17, 17, 0.16);
+    --display: "Jost", "Futura", sans-serif;
+    --text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --cols: 12;
+    --margin: 24px;
+    --sheet: min(100vw - 2 * var(--margin), 1680px);
+    --sheet-left: calc((100vw - var(--sheet)) / 2);
+    --col: calc(var(--sheet) / var(--cols));
+    --half: calc(var(--col) / 2);
+    --pad: calc(var(--col) / 4);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-color: var(--slate) var(--stock);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--stock);
+    background-image:
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        linear-gradient(var(--line) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
+    background-position: var(--sheet-left) 0;
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+}
+
+::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 3px;
+}
+
+.skip {
+    position: absolute;
+    left: var(--margin);
+    top: -100px;
+    padding: 12px 16px;
+    background: var(--ink);
+    color: var(--stock);
+    font-family: var(--display);
+    z-index: 10;
+}
+
+.skip:focus {
+    top: var(--margin);
+}
+
+/* The sheet: whole columns wide, starting on a grid line, sections a half-module apart. */
+.report,
+.colophon {
+    width: var(--sheet);
+    margin-left: var(--sheet-left);
+}
+
+.report {
+    padding-top: var(--half);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--half);
+}
+
+/*
+ * A plate: a keylined unit of the manual, captioned at its foot. Its left and
+ * top keylines are drawn inside it, its right and bottom ones just outside,
+ * so every edge lands on a grid line and neighbours share one line.
+ */
+.plate {
+    position: relative;
+    background: var(--stock);
+    padding: var(--pad) var(--pad) calc(var(--pad) + 2rem);
+    box-shadow:
+        inset 1px 1px 0 var(--edge, var(--ink)),
+        1px 1px 0 var(--edge, var(--ink));
+}
+
+.caption {
+    position: absolute;
+    left: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.section-title,
+.letter-title,
+.cover-title,
+.unit-name {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+}
+
+/* First viewport: the cover and the letter, six columns each, over six two-column division plates. */
+.fold-top {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: calc(var(--half) * 9);
+}
+
+.cover {
+    --edge: var(--red);
+    background-color: var(--red);
+    /* The sheet grid continues across the cover, in its own ink. */
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
+    color: var(--ink);
+}
+
+/*
+ * The cover's key figure: Quarterly Results in miniature, the same quarters
+ * and scale, four half-modules wide and two tall at the top right, in one
+ * colour (unlabelled here, so no year marks).
+ */
+.cover-chart {
+    position: absolute;
+    top: var(--half);
+    right: var(--half);
+    width: calc(var(--half) * 4);
+}
+
+.cover-bars {
+    height: calc(var(--half) * 2);
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.cover-bars i {
+    display: block;
+    flex: 1;
+    height: var(--h);
+    background: var(--stock);
+}
+
+.cover-title {
+    position: absolute;
+    left: var(--pad);
+    bottom: calc(var(--half) * 2 + var(--pad));
+    margin: 0;
+    color: var(--stock);
+    font-size: clamp(3rem, calc(var(--col) * 1.12), 6.25rem);
+    line-height: 0.86;
+    letter-spacing: 0;
+}
+
+/*
+ * The imprint band: the cover's foot, two half-modules tall, on the lifted
+ * stock (never pure white: beside it the stock reads as dirty paper). The
+ * wordmark lockup signs the cover in its own colours; the year and the plate
+ * caption sit at the foot on the right like a report's imprint line, the
+ * caption exactly where every other plate's caption sits.
+ */
+.cover-band {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--half) * 2);
+    background: var(--stock-light);
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        1px 1px 0 var(--ink);
+}
+
+.cover-lockup {
+    position: absolute;
+    left: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
+    margin: 0;
+    display: block;
+    height: calc(var(--half) * 0.9);
+    width: auto;
+    line-height: 0;
+}
+
+.cover-lockup img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.cover-imprint {
+    position: absolute;
+    right: var(--pad);
+    bottom: calc(var(--pad) - 0.25rem);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font-family: var(--display);
+    font-size: clamp(0.875rem, calc(var(--col) * 0.15), 1.25rem);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+.cover-band .caption {
+    position: static;
+    line-height: 1;
+}
+
+.letter {
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-title {
+    margin: 0 0 var(--pad);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.56), 3.25rem);
+    line-height: 0.95;
+}
+
+.letter-body {
+    max-width: 62ch;
+}
+
+.letter-body p {
+    margin: 0 0 1rem;
+    font-size: clamp(1.1875rem, calc(var(--col) * 0.19), 1.5rem);
+    line-height: 1.5;
+}
+
+.letter-body .signed {
+    margin-top: 1.25rem;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.letter-body .signed::before {
+    content: "— ";
+}
+
+/* Three figures, each two columns wide, splitting on the column lines. */
+.figures {
+    margin: auto 0 0;
+    padding-top: var(--pad);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: calc(var(--pad) * 2);
+    text-align: right;
+}
+
+.figures div {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.figures dt {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.figures dd {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2rem, calc(var(--col) * 0.4), 3.25rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.divisions {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.unit {
+    min-height: calc(var(--half) * 3);
+    padding-bottom: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.unit-name {
+    font-size: clamp(1.0625rem, calc(var(--col) * 0.172), 1.75rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.unit .caption {
+    position: static;
+}
+
+.unit-count {
+    margin-top: auto;
+    font-family: var(--display);
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--red-ink);
+}
+
+.unit:hover,
+.unit:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.unit:hover .unit-count,
+.unit:focus-visible .unit-count,
+.unit:hover .caption,
+.unit:focus-visible .caption {
+    color: var(--stock);
+}
+
+.unit-audit {
+    background: var(--slate);
+    color: var(--stock);
+}
+
+/* Multimedia: one plate two rows tall, a half each for the Gallery and the Tunes: the name, then the caption with
+   the count at its right; padded and lit like a division's plate. */
+.multimedia {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.multimedia-half {
+    position: relative;
+    min-height: calc(var(--half) * 2);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "name name"
+        "caption count";
+    align-content: space-between;
+    align-items: last baseline;
+    column-gap: var(--pad);
+    row-gap: 0.25rem;
+    padding: var(--pad);
+    text-decoration: none;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.multimedia-label {
+    display: contents;
+}
+
+.multimedia-half .unit-name {
+    grid-area: name;
+    font-size: clamp(1.0625rem, calc(var(--col) * 0.172), 1.75rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.multimedia-half .unit-count {
+    grid-area: count;
+    margin-top: 0;
+    font-size: 0.9375rem;
+    text-align: right;
+}
+
+.count-part + .count-part::before {
+    content: " · ";
+}
+
+.multimedia-half .caption {
+    grid-area: caption;
+    position: static;
+}
+
+.multimedia-half:hover,
+.multimedia-half:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.multimedia-half:hover .unit-count,
+.multimedia-half:focus-visible .unit-count,
+.multimedia-half:hover .caption,
+.multimedia-half:focus-visible .caption {
+    color: var(--stock);
+}
+
+.unit-audit .unit-count,
+.unit-audit .caption {
+    color: var(--stock);
+}
+
+/* Below the fold: the statement, the results, the audit. */
+.section-title {
+    margin: 0 0 var(--pad);
+    font-size: clamp(2rem, calc(var(--col) * 0.42), 3.25rem);
+    line-height: 1;
+}
+
+/*
+ * The ledger's columns fall on the sheet's: division 3, works 1, share 3,
+ * filed 5. Each column's width includes the double padding gap after it.
+ */
+.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.ledger col.c-division,
+.ledger col.c-share {
+    width: calc(var(--col) * 3);
+}
+
+.ledger col.c-works {
+    width: var(--col);
+}
+
+.ledger th,
+.ledger td {
+    padding: 14px calc(var(--pad) * 2) 14px 0;
+    border-bottom: 1px solid var(--major);
+    text-align: left;
+    vertical-align: top;
+}
+
+.ledger th:last-child,
+.ledger td:last-child {
+    padding-right: 0;
+}
+
+.ledger thead th {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--ink);
+}
+
+.ledger tbody th {
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ledger tbody th a,
+.ledger tfoot th a {
+    text-decoration: none;
+}
+
+.ledger tfoot th a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.ledger tbody th a:hover {
+    color: var(--red-ink);
+}
+
+.ledger .num {
+    text-align: right;
+}
+
+.ledger tbody .num,
+.ledger tfoot .num {
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+.ledger tfoot th,
+.ledger tfoot td {
+    border-top: 2px solid var(--ink);
+    border-bottom: 0;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.share {
+    display: block;
+    height: 18px;
+    margin-top: 6px;
+    width: var(--w);
+    background: var(--red);
+}
+
+.filed a {
+    display: block;
+    text-decoration: none;
+}
+
+.filed a:hover {
+    text-decoration: underline;
+    color: var(--red-ink);
+}
+
+/* Results: the chart on eight columns, the issues on four. */
+.results {
+    display: grid;
+    grid-template-columns: calc(var(--col) * 8 - var(--pad) * 2) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
+    align-content: start;
+}
+
+.results .section-title {
+    grid-column: 1 / -1;
+}
+
+.chart {
+    margin: 0;
+    padding-top: 36px;
+}
+
+.bars {
+    height: calc(var(--half) * 5);
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.bar {
+    position: relative;
+    flex: 1;
+    height: var(--h);
+    min-height: 2px;
+    background: var(--ink);
+}
+
+.bar.year-start {
+    background: var(--red);
+}
+
+.bar-count {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    padding-bottom: 6px;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.bar-label {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.chart figcaption {
+    margin-top: 44px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.issues {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+    align-self: start;
+    margin-top: 36px;
+}
+
+.issues li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--major);
+}
+
+.issue-title {
+    font-family: var(--display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.issue-dates {
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.audit-lede {
+    margin: 0 0 var(--pad);
+    font-size: 1.1875rem;
+    max-width: 60ch;
+}
+
+/* The audit's brief on seven columns, a pile of three works on the rest. */
+.plate.audit {
+    display: grid;
+    grid-template-columns: calc(var(--col) * 7 - var(--pad) * 2) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
+    align-items: center;
+}
+
+.audit-terms {
+    margin: 0 0 var(--pad);
+    max-width: 60ch;
+    line-height: 1.55;
+}
+
+.audit-odds {
+    margin: 0 0 var(--pad);
+    padding: 10px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.audit-pile {
+    position: relative;
+    display: block;
+    width: auto;
+    aspect-ratio: 4 / 3;
+    margin: var(--pad) var(--half);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.audit-pile:focus-visible {
+    outline-offset: 12px;
+}
+
+/*
+ * The pile looks three deep however many it holds: the top card square, the
+ * next two stepped back and turned; any deeper lie exactly under the third.
+ * --d is a card's depth (0 on top), set by site.js as the pile is dealt.
+ */
+.audit-card {
+    --v: min(var(--d), 2);
+    position: absolute;
+    inset: 0;
+    background: var(--stock-light);
+    box-shadow:
+        inset 0 0 0 1px var(--ink),
+        0 10px 24px rgba(17, 17, 17, 0.14);
+    transform: translate(calc(var(--v) * -16px), calc(var(--v) * 10px)) rotate(calc(var(--v) * -4deg));
+    transition: transform 0.35s var(--ease);
+    overflow: hidden;
+}
+
+.audit-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.audit-pile:hover .audit-card[data-top],
+.audit-pile:focus-visible .audit-card[data-top] {
+    transform: translate(4px, -4px) rotate(1deg);
+}
+
+/*
+ * On a Random Audit: a slate bar directly beneath the running head, inset a
+ * half-module each side like a division's bar, held at the top as the work
+ * scrolls: the pull's number, where it came from, and the way on.
+ */
+.plate.audit-bar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    min-height: var(--half);
+    margin: calc(var(--half) * -1) var(--half) 0;
+    padding: 0 0 0 var(--pad);
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    background: var(--slate);
+    color: var(--stock);
+}
+
+.plate.audit-bar[hidden] {
+    display: none;
+}
+
+.audit-status {
+    margin: 0;
+    min-width: 0;
+    font-family: var(--display);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.audit-status b {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.audit-from {
+    margin-left: 10px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.audit-controls {
+    margin-left: auto;
+    align-self: stretch;
+    display: flex;
+}
+
+.audit-controls button {
+    appearance: none;
+    border: 0;
+    padding: 0 var(--pad);
+    background: transparent;
+    color: inherit;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.35);
+}
+
+.audit-controls .audit-next {
+    background: var(--red);
+}
+
+.audit-controls button:hover,
+.audit-controls button:focus-visible {
+    background: var(--ink);
+}
+
+.audit-controls button[aria-busy='true'] {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+.action {
+    display: inline-block;
+    appearance: none;
+    border: 0;
+    padding: 16px 24px;
+    background: var(--slate);
+    color: var(--stock);
+    font-family: var(--display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s var(--ease);
+}
+
+.action:hover {
+    background: var(--ink);
+}
+
+.action[aria-busy="true"] {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* Inner pages: a running head, one half-module tall, with the lockup home and where you are. */
+.plate.running-head {
+    min-height: var(--half);
+    padding: 0 var(--pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pad);
+    background: var(--stock-light);
+}
+
+.running-left {
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    min-width: 0;
+    align-self: stretch;
+}
+
+/* The running head shows the wordmark lockup; on phones beside a division's name, the symbol alone. */
+.running-lockup .running-symbol {
+    display: none;
+}
+
+/*
+ * The breadcrumb: the lockup, a keyline, then the division as two controls,
+ * its name (a link to the division) and a chevron that opens the list of
+ * every division.
+ */
+.crumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-left: var(--pad);
+    box-shadow: inset 1px 0 0 var(--major);
+    align-self: stretch;
+}
+
+/* The areas: one grid button after the lockup, the whole of its cell (the running head's height,
+   a half-module wide, keylines either side), its menu the site's areas. */
+.areas {
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    /* The row's gap is given back, so the crumb's keyline lands on the button's edge: the cell is the button. */
+    margin-right: calc(-1 * var(--pad));
+    box-shadow: inset 1px 0 0 var(--major);
+}
+
+/* Nothing after it (an organisation page): the cell closes with its own keyline. */
+.areas:last-child {
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset -1px 0 0 var(--major);
+}
+
+.switcher.areas summary {
+    width: auto;
+    height: auto;
+    aspect-ratio: 1;
+    align-self: stretch;
+}
+
+/* Lit, the fill keeps the head's own edges: its keyline at the left, the plate's rule along the top. */
+.switcher.areas summary:hover,
+.switcher.areas[open] summary {
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset 0 1px 0 var(--ink);
+}
+
+.switcher-grid {
+    width: calc(var(--half) * 0.42);
+    height: calc(var(--half) * 0.42);
+}
+
+.areas .switcher-menu {
+    left: 0;
+}
+
+.running-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.125rem, calc(var(--col) * 0.2), 1.625rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.running-title a {
+    text-decoration: none;
+}
+
+.running-title a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.switcher summary {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.switcher summary::-webkit-details-marker {
+    display: none;
+}
+
+.switcher summary:hover,
+.switcher[open] summary {
+    background: var(--stock);
+    box-shadow: inset 0 0 0 1px var(--major);
+}
+
+.switcher-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s var(--ease);
+}
+
+.switcher[open] .switcher-chevron {
+    transform: rotate(180deg);
+}
+
+.switcher-menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 1px);
+    left: calc(var(--pad) - 16px);
+    min-width: calc(var(--col) * 2.5);
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: var(--stock-light);
+    box-shadow:
+        inset 0 0 0 1px var(--ink),
+        0 12px 28px rgba(17, 17, 17, 0.18);
+}
+
+.switcher-menu a {
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--pad);
+    padding: 8px 16px;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.switcher-menu a span {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.switcher-menu a:hover,
+.switcher-menu a:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+    outline: none;
+}
+
+.switcher-menu a:hover span,
+.switcher-menu a:focus-visible span {
+    color: var(--stock);
+}
+
+.switcher-menu a[aria-current] {
+    color: var(--red-ink);
+}
+
+.running-lockup img {
+    display: block;
+    height: calc(var(--half) * 0.55);
+    width: auto;
+}
+
+.running-trail {
+    min-width: 0;
+    text-align: right;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.running-short {
+    display: none;
+}
+
+.running-trail:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+/* The work page: a report spread, the work on nine columns, its notes on three. */
+.spread {
+    display: grid;
+    grid-template-columns: calc(var(--col) * 9) minmax(0, 1fr);
+}
+
+.work-title {
+    margin: 0 0 var(--pad);
+    font-family: var(--display);
+    font-size: clamp(2.25rem, calc(var(--col) * 0.5), 4rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.work-body {
+    max-width: 66ch;
+    font-size: 1.1875rem;
+    line-height: 1.6;
+}
+
+.work-body > * {
+    margin: 0 0 1.1em;
+}
+
+.work-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 var(--pad);
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.work-body p > img:only-child {
+    margin-bottom: 0;
+}
+
+.work-body h2,
+.work-body h3 {
+    margin: 1.5em 0 0.6em;
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.work-body blockquote {
+    margin-left: var(--pad);
+    font-style: italic;
+}
+
+.work-body blockquote > * {
+    margin: 0 0 0.6em;
+}
+
+.work-body a {
+    color: var(--red-ink);
+}
+
+.work-body hr {
+    border: 0;
+    border-top: 1px solid var(--major);
+    margin: var(--pad) 0;
+}
+
+.work-body figure {
+    margin: 0 0 var(--pad);
+}
+
+figure.flash .flash-stage {
+    position: relative;
+}
+
+figure.flash img {
+    display: block;
+}
+
+/* A Flash movie with no picture of its own: the printed dot, its proportions, the play button. */
+.flash-stage--blank {
+    max-width: 100%;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Played in Ruffle where scripts run; otherwise the thumbnail stands alone. */
+.flash-play {
+    display: none;
+}
+
+.js .flash-play {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.js .flash-play::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--col);
+    height: var(--col);
+    transform: translate(-50%, -50%);
+    background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E") center / 50% no-repeat;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.flash-play:hover::after,
+.flash-play:focus-visible::after {
+    background-color: var(--ink);
+}
+
+.flash-play[aria-busy='true']::after {
+    opacity: 0.6;
+}
+
+figure.flash ruffle-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.flash-error {
+    margin: 8px 0 0;
+    color: var(--red-ink);
+}
+
+.work-body figure figcaption {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.work-body figure.video iframe,
+.work-body figure.video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/*
+ * A work's page takes its body's shape (App\WorkLayout). The picture-led
+ * shapes set the picture on the lifted stock, matted, at its own size (the
+ * 2005 files are small; they are never stretched), the title as its label.
+ */
+.work-eyebrow {
+    margin: 0 0 10px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.work-head {
+    margin-bottom: var(--pad);
+}
+
+.work-head .work-title {
+    margin-bottom: 0;
+}
+
+.work-plate,
+.work-hero {
+    position: relative;
+    max-width: none;
+    margin: calc(var(--pad) * -1) calc(var(--pad) * -1) var(--pad);
+    padding: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    /* Where the picture is narrower than the plate: a fine printed dot, never flat paper. */
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+/* Its keylines drawn over the picture, which runs to the edges: top and left, as on every plate, and a rule beneath. */
+.work-plate::after,
+.work-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        inset 0 -1px 0 var(--ink);
+}
+
+.work-plate > *,
+.work-hero > * {
+    margin: 0;
+}
+
+/* Held to most of a screen, so the title and the piece start in view; a bigger file opens full size (Zoom). */
+.work-plate img,
+.work-hero img {
+    width: auto;
+    height: auto;
+    max-height: 62vh;
+    margin: 0 auto;
+    box-shadow: none;
+}
+
+.zoomable {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.zoomable img {
+    cursor: zoom-in;
+}
+
+.zoom-open {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.zoom-open:hover,
+.zoom-open:focus-visible {
+    background: var(--red);
+    opacity: 1;
+}
+
+.zoom-open svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* The full picture, over everything; larger than the window, it scrolls. */
+.zoom-view {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(17, 17, 17, 0.94);
+    color: var(--stock-light);
+}
+
+.zoom-view::backdrop {
+    background: transparent;
+}
+
+/* The set, one picture to a screen, swiped like the slideshow on the page. */
+.zoom-track {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.zoom-track::-webkit-scrollbar {
+    display: none;
+}
+
+.zoom-slide {
+    display: grid;
+    place-items: center;
+    padding: 56px 56px 52px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    cursor: zoom-out;
+}
+
+.zoom-slide img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 108px);
+    max-height: calc(100dvh - 108px);
+    box-shadow: 0 0 0 1px rgba(247, 244, 238, 0.3);
+    cursor: default;
+}
+
+@media (max-width: 640px) {
+    .zoom-slide {
+        padding: 56px 0 52px;
+    }
+
+    .zoom-step {
+        display: none;
+    }
+}
+
+/* Stepping through a set, full size: bars on the window's edges and a count at its foot. */
+.zoom-step {
+    position: fixed;
+    top: 50%;
+    width: 44px;
+    height: 72px;
+    transform: translateY(-50%);
+    border: 0;
+    background: var(--stock-light);
+    color: var(--ink);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.zoom-step[data-step="-1"] {
+    left: 0;
+}
+
+.zoom-step[data-step="1"] {
+    right: 0;
+}
+
+.zoom-step:hover,
+.zoom-step:focus-visible {
+    background: var(--red);
+    color: var(--stock-light);
+}
+
+.zoom-step:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.zoom-count {
+    position: fixed;
+    left: 50%;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+    margin: 0;
+    padding: 6px 10px;
+    transform: translateX(-50%);
+    background: var(--stock-light);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+.zoom-close {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    right: 12px;
+    padding: 10px 14px;
+    border: 0;
+    background: var(--stock-light);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.zoom-close:hover,
+.zoom-close:focus-visible {
+    background: var(--red);
+    color: var(--stock-light);
+}
+
+.work-plate figure {
+    width: 100%;
+    margin: 0;
+}
+
+/* A comic of several pictures: one at a time, snapping into place; its controls sit on it. */
+.slides {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    align-items: center;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slides:focus-visible {
+    outline-offset: -3px;
+}
+
+.slide {
+    position: relative;
+    margin: 0;
+    display: grid;
+    justify-items: center;
+    scroll-snap-align: center;
+}
+
+/* Small chips in the picture's lower corners: what a slide is, and where you are. */
+/* Scoped to the plate so the body's figure-caption rule (muted, larger) can't reach it. */
+.work-plate .slide figcaption,
+.slide-count {
+    position: absolute;
+    bottom: 10px;
+    padding: 5px 8px;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+.work-plate .slide figcaption {
+    left: 10px;
+}
+
+.slide-count {
+    right: 10px;
+    z-index: 2;
+}
+
+.slide-count b {
+    font-weight: 700;
+}
+
+/* Previous and next: slim bars on the plate's edges, over the picture. */
+.slide-step {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 36px;
+    height: 64px;
+    transform: translateY(-50%);
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-size: 1.125rem;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.slide-step[data-slide="-1"] {
+    left: 0;
+}
+
+.slide-step[data-slide="1"] {
+    right: 0;
+}
+
+.slide-step:hover,
+.slide-step:focus-visible {
+    background: var(--red);
+    opacity: 1;
+}
+
+.slide-step:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The label under a plate: its title (the notes give its series and date). */
+.work-label {
+    margin: 0 0 var(--pad);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px var(--pad);
+}
+
+.work-label .work-title {
+    margin: 0;
+    font-size: clamp(1.375rem, calc(var(--col) * 0.26), 2rem);
+}
+
+/* An article opens with a drop cap, in the logo's ink red. */
+.work-body--opening > p:first-of-type::first-letter {
+    float: left;
+    margin: 0.08em 0.1em 0 0;
+    font-family: var(--display);
+    font-size: 3.4em;
+    font-weight: 700;
+    line-height: 0.8;
+    color: var(--red-ink);
+}
+
+/* A Featured Steve: the piece, and the film strip beside it as it first ran, held in view. */
+.steve-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: calc(var(--pad) * 2);
+    align-items: start;
+}
+
+.film-strip {
+    position: sticky;
+    top: calc(var(--half) + 16px);
+    max-width: none;
+    display: grid;
+    gap: 8px;
+}
+
+.film-strip > * {
+    margin: 0;
+}
+
+.film-strip img {
+    max-height: calc(100vh - var(--col));
+    width: auto;
+    margin: 0;
+}
+
+/* Words: a dictionary entry, its illustration beside it. */
+.entry {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: calc(var(--pad) * 2);
+    align-items: start;
+}
+
+.entry-word {
+    margin: 0 0 var(--pad);
+    font-family: var(--text);
+    font-size: clamp(2.75rem, calc(var(--col) * 0.7), 5.5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+.entry-body > p:first-child {
+    font-family: var(--display);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.entry-body blockquote {
+    font-style: italic;
+}
+
+.entry-figure {
+    max-width: none;
+}
+
+.entry-figure > * {
+    margin: 0;
+}
+
+/* Ask Stevil: the reader's letter, signed, then the reply. */
+.letter-head {
+    margin-bottom: var(--pad);
+    padding-bottom: var(--pad);
+    border-bottom: 2px solid var(--ink);
+}
+
+.letter-question {
+    position: relative;
+    margin: 0 0 12px;
+    max-width: 32ch;
+    font-family: var(--text);
+    font-size: clamp(1.625rem, calc(var(--col) * 0.32), 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.22;
+    text-wrap: balance;
+}
+
+.letter-question::before {
+    content: "\201C";
+    position: absolute;
+    left: -0.5em;
+    color: var(--red-ink);
+}
+
+.letter-quote {
+    max-width: 60ch;
+    font-style: italic;
+}
+
+.letter-asker {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.letter-asker::before {
+    content: "\2014 ";
+}
+
+.letter-asker--none {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.notes {
+    background: var(--stock-light);
+}
+
+/* The notes stay beside a long work as it scrolls. */
+.notes-inner {
+    position: sticky;
+    top: var(--half);
+}
+
+.notes-title {
+    margin: 0 0 var(--pad);
+    font-family: var(--display);
+    font-size: clamp(1.5rem, calc(var(--col) * 0.24), 2rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.facts {
+    margin: 0;
+    border-top: 2px solid var(--ink);
+}
+
+.facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--pad);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--major);
+}
+
+.facts dt,
+.notes-label {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.facts dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    text-align: right;
+}
+
+.facts dd a {
+    text-decoration: none;
+}
+
+.facts dd a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.notes-label {
+    margin: var(--pad) 0 10px;
+}
+
+/* The work's page on the site before this one, in a new tab. */
+.first-ran {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--pad);
+    font-family: var(--display);
+    font-weight: 600;
+    color: var(--red-ink);
+    text-decoration: none;
+}
+
+.first-ran svg {
+    width: 12px;
+    height: 12px;
+}
+
+.first-ran:hover {
+    text-decoration: underline;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.neighbours {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+}
+
+/* The credits close the work, above its caption. */
+.credits {
+    max-width: 66ch;
+    margin: var(--pad) 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px calc(var(--pad) * 2);
+}
+
+.credits div {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+/* A division's footnote on each of its works (config 'explainers'): a quiet word, under the credits, on why it
+   does what it does. */
+.explainer {
+    max-width: 66ch;
+    margin: calc(var(--pad) * 0.75) 0 0;
+}
+
+.explainer-label {
+    display: block;
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.explainer p {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.credits dt {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.credits dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.neighbour {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: calc(var(--pad) / 2);
+    text-decoration: none;
+    background: var(--stock);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+}
+
+.neighbour-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.neighbour-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.neighbour-when {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.neighbour-title {
+    font-family: var(--display);
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.neighbour:hover .neighbour-title {
+    color: var(--red-ink);
+}
+
+.audit-go {
+    margin-top: var(--pad);
+    width: 100%;
+}
+
+/* Division pages: a header plate, then the index or the yearbook (one switch, remembered). */
+/*
+ * The masthead: the running head, then the division's bar directly beneath,
+ * one half-module tall and a half-module narrower on each side, sharing the
+ * head's keyline: its figure and the view switch.
+ */
+.masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.plate.division-bar {
+    min-height: var(--half);
+    margin: 0 var(--half);
+    padding: 0 0 0 var(--pad);
+    display: flex;
+    align-items: center;
+    gap: calc(var(--pad) * 1.5);
+}
+
+.division-figure {
+    margin: 0;
+    font-family: var(--display);
+    white-space: nowrap;
+}
+
+.division-figure b {
+    font-size: clamp(1.125rem, calc(var(--col) * 0.18), 1.5rem);
+    line-height: 1;
+}
+
+.division-figure span {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* The series counts, as a note at the top of the content. */
+.series-note {
+    margin: 0 0 var(--pad);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    column-span: all;
+}
+
+.series-note span {
+    margin-right: 10px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.yearbook .series-note {
+    grid-column: 1 / -1;
+}
+
+/*
+ * A series' banner and introduction, as written for it: a band across the top
+ * of the listing plate, edge to edge. The banner sits snug in its top left
+ * corner, at no more than its own size; the rest of the band, engraved with a
+ * fine hatch, carries the introduction.
+ */
+.series-intro {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--pad) * -1) calc(var(--pad) * -1) var(--pad);
+    background:
+        repeating-linear-gradient(135deg, rgba(17, 17, 17, 0.07) 0 1px, transparent 1px 5px),
+        var(--stock-light);
+    column-span: all;
+}
+
+/* Its keylines drawn over the banner, as on every plate: top and left, and a rule beneath. */
+.series-intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        inset 0 -1px 0 var(--ink);
+}
+
+.yearbook .series-intro {
+    grid-column: 1 / -1;
+}
+
+/* Never taller than the 2005 banners were drawn to run: wider ones keep their proportions. */
+.series-banner {
+    display: block;
+    flex: 0 1 auto;
+    align-self: flex-start;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 9.375rem;
+    /* The plate's keyline down its right edge, where the hatch begins. */
+    box-shadow: 1px 0 0 var(--ink);
+}
+
+.series-text {
+    flex: 1 1 18rem;
+    min-width: 0;
+    align-self: center;
+    padding: 12px var(--pad);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+/* The words beneath the banner (site.js): the banner ruled beneath too. */
+.series-intro--stacked .series-banner {
+    box-shadow:
+        1px 0 0 var(--ink),
+        0 1px 0 var(--ink),
+        1px 1px 0 var(--ink);
+}
+
+/* No fitting beside the banner (narrow screens): the words on their own row beneath it. */
+.series-intro--stacked .series-text {
+    flex-basis: 100%;
+    align-self: auto;
+    padding: var(--pad);
+}
+
+.series-text > :first-child {
+    margin-top: 0;
+}
+
+.series-text > :last-child {
+    margin-bottom: 0;
+}
+
+/* The switch fills the plate's height at its right edge, sharing the keylines. */
+.view-switch {
+    margin-left: auto;
+    align-self: stretch;
+    display: flex;
+}
+
+/* The keylines (the plate's top one, the group's left one) are the buttons' own, so a hovered button's
+   background never paints over them. */
+.view-switch button {
+    appearance: none;
+    border: 0;
+    margin: 0;
+    padding: 0 var(--pad);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.view-switch button {
+    box-shadow: inset 0 1px 0 var(--ink);
+}
+
+.view-switch button:first-child {
+    box-shadow: inset 1px 1px 0 var(--ink);
+}
+
+.view-switch button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.view-switch button:hover:not([aria-pressed="true"]) {
+    background: var(--stock-light);
+}
+
+.view {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--half);
+}
+
+.js .view-yearbook,
+.js[data-division-view="yearbook"] .view-index {
+    display: none;
+}
+
+.js[data-division-view="yearbook"] .view-yearbook {
+    display: grid;
+}
+
+/* The index: three columns of letter groups, a slate thumb index on the right (a column and a half). */
+.index-sheet {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) calc(var(--half) * 3);
+}
+
+.index {
+    columns: 3;
+    column-gap: calc(var(--pad) * 2);
+}
+
+.index-group {
+    break-inside: avoid-column;
+    margin-bottom: var(--pad);
+    scroll-margin-top: var(--pad);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The letter just jumped to from the thumb index: lifted onto white paper, ruled round, outside its own lines so nothing moves. */
+.index-group:target {
+    background-color: var(--stock-light);
+    box-shadow:
+        0 0 0 12px var(--stock-light),
+        0 0 0 13px var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .index-group {
+        transition: none;
+    }
+}
+
+.index-letter {
+    margin: 0 0 6px;
+    font-family: var(--display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--red-ink);
+}
+
+.index ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.index li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+}
+
+.index li a {
+    text-decoration: none;
+}
+
+.index li a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.index li span {
+    flex: none;
+    font-size: 0.8125rem;
+    color: var(--muted);
+}
+
+.thumb-index {
+    background: var(--slate);
+    color: var(--stock);
+    padding: var(--pad) 0;
+}
+
+/* The options stay in view beside a long list; capped to the window, they scroll on their own. */
+.thumb-list {
+    position: sticky;
+    top: var(--half);
+    max-height: calc(100svh - var(--half) * 2);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--stock) var(--slate);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.thumb-index {
+    align-self: stretch;
+}
+
+.thumb-index a {
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    line-height: 1.1;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.thumb-index a:hover {
+    background: var(--ink);
+}
+
+/* The yearbook: bands stacked edge to edge, beside the same slate thumb index, one row per year. */
+.yearbook-bands {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* A band per year: its figure on two columns, its works as square plates. */
+.yearbook {
+    display: grid;
+    grid-template-columns: calc(var(--col) * 2 - var(--pad)) minmax(0, 1fr);
+    column-gap: calc(var(--pad) * 2);
+    /* The height added to land on a grid line goes beneath the rows, never into them (the series band). */
+    align-content: start;
+}
+
+.year-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.48), 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.year-count {
+    margin: 8px 0 12px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.year-bar {
+    display: block;
+    height: 14px;
+    width: var(--w);
+    background: var(--red);
+}
+
+.year-works {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 3), 1fr));
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
+    padding: 10px;
+    text-decoration: none;
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+}
+
+.tile-image {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--stock-light);
+    box-shadow: inset 0 0 0 1px var(--major);
+}
+
+.tile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* No picture on file: the plates' printed dot, and the symbol, small and muted, where the picture would be. */
+.tile-blank {
+    position: relative;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+.tile-blank::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 28%;
+    height: 34%;
+    background: var(--muted);
+    opacity: 0.08;
+    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.tile:hover .tile-blank::after,
+.tile:focus-visible .tile-blank::after {
+    background: var(--red);
+    opacity: 0.8;
+}
+
+.tile-title {
+    margin-top: 4px;
+    font-family: var(--display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.tile-meta {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.tile:hover .tile-title {
+    color: var(--red-ink);
+}
+
+/* The colophon: a plate one half-module tall, a half-module below the last plate: the lockup, the line, the links. */
+.plate.colophon {
+    min-height: var(--half);
+    margin-top: var(--half);
+    margin-bottom: var(--half);
+    padding: calc(var(--pad) / 2) var(--pad);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--pad) / 2) var(--pad);
+    background: var(--stock-light);
+}
+
+.colophon-lockup {
+    display: block;
+    flex: none;
+}
+
+.colophon-lockup img {
+    display: block;
+    height: calc(var(--half) * 0.55);
+    width: auto;
+}
+
+.colophon-line {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+}
+
+.colophon-line span {
+    display: block;
+}
+
+.colophon-line a:hover {
+    color: var(--red-ink);
+}
+
+.colophon nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px 24px;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.colophon nav a {
+    text-decoration: none;
+}
+
+.colophon nav a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+/* A row's label, for the narrower colophon only. */
+.colophon-label {
+    display: none;
+}
+
+/* The sections, a second line of the colophon across its width, in the running head's smaller type. */
+.colophon nav.colophon-sections {
+    flex-basis: 100%;
+    order: 5;
+    justify-content: flex-start;
+    gap: 4px 20px;
+    padding-top: calc(var(--pad) / 4);
+    border-top: 1px solid var(--major);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+/* No entrance motion for the plates: they are in place from the first paint. And the browser's scroll anchoring
+   is off: a page restored after a reload holds its position while the fonts settle, rather than following the text. */
+html {
+    overflow-anchor: none;
+}
+
+/* The one motion: a chart's bars grow into place as it comes into view. The script holds them at nothing until
+   then and lets them go one after another; without it, or with motion reduced, they stand as drawn. */
+@media (prefers-reduced-motion: no-preference) {
+    .js .cover-bars i,
+    .js .bar {
+        transition: height 0.8s var(--ease) calc(var(--i, 0) * 45ms);
+    }
+
+    .js .share,
+    .js .year-bar {
+        transition: width 0.8s var(--ease) calc(var(--i, 0) * 45ms);
+    }
+
+    .js .cover-bars[data-grow="wait"] i,
+    .js [data-grow="wait"] .bar {
+        height: 0;
+        transition: none;
+    }
+
+    .js [data-grow="wait"] .share,
+    .js [data-grow="wait"] .year-bar {
+        width: 0;
+        transition: none;
+    }
+}
+
+/* Narrower: the cover over the letter, divisions three to a row. Still twelve columns. */
+@media (max-width: 1100px) {
+    .fold-top {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cover {
+        min-height: calc(var(--half) * 10);
+    }
+
+    .divisions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* The Gallery's and the Tunes' counts on two lines, leaving the caption its line. */
+    .count-part {
+        display: block;
+    }
+
+    .count-part + .count-part::before {
+        content: none;
+    }
+
+    .results {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .spread {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .index {
+        columns: 2;
+    }
+
+    .notes-inner {
+        position: static;
+    }
+
+    .issues {
+        margin-top: 0;
+    }
+
+    /* Narrower: the lockup and links on the first row, the line beneath. */
+    .plate.colophon {
+        flex-wrap: wrap;
+        row-gap: 4px;
+        padding-top: calc(var(--pad) / 2);
+        padding-bottom: calc(var(--pad) / 2);
+    }
+
+    .colophon-line {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    /* Narrower: a column. The lockup; the organisation's links and the sections, each a labelled row of links in one
+       type; the line last, under a rule. */
+    .plate.colophon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--pad);
+        padding-top: var(--pad);
+        padding-bottom: var(--pad);
+    }
+
+    /* The links on a grid of equal columns, as many as fit, so a wrapped row lines up under the one above. */
+    .colophon nav,
+    .colophon nav.colophon-sections {
+        margin-left: 0;
+        order: 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+        width: 100%;
+        gap: 8px 16px;
+        padding-top: calc(var(--pad) / 2);
+        border-top: 1px solid var(--major);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+    }
+
+    .colophon-label {
+        display: block;
+        grid-column: 1 / -1;
+        margin-bottom: 2px;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+    }
+
+    .colophon-line {
+        order: 9;
+        width: 100%;
+        padding-top: calc(var(--pad) / 2);
+        border-top: 1px solid var(--major);
+    }
+
+    .colophon-lockup img {
+        height: max(calc(var(--half) * 0.9), 2.5rem);
+    }
+}
+
+/* Phones: four columns. */
+@media (max-width: 640px) {
+    :root {
+        --cols: 4;
+        --margin: 16px;
+    }
+
+    .cover {
+        min-height: calc(var(--half) * 11);
+    }
+
+    .cover-title {
+        bottom: calc(var(--half) * 3 + var(--pad));
+        font-size: clamp(3rem, calc(var(--col) * 0.82), 4.5rem);
+    }
+
+    .cover-band {
+        height: calc(var(--half) * 3);
+    }
+
+    .cover-lockup {
+        top: var(--pad);
+        bottom: auto;
+        max-width: calc(100% - var(--pad) * 2);
+    }
+
+    .cover-imprint {
+        left: var(--pad);
+        right: auto;
+        align-items: flex-start;
+    }
+
+
+    .letter-title {
+        font-size: clamp(1.75rem, calc(var(--col) * 0.36), 2.5rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, calc(var(--col) * 0.34), 2rem);
+    }
+
+    .letter-body p {
+        font-size: 1.1875rem;
+    }
+
+    /* Three figures can't split four columns: on phones they become a ledger. */
+    .figures {
+        grid-template-columns: minmax(0, 1fr);
+        border-top: 2px solid var(--ink);
+        padding-top: 0;
+        margin-top: var(--pad);
+    }
+
+    .figures div {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--major);
+    }
+
+    .figures dd {
+        font-size: 1.75rem;
+    }
+
+    /* On four columns the division plates become full-width rows: name, count, plate. */
+    .divisions {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* The Gallery and the Tunes join the divisions' stack as two more rows. */
+    .multimedia {
+        margin-top: calc(var(--half) * -1);
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .multimedia-half {
+        min-height: 0;
+    }
+
+    .multimedia-half .unit-name {
+        font-size: 1.25rem;
+    }
+
+    /* On four columns the division plates become full-width rows: the name, then the caption with the count at its right. */
+    .unit {
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "name name"
+            "caption count";
+        align-items: last baseline;
+        column-gap: var(--pad);
+        row-gap: 0.25rem;
+    }
+
+    .unit-name {
+        grid-area: name;
+        font-size: 1.25rem;
+    }
+
+    .unit-count {
+        grid-area: count;
+        margin-top: 0;
+        text-align: right;
+    }
+
+    .unit .caption {
+        grid-area: caption;
+    }
+
+    /* On four columns the ledger keeps division and works, the figures ending on the plate's inner edge. */
+    .ledger {
+        table-layout: auto;
+    }
+
+    .ledger col.c-division,
+    .ledger col.c-works {
+        width: auto;
+    }
+
+    .ledger .num {
+        width: 1%;
+        white-space: nowrap;
+    }
+
+    .ledger .c-share,
+    .ledger .c-filed,
+    .ledger .share-col,
+    .ledger .filed,
+    .ledger .filed-col {
+        display: none;
+    }
+
+    .ledger tbody th {
+        font-size: 1.125rem;
+    }
+
+    .ledger .num {
+        padding-right: 0;
+    }
+
+    .bars {
+        height: calc(var(--half) * 5);
+        gap: 4px;
+    }
+
+    .bar-count {
+        font-size: 0.75rem;
+    }
+
+    .bar-label {
+        display: none;
+    }
+
+    .chart figcaption {
+        margin-top: 16px;
+    }
+
+    .plate.audit {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .audit-pile {
+        max-width: 420px;
+        width: calc(100% - var(--half) * 2);
+    }
+
+    .audit-from {
+        display: none;
+    }
+}
+
+/* Phones: the bar takes the sheet's full width and keeps the count and both controls. */
+@media (max-width: 640px) {
+    .plate.audit-bar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .audit-status {
+        font-size: 0.875rem;
+    }
+
+    .audit-status b {
+        letter-spacing: 0.02em;
+    }
+
+    .audit-long {
+        display: none;
+    }
+
+    .audit-controls button {
+        padding: 0 calc(var(--pad) / 2);
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+    }
+
+    .audit-controls .audit-next span {
+        display: none;
+    }
+
+    /* Phones: the lockup gives way to the symbol's room; the trail steps aside for the switcher. */
+    .running-head .running-trail {
+        display: none;
+    }
+
+    .running-left {
+        gap: calc(var(--pad) / 2);
+    }
+
+    .areas {
+        margin-right: calc(-1 * var(--pad) / 2);
+    }
+
+    .running-lockup img {
+        height: calc(var(--half) * 0.55);
+    }
+
+    .running-head:has(.switcher) .running-lockup .running-wordmark {
+        display: none;
+    }
+
+    .running-head:has(.switcher) .running-lockup .running-symbol {
+        display: block;
+    }
+
+    /* A series beneath its division: the division keeps only its chevron (its menu still names it), so
+       the page's own name has the room; that name gives way last, and its menu opens leftward. */
+    .crumb {
+        min-width: 0;
+    }
+
+    .crumb:has(+ .crumb):has(.switcher) .running-title {
+        display: none;
+    }
+
+    .crumb:has(+ .crumb):has(.switcher) {
+        padding-left: calc(var(--pad) / 2);
+    }
+
+    .crumb + .crumb .running-title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .crumb + .crumb .switcher {
+        flex: none;
+    }
+
+    /* Every menu hangs from the running head, across its width, so none runs off the screen. */
+    .crumb,
+    .areas {
+        position: static;
+    }
+
+    .switcher-menu,
+    .areas .switcher-menu,
+    .crumb + .crumb .switcher-menu {
+        left: 0;
+        right: 0;
+        min-width: 0;
+    }
+
+    .plate.division-bar {
+        flex-wrap: wrap;
+        padding: calc(var(--pad) / 2) 0 0;
+        row-gap: 8px;
+    }
+
+    .division-bar .division-figure {
+        padding-left: var(--pad);
+    }
+
+    .view-switch {
+        flex-basis: 100%;
+        margin-left: 0;
+        min-height: var(--half);
+    }
+
+    .view-switch button,
+    .view-switch button:first-child {
+        flex: 1;
+        box-shadow: inset 0 1px 0 var(--ink);
+    }
+
+    .running-long {
+        display: none;
+    }
+
+    .running-short {
+        display: inline;
+    }
+
+    .index-sheet {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .thumb-index {
+        order: -1;
+        padding: 10px var(--pad);
+    }
+
+    .thumb-list {
+        position: static;
+        max-height: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .thumb-index a {
+        width: auto;
+        padding: 4px 8px;
+    }
+
+    .index {
+        columns: 1;
+    }
+
+    .yearbook {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .year-works {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* The colophon's links two to a row, the type a touch tighter so the longest name holds its line. */
+    .colophon nav,
+    .colophon nav.colophon-sections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        letter-spacing: 0.08em;
+    }
+
+}
+
+/* The narrowest phones: the bar's count alone; its slate and its controls still say what it is. */
+@media (max-width: 400px) {
+    .audit-word {
+        display: none;
+    }
+}
+
+/* Phones: one column; the film strip follows the piece, centred. */
+@media (max-width: 640px) {
+    .steve-columns,
+    .entry {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .film-strip {
+        position: static;
+        justify-items: center;
+    }
+
+    .film-strip img {
+        max-height: 80vh;
+    }
+
+    .letter-question::before {
+        position: static;
+    }
+}
+
+/*
+ * Long words and addresses never push the page wider: headlines and titles
+ * hyphenate, then break if they must; addresses break anywhere; a player
+ * pasted at a fixed width fits its column.
+ */
+.work-title,
+.entry-word,
+.letter-question,
+.neighbour-title,
+.tile-title,
+.running-title {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+}
+
+.work-body a,
+.notes a {
+    overflow-wrap: anywhere;
+}
+
+/* A run nothing can break (the old forms' "Name: ________") breaks rather than overflow. */
+.work-body {
+    overflow-wrap: break-word;
+}
+
+.work-body iframe,
+.work-body video {
+    max-width: 100%;
+}
+
+.work-body iframe[width] {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+/* The organisation's index, in the notes: every page, the one you're on marked. */
+.organisation-index {
+    margin: 0 0 var(--pad);
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+}
+
+.organisation-index a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--major);
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.organisation-index a:hover {
+    color: var(--red-ink);
+}
+
+.organisation-index a[aria-current] {
+    color: var(--red-ink);
+}
+
+.organisation-index a[aria-current]::before {
+    content: "\2192\00a0";
+}
+
+/* History's chronology: the year in the margin, the event beside it, on one rule. */
+.chronology {
+    max-width: 72ch;
+    margin: var(--pad) 0 var(--pad);
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--ink);
+}
+
+.chronology li {
+    display: grid;
+    grid-template-columns: 9ch minmax(0, 1fr);
+    column-gap: var(--pad);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--major);
+}
+
+.chronology-year {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.125rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.chronology-event {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+}
+
+.chronology-event a {
+    color: var(--red-ink);
+}
+
+@media (max-width: 640px) {
+    .chronology li {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+    }
+}
+
+.chronology-event img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* A story's pages: each headed by its number; shown one at a time where scripts run. */
+.story-page > h2:first-child {
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.story-page + .story-page {
+    margin-top: calc(var(--pad) * 2);
+}
+
+.is-paged .story-page + .story-page {
+    margin-top: 0;
+}
+
+/* A playing Flash movie can be enlarged, over the page, as Zoom does for pictures. */
+.flash-enlarge,
+.flash-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.flash-enlarge:hover,
+.flash-enlarge:focus-visible {
+    background: var(--red);
+    opacity: 1;
+}
+
+.flash-enlarge svg {
+    width: 12px;
+    height: 12px;
+}
+
+.flash-close,
+.flash-enlarge[hidden] {
+    display: none;
+}
+
+.is-enlarged .flash-enlarge {
+    display: none;
+}
+
+figure.flash.is-enlarged .flash-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(17, 17, 17, 0.94);
+    box-shadow: none;
+}
+
+figure.flash.is-enlarged ruffle-player {
+    width: min(calc(100vw - 48px), calc((100vh - 96px) * var(--ratio, 1.333)));
+    width: min(calc(100vw - 48px), calc((100dvh - 96px) * var(--ratio, 1.333)));
+    height: auto;
+    box-shadow: 0 0 0 1px rgba(247, 244, 238, 0.3);
+}
+
+.is-enlarged .flash-close {
+    position: fixed;
+    display: inline-flex;
+    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    right: 12px;
+    padding: 10px 14px;
+    background: var(--stock-light);
+    color: var(--ink);
+    font-size: 0.875rem;
+    opacity: 1;
+}
+
+.is-enlarged .flash-close:hover,
+.is-enlarged .flash-close:focus-visible {
+    background: var(--red);
+    color: var(--stock-light);
+}
+
+.is-enlarged-open,
+.is-enlarged-open body {
+    overflow: hidden;
+}
+
+/*
+ * A weekly issue (/issues/{slug}/): a broadsheet front page on the sheet's
+ * grid, each piece set where a paper would set it by what it is. The lead
+ * story and the week's other stories in the main columns, excerpts ending in
+ * a jump line to the rest; a rail of boxes (Language, Featured Steve, Ask
+ * Stevil, notices); the strips across the Funnies; the week's gags and art as
+ * captioned plates; the Tune of the Week as a record sleeve beside Back
+ * Issues; earlier and later issues at the foot. Whole pieces stand whole.
+ */
+.plate.issue {
+    --issue-air: calc(var(--pad) * 1.5);
+    padding-top: var(--issue-air);
+}
+
+/* The masthead is a grid: the week, the ticker and the run share the top row (the over-folio's spans
+   are its items), the name and the under-folio each take a row. */
+.issue-masthead {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+        "week . run"
+        "name name name"
+        "under under under";
+    align-items: baseline;
+    column-gap: 24px;
+    margin-bottom: calc(var(--pad) * 1.5);
+    border-top: 1px solid var(--ink);
+    text-align: center;
+}
+
+.issue-folio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 24px;
+    margin: 0;
+    padding: 8px 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-folio--over {
+    display: contents;
+}
+
+.issue-week,
+.issue-run {
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.issue-week {
+    grid-area: week;
+}
+
+.issue-week-short {
+    display: none;
+}
+
+.issue-run {
+    grid-area: run;
+}
+
+/* The week's headlines from the world outside: a small line in the plate's top padding, over the
+   masthead, so it takes no room of its own; the kicker then the line. The lines are stacked in one
+   cell, so the slot is as tall as its longest line and never jumps; the one in view fades in over the
+   one that was. */
+.issue-ticker {
+    position: absolute;
+    top: 0;
+    left: var(--pad);
+    right: var(--pad);
+    height: var(--issue-air);
+    display: flex;
+    align-items: center;
+    gap: 0 0.75em;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-ticker b {
+    color: var(--red-ink);
+    letter-spacing: 0.08em;
+}
+
+.issue-ticker-lines {
+    display: grid;
+    font-family: var(--text);
+    font-size: 0.875rem;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: none;
+    text-wrap: balance;
+}
+
+.issue-ticker-lines > span {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.issue-ticker-lines > .is-on {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .issue-ticker-lines > span {
+        transition: none;
+    }
+}
+
+.issue-folio--under {
+    grid-area: under;
+    border-bottom: 1px solid var(--ink);
+    box-shadow: 0 -4px 0 -1px var(--stock), 0 -5px 0 -1px var(--ink);
+}
+
+.issue-name {
+    grid-area: name;
+    margin: 0;
+    padding: calc(var(--pad) * 0.75) 0 calc(var(--pad) * 0.5);
+    border-top: 3px solid var(--ink);
+    font-family: var(--display);
+    font-size: clamp(2.5rem, calc(var(--col) * 0.75), 6rem);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+/* Above the fold: the stories, and the rail beside them. */
+.issue-front {
+    display: grid;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: calc(var(--pad) * 2);
+}
+
+.issue-front--full {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.issue-kicker,
+.issue-box-label {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+.issue-box-label a,
+.issue-headline a,
+.issue-story-headline a,
+.issue-box-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-headline a:hover,
+.issue-story-headline a:hover,
+.issue-box-title a:hover,
+.issue-box-label a:hover {
+    color: var(--red-ink);
+}
+
+.issue-headline {
+    margin: 0 0 var(--pad);
+    font-family: var(--display);
+    font-size: clamp(2rem, calc(var(--col) * 0.5), 3.75rem);
+    font-weight: 700;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.issue-lead-picture,
+.issue-story-picture {
+    display: block;
+}
+
+.issue-lead-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--pad) calc(var(--pad) * 2);
+}
+
+.issue-lead-picture {
+    flex: 0 1 auto;
+    max-width: 100%;
+}
+
+.issue-lead-picture img {
+    display: block;
+    max-width: 100%;
+    max-height: 34rem;
+    width: auto;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-lead-body .issue-copy {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
+
+.issue-copy {
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+}
+
+.issue-copy > * {
+    margin: 0 0 0.9em;
+}
+
+.issue-copy > :last-child {
+    margin-bottom: 0;
+}
+
+.issue-copy img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.issue-copy blockquote {
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--major);
+    font-style: italic;
+}
+
+/* A wide block of words in newspaper columns (a summary or whole text piece eight columns wide or more, 150 words or more); the lead's opened by a capital. */
+.issue-copy--columns {
+    columns: 2 16rem;
+    column-gap: calc(var(--pad) * 2);
+    column-rule: 1px solid var(--major);
+}
+
+.issue-copy--columns > :is(figure, blockquote, img) {
+    break-inside: avoid-column;
+}
+
+/* The capital opens the first paragraph of words: the one after a leading picture, when the words start with one. */
+.issue-copy--lead > p:first-of-type:not(:has(img))::first-letter,
+.issue-copy--lead > p:first-of-type:has(> img:only-child) + p::first-letter {
+    float: left;
+    margin: 0.06em 0.08em 0 0;
+    font-family: var(--display);
+    font-size: 3.6em;
+    font-weight: 700;
+    line-height: 0.8;
+    color: var(--red-ink);
+}
+
+/* An excerpt's way to the rest, as a paper jumps a story. */
+.issue-jump {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: var(--text);
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--red-ink);
+    text-decoration: none;
+}
+
+.issue-jump:hover {
+    text-decoration: underline;
+}
+
+/* The week's other stories, beneath the lead, two abreast with a rule between. */
+.issue-stories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 calc(var(--pad) * 2);
+    margin-top: calc(var(--pad) * 1.5);
+}
+
+.issue-stories--one {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.issue-story {
+    padding-top: var(--pad);
+    border-top: 2px solid var(--ink);
+}
+
+.issue-stories:not(.issue-stories--one) .issue-story:nth-child(odd):not(:last-child) {
+    position: relative;
+}
+
+.issue-story + .issue-story + .issue-story {
+    margin-top: calc(var(--pad) * 1.5);
+}
+
+/* A story set in the rail (a week with nothing else there): its picture across the box. */
+.issue-box-picture img {
+    display: block;
+    max-width: 100%;
+    max-height: 16rem;
+    width: auto;
+    height: auto;
+    margin-bottom: 12px;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-story-headline {
+    margin: 0 0 12px;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, calc(var(--col) * 0.28), 2.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.issue-story-body {
+    display: flow-root;
+}
+
+.issue-story-picture {
+    float: left;
+    width: clamp(8rem, calc(var(--col) * 2), 14rem);
+    margin: 4px var(--pad) 8px 0;
+}
+
+.issue-story-picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* The rail: ruled boxes, one under the other. */
+.issue-rail {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--pad) * 1.25);
+    padding-left: calc(var(--pad) * 2);
+    margin-left: calc(var(--pad) * -2);
+    border-left: 1px solid var(--ink);
+}
+
+.issue-box {
+    padding-top: 12px;
+    border-top: 3px solid var(--ink);
+}
+
+.issue-box .issue-copy {
+    font-size: 0.9375rem;
+}
+
+.issue-box-title {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+/* Language, whole: the word as the dictionary sets it. */
+.issue-box--language h2 {
+    margin: 0 0 4px;
+    font-family: var(--text);
+    font-size: 1.875rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.1;
+}
+
+.issue-box--language img {
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.issue-steve-portrait img {
+    display: block;
+    max-width: 100%;
+    max-height: 18rem;
+    width: auto;
+    height: auto;
+    margin-bottom: 12px;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Ask Stevil, whole: the reader's question set large, then the answer. */
+.issue-box--letter blockquote {
+    margin: 0 0 1em;
+    padding: 0 0 0 14px;
+    border-left: 3px solid var(--red);
+    font-family: var(--display);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.issue-box--letter blockquote p:last-child {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.issue-box--notice {
+    padding: 12px 16px 16px;
+    border: 1px solid var(--ink);
+    border-top-width: 3px;
+    background: var(--stock-light);
+}
+
+/* A band across the page, headed like a section of the paper. */
+.issue-band {
+    margin-top: calc(var(--pad) * 2);
+}
+
+.issue-band-title {
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    margin: 0 0 var(--pad);
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.issue-band-title::before,
+.issue-band-title::after {
+    content: "";
+    flex: 1;
+    height: 5px;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+/* The Funnies: each strip whole, centred, captioned beneath. */
+.issue-strip {
+    margin: 0 0 calc(var(--pad) * 1.5);
+    text-align: center;
+}
+
+.issue-strip-picture > *,
+.issue-strip-picture p {
+    margin: 0 0 12px;
+}
+
+.issue-strip-picture img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+    vertical-align: top;
+}
+
+.issue-strip figcaption,
+.issue-plate figcaption {
+    font-family: var(--display);
+    font-size: 0.9375rem;
+}
+
+.issue-strip figcaption a,
+.issue-plate figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-strip figcaption a:hover,
+.issue-plate figcaption a:hover {
+    color: var(--red-ink);
+}
+
+.issue-strip figcaption b {
+    margin-right: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+/* The week's gags and art: captioned plates, set in columns as they fall. */
+.issue-plates {
+    columns: 3 15rem;
+    column-gap: calc(var(--pad) * 2);
+}
+
+.issue-plates--one {
+    columns: auto;
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+.issue-plate {
+    break-inside: avoid;
+    margin: 0 0 calc(var(--pad) * 1.5);
+}
+
+.issue-plate-picture img,
+.issue-plate-picture .flash-stage {
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-plate .issue-copy {
+    font-size: 0.9375rem;
+}
+
+.issue-plate figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid var(--ink);
+    font-weight: 600;
+}
+
+.issue-plate figcaption span {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* A week with no story leads with its first plate, whole and large. */
+.issue-lead--plate {
+    margin: 0;
+    text-align: center;
+}
+
+.issue-lead--plate img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-lead--plate figcaption {
+    margin-top: 12px;
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.issue-lead--plate figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* The foot: the Tune of the Week as a record sleeve, beside the archive. */
+.issue-foot {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(var(--pad) * 2);
+    margin-top: calc(var(--pad) * 2);
+    padding-top: var(--pad);
+    border-top: 3px solid var(--ink);
+}
+
+.issue-foot--one {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* The Tune of the Week: a panel on lighter stock, framed, holding one tune as a record sleeve (the picture
+   a square with the slate's shadow, the label beside it from the top, the story beneath in a reading column)
+   or several as the Tunes pages' tiles in a row, their stories on their artists' pages. */
+.issue-tunes {
+    padding: calc(var(--pad) * 0.75) var(--pad) var(--pad);
+    background:
+        repeating-linear-gradient(135deg, rgba(17, 17, 17, 0.045) 0 1px, transparent 1px 7px),
+        var(--stock-light);
+    box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.issue-tunes-label {
+    margin-bottom: 14px;
+}
+
+.issue-sleeve {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--pad);
+}
+
+.issue-sleeve-picture {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--stock);
+    box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
+}
+
+
+.issue-sleeve-label {
+    min-width: 0;
+    padding-top: 2px;
+}
+
+.issue-sleeve-track {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, calc(var(--col) * 0.26), 2.25rem);
+    font-weight: 700;
+    line-height: 1;
+    text-wrap: balance;
+}
+
+.issue-sleeve-artist {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-sleeve-artist a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.issue-sleeve-artist a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.issue-sleeve-when {
+    margin: 8px 0 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.issue-sleeve-label .play {
+    margin-top: 16px;
+}
+
+.play--large {
+    padding: 11px 18px 11px 14px;
+    font-size: 0.875rem;
+}
+
+.play--large svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* An artist with no picture on file, wherever one is expected (a tile, a sleeve, their band, the player):
+   the plates' printed dot, and the symbol, small and muted, where the picture would be. */
+.artist-blank {
+    position: relative;
+    display: block;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(17, 17, 17, 0.09) 0.8px, transparent 1.2px) 0 0 / 6px 6px,
+        var(--stock-light);
+}
+
+.artist-blank::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 28%;
+    height: 34%;
+    background: var(--muted);
+    opacity: 0.18;
+    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+}
+
+/* The artist, above their tunes: the picture (and their website under it) in a column at the left, the bio
+   beside it, in two newspaper columns when it runs long; a rule beneath. */
+.artist-about {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    align-items: start;
+    column-gap: calc(var(--pad) * 1.5);
+    margin-bottom: calc(var(--pad) * 1.25);
+    padding-bottom: var(--pad);
+    border-bottom: 1px solid var(--major);
+}
+
+.artist-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.artist-portrait {
+    display: block;
+    width: 11rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* Whole, whatever its shape: a band's photo or a wide logo alike. */
+    object-fit: contain;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink), 8px 8px 0 var(--slate);
+}
+
+/* The website: an outlined button in the plates' ink, an arrow out (the address itself is its title); an archive
+   copy says so. */
+.artist-site {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background: var(--stock-light);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.artist-site svg {
+    width: 12px;
+    height: 12px;
+    flex: none;
+}
+
+.artist-site span {
+    white-space: nowrap;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.artist-site:hover {
+    background: var(--ink);
+    color: var(--stock-light);
+}
+
+.artist-words > :last-child {
+    margin-bottom: 0;
+}
+
+/* A long bio: two newspaper columns, as a front page sets a wide block of words. */
+.artist-words--columns {
+    columns: 2;
+    column-gap: calc(var(--pad) * 1.5);
+    column-rule: 1px solid var(--major);
+}
+
+.artist-words--columns > * {
+    break-inside: avoid;
+}
+
+@media (max-width: 760px) {
+    .artist-about {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: var(--pad);
+    }
+
+    .artist-words--columns {
+        columns: 1;
+        column-rule: 0;
+    }
+}
+
+.player-picture--blank {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 0 0 1px var(--stock-light);
+}
+
+.player-picture--blank::after {
+    opacity: 0.35;
+}
+
+/* The artist's website: the address alone, the scheme left off; a copy on the Wayback Machine says so. */
+.issue-sleeve-site span,
+.tunes-website span {
+    margin-left: 8px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-sleeve-site {
+    margin: 6px 0 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+}
+
+.issue-sleeve-site a,
+.tunes-website a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--major);
+    text-underline-offset: 3px;
+}
+
+.issue-sleeve-site a:hover,
+.tunes-website a:hover {
+    color: var(--red-ink);
+    text-decoration-color: currentColor;
+}
+
+.tunes-website {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+}
+
+/* The artist's own bio, folded under what was said that week: a line to open, the words beneath. */
+.issue-tune-about {
+    max-width: 62ch;
+    margin-top: calc(var(--pad) * 0.75);
+    border-top: 1px solid var(--major);
+}
+
+.issue-tune-about summary {
+    padding: 10px 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+}
+
+.issue-tune-about summary::-webkit-details-marker {
+    display: none;
+}
+
+.issue-tune-about summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1.25em;
+    color: var(--red-ink);
+}
+
+.issue-tune-about[open] summary::before {
+    content: "–";
+}
+
+.issue-tune-about .issue-tune-bio {
+    margin-top: 0;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    border-top: 0;
+}
+
+/* The story: under the sleeve, a reading column, ruled off from it. */
+.issue-tune-bio {
+    max-width: 62ch;
+    margin-top: var(--pad);
+    padding-top: calc(var(--pad) * 0.75);
+    border-top: 1px solid var(--major);
+    font-size: 0.9375rem;
+}
+
+/* Several: the tiles, each a column; on a narrow screen they stack. */
+.issue-tune-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--pad) calc(var(--pad) * 1.25);
+}
+
+.issue-tune-tiles .tune-tile img,
+.issue-tune-tiles .tune-tile .tune-blank {
+    background: var(--stock);
+}
+
+/* A week with one tune alone in its foot: with a story, the panel takes the width and the story sits beside
+   the sleeve rather than under it; without one, the sleeve's panel keeps a reading width. */
+.issue-foot--one .issue-tunes:not(.issue-tunes--several):not(.issue-tunes--story) {
+    max-width: calc(var(--col) * 7);
+}
+
+@media (min-width: 1001px) {
+    .issue-foot--one .issue-tunes--story {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        column-gap: calc(var(--pad) * 2);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tunes-label {
+        grid-column: 1 / -1;
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-sleeve {
+        grid-template-columns: 10rem minmax(0, 1fr);
+    }
+
+    /* The words (what was said, and the drawer) as one column beside the sleeve, ruled off from it. */
+    .issue-foot--one .issue-tunes--story .issue-tune-words {
+        padding-left: calc(var(--pad) * 2);
+        border-left: 1px solid var(--major);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-words > .issue-tune-bio,
+    .issue-foot--one .issue-tunes--story .issue-tune-about {
+        max-width: none;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-words > .issue-tune-bio + .issue-tune-about {
+        margin-top: 12px;
+        border-top: 1px solid var(--major);
+    }
+
+    .issue-foot--one .issue-tunes--story .issue-tune-about .issue-tune-bio {
+        max-width: none;
+    }
+}
+
+.issue-box-label span {
+    margin-left: 8px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.issue-archive-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ink);
+}
+
+.issue-archive-list a {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--major);
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-archive-list a:hover .issue-archive-title {
+    color: var(--red-ink);
+}
+
+.issue-archive-thumb {
+    width: 3rem;
+    aspect-ratio: 1;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--major);
+    overflow: hidden;
+}
+
+.issue-archive-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.issue-archive-title {
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.issue-archive-date {
+    font-family: var(--display);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* The works the page left out: a list under the spread, the archive list's rows with the division too. */
+.issue-also {
+    margin-top: calc(var(--pad) * 2);
+    padding-top: var(--pad);
+    border-top: 3px solid var(--ink);
+}
+
+.issue-also-list a {
+    grid-template-columns: 3rem minmax(0, 1fr) auto auto;
+}
+
+.issue-also-division {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-also-rerun {
+    margin-left: 0.5em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+/* A phone: the title over its division and date, beside the thumbnail. */
+@media (max-width: 600px) {
+    .issue-also-list a {
+        grid-template-columns: 3rem minmax(0, 1fr) auto;
+        grid-template-areas:
+            "thumb title title"
+            "thumb division date";
+        row-gap: 2px;
+    }
+
+    .issue-also-list .issue-archive-thumb {
+        grid-area: thumb;
+    }
+
+    .issue-also-list .issue-archive-title {
+        grid-area: title;
+        overflow-wrap: anywhere;
+    }
+
+    .issue-also-division {
+        grid-area: division;
+    }
+
+    .issue-also-list .issue-archive-date {
+        grid-area: date;
+        justify-self: end;
+    }
+}
+
+/* The Gallery: a contact sheet of square tiles in the gallery's order, each photograph's date and
+   photographer under it; a tile opens the photograph full size (the zoom). */
+.gallery-grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 2.5), 1fr));
+    gap: var(--pad);
+}
+
+.gallery-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gallery-tile img {
+    display: block;
+    width: 100%;
+    /* Square, whatever size the file says it is (its width and height are given for the zoom). */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--stock-light);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+    cursor: zoom-in;
+}
+
+.gallery-tile-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.gallery-tile-line a {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.gallery-tile-line a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+/* A band per year in the Gallery's yearbook: the tiles where a division's works go. */
+.yearbook .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--half) * 2.5), 1fr));
+}
+
+/* A Play button (an issue's Tune of the Week, a tune's tile): the plates' ink on stock, red while its tune plays. */
+.play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 8px 14px 8px 11px;
+    border: 0;
+    background: var(--ink);
+    color: var(--stock-light);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.play svg,
+.player-toggle svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+}
+
+.play .pause-icon,
+.player-toggle .pause-icon,
+.play.is-playing .play-icon,
+.player.is-playing .play-icon {
+    display: none;
+}
+
+.play.is-playing .pause-icon,
+.player.is-playing .pause-icon {
+    display: block;
+}
+
+.play:hover,
+.play.is-playing {
+    background: var(--red);
+}
+
+/* The player: a bar along the foot of the window, slate like the thumb index, the page given room above it;
+   out of sight until a tune is chosen. */
+.player[hidden] {
+    display: none;
+}
+
+.player {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto minmax(8rem, 2fr) auto;
+    align-items: center;
+    gap: 0 var(--pad);
+    min-height: 64px;
+    padding: 8px var(--pad);
+    background: var(--slate);
+    color: var(--stock);
+    box-shadow: 0 -1px 0 var(--ink);
+}
+
+.has-player body {
+    padding-bottom: 80px;
+}
+
+.player-picture[hidden] {
+    display: none;
+}
+
+.player-picture {
+    display: block;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--stock-light);
+}
+
+.player-label p {
+    margin: 0;
+    font-family: var(--display);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.player-track {
+    font-weight: 700;
+}
+
+.player-artist {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.player-artist a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.player-artist a:hover {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.player-controls button,
+.player-close {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* The autoplay switch: a small label with its box, lit red when on. */
+.player-auto {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.player-auto:has(:checked) {
+    opacity: 1;
+}
+
+.player-autoplay {
+    margin: 0;
+    accent-color: var(--red);
+}
+
+.tune-when span {
+    margin-left: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.player-toggle {
+    background: var(--stock) !important;
+    color: var(--slate) !important;
+    border-radius: 50%;
+}
+
+.player-toggle:hover {
+    background: var(--red) !important;
+    color: var(--stock) !important;
+}
+
+.player-controls button:hover,
+.player-close:hover {
+    color: var(--red);
+}
+
+.player-step:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.player-step:disabled:hover {
+    color: inherit;
+}
+
+.player-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.player-scrub {
+    flex: 1 1 auto;
+    accent-color: var(--red);
+    margin: 0;
+}
+
+@media (max-width: 760px) {
+    .player {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+        grid-template-areas:
+            "picture label controls close"
+            "time time time time";
+        row-gap: 4px;
+    }
+
+    .player-picture {
+        grid-area: picture;
+    }
+
+    .player-label {
+        grid-area: label;
+    }
+
+    .player-controls {
+        grid-area: controls;
+    }
+
+    .player-close {
+        grid-area: close;
+    }
+
+    .player-time {
+        grid-area: time;
+    }
+
+    .has-player body {
+        padding-bottom: 110px;
+    }
+}
+
+/* A tune as a tile: the artist's picture whole in a square (a band's photo or a wide logo alike; nothing opens
+   from it), the title, the artist and the week it ran, and Play. */
+.tune-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tune-tile img,
+.tune-tile .tune-blank {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: default;
+    background: var(--stock-light);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+}
+
+
+.tune-title {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.tune-artist {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tune-artist a {
+    text-decoration: none;
+}
+
+.tune-artist a:hover {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.tune-when {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.tune-tile .play {
+    margin-top: 4px;
+    align-self: flex-start;
+}
+
+/* Earlier and later issues, and every issue between them. */
+.issue-pager {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
+    gap: var(--pad);
+    margin-top: calc(var(--pad) * 2);
+    padding-top: var(--pad);
+    border-top: 3px solid var(--ink);
+}
+
+.issue-pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-pager-link--later {
+    grid-column: 3;
+    text-align: right;
+}
+
+.issue-pager-when,
+.issue-pager-link--none,
+.issue-pager-all {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.issue-pager-all {
+    grid-column: 2;
+    grid-row: 1;
+    color: var(--red-ink);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.issue-pager-title {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a.issue-pager-link:hover .issue-pager-title {
+    color: var(--red-ink);
+}
+
+/* An artist's pager: a thin bar under their last year, the names small. */
+.artist-pager {
+    margin-top: 0;
+    padding: 12px var(--pad) 14px;
+    border-top: 0;
+    gap: calc(var(--pad) / 2) var(--pad);
+}
+
+.artist-pager .issue-pager-title {
+    font-size: 1rem;
+}
+
+.artist-pager .issue-pager-link {
+    gap: 2px;
+}
+
+.artist-pager .issue-pager-when,
+.artist-pager .issue-pager-link--none,
+.artist-pager .issue-pager-all {
+    font-size: 0.75rem;
+}
+
+@media (max-width: 1000px) {
+    .issue-front {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-rail {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .issue-foot {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .issue-stories {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-story + .issue-story {
+        margin-top: calc(var(--pad) * 1.5);
+    }
+}
+
+/* Narrower than a wide desk the masthead is compact: the week as one short centred line in place of
+   the two, the name and the under-folio as one line. The name's size follows the window, not the column
+   (there are four on a phone), so it never jumps at the column break. */
+@media (max-width: 1200px) {
+    .issue-masthead {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "week"
+            "name"
+            "under";
+    }
+
+    .issue-week,
+    .issue-run {
+        display: none;
+    }
+
+    .issue-week-short {
+        display: block;
+        grid-area: week;
+        padding: 8px 0;
+        text-wrap: balance;
+    }
+
+    .issue-name {
+        font-size: clamp(2.25rem, 6vw, 4.5rem);
+    }
+
+    .issue-folio--under {
+        justify-content: center;
+        gap: 0;
+    }
+
+    .issue-folio--under > span + span::before {
+        content: " • ";
+        white-space: pre;
+    }
+
+    /* Centred, in the flow (a line wraps on a phone), pulled up into the padding so it costs only
+       what it needs beyond it. */
+    .issue-ticker {
+        position: static;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 2px;
+        margin: calc(8px - var(--issue-air)) 0 10px;
+        text-align: center;
+    }
+
+    /* A line is at most two lines here: a rare long one ends in an ellipsis rather than growing the slot. */
+    .issue-ticker-lines {
+        width: 100%;
+    }
+
+    .issue-ticker-lines > span {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 600px) {
+    /* A phone: one line, and a long one ends in an ellipsis. */
+    .issue-ticker-lines > span {
+        -webkit-line-clamp: 1;
+    }
+
+    /* A long figure (the Gallery's) wraps rather than running off the bar. */
+    .division-figure {
+        white-space: normal;
+        padding: 8px var(--pad) 8px 0;
+        text-wrap: balance;
+    }
+
+    /* Two tiles across: the photographer's name over the date, whole. */
+    .gallery-tile-line {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .gallery-tile-line a {
+        white-space: normal;
+    }
+
+    .issue-story-picture {
+        float: none;
+        width: auto;
+        max-width: 100%;
+        margin: 0 0 12px;
+    }
+
+    .issue-sleeve {
+        grid-template-columns: 6.5rem minmax(0, 1fr);
+        gap: calc(var(--pad) * 0.75);
+    }
+
+    .issue-sleeve-track {
+        font-size: 1.375rem;
+    }
+
+    .issue-sleeve-picture {
+        box-shadow: 0 0 0 1px var(--ink), 5px 5px 0 var(--slate);
+    }
+
+    .issue-pager {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-pager-all,
+    .issue-pager-link--later {
+        grid-column: 1;
+        grid-row: auto;
+        text-align: left;
+    }
+}
+
+/* The homepage's recent issues, now links, and the way to every issue. */
+a.issue-title {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.issue-title:hover {
+    color: var(--red-ink);
+}
+
+.issues-all a {
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+    text-decoration: none;
+}
+
+
+/*
+ * The composed front page (App\IssueLayout): rows whose cells end together.
+ * A row's cells grow in proportion: a whole piece by its shape (so whole
+ * pieces share one height), never past its own width; writing by its length.
+ * A story's own picture is cropped to take the row's slack.
+ */
+.issue-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+    margin: 0 0 var(--pad);
+    padding: 10px 16px;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--ink);
+    font-size: 1rem;
+}
+
+.issue-note b {
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red-ink);
+}
+
+.issue-row {
+    display: flex;
+    align-items: stretch;
+    gap: calc(var(--pad) * 1.5);
+    padding: var(--pad) 0;
+}
+
+.issue-row + .issue-row {
+    border-top: 1px solid var(--ink);
+}
+
+.issue-row--lead {
+    padding-top: 0;
+}
+
+.issue-cell {
+    flex: var(--grow) 1 0;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Writing after another cell: a column rule before it. */
+.issue-row > * + .issue-text,
+.issue-row > * + .issue-stack {
+    border-left: 1px solid var(--ink);
+    padding-left: calc(var(--pad) * 1.5);
+}
+
+.issue-whole {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--natural);
+}
+
+.issue-whole-picture > *,
+.issue-whole-picture p {
+    margin: 0;
+}
+
+/* A picture at its own size, never wider (as the editor shows it); a movie fills its column. */
+.issue-whole-picture img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-whole-picture figure.flash .flash-stage,
+.issue-whole-picture figure.flash ruffle-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-whole-picture img + img {
+    margin-top: 6px;
+}
+
+.issue-whole figcaption {
+    margin-top: 10px;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.issue-whole figcaption .issue-kicker {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.issue-whole figcaption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-whole figcaption a:hover {
+    color: var(--red-ink);
+}
+
+.issue-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-story .issue-headline {
+    margin-bottom: 12px;
+    font-size: clamp(1.375rem, calc(var(--col) * 0.26), 2rem);
+}
+
+.issue-story--lead .issue-headline {
+    font-size: clamp(2rem, calc(var(--col) * 0.5), 3.75rem);
+}
+
+/* A story's own picture, cropped to fill whatever height its row has to spare. */
+.issue-crop {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 9rem;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-story--lead .issue-crop {
+    min-height: 20rem;
+}
+
+.issue-crop--portrait {
+    min-height: 7rem;
+}
+
+.issue-crop img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The writing stacked beside the lead: the last piece takes the column's spare height. */
+.issue-stack {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--pad) * 1.25);
+}
+
+.issue-stack > .issue-cell {
+    flex: 0 0 auto;
+    border-left: 0;
+    padding-left: 0;
+}
+
+.issue-stack > .issue-cell:last-child {
+    flex: 1 1 auto;
+}
+
+.issue-text.issue-box {
+    padding-top: 12px;
+    border-top: 3px solid var(--ink);
+}
+
+.issue-row > .issue-text.issue-box {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.issue-box--plate img,
+.issue-box--strip img {
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+@media (max-width: 760px) {
+    .issue-row {
+        flex-wrap: wrap;
+    }
+
+    .issue-cell {
+        flex-basis: 100%;
+    }
+
+    .issue-row > * + .issue-text,
+    .issue-row > * + .issue-stack {
+        border-left: 0;
+        padding-left: 0;
+        padding-top: var(--pad);
+        border-top: 1px solid var(--ink);
+    }
+
+    .issue-story--lead .issue-crop {
+        min-height: 14rem;
+    }
+}
+
+/* A piece of pictures and words in turn: its parts side by side, in order, at one height. */
+.issue-parts {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.issue-part {
+    flex: var(--grow) 1 0;
+    min-width: 0;
+}
+
+.issue-part--whole {
+    max-width: var(--natural);
+}
+
+.issue-part--whole a {
+    display: block;
+}
+
+@media (max-width: 760px) {
+    .issue-parts {
+        flex-wrap: wrap;
+    }
+
+    .issue-part {
+        flex-basis: 100%;
+    }
+}
+
+/*
+ * A week as laid out (by hand in Alfred, or automatically until it is): rows
+ * on the sheet's 12 columns; each slot spans some of them and holds its
+ * pieces one under another; each piece shown as that week says (a summary
+ * beside its picture, whole, its picture only, its headline only, or its
+ * parts side by side).
+ */
+.issue-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: stretch;
+    gap: calc(var(--pad) * 1.5);
+    padding: var(--pad) 0;
+}
+
+.issue-grid + .issue-grid {
+    border-top: 1px solid var(--ink);
+}
+
+.issue-slot {
+    position: relative;
+    grid-column: span var(--span) / span var(--span);
+    display: flex;
+    flex-direction: column;
+    gap: var(--pad);
+    min-width: 0;
+}
+
+/* A column rule between slots, in the gutter. */
+.issue-slot + .issue-slot::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--pad) * -0.75);
+    border-left: 1px solid var(--major);
+}
+
+.issue-piece {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* The last piece of a slot takes its spare height (a cropped picture fills it). */
+.issue-piece:last-child {
+    flex: 1 1 auto;
+}
+
+.issue-piece + .issue-piece {
+    padding-top: 12px;
+    border-top: 3px solid var(--ink);
+}
+
+.issue-piece .issue-headline {
+    margin: 0 0 12px;
+    font-size: clamp(1.25rem, calc(var(--col) * 0.24), 1.875rem);
+}
+
+.issue-piece--lead .issue-headline {
+    font-size: clamp(2rem, calc(var(--col) * 0.5), 3.75rem);
+}
+
+.issue-piece--headline .issue-headline {
+    margin-bottom: 0;
+}
+
+.issue-piece--lead .issue-crop {
+    min-height: 20rem;
+}
+
+.issue-full-picture {
+    display: block;
+    margin-bottom: 14px;
+}
+
+.issue-full-picture img,
+.issue-picture-only img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+.issue-picture-only {
+    margin: 0;
+}
+
+.issue-picture-only figcaption {
+    margin-top: 10px;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.issue-picture-only figcaption .issue-kicker {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.issue-picture-only figcaption a,
+.issue-caption a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.issue-caption {
+    margin: 10px 0 0;
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.issue-piece .issue-whole-picture img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 760px) {
+    .issue-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .issue-slot {
+        grid-column: 1 / -1;
+    }
+
+    .issue-slot + .issue-slot::before {
+        display: none;
+    }
+
+    .issue-slot + .issue-slot {
+        padding-top: var(--pad);
+        border-top: 1px solid var(--ink);
+    }
+}
+
+/* Parts side by side: pictures and words share the slot, the words a little more. */
+.issue-piece .issue-parts > .issue-part--picture {
+    flex: 1 1 0;
+    max-width: none;
+}
+
+.issue-piece .issue-parts > .issue-part--words {
+    flex: 1.4 1 0;
+}
+
+.issue-piece .issue-parts img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* A week's name on a phone: smaller, and a word longer than the line breaks rather than running off it. */
+@media (max-width: 600px) {
+    .issue-name {
+        font-size: clamp(1.75rem, 9.5vw, 2.5rem);
+        overflow-wrap: anywhere;
+    }
+}
+
+/*
+ * A piece's words and pictures on an issue: paragraphs spaced as the work
+ * pages space them, pictures with room around them at their own size, and
+ * each kind set as it reads (a letter's question set large, the Language
+ * entry as a dictionary sets it, headings in the display face).
+ */
+.issue-piece .issue-copy {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+}
+
+.issue-piece .issue-copy > * {
+    margin: 0 0 0.9em;
+}
+
+.issue-piece .issue-copy > :last-child {
+    margin-bottom: 0;
+}
+
+.issue-piece .issue-copy img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Pictures one after another, or a picture in its own paragraph: room between them. */
+.issue-piece .issue-copy img + img,
+.issue-piece .issue-copy img + br + img {
+    margin-top: 12px;
+}
+
+.issue-piece .issue-copy figure {
+    margin: 0 0 1em;
+}
+
+.issue-piece .issue-copy h2,
+.issue-piece .issue-copy h3,
+.issue-piece .issue-copy h4 {
+    margin: 1.1em 0 0.5em;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.issue-piece .issue-copy > h2:first-child,
+.issue-piece .issue-copy > h3:first-child {
+    margin-top: 0;
+}
+
+.issue-piece .issue-copy blockquote {
+    margin: 0 0 0.9em;
+    padding-left: 16px;
+    border-left: 3px solid var(--major);
+    font-style: italic;
+}
+
+.issue-piece .issue-copy ul,
+.issue-piece .issue-copy ol {
+    padding-left: 1.4em;
+}
+
+/* Ask Stevil: the reader's question large, ruled in red, its signature small; then the answer. */
+.issue-piece--letter .issue-copy blockquote {
+    padding-left: 14px;
+    border-left-color: var(--red);
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.issue-piece--letter .issue-copy blockquote p:last-child:not(:first-child) {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Language: the word as a dictionary sets it. */
+.issue-piece--language .issue-copy h2 {
+    margin: 0 0 4px;
+    font-family: var(--text);
+    font-size: 2rem;
+    font-style: italic;
+    text-transform: none;
+}
+
+.issue-piece--language .issue-copy blockquote {
+    font-size: 0.9375rem;
+}
+
+/* A gag's few words beneath its picture: a caption. */
+.issue-piece--plate .issue-copy p:not(:has(img)) {
+    font-size: 0.9375rem;
+}
+
+/* Words wrapping a picture set to one side (its own size, at most half the column); on a phone, a line of its own. */
+.issue-piece.issue-wrap {
+    display: block;
+}
+
+.issue-wrap--left .issue-full-picture,
+.issue-wrap--left .issue-copy img,
+.issue-wrap--left .issue-copy figure.flash {
+    float: left;
+    max-width: 50%;
+    margin: 4px var(--pad) 12px 0;
+}
+
+.issue-wrap--right .issue-full-picture,
+.issue-wrap--right .issue-copy img,
+.issue-wrap--right .issue-copy figure.flash {
+    float: right;
+    max-width: 50%;
+    margin: 4px 0 12px var(--pad);
+}
+
+.issue-wrap .issue-full-picture img {
+    max-width: 100%;
+}
+
+/* A lead that wraps its picture sets in one column: words beside a float can't also run in columns (a column box beside a float stays narrow to its foot). */
+.issue-wrap .issue-copy--columns {
+    columns: auto;
+    column-rule: none;
+}
+
+/* Every picture wraps where it sits: a paragraph that holds only pictures takes no room of its own, so each floats beside the paragraph that follows it. */
+.issue-wrap .issue-copy > p:has(> img:first-child):has(> img:last-child) {
+    margin: 0;
+}
+
+/* A Featured Steve shown whole: its film strip (the tall, narrow pictures that trail the words) stands to the right of the words, as on its own page. */
+.issue-copy--steve .issue-film-strip {
+    float: right;
+    display: grid;
+    gap: 8px;
+    max-width: 40%;
+    margin: 4px 0 12px var(--pad);
+}
+
+.issue-copy--steve .issue-film-strip img {
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+}
+
+.issue-copy--steve::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.issue-wrap .issue-jump,
+.issue-wrap .issue-caption {
+    clear: both;
+}
+
+.issue-wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .issue-wrap--left .issue-full-picture,
+    .issue-wrap--left .issue-copy img,
+    .issue-wrap--right .issue-full-picture,
+    .issue-wrap--right .issue-copy img {
+        float: none;
+        max-width: 100%;
+        margin: 0 0 12px;
+    }
+}
+
+/* No lonely last words, and no lone line left at the top or foot of a column. */
+.issue-piece .issue-copy p,
+.issue-piece .issue-copy li,
+.issue-piece .issue-copy blockquote {
+    text-wrap: pretty;
+    orphans: 3;
+    widows: 3;
+}
+
+/* Pictures in a row: side by side beneath the words, sharing one height, never cropped. On a phone, one under another. */
+.issue-picture-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 12px;
+}
+
+.issue-picture-row img {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px var(--ink);
+}
+
+@media (max-width: 600px) {
+    .issue-picture-row {
+        flex-direction: column;
+    }
+}
