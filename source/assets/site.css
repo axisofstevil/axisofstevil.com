@@ -2049,9 +2049,10 @@ figure.flash ruffle-player {
     margin-left: auto;
     align-self: stretch;
     display: flex;
-    box-shadow: inset 1px 0 0 var(--ink);
 }
 
+/* The keylines (the plate's top one, the group's left one) are the buttons' own, so a hovered button's
+   background never paints over them. */
 .view-switch button {
     appearance: none;
     border: 0;
@@ -2065,6 +2066,14 @@ figure.flash ruffle-player {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.view-switch button {
+    box-shadow: inset 0 1px 0 var(--ink);
+}
+
+.view-switch button:first-child {
+    box-shadow: inset 1px 1px 0 var(--ink);
 }
 
 .view-switch button[aria-pressed="true"] {
@@ -2771,11 +2780,12 @@ html {
         flex-basis: 100%;
         margin-left: 0;
         min-height: var(--half);
-        box-shadow: inset 0 1px 0 var(--ink);
     }
 
-    .view-switch button {
+    .view-switch button,
+    .view-switch button:first-child {
         flex: 1;
+        box-shadow: inset 0 1px 0 var(--ink);
     }
 
     .running-long {
