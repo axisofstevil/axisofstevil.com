@@ -1,6 +1,6 @@
 ---
-title: The Axis of Stevil — Annual Report
-description: Random insanity at its finest. The complete works of the Axis of Stevil since 2005, reported in full to its shareholders.
+title: Axis of Stevil - The Original Stevil, Since 2004
+description: Delivering the best content from around the universe to your browser and email inbox every Monday, Wednesday, and Friday.
 ---
 @extends('_layouts.master')
 

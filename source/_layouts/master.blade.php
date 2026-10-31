@@ -30,7 +30,7 @@
         <meta property="og:description" content="{{ $page->description }}">
         @endif
         <meta property="og:image" content="{{ $card }}">
-        <meta property="og:image:alt" content="{{ $page->image || $page->social_image ? $page->title : 'The Axis of Stevil: Annual Report' }}">
+        <meta property="og:image:alt" content="{{ $page->image || $page->social_image ? $page->title : 'The Axis of Stevil' }}">
         @if ($collection === 'works')
         <meta property="article:published_time" content="{{ $page->date }}">
         @if ($page->updated)

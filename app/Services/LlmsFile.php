@@ -37,7 +37,7 @@ class LlmsFile
         $lines = $own !== '' ? [$own, ''] : [
             '# '.$jigsaw->getConfig('title'),
             '',
-            '> '.$jigsaw->getConfig('tagline').' The complete works of the Axis of Stevil, a humour website founded in '.$jigsaw->getConfig('founded').', presented as an annual report to its shareholders.',
+            '> '.$jigsaw->getConfig('tagline').' The complete works of the Axis of Stevil, an alternative art, humour and multimedia project founded in January 2005 by Steven Maguire and Graham Hensley.',
             '',
         ];
 
@@ -52,7 +52,9 @@ class LlmsFile
             }
 
             $series = array_values(array_filter($divisionPages, fn ($s) => $s->parent === $page->slug));
-            $note = $page->count.' '.$plural((int) $page->count, 'work', 'works');
+            $own = $divisions[array_search($page->slug, array_column($divisions, 'slug'), true)]['description'] ?? null;
+            $count = $page->count.' '.$plural((int) $page->count, 'work', 'works');
+            $note = $own === null ? $count : rtrim((string) $own, '.')." ({$count})";
 
             if ($series !== []) {
                 $note .= '. Series: '.implode(', ', array_map(fn ($s) => "[{$s->name}]({$base}{$s->address}) ({$s->count})", $series));

@@ -48,8 +48,12 @@ class StructuredData
             'url' => $base.'/',
             'logo' => ['@type' => 'ImageObject', 'url' => $base.'/assets/logo/axis-symbol.png'],
             'image' => $home ? $base.'/assets/social/card.png' : null,
-            'foundingDate' => $home ? (string) $page->founded : null,
             'slogan' => $home ? $page->tagline : null,
+            'founder' => $home ? [
+                ['@type' => 'Person', 'name' => 'Steven Maguire', 'url' => 'https://stevenmaguire.com'],
+                ['@type' => 'Person', 'name' => 'Graham Hensley'],
+            ] : null,
+            'sameAs' => $home ? ['https://www.facebook.com/groups/axisofstevil', 'https://twitter.com/AxisofStevil'] : null,
         ];
 
         if ($home) {

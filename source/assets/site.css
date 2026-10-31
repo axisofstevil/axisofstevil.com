@@ -2291,10 +2291,11 @@ figure.flash ruffle-player {
     min-height: var(--half);
     margin-top: var(--half);
     margin-bottom: var(--half);
-    padding: 0 var(--pad);
+    padding: calc(var(--pad) / 2) var(--pad);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--pad);
+    gap: calc(var(--pad) / 2) var(--pad);
     background: var(--stock-light);
 }
 
@@ -2346,6 +2347,19 @@ figure.flash ruffle-player {
 .colophon nav a:hover {
     color: var(--red-ink);
     text-decoration: underline;
+}
+
+/* The sections, a second line of the colophon across its width, in the running head's smaller type. */
+.colophon nav.colophon-sections {
+    flex-basis: 100%;
+    order: 5;
+    justify-content: flex-start;
+    gap: 4px 20px;
+    padding-top: calc(var(--pad) / 4);
+    border-top: 1px solid var(--major);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
 }
 
 /* No entrance motion for the plates: they are in place from the first paint. And the browser's scroll anchoring

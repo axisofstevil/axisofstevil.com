@@ -96,6 +96,8 @@ class RemoteData
         $divisions = array_map(fn (array $c) => [
             'slug' => $c['slug'],
             'name' => $c['name'],
+            // How its page describes itself, as written for it (search listings, link previews); none: a generated line.
+            'description' => $this->plain((string) ($c['description'] ?? '')) ?: null,
             'count' => $c['entries'],
         ], $this->json($channelUrl.'/categories')['data'] ?? []);
 
@@ -697,7 +699,7 @@ class RemoteData
                 'title' => $division['name'].' — The Axis of Stevil',
                 'name' => $division['name'],
                 'slug' => $division['slug'],
-                'description' => "Every work filed in {$division['name']}, the Axis of Stevil's division of ".count($works).' works.',
+                'description' => $division['description'] ?? "Every work filed in {$division['name']}, the Axis of Stevil's division of ".count($works).' works.',
                 'count' => count($works),
                 'figure' => (count($works) === 1 ? 'work' : 'works').' · '.($total > 0 ? (int) round(count($works) / $total * 100) : 0).'% of output',
                 'note_label' => 'Series',

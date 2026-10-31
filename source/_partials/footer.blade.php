@@ -7,4 +7,18 @@
         <a href="/shirts/">Shirts</a>
         <a href="/contact/">Contact</a>
     </nav>
+    {{-- Every division by name, and the other sections: the site's map in one line, on every page. --}}
+    <nav class="colophon-sections" aria-label="Sections">
+        @foreach ($page->divisions as $division)
+        <a href="/{{ $division->slug }}/">{{ $division->name }}</a>
+        @endforeach
+        <a href="/works/">All Works</a>
+        <a href="/issues/">Issues</a>
+        @if ($page->gallery)
+        <a href="/gallery/">Gallery</a>
+        @endif
+        @if ($page->tunes_section)
+        <a href="/tunes/">Tunes</a>
+        @endif
+    </nav>
 </footer>
