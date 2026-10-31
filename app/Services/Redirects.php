@@ -22,6 +22,11 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 class Redirects
 {
+    /**
+     * Every stub's modification time: 2000-01-01, never newer than what a deploy already holds.
+     */
+    public const int STUB_TIME = 946684800;
+
     public function handle(Jigsaw $jigsaw): void
     {
         $build = $jigsaw->getDestinationPath();
@@ -55,6 +60,9 @@ class Redirects
             if ($file !== null && ! is_file($build.$file)) {
                 @mkdir(dirname($build.$file), 0777, true);
                 file_put_contents($build.$file, $this->stub($to, $base));
+                // Dated once and for all, so a deploy that compares dates (an S3 sync) leaves an unchanged stub, and
+                // the redirect object the deploy put in its place, alone.
+                touch($build.$file, self::STUB_TIME);
             }
         }
 

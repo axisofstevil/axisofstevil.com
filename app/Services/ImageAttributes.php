@@ -46,7 +46,7 @@ class ImageAttributes
         file_put_contents($cachePath, json_encode($sizes, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 
         foreach ($files as $file) {
-            $html = (string) file_get_contents($file);
+            $html = $original = (string) file_get_contents($file);
             $first = strpos($html, 'class="plate work ');
             $firstImage = $first === false ? false : stripos($html, '<img', $first);
             // A picture written without alt text (a work's, in its Markdown) is named for its page.
@@ -86,7 +86,10 @@ class ImageAttributes
                 $html = substr_replace($html, $eager, $at, strlen($tag));
             }
 
-            file_put_contents($file, $html);
+            // Written only when changed: a file left alone keeps its date (the forwarding stubs are dated once, for the deploy).
+            if ($html !== $original) {
+                file_put_contents($file, $html);
+            }
         }
     }
 
