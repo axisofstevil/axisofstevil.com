@@ -2393,6 +2393,11 @@ figure.flash ruffle-player {
     text-decoration: underline;
 }
 
+/* A row's label, for the narrower colophon only. */
+.colophon-label {
+    display: none;
+}
+
 /* The sections, a second line of the colophon across its width, in the running head's smaller type. */
 .colophon nav.colophon-sections {
     flex-basis: 100%;
@@ -2495,18 +2500,45 @@ html {
         flex-basis: 100%;
     }
 
-    /* Narrower: the lockup, the line, then the organisation's links and the sections as two quiet rows in one type. */
-    .colophon nav {
+    /* Narrower: a column. The lockup; the organisation's links and the sections, each a labelled row of links in one
+       type; the line last, under a rule. */
+    .plate.colophon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--pad);
+        padding-top: var(--pad);
+        padding-bottom: var(--pad);
+    }
+
+    .colophon nav,
+    .colophon nav.colophon-sections {
         margin-left: 0;
+        order: 2;
         justify-content: flex-start;
-        flex-basis: 100%;
-        order: 4;
-        gap: 4px 20px;
-        padding-top: calc(var(--pad) / 4);
+        width: 100%;
+        gap: 6px 18px;
+        padding-top: calc(var(--pad) / 2);
         border-top: 1px solid var(--major);
         font-size: 0.75rem;
         font-weight: 500;
         letter-spacing: 0.12em;
+    }
+
+    .colophon-label {
+        display: block;
+        flex-basis: 100%;
+        margin-bottom: 2px;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+    }
+
+    .colophon-line {
+        order: 9;
+        width: 100%;
+        padding-top: calc(var(--pad) / 2);
+        border-top: 1px solid var(--major);
     }
 
     .colophon-lockup img {
