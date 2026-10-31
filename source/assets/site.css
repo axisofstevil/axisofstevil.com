@@ -399,6 +399,7 @@ a {
     position: relative;
     min-height: calc(var(--half) * 2);
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: var(--pad);
     padding: calc(var(--pad) * 0.5) var(--pad) calc(var(--pad) + 1rem);
@@ -409,6 +410,7 @@ a {
 .multimedia-strip {
     display: flex;
     flex: none;
+    order: 2;
     gap: 6px;
 }
 
