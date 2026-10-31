@@ -39,6 +39,8 @@ return [
     'tunes' => [],
     // The Tunes section: its count and artists, for the running head (set by RemoteData; null without tunes).
     'tunes_section' => null,
+    // The owner's words that open /llms.txt: the channel's page at llms.txt, as written (set by RemoteData; null without one).
+    'llms' => null,
 
     // Every work at its address since the old site: /p/{slug}/ (items set by RemoteData).
     'collections' => [

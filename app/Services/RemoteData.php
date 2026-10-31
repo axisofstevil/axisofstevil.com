@@ -129,6 +129,13 @@ class RemoteData
         $timeline = $this->json($channelUrl.'/timeline')['data'] ?? [];
 
         foreach ($this->json($channelUrl.'/pages')['data'] ?? [] as $p) {
+            // The page at llms.txt is the owner's opening of /llms.txt (App\Services\LlmsFile), not a page of the site.
+            if (trim((string) $p['path'], '/') === 'llms.txt') {
+                $jigsaw->setConfig('llms', $p['body'] ?? null);
+
+                continue;
+            }
+
             $pages[$p['slug']] = ['title' => $p['title'], 'summary' => $p['summary'] ?? null, 'path' => $p['path']];
 
             // The organisation's own pages, each at its path (a page is known by its path, not its slug);
@@ -145,6 +152,7 @@ class RemoteData
                     'description' => $p['summary'] ?? null,
                     'summary' => $p['summary'] ?? null,
                     'image' => $p['image'] ?? null,
+                    'updated' => isset($p['updated_at']) ? substr((string) $p['updated_at'], 0, 10) : null,
                     'original_url' => $p['original_url'] ?? null,
                     'timeline' => $path === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'description' => $t['description']], $timeline) : [],
                     // A page's lead image leads it; it isn't the picture of a Flash movie in its body (a work's is).
@@ -497,6 +505,39 @@ class RemoteData
     }
 
     /**
+     * A work described by its facts, for one with no words of its own: what
+     * it is, whose it is, and when it was filed.
+     *
+     * @param  array<string, mixed>  $work
+     * @param  array<string, mixed>  $e
+     */
+    private function facts(array $work, array $e): string
+    {
+        $what = match ($work['division']) {
+            'comics' => 'a comic'.($work['series'] ? " in the {$work['series']} series" : ''),
+            'flash' => 'a Flash movie',
+            'featured-steves' => 'a Featured Steve',
+            'ask-stevil' => 'a letter to Ask Stevil',
+            'letters' => 'a letter'.($work['series'] ? " from {$work['series']}" : ''),
+            default => 'a work'.($work['division_name'] ? " from {$work['division_name']}" : '').($work['series'] ? " ({$work['series']})" : ''),
+        };
+        $names = array_map(fn ($c) => $c['name'], $e['credits'] ?? []);
+        $by = $names === [] ? '' : ' by '.implode(' and ', $names);
+
+        return ucfirst($what).$by.', filed by the Axis of Stevil on '.CarbonImmutable::parse($work['date'])->format('F j, Y').'.';
+    }
+
+    /**
+     * Markdown or HTML as one line of plain words.
+     */
+    private function plain(string $text): string
+    {
+        $html = str_contains($text, '<') ? $text : MarkdownExtra::defaultTransform($text);
+
+        return trim((string) preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+    }
+
+    /**
      * A piece's opening line, for a box that points to it: its first paragraph
      * of words, cut at a sentence near thirty words.
      */
@@ -535,6 +576,10 @@ class RemoteData
             'series' => $e['series']['name'] ?? null,
             'series_slug' => $e['series']['slug'] ?? null,
             'image' => $e['image'] ?? null,
+            // The link preview's picture, where one was chosen (else the lead image, else the site's card).
+            'social_image' => $e['social_image'] ?? null,
+            // The day its record last changed (the page's dateModified and its place in the sitemap).
+            'updated' => isset($e['updated_at']) ? substr((string) $e['updated_at'], 0, 10) : null,
             'rating' => $e['rating'] ?? null,
             'credits' => array_map(fn ($c) => $c['name'], $e['credits'] ?? []),
         ];
@@ -582,7 +627,8 @@ class RemoteData
                 $pages[] = [
                     ...$work,
                     'filename' => $work['slug'],
-                    'description' => $e['summary'] ?? $e['teaser'] ?? null,
+                    // Its summary, else the teaser written for a front page, else its opening words, else its facts: the page's description.
+                    'description' => $this->plain((string) ($e['summary'] ?? '')) ?: $this->plain((string) ($e['teaser'] ?? '')) ?: $this->plain($this->opening((string) ($e['body'] ?? ''))) ?: $this->facts($work, $e),
                     // Where the work first ran, on the site before this one.
                     'original_url' => $e['original_url'] ?? null,
                     // The excerpt written for it (an issue shows it where it points to the piece).

@@ -3,18 +3,54 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ ($page->_meta->collection ?? null) === 'works' ? $page->title.' — The Axis of Stevil' : $page->title }}</title>
+        @php
+            // The head's facts: the page's address, its words, its picture (its own, else the site's card) and
+            // what kind of thing it is, for search engines and link previews; its structured data (App\StructuredData).
+            $collection = $page->_meta->collection ?? null;
+            $url = $page->baseUrl.$page->link();
+            $card = $page->social_image ?? $page->image ?? $page->baseUrl.'/assets/social/card.png';
+            $article = in_array($collection, ['works', 'issue_pages'], true);
+            $structured = \App\StructuredData::for($page);
+        @endphp
+        <title>{{ $collection === 'works' ? $page->title.' — The Axis of Stevil' : $page->title }}</title>
         @if ($page->description)
         <meta name="description" content="{{ $page->description }}">
         @endif
-        <link rel="canonical" href="{{ $page->baseUrl }}{{ $page->link() }}">
-        <meta property="og:site_name" content="The Axis of Stevil">
-        <meta property="og:title" content="{{ $page->title }}">
-        <meta property="og:url" content="{{ $page->baseUrl }}{{ $page->link() }}">
-        @if ($page->image)
-        <meta property="og:image" content="{{ $page->image }}">
-        <meta name="twitter:card" content="summary_large_image">
+        @if ($page->noindex)
+        <meta name="robots" content="noindex">
+        @else
+        <link rel="canonical" href="{{ $url }}">
         @endif
+        <meta property="og:site_name" content="The Axis of Stevil">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="{{ $article ? 'article' : 'website' }}">
+        <meta property="og:title" content="{{ $page->title }}">
+        <meta property="og:url" content="{{ $url }}">
+        @if ($page->description)
+        <meta property="og:description" content="{{ $page->description }}">
+        @endif
+        <meta property="og:image" content="{{ $card }}">
+        <meta property="og:image:alt" content="{{ $page->image || $page->social_image ? $page->title : 'The Axis of Stevil: Annual Report' }}">
+        @if ($collection === 'works')
+        <meta property="article:published_time" content="{{ $page->date }}">
+        @if ($page->updated)
+        <meta property="article:modified_time" content="{{ $page->updated }}">
+        @endif
+        @if ($page->division_name)
+        <meta property="article:section" content="{{ $page->division_name }}">
+        @endif
+        @foreach ($page->keywords ?? [] as $keyword)
+        <meta property="article:tag" content="{{ $keyword }}">
+        @endforeach
+        @elseif ($collection === 'issue_pages')
+        <meta property="article:published_time" content="{{ $page->starts_on }}">
+        @endif
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $page->title }}">
+        @if ($page->description)
+        <meta name="twitter:description" content="{{ $page->description }}">
+        @endif
+        <meta name="twitter:image" content="{{ $card }}">
         <link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="{{ $page->assetCss }}">
@@ -30,6 +66,10 @@
     <body class="@yield('body_class')">
         <a class="skip" href="#main">Skip to the report</a>
         @yield('body')
+        {{-- In the body, which Turbo swaps whole, so a visit never keeps the last page's data. --}}
+        @if ($structured !== [])
+        <script type="application/ld+json">{!! json_encode($structured, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+        @endif
         @include('_partials.player')
     </body>
 </html>

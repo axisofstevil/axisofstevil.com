@@ -1,6 +1,7 @@
 ---
 title: Not on record — The Axis of Stevil
 permalink: 404.html
+noindex: true
 ---
 @extends('_layouts.master')
 
