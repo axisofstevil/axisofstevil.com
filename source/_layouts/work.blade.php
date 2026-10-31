@@ -119,6 +119,13 @@
                 @endforeach
             </dl>
             @endif
+            @if ($explainer = json_decode(json_encode($page->explainers), true)[$page->division] ?? null)
+            {{-- The division's footnote (config 'explainers'): why it does what it does, in the owner's words. --}}
+            <aside class="explainer" aria-label="About {{ $page->division_name }}">
+                <span class="explainer-label">About {{ $page->division_name }}</span>
+                <p>{{ $explainer }}</p>
+            </aside>
+            @endif
             <p class="caption">Plate {{ $page->place }} · {{ $page->division_name }}</p>
         </article>
 

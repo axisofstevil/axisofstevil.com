@@ -1818,6 +1818,33 @@ figure.flash ruffle-player {
     align-items: baseline;
 }
 
+/* A division's footnote on each of its works (config 'explainers'): a quiet word, under the credits, on why it
+   does what it does. */
+.explainer {
+    max-width: 66ch;
+    margin: calc(var(--pad) * 0.75) 0 0;
+}
+
+.explainer-label {
+    display: block;
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.explainer p {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--muted);
+    opacity: 0.8;
+}
+
 .credits dt {
     font-family: var(--display);
     font-size: 0.8125rem;

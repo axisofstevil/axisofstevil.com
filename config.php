@@ -42,6 +42,12 @@ return [
     // The owner's words that open /llms.txt: the channel's page at llms.txt, as written (set by RemoteData; null without one).
     'llms' => null,
 
+    // A division's footnote, on every one of its works, in the owner's words: why the division does what it does
+    // (the 2005 site said as much on each page). By the division's slug; a division without one has no footnote.
+    'explainers' => [
+        'language' => 'The Axis of Stevil.com has many goals, one of which is to educate its followers. One of the first impressions people gain about other people is a speech impression. A persons memory will retain a lot of information about certain peoples speech. Among those, vocabulary rises to the top. Possessing a good vocabulary is as important as learning how to ride a bike. With or without it you will get to your destination, but with it you will get there much faster. To that end, The Axis of Stevil curates and publishes these vocabulary words that will prove useful and practical in your everyday life.',
+    ],
+
     // A page's title and description for search listings, link previews and the browser tab, where the owner wants
     // other words than the page's own (the 2005 site's, which rank): by the page's address, either key optional.
     // The page itself (its heading, its breadcrumb) keeps its name.
