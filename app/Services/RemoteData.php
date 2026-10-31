@@ -404,9 +404,9 @@ class RemoteData
                     'track' => $item['track']['title'] ?? null,
                     'from' => $item['track']['featured_started_at'] ?? null,
                     'until' => $item['track']['featured_ended_at'] ?? null,
-                    // What was said that week, and the artist's own bio and website.
-                    'html' => $markdown((string) ($item['track']['bio'] ?? ''), null, $item['artist']['name']),
-                    'about' => $markdown((string) ($item['artist']['bio'] ?? ''), null, $item['artist']['name']),
+                    // What was said that week, and the artist's own bio and website: a line break is a new line.
+                    'html' => $markdown(self::lineBreaks((string) ($item['track']['bio'] ?? '')), null, $item['artist']['name']),
+                    'about' => $markdown(self::lineBreaks((string) ($item['artist']['bio'] ?? '')), null, $item['artist']['name']),
                     'website' => self::website($item['artist']['url'] ?? null),
                     // The playlist entry it plays (the same artist and title), when the tune has audio; the artist's page.
                     'play' => collect($this->tunes)->first(fn (array $t) => $t['artist'] === $item['artist']['name'] && $t['title'] === ($item['track']['title'] ?? null))['id'] ?? null,
@@ -957,7 +957,7 @@ class RemoteData
                 'count' => $artist['count'],
                 'figure' => $plural($artist['count'], 'tune', 'tunes').' of the week',
                 'banner' => $artist['image'],
-                'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(implode("\n\n", $stories)),
+                'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(self::lineBreaks(implode("\n\n", $stories))),
                 'website' => self::website($artist['url']),
                 'earlier' => $neighbour($alphabetical[$at - 1] ?? null),
                 'later' => $neighbour($alphabetical[$at + 1] ?? null),
@@ -1092,6 +1092,18 @@ class RemoteData
         }
 
         return $items;
+    }
+
+    /**
+     * A tune's words with every line break kept: a bio or a line-up is written
+     * a line at a time, so a single line break is a new line (Markdown would
+     * otherwise run the lines together unless two spaces end each).
+     */
+    public static function lineBreaks(string $markdown): string
+    {
+        $markdown = str_replace(["\r\n", "\r"], "\n", $markdown);
+
+        return (string) preg_replace('/(?<!\n)(?<!  )[ ]?\n(?!\n)/', "  \n", $markdown);
     }
 
     /**
