@@ -17,6 +17,11 @@ class Assets
 
     private const SCRIPTS = ['assets/site.js'];
 
+    /**
+     * Turbo, vendored as shipped and minified in place in the build (its name carries its version).
+     */
+    private const TURBO = 'assets/turbo.8.0.13.js';
+
     public function handle(Jigsaw $jigsaw): void
     {
         $source = dirname(__DIR__, 2).'/source/';
@@ -33,6 +38,7 @@ class Assets
         $build = $jigsaw->getDestinationPath();
         (new Minify\CSS(...array_map(fn ($file) => $source.$file, self::STYLES)))->minify($build.$css);
         (new Minify\JS(...array_map(fn ($file) => $source.$file, self::SCRIPTS)))->minify($build.$js);
+        (new Minify\JS($source.self::TURBO))->minify($build.'/'.self::TURBO);
 
         foreach ([...self::STYLES, ...self::SCRIPTS] as $file) {
             @unlink($build.'/'.$file);

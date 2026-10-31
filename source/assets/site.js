@@ -35,17 +35,24 @@ const sheetFor = () => {
 
         blocks.forEach((block) => (block.style.minHeight = ''));
 
-        // Bottom-up, so a filling block knows how tall what follows it is.
+        // Every measurement first, then every write, so the browser lays the page out once, not once per block.
+        const measured = new Map(blocks.map((block) => [block, block.getBoundingClientRect().height]));
+        const snapped = new Map();
+
+        // Bottom-up, so a filling block knows how tall what follows it is (as snapped, when that is a block too).
         blocks.reverse().forEach((block) => {
-            let height = Math.ceil(block.getBoundingClientRect().height / half) * half;
+            let height = Math.ceil(measured.get(block) / half) * half;
 
             if (block.hasAttribute('data-fill') && root.clientWidth > 1100) {
-                const below = block.nextElementSibling ? block.nextElementSibling.getBoundingClientRect().height : 0;
+                const next = block.nextElementSibling;
+                const below = next ? (snapped.get(next) ?? measured.get(next) ?? next.getBoundingClientRect().height) : 0;
                 height = Math.max(height, Math.floor((window.innerHeight - half - below) / half) * half);
             }
 
-            block.style.minHeight = `${height}px`;
+            snapped.set(block, height);
         });
+
+        snapped.forEach((height, block) => (block.style.minHeight = `${height}px`));
     };
 
     let frame = 0;

@@ -61,8 +61,15 @@ jobs:
 
       - name: Sync with S3
         if: ${{ !inputs.dry_run }}
-        # The bucket's policy grants public read, so objects need no ACL of their own.
-        run: aws s3 sync build_production/ "s3://${{ vars.S3_BUCKET }}/" --delete --only-show-errors
+        # The bucket's policy grants public read, so objects need no ACL of their own. Three passes, for the cache
+        # lifetimes: pages and files always checked (CloudFront is invalidated each deploy); the stylesheet, the script
+        # and Turbo are named for their contents or version, kept for a year; the rest of the assets, a month.
+        env:
+          BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          aws s3 sync build_production/ "s3://$BUCKET/" --delete --only-show-errors --exclude "assets/*" --cache-control "public, max-age=0, must-revalidate"
+          aws s3 sync build_production/ "s3://$BUCKET/" --delete --only-show-errors --exclude "*" --include "assets/site.*.css" --include "assets/site.*.js" --include "assets/turbo.*.js" --cache-control "public, max-age=31536000, immutable"
+          aws s3 sync build_production/ "s3://$BUCKET/" --delete --only-show-errors --exclude "*" --include "assets/*" --exclude "assets/site.*.css" --exclude "assets/site.*.js" --exclude "assets/turbo.*.js" --cache-control "public, max-age=2592000"
 
       - name: Set the forwards as website redirects
         if: ${{ !inputs.dry_run }}
