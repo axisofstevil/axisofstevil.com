@@ -77,6 +77,8 @@
     <body class="@yield('body_class')">
         <a class="skip" href="#main">Skip to the report</a>
         @yield('body')
+        {{-- The grid set and snapped now, before the first paint, so nothing moves when the site's script arrives. --}}
+        <script>{!! $page->snapInline !!}</script>
         {{-- In the body, which Turbo swaps whole, so a visit never keeps the last page's data. --}}
         @if ($structured !== [])
         <script type="application/ld+json">{!! json_encode($structured, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>

@@ -22,6 +22,11 @@ class Assets
      */
     private const TURBO = 'assets/turbo.8.0.13.js';
 
+    /**
+     * The grid's snap, inlined at the end of every page (config snapInline) so it runs before the first paint.
+     */
+    private const SNAP = 'assets/snap.js';
+
     public function handle(Jigsaw $jigsaw): void
     {
         $source = dirname(__DIR__, 2).'/source/';
@@ -31,6 +36,7 @@ class Assets
         if ($jigsaw->getConfig('assetCss') === null) {
             $jigsaw->setConfig('assetCss', $css);
             $jigsaw->setConfig('assetJs', $js);
+            $jigsaw->setConfig('snapInline', (new Minify\JS($source.self::SNAP))->minify());
 
             return;
         }
@@ -40,7 +46,7 @@ class Assets
         (new Minify\JS(...array_map(fn ($file) => $source.$file, self::SCRIPTS)))->minify($build.$js);
         (new Minify\JS($source.self::TURBO))->minify($build.'/'.self::TURBO);
 
-        foreach ([...self::STYLES, ...self::SCRIPTS] as $file) {
+        foreach ([...self::STYLES, ...self::SCRIPTS, self::SNAP] as $file) {
             @unlink($build.'/'.$file);
         }
     }

@@ -13,9 +13,10 @@ return [
     'founded' => 2005,
     'build_time' => null,
 
-    // Set by App\Services\Assets: the content-named stylesheet and script.
+    // Set by App\Services\Assets: the content-named stylesheet and script, and the grid's snap, inlined in every page.
     'assetCss' => null,
     'assetJs' => null,
+    'snapInline' => null,
 
     // The channel, without a trailing /entries.
     'channel_url' => env('CHANNEL_URL'),
