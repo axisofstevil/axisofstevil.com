@@ -152,6 +152,7 @@
         </div>
         @endforeach
     </nav>
+    <p class="saying running-saying">@include('_partials.saying')</p>
     @if ($trail ?? null)
     <a class="running-trail" href="{{ $trail['href'] }}">@if ($trail['short'] ?? null)<span class="running-long">{{ $trail['label'] }}</span><span class="running-short" aria-hidden="true">{{ $trail['short'] }}</span>@else{{ $trail['label'] }}@endif</a>
     @endif

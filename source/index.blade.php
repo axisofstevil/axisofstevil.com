@@ -54,6 +54,7 @@ description: Delivering the best content from around the universe to your browse
             </div>
             {{-- The page's heading is the name on the lockup; the cover's words are the presentation. --}}
             <p class="cover-title">Annual<br>Report</p>
+            <p class="saying cover-saying">@include('_partials.saying')</p>
             <div class="cover-band">
                 <h1 class="cover-lockup"><img src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"></h1>
                 <p class="cover-imprint"><span>Circa {{ $page->build_time->year }}</span><span class="caption">Plate 1 · The Cover</span></p>

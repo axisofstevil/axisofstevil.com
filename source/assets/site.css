@@ -2574,6 +2574,11 @@ html {
         max-width: calc(100% - var(--pad) * 2);
     }
 
+    .cover-saying,
+    .running-saying {
+        display: none;
+    }
+
     .cover-imprint {
         left: var(--pad);
         right: auto;
@@ -3250,8 +3255,63 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 1;
 }
 
+/* A saying from the 2005 site, one at a time in the ticker's manner: the lines stacked, the one that is on shown.
+   A quiet adornment in the ticker's own italic, never a feature. */
+.saying {
+    margin: 0;
+    font-family: var(--text);
+    font-size: 0.875rem;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--muted);
+}
+
+.saying-lines {
+    display: grid;
+}
+
+.saying-lines > span {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.saying-lines > .is-on {
+    visibility: visible;
+    opacity: 1;
+}
+
+.saying cite {
+    font-style: normal;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* On the cover: top left, opposite the chart, faint in the cover's own stock. */
+.cover-saying {
+    position: absolute;
+    top: var(--half);
+    left: var(--pad);
+    width: calc(var(--half) * 5);
+    color: var(--stock);
+    opacity: 0.75;
+    text-wrap: balance;
+}
+
+/* In the running head: the right-hand side, after the breadcrumb, before a trail or the view switch. */
+.running-saying {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(var(--half) * 7);
+    margin-left: auto;
+    text-align: right;
+    text-wrap: balance;
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .issue-ticker-lines > span {
+    .issue-ticker-lines > span,
+    .saying-lines > span {
         transition: none;
     }
 }
