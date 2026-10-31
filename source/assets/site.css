@@ -2766,6 +2766,17 @@ html {
         margin-right: calc(-1 * var(--pad) / 2);
     }
 
+    /* The areas button wider than the row is tall, its icon a touch smaller: air around it in a short row. */
+    .switcher.areas summary {
+        aspect-ratio: auto;
+        width: calc(var(--half) * 1.4);
+    }
+
+    .switcher-grid {
+        width: 16px;
+        height: 16px;
+    }
+
     .running-lockup img {
         height: calc(var(--half) * 0.55);
     }
