@@ -928,22 +928,8 @@ class RemoteData
             $at = array_search($artist['slug'], array_column($alphabetical, 'slug'), true);
             $at = $at === false ? 0 : $at;
 
-            // Their story: their own bio first, then what their tunes ran with, paragraph by paragraph, each once.
-            $seen = [];
-            $stories = [];
-
-            foreach ([['bio' => $artist['bio']], ...$artist['tunes']] as $t) {
-                foreach (preg_split('/\n\s*\n/', trim(str_replace(["\r\n", "\r"], "\n", (string) ($t['bio'] ?? '')))) ?: [] as $paragraph) {
-                    $key = mb_strtolower((string) preg_replace('/\s+/u', ' ', trim($paragraph)));
-
-                    if ($key === '' || isset($seen[$key])) {
-                        continue;
-                    }
-
-                    $seen[$key] = true;
-                    $stories[] = trim($paragraph);
-                }
-            }
+            // Their story: their own bio. What a run said that week stays with that week's page.
+            $story = trim(str_replace(["\r\n", "\r"], "\n", (string) ($artist['bio'] ?? '')));
 
             $items[] = [
                 'filename' => 'tunes--'.$artist['slug'],
@@ -957,7 +943,7 @@ class RemoteData
                 'count' => $artist['count'],
                 'figure' => $plural($artist['count'], 'tune', 'tunes').' of the week',
                 'banner' => $artist['image'],
-                'introduction' => $stories === [] ? null : MarkdownExtra::defaultTransform(self::lineBreaks(implode("\n\n", $stories))),
+                'introduction' => $story === '' ? null : MarkdownExtra::defaultTransform(self::lineBreaks($story)),
                 'website' => self::website($artist['url']),
                 'earlier' => $neighbour($alphabetical[$at - 1] ?? null),
                 'later' => $neighbour($alphabetical[$at + 1] ?? null),
