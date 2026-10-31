@@ -13,8 +13,10 @@ use TightenCo\Jigsaw\Jigsaw;
  * - a page at each old page address (….htm, ….html, a folder, with or
  *   without its slash) that forwards
  *   at once and names the new address as canonical, for a host that only
- *   serves files. An old file of another kind (a PDF, a movie) is forwarded
- *   by _redirects alone.
+ *   serves files; or, where the host sets real redirects itself
+ *   (redirect_stubs false: production, on S3), an empty file at that address
+ *   that holds its place. An old file of another kind (a PDF, a movie) is
+ *   forwarded by _redirects alone.
  *
  * A forward to another site (a file still on an old host) is kept as it is.
  * One to an address this site doesn't have (yet: the front pages) is left
@@ -31,6 +33,7 @@ class Redirects
     {
         $build = $jigsaw->getDestinationPath();
         $base = rtrim((string) $jigsaw->getConfig('baseUrl'), '/');
+        $stubs = $jigsaw->getConfig('redirect_stubs') !== false;
         $rules = [];
         $missing = [];
 
@@ -59,9 +62,9 @@ class Redirects
 
             if ($file !== null && ! is_file($build.$file)) {
                 @mkdir(dirname($build.$file), 0777, true);
-                file_put_contents($build.$file, $this->stub($to, $base));
-                // Dated once and for all, so a deploy that compares dates (an S3 sync) leaves an unchanged stub, and
-                // the redirect object the deploy put in its place, alone.
+                file_put_contents($build.$file, $stubs ? $this->stub($to, $base) : '');
+                // Dated once and for all, so a deploy that compares dates and sizes (an S3 sync) leaves an unchanged
+                // file, and the redirect object the deploy put in its place, alone.
                 touch($build.$file, self::STUB_TIME);
             }
         }

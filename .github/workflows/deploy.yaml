@@ -21,6 +21,10 @@ on:
         description: Build only; touch neither the bucket nor CloudFront
         type: boolean
         default: false
+      all_redirects:
+        description: Set every forward again, not only the new and changed ones
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy
@@ -88,14 +92,14 @@ jobs:
           BUCKET: ${{ vars.S3_BUCKET }}
         run: |
           : > empty
-          comm -13 <(sort deployed-redirects) <(sort build_production/_redirects) > changed-redirects
+          if [ "${{ inputs.all_redirects }}" = "true" ]; then cp build_production/_redirects changed-redirects; else comm -13 <(sort deployed-redirects) <(sort build_production/_redirects) > changed-redirects; fi
           echo "forwards: $(wc -l < build_production/_redirects), to set: $(wc -l < changed-redirects)"
           awk 'NF >= 2 {
             key = substr($1, 2);
             if (key ~ /\/$/) key = key "index.html";
             else if (key !~ /\./) key = key "/index.html";
             print key "\t" $2
-          }' changed-redirects | xargs -P 16 -L 1 sh -c 'aws s3api put-object --bucket "$BUCKET" --key "$0" --website-redirect-location "$1" --content-type text/html --body empty > /dev/null'
+          }' changed-redirects | xargs -r -P 16 -L 1 sh -c 'aws s3api put-object --bucket "$BUCKET" --key "$0" --website-redirect-location "$1" --content-type text/html --body empty > /dev/null'
 
       - name: Invalidate CloudFront
         if: ${{ !inputs.dry_run }}

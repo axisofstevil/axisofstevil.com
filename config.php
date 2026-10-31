@@ -20,6 +20,11 @@ return [
     // The channel, without a trailing /entries.
     'channel_url' => env('CHANNEL_URL'),
 
+    // Whether each forward gets a stub page at its old address (for a host that only serves files). The production
+    // host (S3) answers each old address with a real 301 set by the deploy, so there the build leaves an empty file
+    // in the stub's place: it holds the address through the deploy's sync and weighs nothing.
+    'redirect_stubs' => true,
+
     // Dates are the publication's own: midnight in New York.
     'timezone' => 'America/New_York',
 
