@@ -530,6 +530,24 @@ class RemoteData
     }
 
     /**
+     * A body's words alone: its Flash directives, embedded players, bare addresses, link definitions and pictures by reference taken out.
+     */
+    private static function wordsOf(string $markdown): string
+    {
+        return (string) preg_replace(['/!#flash\([^)\s]+\)/', '/<(?:embed|object|iframe|video)\b[^>]*>(?:.*?<\/(?:embed|object|iframe|video)>)?/is', '/^https?:\/\/\S+$/m', '/\[[^\]]+\]:\s*https?:\/\/\S+(?:\s*"[^"]*")?/', '/!\[[^\]]*\]\[[^\]]*\]/'], '', $markdown);
+    }
+
+    /**
+     * Text as a description, or none when it says too little (a heading alone).
+     */
+    private function said(string $text): ?string
+    {
+        $plain = $this->plain($text);
+
+        return str_word_count($plain) >= 4 ? $plain : null;
+    }
+
+    /**
      * Markdown or HTML as one line of plain words.
      */
     private function plain(string $text): string
@@ -630,7 +648,7 @@ class RemoteData
                     ...$work,
                     'filename' => $work['slug'],
                     // Its summary, else the teaser written for a front page, else its opening words, else its facts: the page's description.
-                    'description' => $this->plain((string) ($e['summary'] ?? '')) ?: $this->plain((string) ($e['teaser'] ?? '')) ?: $this->plain($this->opening((string) ($e['body'] ?? ''))) ?: $this->facts($work, $e),
+                    'description' => $this->said(self::wordsOf((string) ($e['summary'] ?? ''))) ?? $this->said(self::wordsOf((string) ($e['teaser'] ?? ''))) ?? $this->said($this->opening(self::wordsOf((string) ($e['body'] ?? '')))) ?? $this->facts($work, $e),
                     // Where the work first ran, on the site before this one.
                     'original_url' => $e['original_url'] ?? null,
                     // The excerpt written for it (an issue shows it where it points to the piece).
