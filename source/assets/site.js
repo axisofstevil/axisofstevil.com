@@ -920,6 +920,42 @@ let reflectPlayer = () => {};
     }
 })();
 
+// A chart's bars grow into place as it comes into view: its bars are held at nothing until it shows, then let go
+// one after another (the stylesheet does the growing). A chart grows once; the cover's grows every time it comes
+// into view, each page load included. A page back from Turbo's cache keeps its other charts as they were.
+const startBars = () => {
+    const again = (chart) => chart.classList.contains('cover-bars');
+    const charts = [...document.querySelectorAll('.cover-bars, .bars, .ledger, .year-figure')].filter(
+        (chart) => again(chart) || chart.dataset.grow !== 'go',
+    );
+
+    if (!charts.length || !('IntersectionObserver' in window)) {
+        return;
+    }
+
+    const watcher = new IntersectionObserver(
+        (entries) =>
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.dataset.grow = 'go';
+
+                    if (!again(entry.target)) {
+                        watcher.unobserve(entry.target);
+                    }
+                } else if (again(entry.target)) {
+                    entry.target.dataset.grow = 'wait';
+                }
+            }),
+        { threshold: 0.25 },
+    );
+
+    charts.forEach((chart) => {
+        chart.querySelectorAll(':scope > i, .bar, .share, .year-bar').forEach((bar, i) => bar.style.setProperty('--i', i));
+        chart.dataset.grow = 'wait';
+        watcher.observe(chart);
+    });
+};
+
 // A page's setup, in the order the file gives it; it can run again for another page.
 const start = () => {
     snapToGrid = sheetFor();
@@ -933,6 +969,7 @@ const start = () => {
     startSlideshows();
     zoom.start();
     startStory();
+    startBars();
     reflectPlayer();
 };
 

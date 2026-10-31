@@ -388,8 +388,8 @@ a {
     color: var(--stock);
 }
 
-/* Multimedia: one plate a module tall, a half each for the Gallery and the Tunes: a strip of their pictures,
-   the name and the count; lit like a division's plate. */
+/* Multimedia: one plate two rows tall, a half each for the Gallery and the Tunes: the name, then the caption with
+   the count at its right; padded and lit like a division's plate. */
 .multimedia {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -398,51 +398,45 @@ a {
 .multimedia-half {
     position: relative;
     min-height: calc(var(--half) * 2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--pad);
-    padding: calc(var(--pad) * 0.5) var(--pad) calc(var(--pad) + 1rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "name name"
+        "caption count";
+    align-content: space-between;
+    align-items: last baseline;
+    column-gap: var(--pad);
+    row-gap: 0.25rem;
+    padding: var(--pad);
     text-decoration: none;
     transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
 }
 
-.multimedia-strip {
-    display: flex;
-    flex: none;
-    order: 2;
-    gap: 6px;
-}
-
-.multimedia-strip img {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    background: var(--stock-light);
-    box-shadow: 0 0 0 1px var(--major);
-}
-
-/* An artist's picture whole (a logo as often as a photo). */
-.multimedia-half[href="/tunes/"] .multimedia-strip img {
-    object-fit: contain;
-}
-
 .multimedia-label {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    min-width: 0;
+    display: contents;
 }
 
 .multimedia-half .unit-name {
+    grid-area: name;
     font-size: clamp(1.0625rem, calc(var(--col) * 0.172), 1.75rem);
     line-height: 1.02;
     letter-spacing: 0;
 }
 
 .multimedia-half .unit-count {
+    grid-area: count;
     margin-top: 0;
     font-size: 0.9375rem;
+    text-align: right;
+}
+
+.count-part + .count-part::before {
+    content: " · ";
+}
+
+.multimedia-half .caption {
+    grid-area: caption;
+    position: static;
 }
 
 .multimedia-half:hover,
@@ -2354,10 +2348,36 @@ figure.flash ruffle-player {
     text-decoration: underline;
 }
 
-/* No entrance motion: the plates are in place from the first paint. And the browser's scroll anchoring is off:
-   a page restored after a reload holds its position while the fonts settle, rather than following the text. */
+/* No entrance motion for the plates: they are in place from the first paint. And the browser's scroll anchoring
+   is off: a page restored after a reload holds its position while the fonts settle, rather than following the text. */
 html {
     overflow-anchor: none;
+}
+
+/* The one motion: a chart's bars grow into place as it comes into view. The script holds them at nothing until
+   then and lets them go one after another; without it, or with motion reduced, they stand as drawn. */
+@media (prefers-reduced-motion: no-preference) {
+    .js .cover-bars i,
+    .js .bar {
+        transition: height 0.8s var(--ease) calc(var(--i, 0) * 45ms);
+    }
+
+    .js .share,
+    .js .year-bar {
+        transition: width 0.8s var(--ease) calc(var(--i, 0) * 45ms);
+    }
+
+    .js .cover-bars[data-grow="wait"] i,
+    .js [data-grow="wait"] .bar {
+        height: 0;
+        transition: none;
+    }
+
+    .js [data-grow="wait"] .share,
+    .js [data-grow="wait"] .year-bar {
+        width: 0;
+        transition: none;
+    }
 }
 
 /* Narrower: the cover over the letter, divisions three to a row. Still twelve columns. */
@@ -2372,6 +2392,15 @@ html {
 
     .divisions {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* The Gallery's and the Tunes' counts on two lines, leaving the caption its line. */
+    .count-part {
+        display: block;
+    }
+
+    .count-part + .count-part::before {
+        content: none;
     }
 
     .results {
@@ -2483,34 +2512,46 @@ html {
         grid-template-columns: minmax(0, 1fr);
     }
 
+    /* The Gallery and the Tunes join the divisions' stack as two more rows. */
     .multimedia {
+        margin-top: calc(var(--half) * -1);
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .multimedia-strip img:nth-child(n + 4) {
-        display: none;
+    .multimedia-half {
+        min-height: 0;
     }
 
+    .multimedia-half .unit-name {
+        font-size: 1.25rem;
+    }
+
+    /* On four columns the division plates become full-width rows: the name, then the caption with the count at its right. */
     .unit {
         min-height: 0;
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
-        align-items: baseline;
+        grid-template-areas:
+            "name name"
+            "caption count";
+        align-items: last baseline;
         column-gap: var(--pad);
         row-gap: 0.25rem;
     }
 
     .unit-name {
+        grid-area: name;
         font-size: 1.25rem;
     }
 
     .unit-count {
+        grid-area: count;
         margin-top: 0;
         text-align: right;
     }
 
     .unit .caption {
-        grid-column: 1 / -1;
+        grid-area: caption;
     }
 
     /* On four columns the ledger keeps division and works, the figures ending on the plate's inner edge. */

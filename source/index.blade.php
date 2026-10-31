@@ -99,26 +99,24 @@ description: Random insanity at its finest. The complete works of the Axis of St
     @php($gallery = $page->gallery ? json_decode(json_encode($page->gallery), true) : null)
     @php($tunes = $page->tunes_section ? json_decode(json_encode($page->tunes_section), true) : null)
     @if ($gallery || $tunes)
-    {{-- Multimedia: a plate each for the Gallery and the Tunes in one row, a few pictures and the count. --}}
+    {{-- Multimedia: a plate each for the Gallery and the Tunes in one row, the name and the count. --}}
     <nav class="multimedia" aria-label="Multimedia" data-snap>
         @if ($gallery)
         <a class="plate multimedia-half" href="/gallery/">
-            <span class="multimedia-strip" aria-hidden="true">@foreach (array_slice($gallery['preview'] ?? [], 0, 5) as $src)<img src="{{ $src }}" alt="" loading="lazy">@endforeach</span>
             <span class="multimedia-label">
                 <span class="unit-name">Gallery</span>
-                <span class="unit-count">{{ $gallery['count'] }} photographs · {{ count($gallery['photographers']) }} photographers</span>
+                <span class="unit-count"><span class="count-part">{{ $gallery['count'] }} photographs</span><span class="count-part">{{ count($gallery['photographers']) }} photographers</span></span>
+                <span class="caption">Plate 9 · Gallery</span>
             </span>
-            <span class="caption">Plate 9 · Gallery</span>
         </a>
         @endif
         @if ($tunes)
         <a class="plate multimedia-half" href="/tunes/">
-            <span class="multimedia-strip" aria-hidden="true">@foreach (array_slice($tunes['preview'] ?? [], 0, 5) as $src)<img src="{{ $src }}" alt="" loading="lazy">@endforeach</span>
             <span class="multimedia-label">
                 <span class="unit-name">Tunes</span>
-                <span class="unit-count">{{ $tunes['count'] }} tunes of the week · {{ count($tunes['artists']) }} artists</span>
+                <span class="unit-count"><span class="count-part">{{ $tunes['count'] }} tunes of the week</span><span class="count-part">{{ count($tunes['artists']) }} artists</span></span>
+                <span class="caption">Plate 10 · Tunes</span>
             </span>
-            <span class="caption">Plate 10 · Tunes</span>
         </a>
         @endif
     </nav>
