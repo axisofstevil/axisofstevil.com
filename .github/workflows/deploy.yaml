@@ -7,6 +7,8 @@
 #              CLOUDFRONT_DISTRIBUTION_ID  the distribution in front of it
 #   secrets    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY   a user allowed to write the bucket and invalidate the distribution
 #
+# The bucket's policy grants public read of every object (owner, 2026-10-31); nothing here sets an ACL.
+#
 # The build's forwarding stubs become S3 website redirects (a real 301, as the old site's were) after the sync.
 name: Deploy
 
@@ -59,18 +61,8 @@ jobs:
 
       - name: Sync with S3
         if: ${{ !inputs.dry_run }}
-        # The bucket serves by object ACL, so every object goes up public-read, as the old deploy's did.
-        run: aws s3 sync build_production/ "s3://${{ vars.S3_BUCKET }}/" --delete --only-show-errors --acl public-read --exclude "_releases/*"
-
-      - name: Make every object public
-        if: ${{ !inputs.dry_run }}
-        # A sync only sets the ACL on what it uploads; an object it left alone keeps whatever it had. Until the bucket
-        # has a policy granting public read, every object is set public-read here, each deploy.
-        run: |
-          aws s3api list-objects-v2 --bucket "${{ vars.S3_BUCKET }}" --query 'Contents[].Key' --output text | tr '\t' '\n' | grep -v '^_releases/' | while read -r key; do
-            [ -n "$key" ] || continue
-            aws s3api put-object-acl --bucket "${{ vars.S3_BUCKET }}" --key "$key" --acl public-read
-          done
+        # The bucket's policy grants public read, so objects need no ACL of their own.
+        run: aws s3 sync build_production/ "s3://${{ vars.S3_BUCKET }}/" --delete --only-show-errors
 
       - name: Set the forwards as website redirects
         if: ${{ !inputs.dry_run }}
@@ -83,7 +75,7 @@ jobs:
             key="${from#/}"
             case "$from" in */) key="${key}index.html" ;; esac
             case "$from" in *.*) ;; */) ;; *) key="${key}/index.html" ;; esac
-            aws s3api put-object --bucket "${{ vars.S3_BUCKET }}" --key "$key" --website-redirect-location "$to" --content-type text/html --acl public-read --body empty > /dev/null
+            aws s3api put-object --bucket "${{ vars.S3_BUCKET }}" --key "$key" --website-redirect-location "$to" --content-type text/html --body empty > /dev/null
           done < build_production/_redirects
           echo "forwards: $(wc -l < build_production/_redirects)"
 
