@@ -99,7 +99,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
     @php($gallery = $page->gallery ? json_decode(json_encode($page->gallery), true) : null)
     @php($tunes = $page->tunes_section ? json_decode(json_encode($page->tunes_section), true) : null)
     @if ($gallery || $tunes)
-    {{-- Multimedia: one plate, a half each for the Gallery and the Tunes, a few pictures and the count. --}}
+    {{-- Multimedia: a plate each for the Gallery and the Tunes in one row, a few pictures and the count. --}}
     <nav class="multimedia" aria-label="Multimedia" data-snap>
         @if ($gallery)
         <a class="plate multimedia-half" href="/gallery/">
@@ -118,7 +118,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
                 <span class="unit-name">Tunes</span>
                 <span class="unit-count">{{ $tunes['count'] }} tunes of the week · {{ count($tunes['artists']) }} artists</span>
             </span>
-            <span class="caption">Plate 9 · Tunes</span>
+            <span class="caption">Plate 10 · Tunes</span>
         </a>
         @endif
     </nav>
@@ -144,7 +144,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
             </tbody>
             <tfoot><tr><th scope="row"><a href="/works/">Total</a></th><td class="num">{{ $divisions->sum('count') }}</td><td colspan="2"></td></tr></tfoot>
         </table>
-        <p class="caption">Plate 10 · Report of the Divisions</p>
+        <p class="caption">Plate 11 · Report of the Divisions</p>
     </section>
 
     <section id="results" class="plate results" aria-labelledby="results-title" data-snap>
@@ -163,7 +163,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
             @endforeach
             <li class="issues-all"><a href="/issues/">Every issue on record <span aria-hidden="true">→</span></a><span class="issue-dates">{{ $issues->count() }}</span></li>
         </ol>
-        <p class="caption">Plate 11 · Quarterly Results</p>
+        <p class="caption">Plate 12 · Quarterly Results</p>
     </section>
 
     <section id="audit" class="plate audit" aria-labelledby="audit-title" data-snap>
@@ -181,7 +181,7 @@ description: Random insanity at its finest. The complete works of the Axis of St
             @endforeach
         </button>
         @endif
-        <p class="caption">Plate 12 · Random Audit</p>
+        <p class="caption">Plate 13 · Random Audit</p>
     </section>
 </main>
 
