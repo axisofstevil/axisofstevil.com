@@ -41,6 +41,9 @@ return [
     'tunes_section' => null,
     // The owner's words that open /llms.txt: the channel's page at llms.txt, as written (set by RemoteData; null without one).
     'llms' => null,
+    // The error page's title, summary, lead picture and body (HTML): the channel's page at error, for /error.html, the
+    // file a host serves for a request it can't (set by RemoteData; null without one, and the page says the least).
+    'error' => null,
 
     // A division's footnote, on every one of its works, in the owner's words: why the division does what it does
     // (the 2005 site said as much on each page). By the division's slug; a division without one has no footnote.

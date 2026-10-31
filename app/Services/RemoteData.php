@@ -138,6 +138,19 @@ class RemoteData
                 continue;
             }
 
+            // The page at error is the site's error page, a file at /error.html (source/error.blade.php), not indexed:
+            // its title, its summary, its lead picture and its body, rendered.
+            if (trim((string) $p['path'], '/') === 'error') {
+                $jigsaw->setConfig('error', [
+                    'title' => $p['title'],
+                    'summary' => $p['summary'] ?? null,
+                    'image' => $p['image'] ?? null,
+                    'content' => MarkdownExtra::defaultTransform(WorkBody::clean((string) ($p['body'] ?? ''), null, $p['title'])),
+                ]);
+
+                continue;
+            }
+
             $pages[$p['slug']] = ['title' => $p['title'], 'summary' => $p['summary'] ?? null, 'path' => $p['path']];
 
             // The organisation's own pages, each at its path (a page is known by its path, not its slug);
