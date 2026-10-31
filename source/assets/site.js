@@ -803,6 +803,7 @@ let reflectPlayer = () => {};
         bar.querySelector('.player-track').textContent = tune.title;
         // The artist's name goes to their page.
         const artist = bar.querySelector('.player-artist a');
+        artist.parentElement.hidden = false;
         artist.textContent = tune.artist;
         artist.href = `/tunes/${tune.artist_slug}/`;
         bar.hidden = false;

@@ -66,7 +66,13 @@
              scripts sit in the head, which Turbo keeps, so neither runs twice. --}}
         <script src="/assets/turbo.8.0.13.js" defer></script>
         <script src="{{ $page->assetJs }}" defer></script>
+        {{-- The icon: the symbol as SVG where that is understood, a PNG and the .ico elsewhere, the home-screen icon on
+             its own stock, and the manifest for the rest. --}}
+        <link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
         <link rel="icon" href="/assets/logo/axis-symbol.svg" type="image/svg+xml">
+        <link rel="icon" href="/assets/logo/icon-192.png" type="image/png" sizes="192x192">
+        <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
     </head>
     <body class="@yield('body_class')">
         <a class="skip" href="#main">Skip to the report</a>

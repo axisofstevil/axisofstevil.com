@@ -49,11 +49,17 @@ class ImageAttributes
             $html = (string) file_get_contents($file);
             $first = strpos($html, 'class="plate work ');
             $firstImage = $first === false ? false : stripos($html, '<img', $first);
+            // A picture written without alt text (a work's, in its Markdown) is named for its page.
+            $title = preg_match('/<title>(.*?)<\/title>/s', $html, $t) === 1 ? trim((string) preg_replace('/\s+—\s+The Axis of Stevil$/u', '', html_entity_decode($t[1]))) : '';
 
-            $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m) use ($sizes) {
+            $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m) use ($sizes, $title) {
                 $tag = $m[0];
                 $src = preg_match('/\bsrc="([^"]+)"/i', $tag, $s) ? html_entity_decode($s[1]) : null;
                 $add = '';
+
+                if (! preg_match('/\balt=/i', $tag)) {
+                    $add .= ' alt="'.htmlspecialchars($title, ENT_QUOTES).'"';
+                }
 
                 if ($src !== null && ! preg_match('/\bwidth=/i', $tag) && isset($sizes[$src][0])) {
                     $add .= ' width="'.$sizes[$src][0].'" height="'.$sizes[$src][1].'"';
