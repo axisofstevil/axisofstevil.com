@@ -388,6 +388,74 @@ a {
     color: var(--stock);
 }
 
+/* Multimedia: one plate a module tall, a half each for the Gallery and the Tunes: a strip of their pictures,
+   the name and the count; lit like a division's plate. */
+.multimedia {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.multimedia-half {
+    position: relative;
+    min-height: calc(var(--half) * 2);
+    display: flex;
+    align-items: center;
+    gap: var(--pad);
+    padding: calc(var(--pad) * 0.5) var(--pad) calc(var(--pad) + 1rem);
+    text-decoration: none;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.multimedia-strip {
+    display: flex;
+    flex: none;
+    gap: 6px;
+}
+
+.multimedia-strip img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+/* An artist's picture whole (a logo as often as a photo). */
+.multimedia-half[href="/tunes/"] .multimedia-strip img {
+    object-fit: contain;
+}
+
+.multimedia-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.multimedia-half .unit-name {
+    font-size: clamp(1.0625rem, calc(var(--col) * 0.172), 1.75rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.multimedia-half .unit-count {
+    margin-top: 0;
+    font-size: 0.9375rem;
+}
+
+.multimedia-half:hover,
+.multimedia-half:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+}
+
+.multimedia-half:hover .unit-count,
+.multimedia-half:focus-visible .unit-count,
+.multimedia-half:hover .caption,
+.multimedia-half:focus-visible .caption {
+    color: var(--stock);
+}
+
 .unit-audit .unit-count,
 .unit-audit .caption {
     color: var(--stock);
@@ -2427,6 +2495,14 @@ figure.flash ruffle-player {
     /* On four columns the division plates become full-width rows: name, count, plate. */
     .divisions {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .multimedia {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .multimedia-strip img:nth-child(n + 4) {
+        display: none;
     }
 
     .unit {

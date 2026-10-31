@@ -109,12 +109,23 @@ class RemoteData
         // The Gallery: the channel's first gallery, its photographs and each credited photographer's listing.
         $gallery = $this->gallery($channelUrl);
         $collections->set('gallery_pages.items', $gallery === null ? [] : $this->galleryPages($gallery));
-        $jigsaw->setConfig('gallery', $gallery === null ? null : ['name' => $gallery['name'], 'count' => count($gallery['photos']), 'photographers' => $gallery['photographers']]);
+        $jigsaw->setConfig('gallery', $gallery === null ? null : [
+            'name' => $gallery['name'],
+            'count' => count($gallery['photos']),
+            'photographers' => $gallery['photographers'],
+            // A few of its photographs, for the home page's plate.
+            'preview' => array_slice(array_column($gallery['photos'], 'image'), 0, 6),
+        ]);
 
         // The Tunes: a yearbook of every tune, and each artist's page.
         $tunePages = $this->tunePages($artists);
         $collections->set('tune_pages.items', $tunePages);
-        $jigsaw->setConfig('tunes_section', $tunePages === [] ? null : ['count' => $tunePages[0]['count'], 'artists' => $tunePages[0]['artists']]);
+        $jigsaw->setConfig('tunes_section', $tunePages === [] ? null : [
+            'count' => $tunePages[0]['count'],
+            'artists' => $tunePages[0]['artists'],
+            // A few artists' pictures, the most featured first, for the home page's plate.
+            'preview' => array_slice(array_values(array_filter(array_map(fn ($a) => $a['image'] ?? null, $byArtistPictures = $this->artistPictures($artists)))), 0, 6),
+        ]);
         $jigsaw->setConfig('collections', $collections);
 
         $pages = [];
@@ -844,6 +855,20 @@ class RemoteData
         usort($tunes, fn ($a, $b) => [$a['from'], $a['id']] <=> [$b['from'], $b['id']]);
 
         return $tunes;
+    }
+
+    /**
+     * The artists with a picture, those featured most first.
+     *
+     * @param  list<array<string, mixed>>  $artists
+     * @return list<array<string, mixed>>
+     */
+    private function artistPictures(array $artists): array
+    {
+        $pictured = array_values(array_filter($artists, fn ($a) => ($a['image'] ?? null) !== null && ($a['tracks'] ?? []) !== []));
+        usort($pictured, fn ($a, $b) => [count($b['tracks']), $a['name']] <=> [count($a['tracks']), $b['name']]);
+
+        return $pictured;
     }
 
     /**
