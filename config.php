@@ -32,7 +32,7 @@ return [
     // The week's headlines from the world outside, kept by hand in source/_data/headlines.json, keyed by the issue's first day.
     'headlines' => json_decode(file_get_contents(__DIR__.'/source/_data/headlines.json'), true)['weeks'] ?? [],
 
-    // The 2005 site's sayings, kept in source/_data/sayings.json: shown one at a time on the cover and in every running head.
+    // The 2005 site's sayings, kept in source/_data/sayings.json: shown one at a time in every running head.
     'sayings' => json_decode(file_get_contents(__DIR__.'/source/_data/sayings.json'), true)['sayings'] ?? [],
 
     // Filled by App\Services\RemoteData.

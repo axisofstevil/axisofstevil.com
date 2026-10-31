@@ -3288,19 +3288,6 @@ figure.flash.is-enlarged ruffle-player {
     opacity: 0.8;
 }
 
-/* On the cover: centred in the top grid row, from the plate's own padding across the cover, faint in its stock. */
-.cover-saying {
-    position: absolute;
-    top: 0;
-    left: var(--pad);
-    right: var(--pad);
-    height: var(--half);
-    display: flex;
-    align-items: center;
-    color: var(--stock);
-    opacity: 0.75;
-}
-
 /* In the running head: the right-hand side, after the breadcrumb, before a trail or the view switch. */
 .running-saying {
     flex: 1;
@@ -3311,9 +3298,8 @@ figure.flash.is-enlarged ruffle-player {
     text-wrap: balance;
 }
 
-/* Phones: neither spot has the room (after the rules above, which would otherwise win). */
+/* Phones: no room for it. */
 @media (max-width: 640px) {
-    .cover-saying,
     .running-saying {
         display: none;
     }
