@@ -3266,8 +3266,11 @@ figure.flash.is-enlarged ruffle-player {
     color: var(--muted);
 }
 
+/* The lines share one cell, as tall as the longest; each sits centred in it, so a short one and a wrapped one
+   both read as centred in the row. */
 .saying-lines {
     display: grid;
+    align-items: center;
 }
 
 .saying-lines > span {
