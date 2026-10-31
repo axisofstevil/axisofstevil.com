@@ -4,8 +4,8 @@ permalink: error.html
 noindex: true
 ---
 @php
-    // The channel's page at error (config 'error'): its lead picture in a work's picture container, its title, its
-    // body and its summary; the site's own words without it. The title names the tab too.
+    // The channel's page at error (config 'error'): its lead picture in a work's picture container, its title and its
+    // body, which say everything; the site's own words only without it. The title names the tab too.
     $error = $page->error ? json_decode(json_encode($page->error), true) : null;
 
     if ($error) {
@@ -24,7 +24,9 @@ noindex: true
         @if ($error && trim($error['content']) !== '')
         <div class="work-body work-body--prose">{!! $error['content'] !!}</div>
         @endif
-        <p class="audit-lede">{{ $error['summary'] ?? 'The report could not be served just now. Try again in a moment.' }}</p>
+        @if (! $error)
+        <p class="audit-lede">The report could not be served just now. Try again in a moment.</p>
+        @endif
         <p><a class="action" href="/">Return to the report</a></p>
         <p class="caption">Plate 500</p>
     </section>
