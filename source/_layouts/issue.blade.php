@@ -43,7 +43,8 @@
             <h1 id="issue-title" class="issue-name">{{ $page->name }}</h1>
             <p class="issue-folio issue-folio--under">
                 <span>Vol. {{ $volume }} • No. {{ $page->number }}</span>
-                <span>{{ $page->works }} new {{ $page->works === 1 ? 'work' : 'works' }}</span>
+                {{-- Every work the week carried, and how many were new; "13 new works" when all were. --}}
+                <span>@if ($page->pieces > $page->works){{ $page->pieces }} works, {{ $page->works }} new @else{{ $page->works }} new {{ $page->works === 1 ? 'work' : 'works' }}@endif</span>
             </p>
         </header>
 

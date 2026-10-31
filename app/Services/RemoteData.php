@@ -248,6 +248,8 @@ class RemoteData
                 'rows' => $rows = $this->rows($f['layout']['rows'] ?? [], $blocks),
                 // The works of the week the page left out, re-runs included, oldest first: listed under it.
                 'also' => $this->leftOut($blocks, $rows),
+                // What the week carried: every work, placed or not, and how many of them were new (the rest re-runs).
+                'pieces' => count(array_filter($blocks, fn ($b) => isset($b['address']))),
                 'works' => count(array_filter($blocks, fn ($b) => isset($b['address']) && ! $b['refeature'])),
                 'earlier' => $pick($oldestFirst[$i - 1] ?? null),
                 'later' => $pick($oldestFirst[$i + 1] ?? null),
