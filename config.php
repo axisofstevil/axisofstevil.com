@@ -45,6 +45,7 @@ return [
     // A division's footnote, on every one of its works, in the owner's words: why the division does what it does
     // (the 2005 site said as much on each page). By the division's slug; a division without one has no footnote.
     'explainers' => [
+        'featured-steves' => 'Steves and Stevens are everywhere. Seeing so many makes it very difficult to truly recognize the great Steves — and great Steves are what hold this organization together. So every so often The Axis of Stevil shines a little light on one of them — famous, local, fictional, feline or honorary — who deserves a little credit for what they do. They may not be an official member yet, but we salute them all the same.',
         'language' => 'The Axis of Stevil has many goals, one of which is to educate its followers. One of the first impressions people gain about other people is a speech impression. A person\'s memory will retain a lot of information about certain people\'s speech. Among those, vocabulary rises to the top. Possessing a good vocabulary is as important as learning how to ride a bike. With or without it you will get to your destination, but with it you will get there much faster. To that end, The Axis of Stevil curates and publishes these vocabulary words that will prove useful and practical in your everyday life.',
     ],
 
