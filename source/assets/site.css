@@ -1818,6 +1818,20 @@ figure.flash ruffle-player {
     align-items: baseline;
 }
 
+/* The 404's picture: the records consulted, keylined like a plate's picture, no wider than the lede. */
+.not-on-record {
+    max-width: 36rem;
+    margin: var(--pad) 0;
+}
+
+.not-on-record img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--major);
+}
+
 /* A division's footnote on each of its works (config 'explainers'): a quiet word, under the credits, on why it
    does what it does. */
 .explainer {
