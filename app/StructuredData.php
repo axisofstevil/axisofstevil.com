@@ -53,7 +53,6 @@ class StructuredData
                 ['@type' => 'Person', 'name' => 'Steven Maguire', 'url' => 'https://stevenmaguire.com'],
                 ['@type' => 'Person', 'name' => 'Graham Hensley'],
             ] : null,
-            'sameAs' => $home ? ['https://www.facebook.com/groups/axisofstevil', 'https://twitter.com/AxisofStevil'] : null,
         ];
 
         if ($home) {
