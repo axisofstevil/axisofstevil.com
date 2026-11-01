@@ -2777,6 +2777,17 @@ html {
         height: 16px;
     }
 
+    .search-open {
+        aspect-ratio: auto;
+        width: calc(var(--half) * 1.4);
+        margin-right: calc(-1 * var(--pad) / 2);
+    }
+
+    .search-open svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .running-lockup img {
         height: calc(var(--half) * 0.55);
     }
@@ -3314,6 +3325,255 @@ figure.flash.is-enlarged ruffle-player {
     .running-saying {
         display: none;
     }
+}
+
+/* Search: a square cell at the running head's right edge, keylined like the areas button, lit the same. */
+.search-open {
+    appearance: none;
+    flex: none;
+    align-self: stretch;
+    aspect-ratio: 1;
+    margin: 0 calc(-1 * var(--pad)) 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    box-shadow: inset 1px 0 0 var(--major);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-open svg {
+    width: calc(var(--half) * 0.34);
+    height: calc(var(--half) * 0.34);
+}
+
+.search-open:hover,
+.search-open:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+    outline: none;
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset 0 1px 0 var(--ink);
+}
+
+/* The dialog: a plate over a dimmed sheet. At rest it is the field alone; once a search has answered it opens to a
+   fixed height, the results scrolling inside, and holds that size however the results change under a changing search. */
+.search {
+    width: min(42rem, calc(100vw - 2 * var(--margin)));
+    /* As tall as its content (a modal dialog is pinned to every edge, so auto would fill the window). */
+    height: fit-content;
+    max-height: min(80vh, 48rem);
+    /* Hung from near the top rather than centred, so the field stays put when the results open beneath it. */
+    margin: 10vh auto auto;
+    padding: 0;
+    border: 0;
+    background: var(--stock);
+    color: var(--ink);
+    box-shadow:
+        inset 1px 1px 0 var(--ink),
+        1px 1px 0 var(--ink),
+        0 24px 60px rgba(17, 17, 17, 0.35);
+    display: none;
+    flex-direction: column;
+}
+
+.search[open] {
+    display: flex;
+}
+
+.search.is-showing {
+    height: min(80vh, 48rem);
+}
+
+.search:not(.is-showing) .search-status,
+.search:not(.is-showing) .search-results {
+    display: none;
+}
+
+.search::backdrop {
+    background: rgba(17, 17, 17, 0.55);
+}
+
+.search-form {
+    position: relative;
+    flex: none;
+    margin: 0;
+    padding: var(--pad) var(--pad) calc(var(--pad) / 2);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: calc(var(--pad) / 2);
+    align-items: center;
+}
+
+.search.is-showing .search-form {
+    border-bottom: 1px solid var(--ink);
+}
+
+.search:not(.is-showing) .search-form {
+    padding-bottom: var(--pad);
+}
+
+.search-title {
+    grid-column: 1 / -1;
+    margin: 0 0 10px;
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.search-input {
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 2px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: clamp(1.25rem, calc(var(--col) * 0.24), 1.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--red);
+}
+
+.search-input::placeholder {
+    color: var(--muted);
+    opacity: 0.6;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.search-input::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+.search-close {
+    appearance: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.search-close:hover,
+.search-close:focus-visible {
+    background: var(--ink);
+    color: var(--stock);
+    outline: none;
+}
+
+.search-status {
+    flex: none;
+    margin: 0;
+    padding: 10px var(--pad) 0;
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.search-status:empty {
+    display: none;
+}
+
+.search-results {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    margin: 0;
+    padding: calc(var(--pad) / 2) var(--pad) var(--pad);
+    list-style: none;
+}
+
+.search-results:empty {
+    padding: calc(var(--pad) / 2);
+}
+
+.search-result {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--major);
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-results li:first-child .search-result {
+    border-top: 0;
+}
+
+.search-result:hover .search-result-title,
+.search-result:focus-visible .search-result-title {
+    color: var(--red-ink);
+    text-decoration: underline;
+}
+
+.search-picture {
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    background: var(--stock-light);
+    box-shadow: 0 0 0 1px var(--major);
+}
+
+.search-words {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+
+.search-result-title {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.search-what {
+    font-family: var(--display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.search-excerpt {
+    font-family: var(--text);
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+.search-excerpt mark {
+    background: transparent;
+    color: var(--ink);
+    font-weight: 700;
 }
 
 @media (prefers-reduced-motion: reduce) {

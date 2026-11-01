@@ -924,6 +924,148 @@ const startBars = () => {
     });
 };
 
+// Search: the dialog in every page (master), opened from the running head's button or ⌘K (Ctrl+K), closed by Esc or
+// its button. The index (Pagefind, built over the finished pages into /pagefind/) loads when first asked; what is
+// typed is searched as it is typed, and each result shows its title, what it is, a line of its words and its picture.
+let pagefindLoading = null;
+
+const startSearch = () => {
+    const dialog = document.querySelector('[data-search]');
+
+    if (!dialog) {
+        return;
+    }
+
+    const input = dialog.querySelector('.search-input');
+    const status = dialog.querySelector('[data-search-status]');
+    const list = dialog.querySelector('[data-search-results]');
+    const open = () => {
+        if (!dialog.open) {
+            dialog.showModal();
+        }
+
+        input.focus();
+        input.select();
+    };
+
+    const load = () => (pagefindLoading ??= import('/pagefind/pagefind.js').then(async (pagefind) => {
+        await pagefind.init();
+
+        return pagefind;
+    }));
+
+    let latest = 0;
+
+    const render = async (term) => {
+        const run = ++latest;
+
+        // An emptied field clears at once and the dialog closes up to the field; otherwise the last results stay in
+        // place until the new ones arrive, the dialog holding its size.
+        if (term.trim() === '') {
+            list.replaceChildren();
+            status.textContent = '';
+            dialog.classList.remove('is-showing');
+            return;
+        }
+
+        const pagefind = await load();
+        const found = await pagefind.search(term);
+
+        if (run !== latest) {
+            return;
+        }
+
+        // A section that matches (a division, a series, an artist, a photographer, a page) leads; works follow, as ranked.
+        const fetched = await Promise.all(found.results.slice(0, 30).map((result) => result.data()));
+
+        if (run !== latest) {
+            return;
+        }
+
+        const isWork = (result) => result.meta.kind === 'Work' || result.meta.kind === 'Issue';
+        const results = [...fetched.filter((result) => !isWork(result)), ...fetched.filter(isWork)].slice(0, 12);
+
+        status.textContent = found.results.length === 0 ? 'Nothing on record for that.' : `${found.results.length} ${found.results.length === 1 ? 'result' : 'results'}`;
+        dialog.classList.add('is-showing');
+        list.replaceChildren();
+
+        results.forEach((result) => {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = result.url;
+            link.className = 'search-result';
+
+            if (result.meta.image) {
+                const picture = document.createElement('img');
+                picture.src = result.meta.image;
+                picture.alt = '';
+                picture.loading = 'lazy';
+                picture.className = 'search-picture';
+                link.append(picture);
+            }
+
+            const words = document.createElement('span');
+            words.className = 'search-words';
+            const title = document.createElement('strong');
+            title.className = 'search-result-title';
+            title.textContent = result.meta.title || result.url;
+            const what = document.createElement('span');
+            what.className = 'search-what';
+            what.textContent = [result.meta.kind, result.meta.division, result.meta.date ? result.meta.date.slice(0, 4) : null].filter(Boolean).join(' · ');
+            const excerpt = document.createElement('span');
+            excerpt.className = 'search-excerpt';
+            excerpt.innerHTML = result.excerpt;
+            words.append(title, what, excerpt);
+            link.append(words);
+            item.append(link);
+            list.append(item);
+        });
+    };
+
+    let waiting = 0;
+
+    input.addEventListener('input', () => {
+        window.clearTimeout(waiting);
+        waiting = window.setTimeout(() => render(input.value), 250);
+    });
+
+    dialog.querySelector('.search-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const first = list.querySelector('a');
+
+        if (first) {
+            first.click();
+        }
+    });
+
+    dialog.querySelector('[data-search-close]').addEventListener('click', () => dialog.close());
+    // Esc closes at once, even from the field, which would otherwise spend the first press clearing itself.
+    dialog.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            dialog.close();
+        }
+    });
+    // A click on the backdrop (outside the dialog's box) closes it.
+    dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+
+    document.querySelectorAll('[data-search-open]').forEach((button) => button.addEventListener('click', open));
+    searchOpen = open;
+};
+
+let searchOpen = () => {};
+
+document.addEventListener('keydown', (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        searchOpen();
+    }
+});
+
 // A page's setup, in the order the file gives it; it can run again for another page.
 const start = () => {
     snapToGrid = sheetFor();
@@ -934,6 +1076,7 @@ const start = () => {
     startSwitchers();
     startFlash();
     startTicker();
+    startSearch();
     startSlideshows();
     zoom.start();
     startStory();

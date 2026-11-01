@@ -33,7 +33,8 @@
 
         {{-- The masthead: the week and its run over the name; volume and number, and the count of new works, under it.
              Narrower than a wide desk, the week is one short line and the under-folio one line. --}}
-        <header class="issue-masthead">
+        <header class="issue-masthead" data-pagefind-body data-pagefind-sort="date:{{ $page->starts_on }}">
+            @include('_partials.search-facts', ['facts' => ['kind' => 'Issue', 'date' => $page->starts_on]])
             <p class="issue-folio issue-folio--over">
                 <span class="issue-week">The week of {{ $day($page->starts_on)->format('l, F j, Y') }}</span>
                 <span class="issue-run">{{ $run($page->starts_on, $page->ends_on) }}</span>

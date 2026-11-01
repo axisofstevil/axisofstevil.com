@@ -31,7 +31,12 @@
     </div>
 
     <div class="spread" data-snap>
-        <article class="plate work work--{{ $parts['layout'] }}" aria-labelledby="work-title" data-snap>
+        <article class="plate work work--{{ $parts['layout'] }}" aria-labelledby="work-title" data-snap data-pagefind-body data-pagefind-filter="division:{{ $page->division_name }}" data-pagefind-sort="date:{{ $page->date }}">
+            @include('_partials.search-facts', ['facts' => ['kind' => 'Work', 'division' => $page->division_name, 'date' => $page->date, 'image' => $page->image]])
+            @if ($page->keywords && count($page->keywords))
+            {{-- The work's keywords (Alfred), for the search alone: in the index, out of sight, weighted like a heading. --}}
+            <span hidden data-pagefind-weight="7">{{ implode(', ', (array) $page->keywords) }}</span>
+            @endif
             @switch($parts['layout'])
                 @case('plate')
                 @case('movie')
@@ -113,7 +118,7 @@
                     <div class="work-body work-body--prose @if ($parts['dropCap']) work-body--opening @endif" @if ($parts['story']) data-story @endif>{!! $parts['body'] !!}</div>
             @endswitch
             @if ($byRole)
-            <dl class="credits">
+            <dl class="credits" data-pagefind-ignore>
                 @foreach ($byRole as $role => $names)
                 <div><dt>{{ $role }}</dt><dd>{{ implode(', ', $names) }}</dd></div>
                 @endforeach
@@ -121,12 +126,12 @@
             @endif
             @if ($explainer = json_decode(json_encode($page->explainers), true)[$page->division] ?? null)
             {{-- The division's footnote (config 'explainers'): why it does what it does, in the owner's words. --}}
-            <aside class="explainer" aria-label="About {{ $page->division_name }}">
+            <aside class="explainer" aria-label="About {{ $page->division_name }}" data-pagefind-ignore>
                 <span class="explainer-label">About {{ $page->division_name }}</span>
                 <p>{{ $explainer }}</p>
             </aside>
             @endif
-            <p class="caption">Plate {{ $page->place }} · {{ $page->division_name }}</p>
+            <p class="caption" data-pagefind-ignore>Plate {{ $page->place }} · {{ $page->division_name }}</p>
         </article>
 
         <aside class="plate notes" aria-label="Notes" data-snap>

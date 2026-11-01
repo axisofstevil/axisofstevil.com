@@ -17,4 +17,5 @@ $events->afterBuild([
     Services\Redirects::class,
     Services\ImageAttributes::class,
     Services\Assets::class,
+    Services\Pagefind::class,
 ]);

@@ -122,8 +122,8 @@
 @endphp
 <header class="plate running-head" data-snap>
     <nav class="running-left" aria-label="Breadcrumb">
-        <a class="running-lockup" href="/"><img class="running-wordmark" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img class="running-symbol" src="/assets/logo/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
-        <details class="switcher areas">
+        <a class="running-lockup" href="/" data-pagefind-ignore><img class="running-wordmark" src="/assets/logo/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img class="running-symbol" src="/assets/logo/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
+        <details class="switcher areas" data-pagefind-ignore>
             <summary aria-label="Choose an area">
                 <svg class="switcher-grid" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" fill="currentColor"/></svg>
             </summary>
@@ -136,9 +136,9 @@
         @foreach ($crumbs as $crumb)
         @php($tag = $crumb['here'] ? 'h1' : 'p')
         <div class="crumb">
-            <{{ $tag }} class="running-title"><a href="{{ $crumb['href'] }}" @if ($crumb['here']) aria-current="page" @endif>{{ $crumb['name'] }}</a></{{ $tag }}>
+            <{{ $tag }} class="running-title" @if ($crumb['here']) data-pagefind-weight="10" @endif><a href="{{ $crumb['href'] }}" @if ($crumb['here']) aria-current="page" @endif>{{ $crumb['name'] }}</a></{{ $tag }}>
             @if ($crumb['menu'] !== [])
-            <details class="switcher">
+            <details class="switcher" data-pagefind-ignore>
                 <summary aria-label="{{ $crumb['label'] }}">
                     <svg class="switcher-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg>
                 </summary>
@@ -152,8 +152,12 @@
         </div>
         @endforeach
     </nav>
-    <p class="saying running-saying">@include('_partials.saying')</p>
+    <p class="saying running-saying" data-pagefind-ignore>@include('_partials.saying')</p>
     @if ($trail ?? null)
     <a class="running-trail" href="{{ $trail['href'] }}">@if ($trail['short'] ?? null)<span class="running-long">{{ $trail['label'] }}</span><span class="running-short" aria-hidden="true">{{ $trail['short'] }}</span>@else{{ $trail['label'] }}@endif</a>
     @endif
+    {{-- Search: opens the dialog (master), which loads the index when first asked. --}}
+    <button class="search-open" type="button" data-search-open aria-label="Search the site" title="Search (⌘K)">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M10.5 10.5 14.5 14.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+    </button>
 </header>

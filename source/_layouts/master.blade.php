@@ -83,6 +83,16 @@
         @if ($structured !== [])
         <script type="application/ld+json">{!! json_encode($structured, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
         @endif
+        {{-- Search (Pagefind over the built pages): opened from the running head or ⌘K; the index loads when first asked. --}}
+        <dialog class="search" data-search aria-labelledby="search-title">
+            <form class="search-form" role="search" method="dialog">
+                <h2 id="search-title" class="search-title">Search the report</h2>
+                <input class="search-input" type="search" name="q" placeholder="A title, a word, a Steve…" autocomplete="off" spellcheck="false" aria-label="Search">
+                <button class="search-close" type="button" data-search-close aria-label="Close">×</button>
+            </form>
+            <p class="search-status" data-search-status aria-live="polite"></p>
+            <ol class="search-results" data-search-results></ol>
+        </dialog>
         @include('_partials.player')
     </body>
 </html>

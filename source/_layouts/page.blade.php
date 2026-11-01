@@ -19,7 +19,8 @@
     @include('_partials.running-head')
 
     <div class="spread" data-snap>
-        <article class="plate work work--article" aria-labelledby="work-title" data-snap>
+        <article class="plate work work--article" aria-labelledby="work-title" data-snap data-pagefind-body>
+            @include('_partials.search-facts', ['facts' => ['kind' => 'The Organisation', 'image' => $page->image]])
             @if ($parts['lead'] !== '')
             <div class="work-hero work-body">{!! $parts['lead'] !!}</div>
             @endif

@@ -29,7 +29,8 @@
 
 @section('body')
 <main id="main" class="report" @if ($own) data-player-scope="{{ $page->slug }}" @endif>
-    <div class="masthead">
+    <div class="masthead" data-pagefind-body>
+        @include('_partials.search-facts', ['facts' => ['kind' => $own ? 'Artist' : 'Tunes', 'image' => $page->image]])
         @include('_partials.running-head', $own
             ? ['division' => 'tunes', 'artist' => $page->slug, 'here' => 'artist']
             : ['division' => 'tunes', 'here' => 'tunes'])
@@ -53,7 +54,7 @@
                 {{-- Two columns when the bio runs long, or has more than one block (a paragraph and the line-up): the blocks share the columns. --}}
                 @php($blocks = preg_match_all('/<(p|ul|ol|blockquote|h[1-6])\b/i', (string) ($page->introduction ?? '')))
                 @if ($page->banner || $words > 0 || ($page->website ?? null))
-                <div class="artist-about">
+                <div class="artist-about" data-pagefind-body>
                     <div class="artist-side">
                         @if ($page->banner)
                         <img class="artist-portrait" src="{{ $page->banner }}" alt="{{ $page->name }}">

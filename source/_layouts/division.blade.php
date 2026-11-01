@@ -16,18 +16,22 @@
     $busiest = $years->map->count()->max() ?: 1;
     $short = fn ($date) => \Carbon\CarbonImmutable::parse($date)->format('M j');
     $note = collect($page->note);
+
+    // What the search index says of the page: a division, or a series within one, with its banner when it has one.
+    $parentName = $page->parent ? (collect($page->divisions)->map(fn ($d) => (array) (is_array($d) ? $d : $d->toArray()))->firstWhere('slug', $page->parent)['name'] ?? '') : null;
 @endphp
 
 @section('body')
 <main id="main" class="report">
-    <div class="masthead">
+    <div class="masthead" data-pagefind-body>
+        @include('_partials.search-facts', ['facts' => ['kind' => $page->parent ? 'Series' : 'Division', 'division' => $parentName, 'image' => $page->banner]])
         @include('_partials.running-head', $page->parent
             ? ['division' => $page->parent, 'series' => $page->slug, 'here' => 'series']
             : ['division' => $page->slug, 'here' => 'division'])
 
         <div class="plate division-bar" data-snap>
             <p class="division-figure"><b>{{ $page->count }}</b> <span>{{ $page->figure }}</span></p>
-            <div class="view-switch" role="group" aria-label="View">
+            <div class="view-switch" role="group" aria-label="View" data-pagefind-ignore>
                 <button type="button" data-view="index" aria-pressed="true">Index</button>
                 <button type="button" data-view="yearbook" aria-pressed="false">Yearbook</button>
             </div>

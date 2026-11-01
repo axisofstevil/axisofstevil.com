@@ -20,7 +20,8 @@
 
 @section('body')
 <main id="main" class="report">
-    <div class="masthead">
+    <div class="masthead" data-pagefind-body>
+        @include('_partials.search-facts', ['facts' => ['kind' => $own ? 'Photographer' : 'Gallery', 'image' => $page->banner]])
         @include('_partials.running-head', $own
             ? ['division' => 'gallery', 'photographer' => $page->slug, 'here' => 'photographer']
             : ['division' => 'gallery', 'here' => 'gallery'])
