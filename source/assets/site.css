@@ -2769,7 +2769,7 @@ html {
     /* The areas button wider than the row is tall, its icon a touch smaller: air around it in a short row. */
     .switcher.areas summary {
         aspect-ratio: auto;
-        width: calc(var(--half) * 1.4);
+        width: calc(var(--half) * 1.25);
     }
 
     .switcher-grid {
@@ -2777,13 +2777,14 @@ html {
         height: 16px;
     }
 
-    .search-open {
+    /* (Named with the head, to outrank the button's own rule, which comes later in this file.) */
+    .running-head .search-open {
         aspect-ratio: auto;
-        width: calc(var(--half) * 1.4);
+        width: calc(var(--half) * 1.1);
         margin-right: calc(-1 * var(--pad) / 2);
     }
 
-    .search-open svg {
+    .running-head .search-open svg {
         width: 16px;
         height: 16px;
     }
@@ -2838,20 +2839,34 @@ html {
         min-width: 0;
     }
 
+    /* Phones: the bar across the sheet's full width, no column set aside at either side; the figure one grid row,
+       the view switch one more, each exactly a row so the plate lands on the grid. */
     .plate.division-bar {
         flex-wrap: wrap;
-        padding: calc(var(--pad) / 2) 0 0;
-        row-gap: 8px;
+        margin: 0;
+        padding: 0;
+        row-gap: 0;
     }
 
     .division-bar .division-figure {
+        flex-basis: 100%;
+        height: var(--half);
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
         padding-left: var(--pad);
+    }
+
+    .division-figure span {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
     }
 
     .view-switch {
         flex-basis: 100%;
         margin-left: 0;
-        min-height: var(--half);
+        height: var(--half);
+        min-height: 0;
     }
 
     .view-switch button,
