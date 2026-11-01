@@ -2819,6 +2819,28 @@ html {
         padding-left: calc(var(--pad) / 2);
     }
 
+    /* A plain crumb before another (Tunes before an artist, Gallery before a photographer) has no chevron to keep:
+       it steps aside; the next crumb's menu offers the way back, as does the areas button. */
+    .crumb:has(+ .crumb):not(:has(.switcher)) {
+        display: none;
+    }
+
+    /* The breadcrumb takes the head's width (the saying is away), and the page's own crumb whatever room is left in
+       it, with less air at its left, before its name is cut. */
+    .running-left {
+        flex: 1 1 auto;
+    }
+
+    /* No gap before the search cell: its keyline is the separation, and the breadcrumb needs the width. */
+    .plate.running-head {
+        gap: 0;
+    }
+
+    .crumb + .crumb {
+        flex: 1 1 auto;
+        padding-left: calc(var(--pad) / 2);
+    }
+
     .crumb + .crumb .running-title {
         min-width: 0;
         overflow: hidden;
