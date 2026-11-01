@@ -872,7 +872,7 @@ a {
     align-self: stretch;
 }
 
-/* The running head shows the wordmark lockup; on phones beside a division's name, the symbol alone. */
+/* The running head shows the wordmark lockup; narrower than the full sheet, beside a division's name, the symbol alone. */
 .running-lockup .running-symbol {
     display: none;
 }
@@ -2445,6 +2445,17 @@ html {
 
 /* Narrower: the cover over the letter, divisions three to a row. Still twelve columns. */
 @media (max-width: 1100px) {
+    /* The running head's lockup is the symbol alone beside a division's name: the wordmark would shrink with the grid
+       to something unreadable, the symbol holds its shape. */
+    .running-head:has(.switcher) .running-lockup .running-wordmark {
+        display: none;
+    }
+
+    .running-head:has(.switcher) .running-lockup .running-symbol {
+        display: block;
+        height: calc(var(--half) * 0.7);
+    }
+
     .fold-top {
         grid-template-columns: minmax(0, 1fr);
     }
@@ -2793,13 +2804,6 @@ html {
         height: calc(var(--half) * 0.55);
     }
 
-    .running-head:has(.switcher) .running-lockup .running-wordmark {
-        display: none;
-    }
-
-    .running-head:has(.switcher) .running-lockup .running-symbol {
-        display: block;
-    }
 
     /* A series beneath its division: the division keeps only its chevron (its menu still names it), so
        the page's own name has the room; that name gives way last, and its menu opens leftward. */
@@ -3335,8 +3339,9 @@ figure.flash.is-enlarged ruffle-player {
     text-wrap: balance;
 }
 
-/* Phones: no room for it. */
-@media (max-width: 640px) {
+/* Narrower than the full sheet: no room for it (the grid's rows shrink with the width, and a wrapped saying would
+   push the running head to two or three of them). */
+@media (max-width: 1100px) {
     .running-saying {
         display: none;
     }
