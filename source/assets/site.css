@@ -957,8 +957,9 @@ a {
 .switcher summary {
     display: grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
+    /* Never taller than the grid's row, which shrinks with the width: the running head stays one row. */
+    width: min(32px, var(--half));
+    height: min(32px, var(--half));
     list-style: none;
     cursor: pointer;
 }
