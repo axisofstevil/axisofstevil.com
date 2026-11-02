@@ -136,12 +136,16 @@
                     @foreach ($page->downloads as $group)
                     <li class="download">
                         @if ($group['thumbnail'])<span class="download-thumb"><img src="{{ $group['thumbnail'] }}" alt="" loading="lazy"></span>@endif
+                        @if ($group['linked'])
+                        <a class="download-label" href="{{ $group['files'][0]['url'] }}" download>{{ $group['label'] }}</a>
+                        @else
                         <span class="download-label">{{ $group['label'] }}</span>
                         <span class="download-files">
                             @foreach ($group['files'] as $file)
                             <a href="{{ $file['url'] }}" download>{{ $file['name'] }}</a>
                             @endforeach
                         </span>
+                        @endif
                     </li>
                     @endforeach
                 </ul>

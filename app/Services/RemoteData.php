@@ -737,10 +737,10 @@ class RemoteData
     /**
      * A work's downloads as groups, in order: rows sharing a label are one group,
      * shown with the first thumbnail among them; each file named by its variant,
-     * else by its kind of file.
+     * else by its kind of file. A group of one unnamed file is linked by its label.
      *
      * @param  list<array<string, mixed>>  $attachments
-     * @return list<array{label: string, thumbnail: string|null, files: list<array{name: string, url: string, type: string}>}>
+     * @return list<array{label: string, thumbnail: string|null, files: list<array{name: string, named: bool, url: string, type: string}>, linked: bool}>
      */
     public static function downloads(array $attachments): array
     {
@@ -755,12 +755,13 @@ class RemoteData
                 'name' => (string) (($a['variant'] ?? null) ?: match ($type) {
                     'pdf' => 'PDF', 'video' => 'Video file', 'image' => 'Picture', 'audio' => 'Sound file', default => 'File'
                 }),
+                'named' => (bool) ($a['variant'] ?? null),
                 'url' => (string) $a['url'],
                 'type' => $type,
             ];
         }
 
-        return array_values($groups);
+        return array_map(fn (array $g): array => [...$g, 'linked' => count($g['files']) === 1 && ! $g['files'][0]['named']], array_values($groups));
     }
 
     /**

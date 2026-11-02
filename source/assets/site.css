@@ -1911,13 +1911,15 @@ figure.flash ruffle-player {
     font-size: 0.875rem;
     font-variant-numeric: tabular-nums;
 }
-.download-files a {
+.download-files a,
+a.download-label {
     color: var(--ink);
     text-decoration: underline;
     text-decoration-color: var(--red);
     text-underline-offset: 3px;
 }
-.download-files a:hover {
+.download-files a:hover,
+a.download-label:hover {
     color: var(--red-ink);
 }
 .download:not(:has(.download-thumb)) {
