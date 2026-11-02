@@ -720,11 +720,47 @@ class RemoteData
                     'older' => $pick($list[$i - 1] ?? null),
                     'newer' => $pick($list[$i + 1] ?? null),
                     'content' => WorkBody::clean((string) ($e['body'] ?? ''), $e['image'] ?? null, $e['title'], $stills),
+                    // What the site said about it after it ran: shown after the work, as the site's own note, never as the work's words.
+                    'updates' => array_map(fn (array $u): array => [
+                        'html' => MarkdownExtra::defaultTransform((string) $u['body']),
+                        'date' => $u['date'] ?? null,
+                    ], $e['updates'] ?? []),
+                    // The files it offers, a group per label: its thumbnail, then each file by its variant.
+                    'downloads' => self::downloads($e['attachments'] ?? []),
                 ];
             }
         }
 
         return $pages;
+    }
+
+    /**
+     * A work's downloads as groups, in order: rows sharing a label are one group,
+     * shown with the first thumbnail among them; each file named by its variant,
+     * else by its kind of file.
+     *
+     * @param  list<array<string, mixed>>  $attachments
+     * @return list<array{label: string, thumbnail: string|null, files: list<array{name: string, url: string, type: string}>}>
+     */
+    public static function downloads(array $attachments): array
+    {
+        $groups = [];
+
+        foreach ($attachments as $a) {
+            $label = (string) ($a['label'] ?? '');
+            $groups[$label] ??= ['label' => $label, 'thumbnail' => null, 'files' => []];
+            $groups[$label]['thumbnail'] ??= $a['thumbnail'] ?? null;
+            $type = (string) ($a['type'] ?? 'file');
+            $groups[$label]['files'][] = [
+                'name' => (string) (($a['variant'] ?? null) ?: match ($type) {
+                    'pdf' => 'PDF', 'video' => 'Video file', 'image' => 'Picture', 'audio' => 'Sound file', default => 'File'
+                }),
+                'url' => (string) $a['url'],
+                'type' => $type,
+            ];
+        }
+
+        return array_values($groups);
     }
 
     /**

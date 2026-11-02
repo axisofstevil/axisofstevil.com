@@ -117,6 +117,36 @@
                     </header>
                     <div class="work-body work-body--prose @if ($parts['dropCap']) work-body--opening @endif" @if ($parts['story']) data-story @endif>{!! $parts['body'] !!}</div>
             @endswitch
+            @if ($page->updates && count($page->updates))
+            {{-- What the site said about the work after it ran: the report's subsequent events, never the work's own words. --}}
+            <aside class="subsequent" aria-label="Subsequent events">
+                @foreach ($page->updates as $n => $update)
+                <section class="subsequent-note">
+                    <p class="subsequent-label"><span>Note {{ $n + 1 }} · Subsequent events</span>@if ($update['date'] ?? null)<time datetime="{{ $update['date'] }}">{{ \Carbon\CarbonImmutable::parse($update['date'])->setTimezone('America/New_York')->format('F j, Y') }}</time>@endif</p>
+                    <div class="subsequent-body">{!! $update['html'] !!}</div>
+                </section>
+                @endforeach
+            </aside>
+            @endif
+            @if ($page->downloads && count($page->downloads))
+            {{-- The files it offers, apart from the work: a group per label, its thumbnail, each file by its size or kind. --}}
+            <section class="appendix" aria-labelledby="appendix-title" data-pagefind-ignore>
+                <h2 id="appendix-title" class="appendix-title">Appendix · Downloads</h2>
+                <ul class="downloads">
+                    @foreach ($page->downloads as $group)
+                    <li class="download">
+                        @if ($group['thumbnail'])<span class="download-thumb"><img src="{{ $group['thumbnail'] }}" alt="" loading="lazy"></span>@endif
+                        <span class="download-label">{{ $group['label'] }}</span>
+                        <span class="download-files">
+                            @foreach ($group['files'] as $file)
+                            <a href="{{ $file['url'] }}" download>{{ $file['name'] }}</a>
+                            @endforeach
+                        </span>
+                    </li>
+                    @endforeach
+                </ul>
+            </section>
+            @endif
             @if ($byRole)
             <dl class="credits" data-pagefind-ignore>
                 @foreach ($byRole as $role => $names)

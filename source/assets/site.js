@@ -975,15 +975,16 @@ const startSearch = () => {
             return;
         }
 
-        // A section that matches (a division, a series, an artist, a photographer, a page) leads; works follow, as ranked.
+        // A section that matches (a division, a series, an artist, a photographer, a page) leads; works follow, then
+        // the weekly issues that carried them, each as ranked.
         const fetched = await Promise.all(found.results.slice(0, 30).map((result) => result.data()));
 
         if (run !== latest) {
             return;
         }
 
-        const isWork = (result) => result.meta.kind === 'Work' || result.meta.kind === 'Issue';
-        const results = [...fetched.filter((result) => !isWork(result)), ...fetched.filter(isWork)].slice(0, 12);
+        const order = (result) => (result.meta.kind === 'Issue' ? 2 : result.meta.kind === 'Work' ? 1 : 0);
+        const results = [0, 1, 2].flatMap((rank) => fetched.filter((result) => order(result) === rank)).slice(0, 12);
 
         status.textContent = found.results.length === 0 ? 'Nothing on record for that.' : `${found.results.length} ${found.results.length === 1 ? 'result' : 'results'}`;
         dialog.classList.add('is-showing');
