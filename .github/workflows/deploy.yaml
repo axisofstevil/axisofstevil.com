@@ -10,11 +10,18 @@
 # The bucket's policy grants public read of every object (owner, 2026-10-31); nothing here sets an ACL.
 #
 # The build's forwarding stubs become S3 website redirects (a real 301, as the old site's were) after the sync.
+#
+# It also builds every morning at 7:00 Eastern, so newly released works appear without a push. Cron runs in UTC, so
+# both 11:00 (Eastern daylight time) and 12:00 (standard time) are scheduled and the gate lets only the one that is
+# 7:00 in New York through. GitHub pauses schedules in a repository with no activity for 60 days.
 name: Deploy
 
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 11 * * *'
+    - cron: '0 12 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -31,7 +38,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    outputs:
+      go: ${{ steps.clock.outputs.go }}
+    steps:
+      - id: clock
+        env:
+          FIRED: ${{ github.event.schedule }}
+        run: |
+          zone=$(TZ=America/New_York date +%Z)
+          if [ -z "$FIRED" ] || { [ "$FIRED" = '0 11 * * *' ] && [ "$zone" = EDT ]; } || { [ "$FIRED" = '0 12 * * *' ] && [ "$zone" = EST ]; }; then
+            echo go=true >> "$GITHUB_OUTPUT"
+          else
+            echo "go=false ($FIRED is not 7:00 in New York, $zone)"; echo go=false >> "$GITHUB_OUTPUT"
+          fi
+
   deploy:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-24.04
     environment: Production
     steps:
