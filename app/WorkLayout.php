@@ -97,6 +97,9 @@ class WorkLayout
             $lines = array_values(array_filter(iterator_to_array($question->childNodes), fn (DOMNode $node): bool => trim((string) $node->textContent) !== ''));
             // The page sets its own dash before the reader's name: theirs (-, --, ~) goes, and a row of dashes signs nothing.
             $asker = count($lines) > 1 ? trim((string) preg_replace('/^[\s\\\\\-~—–]+|[\s\-~—–]+$/u', '', (string) end($lines)->textContent)) : '';
+            if (mb_strtolower($asker) === 'anonymous') {
+                $asker = ''; // every unsigned question is signed "- Anonymous" (the archive's convention, 2026-11-03)
+            }
             $quote = count($lines) > 1 ? $html(array_slice($lines, 0, -1)) : $html($lines);
 
             return [...$parts, 'layout' => 'letter', 'quote' => $quote, 'asker' => $asker, 'body' => $html(array_slice($blocks, 1))];
