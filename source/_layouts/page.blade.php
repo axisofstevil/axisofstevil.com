@@ -35,12 +35,16 @@
             @endif
 
             @if ($page->timeline && count($page->timeline))
-            {{-- The chronology, newest first, as the yearbook runs. --}}
+            {{-- The chronology, newest first, as the yearbook runs: a row a year, its events in their own order. --}}
             <ol class="chronology" reversed>
-                @foreach (collect($page->timeline)->reverse() as $event)
+                @foreach (collect($page->timeline)->groupBy('year')->reverse() as $events)
                 <li>
-                    <span class="chronology-year">{{ $event['label'] }}</span>
-                    <div class="chronology-event">{!! \Illuminate\Support\Str::inlineMarkdown($event['description']) !!}</div>
+                    <span class="chronology-year">{{ $events->first()['label'] }}</span>
+                    <ul class="chronology-events">
+                        @foreach ($events as $event)
+                        <li class="chronology-event">{!! \Illuminate\Support\Str::inlineMarkdown($event['description']) !!}</li>
+                        @endforeach
+                    </ul>
                 </li>
                 @endforeach
             </ol>

@@ -3164,7 +3164,7 @@ html {
     border-top: 2px solid var(--ink);
 }
 
-.chronology li {
+.chronology > li {
     display: grid;
     grid-template-columns: 9ch minmax(0, 1fr);
     column-gap: var(--pad);
@@ -3180,6 +3180,16 @@ html {
     white-space: nowrap;
 }
 
+.chronology-events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chronology-event + .chronology-event {
+    margin-top: 10px;
+}
+
 .chronology-event {
     font-size: 1.0625rem;
     line-height: 1.55;
@@ -3191,7 +3201,7 @@ html {
 }
 
 @media (max-width: 640px) {
-    .chronology li {
+    .chronology > li {
         grid-template-columns: minmax(0, 1fr);
         row-gap: 4px;
     }
