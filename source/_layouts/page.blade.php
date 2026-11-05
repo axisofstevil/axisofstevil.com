@@ -42,7 +42,7 @@
                     <span class="chronology-year">{{ $events->first()['label'] }}</span>
                     <ul class="chronology-events">
                         @foreach ($events as $event)
-                        <li class="chronology-event">{!! \Illuminate\Support\Str::inlineMarkdown($event['description']) !!}</li>
+                        <li class="chronology-event">{!! $event['html'] !!}</li>
                         @endforeach
                     </ul>
                 </li>

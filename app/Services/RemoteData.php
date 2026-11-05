@@ -169,7 +169,8 @@ class RemoteData
                     'image' => $p['image'] ?? null,
                     'updated' => isset($p['updated_at']) ? substr((string) $p['updated_at'], 0, 10) : null,
                     'original_url' => $p['original_url'] ?? null,
-                    'timeline' => $path === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'description' => $t['description']], $timeline) : [],
+                    // An event's description is Markdown, headings, quotes and pictures included: rendered in full.
+                    'timeline' => $path === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'html' => trim(MarkdownExtra::defaultTransform(WorkBody::clean((string) $t['description'], null, $p['title'])))], $timeline) : [],
                     // A page's lead image leads it; it isn't the picture of a Flash movie in its body (a work's is).
                     'content' => WorkBody::clean((string) ($p['body'] ?? ''), null, $p['title']),
                 ];

@@ -3200,6 +3200,30 @@ html {
     color: var(--red-ink);
 }
 
+/* An event's own Markdown: a heading names its part of the year (a month), run small above its text. */
+.chronology-event > :first-child {
+    margin-top: 0;
+}
+
+.chronology-event > :last-child {
+    margin-bottom: 0;
+}
+
+.chronology-event p,
+.chronology-event blockquote {
+    margin: 0 0 10px;
+}
+
+.chronology-event h2,
+.chronology-event h3 {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 @media (max-width: 640px) {
     .chronology > li {
         grid-template-columns: minmax(0, 1fr);
