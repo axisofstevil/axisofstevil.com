@@ -122,7 +122,7 @@
 @endphp
 <header class="plate running-head" data-snap>
     <nav class="running-left" aria-label="Breadcrumb">
-        <a class="running-lockup" href="/" data-pagefind-ignore><img class="running-wordmark" src="https://archive.axisofstevil.com/brand/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img class="running-symbol" src="https://archive.axisofstevil.com/brand/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
+        <a class="running-lockup" href="/" data-pagefind-ignore><img crossorigin="anonymous" class="running-wordmark" src="https://archive.axisofstevil.com/brand/axis-wordmark.svg" alt="The Axis of Stevil" width="456" height="76.5"><img crossorigin="anonymous" class="running-symbol" src="https://archive.axisofstevil.com/brand/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
         <details class="switcher areas" data-pagefind-ignore>
             <summary aria-label="Choose an area">
                 <svg class="switcher-grid" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" fill="currentColor"/></svg>

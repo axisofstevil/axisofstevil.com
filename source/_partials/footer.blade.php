@@ -1,5 +1,5 @@
 <footer class="plate colophon" data-snap>
-    <a class="colophon-lockup" href="/"><img src="https://archive.axisofstevil.com/brand/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
+    <a class="colophon-lockup" href="/"><img crossorigin="anonymous" src="https://archive.axisofstevil.com/brand/axis-symbol.svg" alt="The Axis of Stevil" width="61" height="77"></a>
     <p class="colophon-line"><span>Random insanity at its Finest · Est. 2005</span> <span>&copy; 2005–{{ $page->build_time->year }} The Axis of Stevil, all rights reserved, all wrongs reversed. Please don't steal. <a href="/authenticity/">Beware of imitators</a>.</span></p>
     <nav aria-label="The organisation">
         <span class="colophon-label" aria-hidden="true">The organisation</span>
