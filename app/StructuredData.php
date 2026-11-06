@@ -47,7 +47,7 @@ class StructuredData
             '@id' => $base.'/#organization',
             'name' => self::NAME,
             'url' => $base.'/',
-            'logo' => ['@type' => 'ImageObject', 'url' => $base.'/assets/logo/axis-symbol.png'],
+            'logo' => ['@type' => 'ImageObject', 'url' => 'https://archive.axisofstevil.com/brand/axis-symbol.png'],
             'image' => $home ? $base.'/assets/social/card.png' : null,
             'slogan' => $home ? $page->tagline : null,
             'founder' => $home ? [

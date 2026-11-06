@@ -2385,8 +2385,8 @@ a.download-label:hover {
     height: 34%;
     background: var(--muted);
     opacity: 0.08;
-    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
-    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    -webkit-mask: url("https://archive.axisofstevil.com/brand/axis-symbol.svg") center / contain no-repeat;
+    mask: url("https://archive.axisofstevil.com/brand/axis-symbol.svg") center / contain no-repeat;
     transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
 }
 
@@ -4331,8 +4331,8 @@ figure.flash.is-enlarged ruffle-player {
     height: 34%;
     background: var(--muted);
     opacity: 0.18;
-    -webkit-mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
-    mask: url("/assets/logo/axis-symbol.svg") center / contain no-repeat;
+    -webkit-mask: url("https://archive.axisofstevil.com/brand/axis-symbol.svg") center / contain no-repeat;
+    mask: url("https://archive.axisofstevil.com/brand/axis-symbol.svg") center / contain no-repeat;
 }
 
 /* The artist, above their tunes: the picture (and their website under it) in a column at the left, the bio
