@@ -61,6 +61,10 @@ description: Delivering the best content from around the universe to your browse
         </header>
 
         <article class="plate letter" aria-labelledby="letter-title" data-snap>
+            {{-- Search, from the front page too (the running head carries it everywhere else): the same dialog (master). --}}
+            <button class="search-open letter-search" type="button" data-search-open aria-label="Search the site" title="Search (⌘K)">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M10.5 10.5 14.5 14.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </button>
             <h2 id="letter-title" class="letter-title">To Our<br>Shareholders</h2>
             <div class="letter-body">
                 @if ($authenticity['summary'] ?? null)<p>{{ $authenticity['summary'] }}</p>@endif

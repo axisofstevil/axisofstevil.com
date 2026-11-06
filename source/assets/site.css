@@ -1766,27 +1766,6 @@ figure.flash ruffle-player {
     margin: var(--pad) 0 10px;
 }
 
-/* The work's page on the site before this one, in a new tab. */
-.first-ran {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: var(--pad);
-    font-family: var(--display);
-    font-weight: 600;
-    color: var(--red-ink);
-    text-decoration: none;
-}
-
-.first-ran svg {
-    width: 12px;
-    height: 12px;
-}
-
-.first-ran:hover {
-    text-decoration: underline;
-}
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -3540,6 +3519,27 @@ figure.flash.is-enlarged ruffle-player {
     box-shadow:
         inset 1px 0 0 var(--major),
         inset 0 1px 0 var(--ink);
+}
+
+/* The front page's search, in the top right corner of the letter (plate 2): the running head's button, set in the
+   plate's corner, with the plate's own rules on its open sides. */
+.letter-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--half);
+    height: var(--half);
+    margin: 0;
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset 0 -1px 0 var(--major);
+}
+
+.letter-search:hover,
+.letter-search:focus-visible {
+    box-shadow:
+        inset 1px 0 0 var(--major),
+        inset 0 -1px 0 var(--major);
 }
 
 /* The dialog: a plate over a dimmed sheet. At rest it is the field alone; once a search has answered it opens to a

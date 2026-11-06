@@ -62,9 +62,6 @@
                     @endforeach
                 </ul>
 
-                @if ($page->original_url)
-                <a class="first-ran" href="{{ $page->original_url }}" target="_blank" rel="noopener">As it first ran<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
-                @endif
             </div>
             <p class="caption">Notes · The Organization</p>
         </aside>

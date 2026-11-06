@@ -168,7 +168,6 @@ class RemoteData
                     'summary' => $p['summary'] ?? null,
                     'image' => $p['image'] ?? null,
                     'updated' => isset($p['updated_at']) ? substr((string) $p['updated_at'], 0, 10) : null,
-                    'original_url' => $p['original_url'] ?? null,
                     // An event's description is Markdown, headings, quotes and pictures included: rendered in full.
                     'timeline' => $path === 'history' ? array_map(fn (array $t) => ['year' => $t['year'], 'label' => $t['label'], 'html' => trim(MarkdownExtra::defaultTransform(WorkBody::clean((string) $t['description'], null, $p['title'])))], $timeline) : [],
                     // A page's lead image leads it; it isn't the picture of a Flash movie in its body (a work's is).
@@ -708,8 +707,6 @@ class RemoteData
                     'page_title' => $this->pageTitle($work, $titles, $days, $seen),
                     // Its summary, else the teaser written for a front page, else its opening words, else its facts: the page's description.
                     'description' => $this->said(self::wordsOf((string) ($e['summary'] ?? ''))) ?? $this->said(self::wordsOf((string) ($e['teaser'] ?? ''))) ?? $this->said($this->opening(self::wordsOf((string) ($e['body'] ?? '')))) ?? $this->facts($work, $e),
-                    // Where the work first ran, on the site before this one.
-                    'original_url' => $e['original_url'] ?? null,
                     // The excerpt written for it (an issue shows it where it points to the piece).
                     'excerpt' => ($e['teaser'] ?? null) ?: null,
                     'keywords' => array_values(array_filter(array_map('trim', explode(',', (string) ($e['meta_keywords'] ?? ''))))),
