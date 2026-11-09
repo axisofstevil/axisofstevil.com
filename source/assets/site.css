@@ -2586,10 +2586,13 @@ a.download-label:hover {
 }
 
 .on-air-call:hover,
-.on-air-call:focus-visible,
+.on-air-call:focus-visible {
+    background-color: var(--slate-deep);
+}
+
 .on-air-latest:hover,
 .on-air-latest:focus-visible {
-    background-color: var(--slate-deep);
+    background-color: #2c343c;
 }
 
 .on-air-call:hover .on-air-play,
@@ -2675,11 +2678,10 @@ a.download-label:hover {
     font-variant-numeric: tabular-nums;
 }
 
-/* The latest call: one keylined panel on the slate, the play mark large, its title as large as the plate allows. */
+/* The latest call: the plate's right half in the deeper slate, the grid carried over it, flush with the
+   brief; no keyline, set apart by its tone alone, as the band below is by its stock. The play mark large, its title as large as fits. */
 .on-air-latest {
     grid-area: latest;
-    /* A half-module in from the plate's edges, on the grid's lines; keylined as a plate is. */
-    margin: var(--half) var(--half) var(--half) 0;
     padding: var(--pad);
     display: flex;
     flex-direction: column;
@@ -2687,7 +2689,11 @@ a.download-label:hover {
     min-height: calc(var(--half) * 4);
     color: var(--on-slate);
     text-decoration: none;
-    box-shadow: inset 1px 1px 0 rgba(238, 240, 241, 0.4), 1px 1px 0 rgba(238, 240, 241, 0.4);
+    background-color: var(--slate-deep);
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
     transition: background-color 0.3s var(--ease);
 }
 
@@ -2803,7 +2809,6 @@ a.download-label:hover {
     }
 
     .on-air-latest {
-        margin: 0 var(--half) var(--half);
         min-height: calc(var(--half) * 3);
     }
 }
@@ -2824,6 +2829,14 @@ a.download-label:hover {
 
     .on-air-imprint {
         align-items: flex-start;
+    }
+
+    .on-air-latest {
+        min-height: 0;
+    }
+
+    .on-air-latest .on-air-play {
+        margin-bottom: 8px;
     }
 
     /* The figures as a ledger, as the letter's are on phones. */
