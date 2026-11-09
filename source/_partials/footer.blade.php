@@ -24,7 +24,7 @@
         @endif
         @if ($page->show)
         {{-- The show, in its slate: the broadcast arm, at its own address. --}}
-        <a class="colophon-show" href="{{ $page->show->url }}" aria-label="Listen to {{ $page->show->name }}"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>{{ $page->show->name }}</a>
+        <a class="colophon-show" href="{{ $page->show->url }}" aria-label="Listen to {{ $page->show->name }}"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{{ $page->show->name }}</a>
         @endif
     </nav>
 </footer>

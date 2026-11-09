@@ -143,11 +143,10 @@ description: Delivering the best content from around the universe to your browse
             </dl>
         </div>
         <a class="on-air-latest" data-snap href="{{ $show['latest']['url'] }}">
-            <span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>
             <span class="on-air-when">The latest call · <span class="on-air-quarter">{{ $show['latest']['label'] }}</span></span>
             <span class="on-air-latest-title">{{ $show['latest']['title'] }}</span>
             <span class="on-air-dates"><span class="count-part">Released {{ $show['latest']['released_on'] }}</span>@if ($show['next'])<span class="count-part">Next call {{ $show['next'] }}</span>@endif</span>
-            <span class="on-air-listen">Give it a listen <span aria-hidden="true">→</span></span>
+            <span class="on-air-listen"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Give it a listen</span>
         </a>
         <div class="on-air-band" data-snap>
             <a class="on-air-lockup" href="{{ $show['url'] }}"><img src="https://archive.axisofstevil.com/brand/axisshow-wordmark.svg" alt="{{ $show['name'] }}" width="592" height="77" loading="lazy"></a>

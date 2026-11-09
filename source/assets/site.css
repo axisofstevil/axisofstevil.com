@@ -2503,8 +2503,8 @@ a.download-label:hover {
 
 /*
  * The show (The Axis of Stevil Show): wherever the archive points to its calls, it does so in the show's slate, the
- * sheet's grid carried across in the slate's own ink, as the show's cover is drawn. The play mark is the show's: a red
- * disc, its triangle in white.
+ * sheet's grid carried across in the slate's own ink, as the show's cover is drawn. The mark is the show's red disc,
+ * carrying an arrow, not the show's play triangle: here it goes to the call, it doesn't play it.
  */
 .on-air-play {
     flex: none;
@@ -2519,9 +2519,8 @@ a.download-label:hover {
 }
 
 .on-air-play svg {
-    width: 50%;
-    height: 50%;
-    margin-left: 8%;
+    width: 55%;
+    height: 55%;
 }
 
 /* On a work: each call that covers it, a slate card in the notes. */
@@ -2685,6 +2684,8 @@ a.download-label:hover {
     padding: var(--pad);
     display: flex;
     flex-direction: column;
+    /* One block at the foot, level with the brief's figures. */
+    justify-content: flex-end;
     gap: 10px;
     min-height: calc(var(--half) * 4);
     color: var(--on-slate);
@@ -2698,9 +2699,8 @@ a.download-label:hover {
 }
 
 .on-air-latest .on-air-play {
-    width: clamp(52px, var(--half), 88px);
-    height: clamp(52px, var(--half), 88px);
-    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
 }
 
 .on-air-latest-title {
@@ -2833,10 +2833,6 @@ a.download-label:hover {
 
     .on-air-latest {
         min-height: 0;
-    }
-
-    .on-air-latest .on-air-play {
-        margin-bottom: 8px;
     }
 
     /* The figures as a ledger, as the letter's are on phones. */

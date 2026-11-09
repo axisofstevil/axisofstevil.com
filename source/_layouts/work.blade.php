@@ -203,7 +203,7 @@
                         <span class="on-air-when"><span class="on-air-quarter">{{ $call['label'] }}</span> · {{ $show['one'] }}</span>
                         <span class="on-air-title">{{ $call['title'] }}</span>
                         <span class="on-air-role">{{ $howInCall($call) }}</span>
-                        <span class="on-air-listen"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>Give it a listen</span>
+                        <span class="on-air-listen"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9.5M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Give it a listen</span>
                     </a>
                     @endforeach
                 </div>
