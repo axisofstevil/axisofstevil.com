@@ -21,6 +21,10 @@ return [
     // The channel, without a trailing /entries.
     'channel_url' => env('CHANNEL_URL'),
 
+    // The show's site channel (The Axis of Stevil Show), without a trailing /entries: its released calls link from the
+    // works they cover, the home page and the colophon. Unset, the site builds without them.
+    'show_url' => env('SHOW_URL'),
+
     // Whether each forward gets a stub page at its old address (for a host that only serves files). The production
     // host (S3) answers each old address with a real 301 set by the deploy, so there the build leaves an empty file
     // in the stub's place: it holds the address through the deploy's sync and weighs nothing.
@@ -44,6 +48,9 @@ return [
     'redirects' => [],
     // The Gallery (the channel's first gallery): its name, count and photographers, for the running head (set by RemoteData; null without one).
     'gallery' => null,
+    // The show: its name and address, its series' name and address, the calls released, the quarters and minutes they
+    // report, the latest call and the next one on the calendar (set by RemoteData; null without SHOW_URL or a call).
+    'show' => null,
     // The Tunes of the Week with audio, oldest first: the site's playlist, carried by every page for the player (set by RemoteData).
     'tunes' => [],
     // The Tunes section: its count and artists, for the running head (set by RemoteData; null without tunes).

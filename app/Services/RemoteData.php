@@ -89,6 +89,11 @@ class RemoteData
         ], $frontPages);
 
         $workPages = $this->pages($entries, $works, $this->ranIn($frontPages));
+
+        // The show's calls: on each work they cover, and the show's figures for the home page and the colophon.
+        $show = $this->show($jigsaw->getConfig('show_url'), $zone, (string) parse_url((string) $jigsaw->getConfig('baseUrl'), PHP_URL_HOST));
+        $jigsaw->setConfig('show', $show['summary']);
+        $workPages = array_map(fn (array $p) => [...$p, 'calls' => $show['calls'][$p['address']] ?? []], $workPages);
         $collections = $jigsaw->getConfig('collections');
         $collections->set('works.items', $workPages);
         $collections->set('issue_pages.items', $this->issuePages($frontPages, $workPages));
@@ -1304,6 +1309,116 @@ class RemoteData
         $ascii = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $name) ?: $name;
 
         return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower($ascii)), '-');
+    }
+
+    /**
+     * The show's released calls, from its site channel (SHOW_URL), whose featured series is the calls: each work's
+     * calls by its address here (which call, its title and address, and how the work is in it: read, exhibit or
+     * housekeeping, with the moment its chapter starts and its exhibit numbers), and the show's figures. Unset, none.
+     * Like the channel, a show that answers with an error fails the build rather than deploy the works without it.
+     *
+     * @return array{summary: array<string, mixed>|null, calls: array<string, list<array<string, mixed>>>}
+     */
+    private function show(mixed $url, string $zone, string $host): array
+    {
+        if (! is_string($url) || trim($url) === '') {
+            return ['summary' => null, 'calls' => []];
+        }
+
+        $url = rtrim($url, '/');
+        $site = $this->json($url)['data'] ?? [];
+        $series = array_values(array_filter($site['linked'] ?? [], fn (array $link) => ! empty($link['featured'])))[0] ?? null;
+        $seriesUrl = rtrim((string) ($series['api_url'] ?? $url), '/');
+        $clock = fn (int $s) => sprintf('%d:%02d', intdiv($s, 60), $s % 60);
+        // A work by its address here: only a work of this site, by its path.
+        $here = fn (?array $work) => $work !== null && parse_url((string) $work['url'], PHP_URL_HOST) === $host ? (string) parse_url((string) $work['url'], PHP_URL_PATH) : null;
+
+        $episodes = [];
+
+        foreach ($this->all($seriesUrl.'/entries?per_page=100') as $entry) {
+            $episode = $entry['episode'] ?? null;
+
+            if (! is_array($episode) || empty($episode['audio']['url'])) {
+                continue;
+            }
+
+            $episodes[] = [
+                'number' => (int) $episode['number'],
+                'season' => (int) $episode['season'],
+                'title' => (string) $entry['title'],
+                'label' => "{$episode['season_name']}, Part {$episode['part']}",
+                'url' => (string) $entry['url'],
+                'duration' => (float) $episode['duration'],
+                'released_at' => (string) $entry['released_at'],
+                'released_on' => CarbonImmutable::parse((string) $entry['released_at'])->setTimezone($zone)->format('F j, Y'),
+                'episode' => $episode,
+            ];
+        }
+
+        usort($episodes, fn (array $a, array $b) => $a['number'] <=> $b['number']);
+        $calls = [];
+
+        foreach ($episodes as $e) {
+            // Where each work's chapter starts, and its exhibits' numbers.
+            $starts = [];
+            $exhibits = [];
+
+            foreach ($e['episode']['chapters'] ?? [] as $chapter) {
+                if (($address = $here($chapter['work'] ?? null)) !== null) {
+                    $starts[$address] ??= (int) ceil((float) $chapter['start']);
+                }
+            }
+
+            foreach ($e['episode']['exhibits'] ?? [] as $exhibit) {
+                if (($address = $here($exhibit['work'] ?? null)) !== null) {
+                    $exhibits[$address][] = (int) $exhibit['number'];
+                }
+            }
+
+            foreach ($e['episode']['works'] ?? [] as $work) {
+                $address = $here($work);
+
+                if ($address === null || isset($calls[$address][$e['number']])) {
+                    continue;
+                }
+
+                $calls[$address][$e['number']] = [
+                    'title' => $e['title'],
+                    'label' => $e['label'],
+                    // Its address, cued to the moment its chapter starts (the show's player loads it there, ?t= seconds).
+                    'url' => $e['url'].(isset($starts[$address]) ? '?t='.$starts[$address] : ''),
+                    'role' => (string) ($work['role'] ?? 'read'),
+                    'at' => isset($starts[$address]) ? $clock($starts[$address]) : null,
+                    'exhibits' => $exhibits[$address] ?? [],
+                ];
+            }
+        }
+
+        $calls = array_map('array_values', $calls);
+
+        if ($episodes === []) {
+            return ['summary' => null, 'calls' => $calls];
+        }
+
+        // The latest: the last released, and of calls released together, the last in the run.
+        $latest = array_reduce($episodes, fn (?array $carry, array $e) => $carry === null || [$e['released_at'], $e['number']] > [$carry['released_at'], $carry['number']] ? $e : $carry);
+        $next = ($this->json($seriesUrl.'/upcoming')['data'] ?? [])[0] ?? null;
+        // "Earnings Calls: The Axis of Stevil Show" is the series' name on its own; here the show's name says the rest.
+        $seriesName = trim(explode(':', (string) ($series['name'] ?? 'Earnings Calls'))[0]);
+
+        return ['calls' => $calls, 'summary' => [
+            'name' => (string) ($site['name'] ?? 'The Axis of Stevil Show'),
+            'url' => (string) ($site['site_url'] ?? $series['site_url'] ?? ''),
+            'series' => $seriesName,
+            // One of them: Earnings Call.
+            'one' => preg_replace('/s$/', '', $seriesName),
+            'series_url' => (string) ($series['site_url'] ?? $site['site_url'] ?? ''),
+            'count' => count($episodes),
+            'quarters' => count(array_unique(array_column($episodes, 'season'))),
+            'minutes' => (int) round(array_sum(array_column($episodes, 'duration')) / 60),
+            'latest' => ['title' => $latest['title'], 'label' => $latest['label'], 'url' => $latest['url'], 'released_on' => $latest['released_on']],
+            'next' => $next === null ? null : CarbonImmutable::parse((string) $next['releases_at'])->setTimezone($zone)->format('l, F j'),
+        ]];
     }
 
     /**

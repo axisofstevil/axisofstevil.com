@@ -2,6 +2,7 @@
 #
 # Needs, in the repository's Actions settings:
 #   variables  CHANNEL_URL                 the channel the site is built from (see .env.example)
+#              SHOW_URL                    the show's channel, whose calls the works link to (optional)
 #              S3_BUCKET                   the bucket the site is served from
 #              S3_REGION                   its region
 #              CLOUDFRONT_DISTRIBUTION_ID  the distribution in front of it
@@ -75,6 +76,7 @@ jobs:
       - name: Build the site
         env:
           CHANNEL_URL: ${{ vars.CHANNEL_URL }}
+          SHOW_URL: ${{ vars.SHOW_URL }}
         run: vendor/bin/jigsaw build production
 
       - name: Record the build

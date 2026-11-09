@@ -8,6 +8,16 @@
     $parts = \App\WorkLayout::split($__env->yieldContent('content'), $page->division, \App\WorkLayout::knownSizes());
     $sameQuestion = fn (string $a, string $b) => mb_strtolower(preg_replace('/\W+/u', '', strip_tags($a))) === mb_strtolower(preg_replace('/\W+/u', '', $b));
 
+    // The show's calls that cover this work, and how the work is in each: read (from the moment its chapter starts),
+    // shown as exhibits, or housekept.
+    $show = $page->show ? json_decode(json_encode($page->show), true) : null;
+    $calls = $show ? json_decode(json_encode($page->calls ?? []), true) : [];
+    $howInCall = fn (array $call) => match ($call['role']) {
+        'exhibit' => 'Entered as '.(count($call['exhibits']) > 1 ? 'Exhibits '.implode(' and ', $call['exhibits']) : 'Exhibit '.($call['exhibits'][0] ?? '')),
+        'housekeeping' => 'Noted under housekeeping',
+        default => 'Read into the record'.($call['at'] ? ' at '.$call['at'] : ''),
+    };
+
     // Credits by role, in the order the roles first appear: Art: Stevil; Writing: Stevil, Graham.
     $byRole = [];
     foreach ($page->roles ?? [] as $credit) {
@@ -182,6 +192,22 @@
                     @endif
                     <div><dt>Place</dt><dd>{{ $page->place }} of {{ $page->of }}</dd></div>
                 </dl>
+
+                @if ($calls)
+                {{-- The show's calls that cover this work (App\Services\RemoteData::show): each by its quarter and title,
+                     how the work is in it, and the way there, in the show's slate. --}}
+                <h3 class="notes-label">On {{ $show['name'] }}</h3>
+                <div class="on-air">
+                    @foreach ($calls as $call)
+                    <a class="on-air-call" href="{{ $call['url'] }}">
+                        <span class="on-air-when">{{ $call['label'] }} · {{ $show['one'] }}</span>
+                        <span class="on-air-title">{{ $call['title'] }}</span>
+                        <span class="on-air-role">{{ $howInCall($call) }}</span>
+                        <span class="on-air-listen"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>Give it a listen</span>
+                    </a>
+                    @endforeach
+                </div>
+                @endif
 
                 @if ($page->older || $page->newer)
                 <h3 class="notes-label">Also filed in {{ $page->division_name }}</h3>

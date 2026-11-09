@@ -22,5 +22,9 @@
         @if ($page->tunes_section)
         <a href="/tunes/">Tunes</a>
         @endif
+        @if ($page->show)
+        {{-- The show, in its slate: the broadcast arm, at its own address. --}}
+        <a class="colophon-show" href="{{ $page->show->url }}" aria-label="Listen to {{ $page->show->name }}"><span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>{{ $page->show->name }}</a>
+        @endif
     </nav>
 </footer>

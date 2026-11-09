@@ -127,6 +127,35 @@ description: Delivering the best content from around the universe to your browse
     </nav>
     @endif
 
+    @php($show = $page->show ? json_decode(json_encode($page->show), true) : null)
+    @if ($show)
+    {{-- The show: a plate in its slate, signed with its lockup on the lifted stock as its own cover is; its figures, and
+         the latest call to go and hear. Its plate pushes the ones after it down a number. --}}
+    <section class="plate on-air-plate" aria-labelledby="show-title" data-snap>
+        <div class="on-air-brief">
+            <h2 id="show-title" class="on-air-heading"><span class="visually-hidden">{{ $show['name'] }}: </span>{{ $show['series'] }}</h2>
+            <p class="on-air-lede">The archive reports its results, twenty years late. Each call covers a quarter of the works on file, read to shareholders by the Chief Financial Officer, with the exhibits in your packet.</p>
+            <dl class="on-air-figures">
+                <div><dt>Calls released</dt><dd>{{ $show['count'] }}</dd></div>
+                <div><dt>Quarters reported</dt><dd>{{ $show['quarters'] }}</dd></div>
+                <div><dt>Minutes on record</dt><dd>{{ $show['minutes'] }}</dd></div>
+            </dl>
+        </div>
+        <a class="on-air-latest" href="{{ $show['latest']['url'] }}">
+            <span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>
+            <span class="on-air-when">The latest call · {{ $show['latest']['label'] }}</span>
+            <span class="on-air-latest-title">{{ $show['latest']['title'] }}</span>
+            <span class="on-air-dates"><span class="count-part">Released {{ $show['latest']['released_on'] }}</span>@if ($show['next'])<span class="count-part">Next call {{ $show['next'] }}</span>@endif</span>
+            <span class="on-air-listen">Give it a listen <span aria-hidden="true">→</span></span>
+        </a>
+        <div class="on-air-band">
+            <a class="on-air-lockup" href="{{ $show['url'] }}"><img src="https://archive.axisofstevil.com/brand/axisshow-wordmark.svg" alt="{{ $show['name'] }}" width="592" height="77" loading="lazy"></a>
+            <span class="on-air-imprint"><a href="{{ $show['series_url'] }}">Every call <span aria-hidden="true">→</span></a><span class="caption">Plate 11 · {{ $show['name'] }}</span></span>
+        </div>
+    </section>
+    @endif
+    @php($after = $show ? 1 : 0)
+
     <section id="divisions" class="plate statement" aria-labelledby="divisions-title" data-snap>
         <h2 id="divisions-title" class="section-title">Report of the Divisions</h2>
         <table class="ledger">
@@ -147,7 +176,7 @@ description: Delivering the best content from around the universe to your browse
             </tbody>
             <tfoot><tr><th scope="row"><a href="/works/">Total</a></th><td class="num">{{ $divisions->sum('count') }}</td><td colspan="2"></td></tr></tfoot>
         </table>
-        <p class="caption">Plate 11 · Report of the Divisions</p>
+        <p class="caption">Plate {{ 11 + $after }} · Report of the Divisions</p>
     </section>
 
     <section id="results" class="plate results" aria-labelledby="results-title" data-snap>
@@ -166,7 +195,7 @@ description: Delivering the best content from around the universe to your browse
             @endforeach
             <li class="issues-all"><a href="/issues/">Every issue on record <span aria-hidden="true">→</span></a><span class="issue-dates">{{ $issues->count() }}</span></li>
         </ol>
-        <p class="caption">Plate 12 · Quarterly Results</p>
+        <p class="caption">Plate {{ 12 + $after }} · Quarterly Results</p>
     </section>
 
     <section id="audit" class="plate audit" aria-labelledby="audit-title" data-snap>
@@ -184,7 +213,7 @@ description: Delivering the best content from around the universe to your browse
             @endforeach
         </button>
         @endif
-        <p class="caption">Plate 13 · Random Audit</p>
+        <p class="caption">Plate {{ 13 + $after }} · Random Audit</p>
     </section>
 </main>
 

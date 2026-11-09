@@ -36,6 +36,10 @@
     --red: #c73120;
     --red-ink: #c01300;
     --slate: #3f4a54;
+    /* The show's colours (axisofstevilshow.com): slate is its brand; its ink on slate, and a softer one for labels. */
+    --slate-deep: #343d46;
+    --on-slate: #eef0f1;
+    --on-slate-soft: #c6ccd1;
     --stock: #e6e3dc;
     /* The stock, lifted: the same warm paper, for the one surface that needs emphasis. */
     --stock-light: #f7f4ee;
@@ -2495,6 +2499,350 @@ a.download-label:hover {
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.12em;
+}
+
+/*
+ * The show (The Axis of Stevil Show): wherever the archive points to its calls, it does so in the show's slate, the
+ * sheet's grid carried across in the slate's own ink, as the show's cover is drawn. The play mark is the show's: a red
+ * disc, its triangle in white.
+ */
+.on-air-play {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    display: inline-grid;
+    place-items: center;
+    transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.on-air-play svg {
+    width: 50%;
+    height: 50%;
+    margin-left: 8%;
+}
+
+/* On a work: each call that covers it, a slate card in the notes. */
+.on-air {
+    display: grid;
+    gap: 0;
+}
+
+.on-air-call {
+    display: grid;
+    gap: 6px;
+    padding: calc(var(--pad) / 2);
+    color: var(--on-slate);
+    text-decoration: none;
+    background: var(--slate);
+    box-shadow: inset 1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+    transition: background-color 0.3s var(--ease);
+}
+
+.on-air-when {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--on-slate-soft);
+}
+
+.on-air-title {
+    font-family: var(--display);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--stock-light);
+    text-wrap: balance;
+}
+
+.on-air-role {
+    font-size: 0.9375rem;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--on-slate-soft);
+}
+
+.on-air-listen {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    padding-top: 10px;
+    box-shadow: inset 0 1px 0 rgba(238, 240, 241, 0.28);
+    font-family: var(--display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.on-air-call:hover,
+.on-air-call:focus-visible,
+.on-air-latest:hover,
+.on-air-latest:focus-visible {
+    background-color: var(--slate-deep);
+}
+
+.on-air-call:hover .on-air-play,
+.on-air-latest:hover .on-air-play,
+.colophon-show:hover .on-air-play {
+    background: var(--red-ink);
+    transform: scale(1.06);
+}
+
+/* On the home page: the show's plate, the full sheet wide. Its brief at the left, the latest call at the right, over
+   the band that signs it with the show's lockup on the lifted stock. */
+.plate.on-air-plate {
+    --edge: var(--ink);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "brief latest"
+        "band band";
+    padding: 0;
+    color: var(--on-slate);
+    background-color: var(--slate);
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: var(--half) var(--half);
+}
+
+.on-air-brief {
+    grid-area: brief;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: var(--pad);
+}
+
+.on-air-heading {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.75rem, calc(var(--col) * 0.62), 4.75rem);
+    font-weight: 700;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--stock-light);
+}
+
+.on-air-lede {
+    margin: 0;
+    max-width: 44ch;
+    font-size: 1.1875rem;
+    line-height: 1.45;
+}
+
+.on-air-figures {
+    margin: auto 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pad) calc(var(--pad) * 1.5);
+}
+
+.on-air-figures div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+}
+
+.on-air-figures dt {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-slate-soft);
+}
+
+.on-air-figures dd {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.75rem, calc(var(--col) * 0.32), 2.75rem);
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+/* The latest call: one keylined panel on the slate, the play mark large, its title as large as the plate allows. */
+.on-air-latest {
+    grid-area: latest;
+    margin: var(--pad);
+    margin-left: 0;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: calc(var(--half) * 4);
+    color: var(--on-slate);
+    text-decoration: none;
+    box-shadow: inset 0 0 0 1px rgba(238, 240, 241, 0.4);
+    transition: background-color 0.3s var(--ease);
+}
+
+.on-air-latest .on-air-play {
+    width: clamp(52px, var(--half), 88px);
+    height: clamp(52px, var(--half), 88px);
+    margin-bottom: auto;
+}
+
+.on-air-latest-title {
+    font-family: var(--display);
+    font-size: clamp(1.75rem, calc(var(--col) * 0.4), 3.25rem);
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--stock-light);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+.on-air-dates {
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    color: var(--on-slate-soft);
+}
+
+.on-air-latest .on-air-listen {
+    margin-top: 4px;
+}
+
+.on-air-band {
+    grid-area: band;
+    position: relative;
+    min-height: calc(var(--half) * 2);
+    padding: var(--pad);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--pad);
+    color: var(--ink);
+    background: var(--stock-light);
+    box-shadow: inset 1px 1px 0 var(--ink);
+}
+
+.on-air-lockup {
+    display: block;
+    min-width: 0;
+}
+
+.on-air-lockup img {
+    display: block;
+    height: calc(var(--half) * 0.8);
+    width: auto;
+    max-width: 100%;
+}
+
+.on-air-imprint {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.on-air-imprint a {
+    font-family: var(--display);
+    font-size: clamp(0.875rem, calc(var(--col) * 0.15), 1.25rem);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.on-air-imprint a:hover {
+    color: var(--red-ink);
+}
+
+.on-air-imprint .caption {
+    position: static;
+}
+
+/* In the colophon: the show, at the end of the sections, in its slate. */
+.colophon nav a.colophon-show {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px 4px 4px;
+    color: var(--on-slate);
+    background: var(--slate);
+    text-decoration: none;
+    transition: background-color 0.3s var(--ease);
+}
+
+.colophon nav a.colophon-show:hover {
+    color: var(--on-slate);
+    background: var(--slate-deep);
+    text-decoration: none;
+}
+
+.colophon-show .on-air-play {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 1100px) {
+    .plate.on-air-plate {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "brief"
+            "latest"
+            "band";
+    }
+
+    .on-air-latest {
+        margin: 0 var(--pad) var(--pad);
+        min-height: calc(var(--half) * 3);
+    }
+}
+
+@media (max-width: 640px) {
+    .on-air-heading {
+        font-size: clamp(2.25rem, calc(var(--col) * 0.62), 3rem);
+    }
+
+    .on-air-lede {
+        font-size: 1.0625rem;
+    }
+
+    .on-air-band {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .on-air-imprint {
+        align-items: flex-start;
+    }
+
+    /* The figures as a ledger, as the letter's are on phones. */
+    .on-air-figures {
+        display: grid;
+        gap: 0;
+        box-shadow: inset 0 2px 0 var(--on-slate);
+    }
+
+    .on-air-figures div {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 10px 0;
+        box-shadow: inset 0 -1px 0 rgba(238, 240, 241, 0.28);
+    }
+
+    .on-air-figures dd {
+        font-size: 1.75rem;
+    }
+
+    .colophon nav a.colophon-show {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-left: 0;
+    }
 }
 
 /* No entrance motion for the plates: they are in place from the first paint. And the browser's scroll anchoring
