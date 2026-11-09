@@ -130,9 +130,10 @@ description: Delivering the best content from around the universe to your browse
     @php($show = $page->show ? json_decode(json_encode($page->show), true) : null)
     @if ($show)
     {{-- The show: a plate in its slate, signed with its lockup on the lifted stock as its own cover is; its figures, and
-         the latest call to go and hear. Its plate pushes the ones after it down a number. --}}
+         the latest call to go and hear. Its parts snap each to whole half-modules, so every edge inside it lands on a
+         grid line. Its plate pushes the ones after it down a number. --}}
     <section class="plate on-air-plate" aria-labelledby="show-title" data-snap>
-        <div class="on-air-brief">
+        <div class="on-air-brief" data-snap>
             <h2 id="show-title" class="on-air-heading"><span class="visually-hidden">{{ $show['name'] }}: </span>{{ $show['series'] }}</h2>
             <p class="on-air-lede">The archive reports its results, twenty years late. Each call covers a quarter of the works on file, read to shareholders by the Chief Financial Officer, with the exhibits in your packet.</p>
             <dl class="on-air-figures">
@@ -141,14 +142,14 @@ description: Delivering the best content from around the universe to your browse
                 <div><dt>Minutes on record</dt><dd>{{ $show['minutes'] }}</dd></div>
             </dl>
         </div>
-        <a class="on-air-latest" href="{{ $show['latest']['url'] }}">
+        <a class="on-air-latest" data-snap href="{{ $show['latest']['url'] }}">
             <span class="on-air-play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>
-            <span class="on-air-when">The latest call · {{ $show['latest']['label'] }}</span>
+            <span class="on-air-when">The latest call · <span class="on-air-quarter">{{ $show['latest']['label'] }}</span></span>
             <span class="on-air-latest-title">{{ $show['latest']['title'] }}</span>
             <span class="on-air-dates"><span class="count-part">Released {{ $show['latest']['released_on'] }}</span>@if ($show['next'])<span class="count-part">Next call {{ $show['next'] }}</span>@endif</span>
             <span class="on-air-listen">Give it a listen <span aria-hidden="true">→</span></span>
         </a>
-        <div class="on-air-band">
+        <div class="on-air-band" data-snap>
             <a class="on-air-lockup" href="{{ $show['url'] }}"><img src="https://archive.axisofstevil.com/brand/axisshow-wordmark.svg" alt="{{ $show['name'] }}" width="592" height="77" loading="lazy"></a>
             <span class="on-air-imprint"><a href="{{ $show['series_url'] }}">Every call <span aria-hidden="true">→</span></a><span class="caption">Plate 11 · {{ $show['name'] }}</span></span>
         </div>

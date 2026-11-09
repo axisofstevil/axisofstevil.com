@@ -2549,6 +2549,11 @@ a.download-label:hover {
     color: var(--on-slate-soft);
 }
 
+/* A call's quarter and part hold together: Q2 '05, Part 1. */
+.on-air-quarter {
+    white-space: nowrap;
+}
+
 .on-air-title {
     font-family: var(--display);
     font-size: 1.1875rem;
@@ -2603,6 +2608,8 @@ a.download-label:hover {
     grid-template-areas:
         "brief latest"
         "band band";
+    grid-template-rows: auto auto;
+    align-content: start;
     padding: 0;
     color: var(--on-slate);
     background-color: var(--slate);
@@ -2671,8 +2678,8 @@ a.download-label:hover {
 /* The latest call: one keylined panel on the slate, the play mark large, its title as large as the plate allows. */
 .on-air-latest {
     grid-area: latest;
-    margin: var(--pad);
-    margin-left: 0;
+    /* A half-module in from the plate's edges, on the grid's lines; keylined as a plate is. */
+    margin: var(--half) var(--half) var(--half) 0;
     padding: var(--pad);
     display: flex;
     flex-direction: column;
@@ -2680,7 +2687,7 @@ a.download-label:hover {
     min-height: calc(var(--half) * 4);
     color: var(--on-slate);
     text-decoration: none;
-    box-shadow: inset 0 0 0 1px rgba(238, 240, 241, 0.4);
+    box-shadow: inset 1px 1px 0 rgba(238, 240, 241, 0.4), 1px 1px 0 rgba(238, 240, 241, 0.4);
     transition: background-color 0.3s var(--ease);
 }
 
@@ -2796,7 +2803,7 @@ a.download-label:hover {
     }
 
     .on-air-latest {
-        margin: 0 var(--pad) var(--pad);
+        margin: 0 var(--half) var(--half);
         min-height: calc(var(--half) * 3);
     }
 }
