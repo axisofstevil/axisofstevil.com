@@ -409,6 +409,9 @@ class RemoteData
                     'html' => $text === '' ? '' : $markdown($text, $w['image'], $w['title']),
                     // An excerpt (the rest is on the work's page): fewer than nine in ten of its words.
                     'whole' => $words($text) >= $words($body) * 0.9,
+                    // The week's own copy in the piece's place (Issue 47's Viewers Choice essay under an older piece):
+                    // at least as long as the piece, but mostly not its words. Run whole, it is what the page shows.
+                    'own_copy' => $words($text) >= $words($body) * 0.9 && self::shared($text, $body) < 0.6,
                     'shows_picture' => $pictures($text) > 0,
                 ];
 
@@ -509,6 +512,23 @@ class RemoteData
         $pictures = (int) preg_match_all('/<img\b|<figure class="flash"/i', $wholeHtml);
 
         return $covered < $total * 0.95 - 2 || $pictures > ($pictureBeside ? 1 : 0);
+    }
+
+    /**
+     * How much of a text's vocabulary (its distinct words of four letters or more, links and markup aside) is
+     * also another's: 1 when every word is the other's, near 0 for a different piece of writing.
+     */
+    private static function shared(string $text, string $other): float
+    {
+        $vocabulary = function (string $md): array {
+            $plain = mb_strtolower((string) preg_replace(['/\]\([^)]*\)/', '/<[^>]+>/'], [']', ' '], $md));
+            preg_match_all("/[\pL']{4,}/u", $plain, $m);
+
+            return array_unique($m[0]);
+        };
+        $mine = $vocabulary($text);
+
+        return $mine === [] ? 1.0 : count(array_intersect($mine, $vocabulary($other))) / count($mine);
     }
 
     /**

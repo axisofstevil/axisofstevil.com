@@ -14,8 +14,9 @@
     $headline = ($b['kicker'] ?? null) && ! ($b['refeature'] ?? false) && in_array($b['kind'], ['plate', 'notice'], true) ? $b['kicker'] : $b['title'];
     // A cartoon or a movie is never cropped.
     $crop = $b['picture'] === 'crop' && ! in_array($b['kind'], ['strip', 'plate'], true);
-    // What runs whole: a story's whole text; anything else, what the week shows of it.
-    $whole = in_array($b['kind'], ['story', 'steve'], true) ? $b['full_html'] : ($b['html'] !== '' ? $b['html'] : $b['full_html']);
+    // What runs whole: a story's whole text (unless the week ran its own copy in the piece's place); anything else,
+    // what the week shows of it.
+    $whole = in_array($b['kind'], ['story', 'steve'], true) && ! ($b['own_copy'] ?? false) ? $b['full_html'] : ($b['html'] !== '' ? $b['html'] : $b['full_html']);
     $picture = $b['image'] ? '<img src="'.e($b['image']).'" alt="'.e($b['title']).'" loading="'.($lead ? 'eager' : 'lazy').'">' : null;
     // Newspaper columns for a wide block of words: a summary or a whole text piece in a slot of eight columns or
     // more, with 150 words or more, its picture not wrapped (owner, 2026-10-29). The lead keeps its capital.
