@@ -9,7 +9,8 @@ use TightenCo\Jigsaw\PageVariable;
  * engines and whoever else reads it: the site and its publisher on the home
  * page; a work as an article (a comic as a comic story) with its credits,
  * its division and its series; an issue as an issue of the periodical with
- * the works it ran; a listing as a collection; the gallery as a gallery of
+ * the works it ran (a work names that issue, and the show's calls that cover it, by the show's own ids); a listing
+ * as a collection; the gallery as a gallery of
  * its photographs; the tunes as a playlist and each artist as a group with
  * their recordings; and on every page but the home, the trail back to it.
  */
@@ -56,8 +57,20 @@ class StructuredData
             ] : null,
         ];
 
+        // The show (The Axis of Stevil Show), by its own ids on its own site: its podcast, published by this organisation.
+        $show = self::rows($page->show);
+        $podcast = $show === [] ? null : ['@id' => rtrim((string) $show['series_url'], '/').'/#podcast'];
+
         if ($home) {
-            return self::graph([$website, $organization]);
+            return self::graph(array_values(array_filter([$website, $organization, $podcast === null ? null : [
+                '@type' => 'PodcastSeries',
+                ...$podcast,
+                'name' => $show['series_title'],
+                'url' => $show['series_url'],
+                'publisher' => $publisher,
+                'isBasedOn' => $site,
+                'inLanguage' => 'en-US',
+            ]])));
         }
 
         $trail = [['Home', '/']];
@@ -74,8 +87,12 @@ class StructuredData
                     $credits[$credit['name']] ??= ['@type' => 'Person', 'name' => $credit['name']];
                 }
 
+                $ranIn = self::rows($page->ran_in);
+
                 $main = [
                     '@type' => $page->division === 'comics' ? 'ComicStory' : 'Article',
+                    // Its id, which the show's calls use when they name the works they cover.
+                    '@id' => $url.'#work',
                     'mainEntityOfPage' => $url,
                     'url' => $url,
                     'headline' => $page->title,
@@ -86,7 +103,18 @@ class StructuredData
                     'author' => array_values($credits) ?: null,
                     'publisher' => $publisher,
                     'articleSection' => $page->division_name,
-                    'isPartOf' => $series === null ? $site : ['@type' => 'CreativeWorkSeries', 'name' => $series['name'], 'url' => $base.$series['address']],
+                    'isPartOf' => array_values(array_filter([
+                        $series === null ? $site : ['@type' => 'CreativeWorkSeries', 'name' => $series['name'], 'url' => $base.$series['address']],
+                        $ranIn === [] ? null : ['@type' => 'PublicationIssue', 'name' => $ranIn['title'], 'url' => $base.$ranIn['address']],
+                    ])),
+                    // The show's calls that cover it, each by the id its own page gives it.
+                    'subjectOf' => $podcast === null ? null : (array_map(fn ($call) => [
+                        '@type' => 'PodcastEpisode',
+                        '@id' => $call['page'].'#episode',
+                        'url' => $call['page'],
+                        'name' => $call['title'],
+                        'partOfSeries' => $podcast,
+                    ], self::rows($page->calls)) ?: null),
                     'keywords' => implode(', ', self::rows($page->keywords)) ?: null,
                     'isAccessibleForFree' => true,
                     'inLanguage' => 'en',

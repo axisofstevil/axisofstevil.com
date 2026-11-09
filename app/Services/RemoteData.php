@@ -1387,6 +1387,8 @@ class RemoteData
                     'label' => $e['label'],
                     // Its address, cued to the moment its chapter starts (the show's player loads it there, ?t= seconds).
                     'url' => $e['url'].(isset($starts[$address]) ? '?t='.$starts[$address] : ''),
+                    // Its own page, uncued: the episode's address in the structured data.
+                    'page' => $e['url'],
                     'role' => (string) ($work['role'] ?? 'read'),
                     'at' => isset($starts[$address]) ? $clock($starts[$address]) : null,
                     'exhibits' => $exhibits[$address] ?? [],
@@ -1409,6 +1411,8 @@ class RemoteData
         return ['calls' => $calls, 'summary' => [
             'name' => (string) ($site['name'] ?? 'The Axis of Stevil Show'),
             'url' => (string) ($site['site_url'] ?? $series['site_url'] ?? ''),
+            // The series' full name (Earnings Calls: The Axis of Stevil Show), and its name here.
+            'series_title' => (string) ($series['name'] ?? $seriesName),
             'series' => $seriesName,
             // One of them: Earnings Call.
             'one' => preg_replace('/s$/', '', $seriesName),
