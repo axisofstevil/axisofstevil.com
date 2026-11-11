@@ -732,6 +732,8 @@ class RemoteData
                     'page_title' => $this->pageTitle($work, $titles, $days, $seen),
                     // Its summary, else the teaser written for a front page, else its opening words, else its facts: the page's description.
                     'description' => $this->said(self::wordsOf((string) ($e['summary'] ?? ''))) ?? $this->said(self::wordsOf((string) ($e['teaser'] ?? ''))) ?? $this->said($this->opening(self::wordsOf((string) ($e['body'] ?? '')))) ?? $this->facts($work, $e),
+                    // The summary written for it, for the search alone (the description may be generated).
+                    'summary' => trim((string) ($e['summary'] ?? '')) ?: null,
                     // The excerpt written for it (an issue shows it where it points to the piece).
                     'excerpt' => ($e['teaser'] ?? null) ?: null,
                     'keywords' => array_values(array_filter(array_map('trim', explode(',', (string) ($e['meta_keywords'] ?? ''))))),

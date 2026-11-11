@@ -47,6 +47,17 @@
             {{-- The work's keywords (Alfred), for the search alone: in the index, out of sight, weighted like a heading. --}}
             <span hidden data-pagefind-weight="7">{{ implode(', ', (array) $page->keywords) }}</span>
             @endif
+            {{-- For the search alone, out of sight: who made it (the credits below are left out, so the roles' names don't
+                 match every work), its series, and its summary. --}}
+            @if ($byRole)
+            <span hidden data-pagefind-weight="5">{{ implode(', ', array_unique(array_merge(...array_values($byRole)))) }}</span>
+            @endif
+            @if ($page->series)
+            <span hidden data-pagefind-weight="5">{{ $page->series }}</span>
+            @endif
+            @if ($page->summary)
+            <span hidden>{{ $page->summary }}</span>
+            @endif
             @switch($parts['layout'])
                 @case('plate')
                 @case('movie')
