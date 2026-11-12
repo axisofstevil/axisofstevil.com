@@ -18,6 +18,9 @@ class StructuredData
 {
     private const string NAME = 'The Axis of Stevil';
 
+    /** The site's item on Wikidata, one more page that is the site (sameAs). */
+    private const string WIKIDATA = 'https://www.wikidata.org/wiki/Q142119514';
+
     /**
      * @return array<string, mixed> empty when the page has none
      */
@@ -42,6 +45,7 @@ class StructuredData
             'description' => $home ? $page->description : null,
             'inLanguage' => 'en',
             'publisher' => $publisher,
+            'sameAs' => $home ? [self::WIKIDATA] : null,
         ];
         $organization = [
             '@type' => 'Organization',
