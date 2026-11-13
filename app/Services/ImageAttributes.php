@@ -16,6 +16,11 @@ use TightenCo\Jigsaw\Jigsaw;
  *
  * Sizes are read from the start of each file (the header holds them) and kept
  * in .cache/image-sizes.json between builds.
+ *
+ * Alfred's alt text for an archive picture (config art_alts) is used wherever
+ * the picture appears, and only its alt attribute changes: the owner's
+ * replaces the site's own; Claude's unreviewed one only fills a picture with
+ * no alt text, or only a file name (owner, 2026-11-13).
  */
 class ImageAttributes
 {
@@ -25,6 +30,7 @@ class ImageAttributes
     public function handle(Jigsaw $jigsaw): void
     {
         $build = $jigsaw->getDestinationPath();
+        $alts = json_decode(json_encode($jigsaw->getConfig('art_alts') ?? []), true) ?: [];
         $files = $this->htmlFiles($build);
         $cachePath = dirname(__DIR__, 2).'/'.self::CACHE;
         $sizes = is_file($cachePath) ? (json_decode((string) file_get_contents($cachePath), true) ?: []) : [];
@@ -52,8 +58,8 @@ class ImageAttributes
             // A picture written without alt text (a work's, in its Markdown) is named for its page.
             $title = preg_match('/<title>(.*?)<\/title>/s', $html, $t) === 1 ? trim((string) preg_replace('/\s+—\s+The Axis of Stevil$/u', '', html_entity_decode($t[1]))) : '';
 
-            $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m) use ($sizes, $title) {
-                $tag = $m[0];
+            $html = preg_replace_callback('/<img\b[^>]*>/i', function (array $m) use ($sizes, $title, $alts) {
+                $tag = self::alt($m[0], $alts);
                 $src = preg_match('/\bsrc="([^"]+)"/i', $tag, $s) ? html_entity_decode($s[1]) : null;
                 $add = '';
 
@@ -91,6 +97,35 @@ class ImageAttributes
                 file_put_contents($file, $html);
             }
         }
+    }
+
+    /**
+     * The picture's alt text from Alfred, when it has some: the owner's always; Claude's only where the tag has none,
+     * or only a file name. Nothing but the alt attribute changes.
+     *
+     * @param  array<string, array{alt: string, reviewed: bool}>  $alts
+     */
+    public static function alt(string $tag, array $alts): string
+    {
+        $src = preg_match('/\bsrc="([^"]+)"/i', $tag, $s) ? html_entity_decode($s[1]) : null;
+        $known = $src === null ? null : ($alts[$src] ?? null);
+
+        if ($known === null) {
+            return $tag;
+        }
+
+        $current = preg_match('/\balt="([^"]*)"/i', $tag, $a) ? trim(html_entity_decode($a[1])) : null;
+        $placeholder = $current === null || $current === '' || preg_match('/^[\w .-]+\.(jpe?g|png|gif|webp|bmp|svg)$/i', $current) === 1;
+
+        if (! $known['reviewed'] && ! $placeholder) {
+            return $tag;
+        }
+
+        $attribute = 'alt="'.htmlspecialchars($known['alt'], ENT_QUOTES).'"';
+
+        return $current === null
+            ? (string) preg_replace('/^<img\b/i', '<img '.$attribute, $tag)
+            : (string) preg_replace('/\balt="[^"]*"/i', $attribute, $tag, 1);
     }
 
     /**

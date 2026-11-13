@@ -63,6 +63,8 @@ class RemoteData
 
         $entries = $this->all($channelUrl.'/entries?per_page=100');
         $works = array_map(fn (array $e) => $this->work($e, $zone), $entries);
+        // Alfred's alt text for the archive's pictures, by address, for ImageAttributes to use wherever they appear.
+        $jigsaw->setConfig('art_alts', $this->artAlts($entries));
 
         if ($works === []) {
             throw new RuntimeException("The channel ({$channelUrl}) returned no works: not building a site without them.");
@@ -563,7 +565,8 @@ class RemoteData
             'letters' => 'a letter'.($work['series'] ? " from {$work['series']}" : ''),
             default => 'a work'.($work['division_name'] ? " from {$work['division_name']}" : '').($work['series'] ? " ({$work['series']})" : ''),
         };
-        $names = array_map(fn ($c) => $c['name'], $e['credits'] ?? []);
+        // Each person once: a work's credits and its art's can name the same person for different roles.
+        $names = array_values(array_unique(array_map(fn ($c) => $c['name'], $e['credits'] ?? [])));
         $by = $names === [] ? '' : ' by '.implode(' and ', $names);
 
         return ucfirst($what).$by.', filed by the Axis of Stevil on '.CarbonImmutable::parse($work['date'])->format('F j, Y').'.';
@@ -679,8 +682,34 @@ class RemoteData
             // The day its record last changed (the page's dateModified and its place in the sitemap).
             'updated' => isset($e['updated_at']) ? substr((string) $e['updated_at'], 0, 10) : null,
             'rating' => $e['rating'] ?? null,
-            'credits' => array_map(fn ($c) => $c['name'], $e['credits'] ?? []),
+            'credits' => array_values(array_unique(array_map(fn ($c) => $c['name'], $e['credits'] ?? []))),
         ];
+    }
+
+    /**
+     * Alfred's alt text for the archive's pictures the works use, by address:
+     * the text, and whether the owner reviewed it (Alfred's `art`). The owner's
+     * replaces the site's own; Claude's only fills a picture the site has none
+     * for, or only a file name (owner, 2026-11-13).
+     *
+     * @param  list<array<string, mixed>>  $entries
+     * @return array<string, array{alt: string, reviewed: bool}>
+     */
+    private function artAlts(array $entries): array
+    {
+        $alts = [];
+
+        foreach ($entries as $e) {
+            foreach ($e['art'] ?? [] as $picture) {
+                $alt = trim((string) ($picture['alt'] ?? ''));
+
+                if ($alt !== '' && ! (isset($alts[$picture['url']]) && $alts[$picture['url']]['reviewed'])) {
+                    $alts[$picture['url']] = ['alt' => $alt, 'reviewed' => (bool) ($picture['alt_reviewed'] ?? false)];
+                }
+            }
+        }
+
+        return $alts;
     }
 
     /**
