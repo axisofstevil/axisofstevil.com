@@ -20,7 +20,8 @@ use TightenCo\Jigsaw\Jigsaw;
  * Alfred's alt text for an archive picture (config art_alts) is used wherever
  * the picture appears, and only its alt attribute changes: the owner's
  * replaces the site's own; Claude's unreviewed one only fills a picture with
- * no alt text, or only a file name (owner, 2026-11-13).
+ * no alt text, or only a file name (owner, 2026-11-13). Every picture's alt
+ * text goes into the search index with the page's words.
  */
 class ImageAttributes
 {
@@ -73,6 +74,12 @@ class ImageAttributes
 
                 if (! preg_match('/\bdecoding=/i', $tag)) {
                     $add .= ' decoding="async"';
+                }
+
+                // Its alt text is searchable (Pagefind indexes an attribute only when the element asks): a picture is
+                // found by what it shows, wherever it sits in an indexed page.
+                if (! preg_match('/\bdata-pagefind-index-attrs=/i', $tag)) {
+                    $add .= ' data-pagefind-index-attrs="alt"';
                 }
 
                 // The site's own small images (the logo in the running head) load at once.
