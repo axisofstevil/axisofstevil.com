@@ -17,7 +17,7 @@ use TightenCo\Jigsaw\Jigsaw;
  * Sizes are read from the start of each file (the header holds them) and kept
  * in .cache/image-sizes.json between builds.
  *
- * Alfred's alt text for an archive picture (config art_alts) is used wherever
+ * The CMS's alt text for an archive picture (config art_alts) is used wherever
  * the picture appears, and only its alt attribute changes: the owner's
  * replaces the site's own; Claude's unreviewed one only fills a picture with
  * no alt text, or only a file name (owner, 2026-11-13). Every picture's alt
@@ -107,7 +107,7 @@ class ImageAttributes
     }
 
     /**
-     * The picture's alt text from Alfred, when it has some: the owner's always; Claude's only where the tag has none,
+     * The picture's alt text from the CMS, when it has some: the owner's always; Claude's only where the tag has none,
      * or only a file name. Nothing but the alt attribute changes.
      *
      * @param  array<string, array{alt: string, reviewed: bool}>  $alts

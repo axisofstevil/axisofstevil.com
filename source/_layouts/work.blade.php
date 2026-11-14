@@ -44,7 +44,7 @@
         <article class="plate work work--{{ $parts['layout'] }}" aria-labelledby="work-title" data-snap data-pagefind-body data-pagefind-filter="division:{{ $page->division_name }}" data-pagefind-sort="date:{{ $page->date }}">
             @include('_partials.search-facts', ['facts' => ['kind' => 'Work', 'division' => $page->division_name, 'date' => $page->date, 'image' => $page->image]])
             @if ($page->keywords && count($page->keywords))
-            {{-- The work's keywords (Alfred), for the search alone: in the index, out of sight, weighted like a heading. --}}
+            {{-- The work's keywords (from the CMS), for the search alone: in the index, out of sight, weighted like a heading. --}}
             <span hidden data-pagefind-weight="7">{{ implode(', ', (array) $page->keywords) }}</span>
             @endif
             {{-- For the search alone, out of sight: who made it (the credits below are left out, so the roles' names don't

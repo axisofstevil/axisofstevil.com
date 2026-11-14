@@ -63,7 +63,7 @@ class RemoteData
 
         $entries = $this->all($channelUrl.'/entries?per_page=100');
         $works = array_map(fn (array $e) => $this->work($e, $zone), $entries);
-        // Alfred's alt text for the archive's pictures, by address, for ImageAttributes to use wherever they appear.
+        // The CMS's alt text for the archive's pictures, by address, for ImageAttributes to use wherever they appear.
         $jigsaw->setConfig('art_alts', $this->artAlts($entries));
 
         if ($works === []) {
@@ -348,7 +348,7 @@ class RemoteData
                         // Its "Continued" line as set for the week: always, never, or (null) when it has more.
                         'continued' => in_array($placed['continued'] ?? null, ['show', 'hide'], true) ? $placed['continued'] : null,
                         'parts' => ($placed['treatment'] ?? '') === 'parts' ? IssueParts::split((string) $block['html']) : [],
-                        // One part of the piece in a slot of its own (its pictures, or its words), from Alfred's Markdown for it.
+                        // One part of the piece in a slot of its own (its pictures, or its words), from the CMS's Markdown for it.
                         'part' => isset($placed['part']) ? (int) $placed['part'] : null,
                         'part_html' => isset($placed['part'], $placed['markdown']) ? trim(WorkBody::oneSize(MarkdownExtra::defaultTransform(WorkBody::clean((string) $placed['markdown'], null, $block['title'], $this->stills)))) : '',
                     ];
@@ -687,8 +687,8 @@ class RemoteData
     }
 
     /**
-     * Alfred's alt text for the archive's pictures the works use, by address:
-     * the text, and whether the owner reviewed it (Alfred's `art`). The owner's
+     * The CMS's alt text for the archive's pictures the works use, by address:
+     * the text, and whether the owner reviewed it (the CMS's `art`). The owner's
      * replaces the site's own; Claude's only fills a picture the site has none
      * for, or only a file name (owner, 2026-11-13).
      *
