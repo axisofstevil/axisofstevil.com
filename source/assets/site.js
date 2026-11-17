@@ -939,8 +939,11 @@ const startSearch = () => {
     const input = dialog.querySelector('.search-input');
     const status = dialog.querySelector('[data-search-status]');
     const list = dialog.querySelector('[data-search-results]');
+    // Opened as a modal unless it already is one: a dialog that came back from Turbo's cache still marked open is
+    // only drawn in the page's flow, at its foot, so it is closed and opened again as a modal.
     const open = () => {
-        if (!dialog.open) {
+        if (!dialog.matches(':modal')) {
+            dialog.close();
             dialog.showModal();
         }
 
@@ -1047,9 +1050,10 @@ const startSearch = () => {
             dialog.close();
         }
     });
-    // A click on the backdrop (outside the dialog's box) closes it.
+    // A click on the backdrop (outside the dialog's box) closes it; a result followed closes it too, before Turbo
+    // keeps a copy of the page it leaves.
     dialog.addEventListener('click', (event) => {
-        if (event.target === dialog) {
+        if (event.target === dialog || event.target.closest('.search-result')) {
             dialog.close();
         }
     });
@@ -1093,6 +1097,12 @@ start();
 
 if (window.Turbo) {
     let first = true;
+
+    // Turbo keeps a copy of each page it leaves, to show on Back: never with a dialog open in it (search, a zoomed
+    // picture), which would come back drawn in the page's flow rather than over it.
+    document.addEventListener('turbo:before-cache', () => {
+        document.querySelectorAll('dialog[open]').forEach((dialog) => dialog.close());
+    });
 
     document.addEventListener('turbo:load', () => {
         if (first) {
